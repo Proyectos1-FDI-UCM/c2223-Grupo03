@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4114e6b3ce496c94fb3fefd137bd8780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2
 --- !u!212 &79729608
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1476,6 +1476,44 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+<<<<<<< Updated upstream
+=======
+--- !u!114 &831442870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831442862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954abf70335d157408c0c4d073d3a10e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chasing: 0
+  _player: {fileID: 79729604}
+  _cone: {fileID: 1241049031}
+  _path: {fileID: 1528310847}
+  _speed: 2.3
+  _cicle: 0
+  _points: []
+--- !u!58 &831442871
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831442862}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0017729601, y: -0.023049077}
+  serializedVersion: 2
+  m_Radius: 0.4042578
+>>>>>>> Stashed changes
 --- !u!1 &840417207
 GameObject:
   m_ObjectHideFlags: 0
