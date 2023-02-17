@@ -4,40 +4,32 @@ using UnityEngine;
 
 public class DoorComponent : MonoBehaviour
 {
-
-    #region Variables
-    private bool _puertaAbierta;
-    #endregion
     #region Referencias
     [Header("Animacion")]
     private Animator animator;
     #endregion
 
-
+    #region Metodos
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();    
     }
-
-    // Update is called once per frame
-    void Update()
+  
+    private void OnTriggerEnter2D(Collider2D col) //Si el jugador choca con la puerta activa la animacion de abrir la puerta
     {
-        if(_puertaAbierta) { }
-    }
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-       if (col.tag == "player")
+       if (col.CompareTag("player"))
         {
             animator.SetTrigger("Tocar");
         }
     }
 
-    private void OnTriggerExit2D(Collider2D col)
+    private void OnTriggerExit2D(Collider2D col) //Si el jugador deja de tocar la puerta activa la animacion de cerrar la puerta
     {
-        if (col.tag == "player")
+        if (col.CompareTag("player"))
         {
             animator.SetTrigger("Tocar");
         }
     }
+    #endregion
 }
