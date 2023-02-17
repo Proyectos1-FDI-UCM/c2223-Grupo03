@@ -15,6 +15,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private bool _cicle;
 
+    private VisionCone _visionCone;
     #endregion
 
     #region Variables
@@ -42,6 +43,10 @@ public class EnemyAI : MonoBehaviour
     
     void Start()
     {
+        _visionCone = _cone.GetComponent<VisionCone>();
+        _visionCone.SetFov(90f);
+        _visionCone.SetDistance(3f);
+
         i = 0;
         forward = true;
         SetPointsFromPath();
@@ -53,15 +58,15 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
-        
-        _cone.transform.position = _enemyRigidbody.position + direction.normalized * 5;
+        _visionCone.SetAim(direction);
+        _visionCone.SetOrigin(_enemyRigidbody.position);
     }
     void FixedUpdate()
     {
         if (_chasing) //Follow player
         {
             _navMeshAgent.SetDestination(_player.position);
-            direction = _player.position - _enemyRigidbody.position;
+            direction = (_player.position - _enemyRigidbody.position).normalized;
         }
         else // Follow points
         {
@@ -72,7 +77,7 @@ public class EnemyAI : MonoBehaviour
                     if (Vector2.Distance(_enemyRigidbody.position, _points[i].position) > 0.1f)
                     {
                         _navMeshAgent.SetDestination(_points[i].position);
-                        direction = (Vector2)_points[i].position - _enemyRigidbody.position;
+                        direction = ((Vector2)_points[i].position - _enemyRigidbody.position).normalized;
                     }
                     else
                         i = (i + 1) % _points.Length;
@@ -85,7 +90,7 @@ public class EnemyAI : MonoBehaviour
                     if (Vector2.Distance(_enemyRigidbody.position, _points[i].position) > 0.1f)
                     {
                         _navMeshAgent.SetDestination(_points[i].position);
-                        direction = (Vector2)_points[i].position - _enemyRigidbody.position;
+                        direction = ((Vector2)_points[i].position - _enemyRigidbody.position).normalized;
                     }
                     else
                         i++;
@@ -95,7 +100,7 @@ public class EnemyAI : MonoBehaviour
                     if (Vector2.Distance(_enemyRigidbody.position, _points[i].position) > 0.1f)
                     {
                         _navMeshAgent.SetDestination(_points[i].position);
-                        direction = (Vector2)_points[i].position - _enemyRigidbody.position;
+                        direction = ((Vector2)_points[i].position - _enemyRigidbody.position).normalized;
                     }
                     else
                         i--;

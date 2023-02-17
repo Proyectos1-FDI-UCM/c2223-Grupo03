@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class InputComponent : MonoBehaviour
 {
-    // Start is called before the first frame update
+    MovementComponent _movementComponent;
     void Start()
     {
-        
+        _movementComponent = GetComponent<MovementComponent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        _movementComponent.horizontalAxis = Input.GetAxis("Horizontal");
+        _movementComponent.verticalAxis = Input.GetAxis("Vertical");
     }
 }
