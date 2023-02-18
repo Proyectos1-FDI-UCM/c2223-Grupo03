@@ -6,13 +6,20 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     #region References
-    [SerializeField] private bool _chasing;
+
+    [Header("Parámetros enemigo")]
     [SerializeField] private Rigidbody2D _player;
+    [SerializeField] private float _speed;
+    [SerializeField] private bool _chasing;
+    [SerializeField] float _timeToStopChasing;
+    float _timeChasing;
+
+    [Header("Parámetros cono visión")]
     [SerializeField] private GameObject _cone;
+    private VisionCone _fovEnemigo;
 
     [Header("Parámetros pathing")]
     [SerializeField] private GameObject _path;
-    [SerializeField] private float _speed;
     [SerializeField] private bool _cicle;
 
     private VisionCone _visionCone;
@@ -23,12 +30,31 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent _navMeshAgent;
     private Rigidbody2D _enemyRigidbody;
     
-    private bool forward;
-    private int i;
-    private Vector2 direction;
+    private bool forward; //bool para en caso de no ser ciclico poder dar la vuelta
+    private int i; //index
+    private Vector2 direction; //direccion del cono de vision
     #endregion
 
-    // Funcion auxiliar, guarda en una array puntos de un camino
+
+    // funciones que comprueban si el enemigo tiene que dejar de perseguir
+    public void StartChase()
+    {
+        _timeChasing = 0;
+        _chasing = true;
+    }
+    private void UpdateChase()
+    {
+        if (_timeChasing < _timeToStopChasing)
+        {
+            _timeChasing = _timeChasing + Time.deltaTime;
+        }
+        else
+        {
+            _chasing = false;
+        }
+    }
+    // Funcion auxiliar, guarda en una array puntos de un camino 
+    // para no tener que estar asignandolos manualmente
     private void SetPointsFromPath() 
     {
         int pointNum = _path.transform.childCount;
@@ -49,17 +75,22 @@ public class EnemyAI : MonoBehaviour
 
         i = 0;
         forward = true;
+
+        _fovEnemigo = _cone.GetComponent<VisionCone>();
+        _fovEnemigo.SetFov(90f);
+        _fovEnemigo.SetDistance(3f);
+
         SetPointsFromPath();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _enemyRigidbody = GetComponent<Rigidbody2D>();
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
     }
-
     private void Update()
     {
-        _visionCone.SetAim(direction);
-        _visionCone.SetOrigin(_enemyRigidbody.position);
+        _fovEnemigo.SetAim(direction);
+        _fovEnemigo.SetOrigin(_enemyRigidbody.position);
+        UpdateChase();
     }
     void FixedUpdate()
     {

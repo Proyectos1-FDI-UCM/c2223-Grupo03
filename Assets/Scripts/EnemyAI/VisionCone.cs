@@ -39,6 +39,9 @@ public class VisionCone : MonoBehaviour
     /// Variable para calcular la variación del ángulo. Declarada en el Start. Usada en el bucle para colocar vértices.
     /// </summary>
     private float angleIncrease;
+
+    //booleano que es true si el jugador entra en el cono de visión
+    bool playerFound;
     #endregion
 
     #region references 
@@ -51,6 +54,10 @@ public class VisionCone : MonoBehaviour
     /// u otros enemigos)
     /// </summary>
     [SerializeField] LayerMask _myLayerMask;
+    //referencia al collider del cono
+    PolygonCollider2D _coneCollider;
+    //referencia al ENEMYAI
+    [SerializeField] EnemyAI _enemyAI;
     #endregion
 
     #region methods
@@ -123,11 +130,23 @@ public class VisionCone : MonoBehaviour
     }
     #endregion
 
+    void UpdateConeCollider()
+    {
+        Vector2[] newPoints = new Vector2[_myMesh.vertices.Length];
+        for (int i = 0; i < _myMesh.vertices.Length; i++)
+        {
+            newPoints[i] = _myMesh.vertices[i];
+        }
+        _coneCollider.points = newPoints;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        playerFound = false;
         _myMesh = GetComponent<MeshFilter>().mesh;
+        _coneCollider = gameObject.AddComponent<PolygonCollider2D>();
+        _coneCollider.isTrigger = true;
         GetComponent<MeshFilter>().mesh = _myMesh;
         origin = Vector3.zero;
     }
@@ -193,5 +212,24 @@ public class VisionCone : MonoBehaviour
         _myMesh.vertices = vertices;
         _myMesh.uv = uv;
         _myMesh.triangles = triangles;
+
+        UpdateConeCollider();
+        if (playerFound)
+            _enemyAI.StartChase();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            playerFound = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            playerFound = false;
+        }
     }
 }
