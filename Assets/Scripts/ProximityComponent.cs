@@ -11,21 +11,39 @@ public class ProximityComponent : MonoBehaviour
     [SerializeField]
     private float _sizeSpeed = 0.01f; //Velocidad en la que aumenta la barra o disminuye
 
-    private int _state; //Estados de la barra y el tamaño de su posición en la y se pone abajo
-    /*
-     * Estado 0 = 8,36
-     * Estado 1 = 6,06
-     * Estado 2 = 4,17
-     * Estado 3 = 2,19 
-     */
+    private int _state = 0; //Estados de la barra y el tamaño de su posición en la y se pone abajo
+                        /*
+                         * Estado 0 = 8,36
+                         * Estado 1 = 6,06
+                         * Estado 2 = 4,17
+                         * Estado 3 = 2,19 
+                         */
+
+    #endregion
+
+    #region properties
+
+    private GameObject _closest;
 
     #endregion
 
     #region methods
 
-    public void ChangeSafeZoneState(int newState) //Se encarga de cambiar el estado según le marquen (Aún falta refinarlo para cuando hay varios enemigos pero eso ya lo hare YO) Adrián
+    public void ChangeSafeZoneState(int newState, GameObject closeEnemy) //Se encarga de cambiar el estado según le marquen (Aún falta refinarlo para cuando hay varios enemigos pero eso ya lo hare YO) Adrián
     {
-        _state = newState;
+
+        if (newState > _state)
+        {
+            _closest = closeEnemy;
+            _state = newState;
+        }
+        else if (newState < _state && closeEnemy == _closest)
+        {
+            _state = newState;
+        }
+        
+
+
     }
 
     #endregion
