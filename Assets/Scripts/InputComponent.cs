@@ -15,7 +15,7 @@ public class InputComponent : MonoBehaviour
 
     void Start()
     {
-        _heartDetection = _heart.GetComponent<HeartDetection>();
+        //_heartDetection = _heart.GetComponent<HeartDetection>();
         _movementComponent = GameManager.Player.GetComponent<MovementComponent>();
     }
 
@@ -25,7 +25,7 @@ public class InputComponent : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _heartDetection.SpacePressed();
+            //_heartDetection.SpacePressed();
         }
 
     }
