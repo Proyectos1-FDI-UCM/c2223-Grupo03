@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // Instance para poder coger variables del gamemanager
+    static private GameManager _instance;
+    static public GameManager Instance { get { return _instance; } }
+
+    //referencia al player
+    static private GameObject _player;
+    static public GameObject Player { get { return _player; } }
 
 
     #region methods
@@ -15,13 +22,15 @@ public class GameManager : MonoBehaviour
 
 
 
-    // Start is called before the first frame update
+    void Awake()
+    {
+        _instance = this;
+        _player = GameObject.Find("Player");
+    }
     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
         

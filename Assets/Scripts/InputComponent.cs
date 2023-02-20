@@ -6,26 +6,26 @@ public class InputComponent : MonoBehaviour
 {
 
     #region properties
-
-    [SerializeField]
-    private GameObject _heart;
+    [SerializeField] private GameObject _heart;
+    private HeartDetection _heartDetection;
+    private MovementComponent _movementComponent;
 
     #endregion
 
 
-    // Start is called before the first frame update
     void Start()
     {
-
+        _heartDetection = _heart.GetComponent<HeartDetection>();
+        _movementComponent = GameManager.Player.GetComponent<MovementComponent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        _movementComponent.ChangeValues(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            _heart.GetComponent<HeartDetection>().SpacePressed();
+            _heartDetection.SpacePressed();
         }
 
     }
