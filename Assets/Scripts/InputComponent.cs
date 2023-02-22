@@ -1,48 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InputComponent : MonoBehaviour
 {
-    #region References
-    [SerializeField]
-    private GameObject _closet;
-    #endregion
-    #region Parameters
-    [SerializeField] private GameObject _boxPrefab;
-    private GameObject _player;
-    private GameObject _box;
-    private bool _isBox;
+
+    #region properties
+    [SerializeField] private GameObject _heart;
+    private HeartDetection _heartDetection;
+    private MovementComponent _movementComponent;
+
     #endregion
 
-    #region Methods
-    private void Start()
+
+    void Start()
     {
-        _player = GameManager.Player;
-        _isBox = false;
-        _closet = GameObject.Find("closet");
+        _heartDetection = _heart.GetComponent<HeartDetection>();
+        _movementComponent = GameManager.Player.GetComponent<MovementComponent>();
     }
 
-    private void Update()
+    void Update()
     {
-        // If the player presses the "K" key, change between the player and the box 
-        if (Input.GetKeyDown(KeyCode.K))
+        _movementComponent.ChangeValues(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (_isBox)
-            {
-                // Destroy the box and enable the player 
-                Destroy(_box);
-                _closet.GetComponent<ClosetComponent>().enabled = true;
-                _player.SetActive(true);
-                _isBox = false;
-            }
-            else
-            {
-                // Disable the player and instantiate the box 
-                _player.SetActive(false);
-                _box = Instantiate(_boxPrefab, _player.transform.position, Quaternion.identity);
-                _closet.GetComponent<ClosetComponent>().enabled = false;
-                _isBox = true;
-            }
+            _heartDetection.SpacePressed();
         }
+
     }
-    #endregion
 }
