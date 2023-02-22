@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InputComponent : MonoBehaviour
+public class DanielInputComponent : MonoBehaviour
 {
     #region References
     [SerializeField]
