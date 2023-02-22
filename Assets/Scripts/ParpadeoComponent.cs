@@ -1,41 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class ParpadeoComponent : MonoBehaviour
 {
+    //Componente que sirve para atribuir a objetos o a la UI un efecto de parpadeo al cambiar su transparencia
+
     #region parameters
 
     [SerializeField]
-    private float _flickerSpeed;
+    private float _flickerSpeed; //Velocidad a la que van los parpadeos
 
     #endregion
 
 
     #region properties
 
-    private float _elapsedTime;
-    private bool _oneColor;
+    private float _elapsedTime; //Tiempo que ha pasado
+    private bool _oneColor; //Booleano que sirve para alternar entre la transparencia y la opacidad
 
-
-    #endregion
-
-    #region methods
-
-    public void StartFlicker (GameObject flickerObject, float flickerSpeed)
-    {
-        _flickerSpeed = flickerSpeed;
-
-        if (_oneColor)
-        {
-            flickerObject.SetActive(false);
-        }
-        else
-        {
-            flickerObject.SetActive(true);
-        }
-
-    }
 
     #endregion
 
@@ -49,25 +33,52 @@ public class ParpadeoComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_elapsedTime >= _flickerSpeed)
+
+        if (gameObject.GetComponent<SpriteRenderer>() != null) //Se comprueba que es un GameObject y no una parte de la UI
         {
-            if (_oneColor)
+            if (_elapsedTime >= _flickerSpeed) //Si el tiempo transcurrido es mayor a la velocidad de parpadeo
             {
-                _oneColor = false;
+                if (_oneColor) //Si esta en estado transparente
+                {
+                    _oneColor = false; //El estado cambia a opaco
+                    gameObject.GetComponent<SpriteRenderer>().color += new Color(0, 0, 0, 0.25f); //Se aumenta la transparencia
 
-
+                }
+                else //Si esta en estado opaco
+                {
+                    _oneColor = true; //El estado cambia a transparente
+                    gameObject.GetComponent<SpriteRenderer>().color -= new Color(0, 0, 0, 0.25f); //Se reduce la transparencia
+                }
+                _elapsedTime = 0; //Al final el tiempo transcurrido se vuelve a poner a 0
             }
             else
             {
-                _oneColor = true;
+                _elapsedTime += Time.deltaTime; 
             }
-            Debug.Log("aa");
-            _elapsedTime = 0;
         }
-        else
+        else if (gameObject.GetComponent<Image>() != null) //Se comprueba que es un UI y no un GameObject. Por lo demás se hace igual
         {
-            _elapsedTime += Time.deltaTime;
+            if (_elapsedTime >= _flickerSpeed)
+            {
+                if (_oneColor)
+                {
+                    _oneColor = false;
+                    gameObject.GetComponent<Image>().color += new Color(0, 0, 0, 0.25f);
+
+                }
+                else
+                {
+                    _oneColor = true;
+                    gameObject.GetComponent<Image>().color -= new Color(0, 0, 0, 0.25f);
+                }
+                _elapsedTime = 0;
+            }
+            else
+            {
+                _elapsedTime += Time.deltaTime;
+            }
         }
+        
 
 
 

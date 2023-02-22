@@ -55,9 +55,9 @@ public class GameManager : MonoBehaviour
         {
             _heart.GetComponent<HeartMove>().enabled = false;
             _safeZone.GetComponent<ProximityComponent>().enabled = false;
-            _warning.GetComponent<Image>().color = new Color(0, 1, 0, 0.25f);
             _warning.SetActive(true);
-            _UIManager.GetComponent<UIManager>().FlickerEffect(_warning);
+            _warning.GetComponent<Image>().color = new Color(0, 1, 0, 0.25f);
+            Invoke("Flicker", _timeOutPill - 4);
             Invoke("ActiveHeart", _timeOutPill);
             //QUITAR PASTILLA DEL INVENTARIO
             _withEffect = true;
@@ -67,12 +67,15 @@ public class GameManager : MonoBehaviour
     private void Flicker()
     {
 
+        _warning.GetComponent<ParpadeoComponent>().enabled = true;
     }
 
     private void ActiveHeart()
     {
         _heart.GetComponent<HeartMove>().enabled = true;
         _safeZone.GetComponent<ProximityComponent>().enabled = true;
+        _warning.GetComponent<Image>().color = new Color(1, 0, 0, 0);
+        _warning.GetComponent<ParpadeoComponent>().enabled = false;
         _withEffect = false;
     }
 

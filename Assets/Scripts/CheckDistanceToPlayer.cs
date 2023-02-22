@@ -27,23 +27,8 @@ public class CheckDistanceToPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (Vector3.Distance(_player.transform.position, transform.position) > 13) //Se comprueba la distancia al jugador una a una (Se pueden poner los parametros referenciados para mayor comodidad para alterarlos)
-        {
-            _safeZone.GetComponent<ProximityComponent>().ChangeSafeZoneState(0, gameObject); //Se envia un nuevo estado a la zona segura para que cambie su tamaño segun ese estado
-        }
-        else if (Vector3.Distance(_player.transform.position, transform.position) > 10)
-        {
-            _safeZone.GetComponent<ProximityComponent>().ChangeSafeZoneState(1, gameObject);
-        }
-        else if (Vector3.Distance(_player.transform.position, transform.position) > 5)
-        {
-            _safeZone.GetComponent<ProximityComponent>().ChangeSafeZoneState(2, gameObject);
-        }
-        else if (Vector3.Distance(_player.transform.position, transform.position) > 2)
-        {
-            _safeZone.GetComponent<ProximityComponent>().ChangeSafeZoneState(3, gameObject);
-        }
+
+        _safeZone.GetComponent<ProximityComponent>().ChangeToScale(Vector3.Distance(_player.transform.position, transform.position), gameObject); //Se envia una nueva distancia a la zona segura para que cambie su tamaño segun esa distancia
 
     }
 }

@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a91ec4efec2f848b6bfbdc37fe1d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sizeSpeed: 0.01
+  _sizeSpeed: 0.008
 --- !u!61 &461478630
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -570,7 +570,6 @@ GameObject:
   - component: {fileID: 794940010}
   - component: {fileID: 794940009}
   - component: {fileID: 794940008}
-  - component: {fileID: 794940011}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -591,7 +590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeOutPill: 10
-  _warning: {fileID: 0}
+  _warning: {fileID: 840729517}
   _heart: {fileID: 1642291457}
   _safeZone: {fileID: 461478628}
   _UIManager: {fileID: 1541421856}
@@ -623,19 +622,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &794940011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 794940007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3ce3493eae429b47944d98b8566bcdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _flickerSpeed: 2
 --- !u!1 &840729517
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +633,7 @@ GameObject:
   - component: {fileID: 840729518}
   - component: {fileID: 840729520}
   - component: {fileID: 840729519}
+  - component: {fileID: 840729521}
   m_Layer: 5
   m_Name: PlayerWarning
   m_TagString: Untagged
@@ -712,6 +699,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840729517}
   m_CullTransparentMesh: 1
+--- !u!114 &840729521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840729517}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ce3493eae429b47944d98b8566bcdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flickerSpeed: 0.4
 --- !u!1 &901227757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,7 +1087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4a456a0138fd04a8ed1de76a499589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _heartBeat: {fileID: 643156572}
 --- !u!4 &1541421858
 Transform:
   m_ObjectHideFlags: 0
