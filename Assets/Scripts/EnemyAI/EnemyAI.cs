@@ -13,10 +13,15 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private bool _chasing;
     [SerializeField] float _timeToStopChasing;
     float _timeChasing;
+    bool _isMoving;
+    public bool Moving { set { _isMoving = value; } }
+    public bool Chasing { get { return _chasing; } }
 
     [Header("Parámetros cono visión")]
     [SerializeField] private GameObject _cone;
     private VisionCone _fovEnemigo;
+    [SerializeField] float _coneFov;
+    [SerializeField] float _coneDistance;
 
     [Header("Parámetros pathing")]
     [SerializeField] private GameObject _path;
@@ -35,7 +40,7 @@ public class EnemyAI : MonoBehaviour
     private Vector2 direction; //direccion del cono de vision
     #endregion
 
-
+    #region methods
     // funciones que comprueban si el enemigo tiene que dejar de perseguir
     public void StartChase()
     {
@@ -66,33 +71,7 @@ public class EnemyAI : MonoBehaviour
             i++;
         }
     }
-    
-    void Start()
-    {
-        _visionCone = _cone.GetComponent<VisionCone>();
-        _visionCone.SetFov(90f);
-        _visionCone.SetDistance(3f);
-
-        i = 0;
-        forward = true;
-
-        _fovEnemigo = _cone.GetComponent<VisionCone>();
-        _fovEnemigo.SetFov(90f);
-        _fovEnemigo.SetDistance(3f);
-
-        SetPointsFromPath();
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-        _enemyRigidbody = GetComponent<Rigidbody2D>();
-        _navMeshAgent.updateRotation = false;
-        _navMeshAgent.updateUpAxis = false;
-    }
-    private void Update()
-    {
-        _fovEnemigo.SetAim(direction);
-        _fovEnemigo.SetOrigin(_enemyRigidbody.position);
-        UpdateChase();
-    }
-    void FixedUpdate()
+    private void Movement()
     {
         if (_chasing) //Follow player
         {
@@ -143,6 +122,43 @@ public class EnemyAI : MonoBehaviour
                         i--;
                 }
             }
+        }
+    }
+
+    public void InvertDirection()
+    {
+        direction = -direction;
+    }
+    #endregion
+
+    void Start()
+    {
+        i = 0;
+        forward = true;
+
+        _fovEnemigo = _cone.GetComponent<VisionCone>();
+        _fovEnemigo.SetFov(_coneFov);
+        _fovEnemigo.SetDistance(_coneDistance);
+
+        SetPointsFromPath();
+        _navMeshAgent = GetComponent<NavMeshAgent>();
+        _enemyRigidbody = GetComponent<Rigidbody2D>();
+        _navMeshAgent.updateRotation = false;
+        _navMeshAgent.updateUpAxis = false;
+
+        _isMoving = true;
+    }
+    private void Update()
+    {
+        _fovEnemigo.SetAim(direction);
+        _fovEnemigo.SetOrigin(_enemyRigidbody.position);
+        UpdateChase();
+    }
+    void FixedUpdate()
+    {
+        if(_isMoving)
+        {
+            Movement();
         }
     }
 }
