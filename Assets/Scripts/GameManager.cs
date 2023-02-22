@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -13,7 +14,8 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region references
-
+    [SerializeField]
+    private GameObject _warning;
     [SerializeField]
     private GameObject _heart;
     [SerializeField]
@@ -35,24 +37,39 @@ public class GameManager : MonoBehaviour
     static public GameObject Player { get { return _player; } }
 
     private bool _withEffect = false;
+
+    public bool WithEffect
+    {
+        get 
+        { 
+            return _withEffect; 
+        }
+    }
     #endregion
 
     #region methods
 
-    public void StopHeart ()
+    public void PillEffect ()
     {
         if (!_withEffect)
         {
             _heart.GetComponent<HeartMove>().enabled = false;
             _safeZone.GetComponent<ProximityComponent>().enabled = false;
-            _UIManager.GetComponent<UIManager>().PillEffect();
+            _warning.GetComponent<Image>().color = new Color(0, 1, 0, 0.25f);
+            _warning.SetActive(true);
+            _UIManager.GetComponent<UIManager>().FlickerEffect(_warning);
             Invoke("ActiveHeart", _timeOutPill);
             //QUITAR PASTILLA DEL INVENTARIO
             _withEffect = true;
         }
     }
 
-    public void ActiveHeart()
+    private void Flicker()
+    {
+
+    }
+
+    private void ActiveHeart()
     {
         _heart.GetComponent<HeartMove>().enabled = true;
         _safeZone.GetComponent<ProximityComponent>().enabled = true;

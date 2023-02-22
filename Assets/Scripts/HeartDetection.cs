@@ -48,7 +48,11 @@ public class HeartDetection : MonoBehaviour
             {
                 _hasPressed = true; //Se activa el bool de pulsado
                 GetComponent<Image>().color = new Color(1, 0, 0, 1); //Cambia el color del corazón para dar feedback al jugador
-                _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Desactiva el panel de aviso para dar feedback al jugador
+                if (!GameManager.Instance.WithEffect)
+                {
+                    _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Desactiva el panel de aviso para dar feedback al jugador
+                }
+                 
             }
         }
         

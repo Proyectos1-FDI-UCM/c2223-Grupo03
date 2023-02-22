@@ -29,7 +29,7 @@ public class InputComponent : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.J)) //AÑADIR CONDICION DE TENERLA EN EL INVENTARIO
         {
-            GameManager.Instance.StopHeart();
+            GameManager.Instance.PillEffect();
         }
 
     }

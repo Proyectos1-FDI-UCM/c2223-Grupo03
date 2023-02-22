@@ -13,14 +13,22 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
+    #region properties
+
+    private bool _activeFlicker = false;
+    private GameObject _flickerObject;
+
+
+    #endregion
 
 
     #region methods
 
-    public void PillEffect()
+    public void FlickerEffect(GameObject flickerObject)
     {
-        _heartBeat.transform.GetChild(3).gameObject.GetComponent<Image>().color = new Color(0, 1, 0, 0.25f);
-        _heartBeat.transform.GetChild(3).gameObject.SetActive(true);
+        _flickerObject = flickerObject;
+        _activeFlicker = true;
+        
     }
 
     #endregion
@@ -29,12 +37,16 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (_activeFlicker)
+        {
+            GameManager.Instance.GetComponent<ParpadeoComponent>().StartFlicker(_flickerObject, 0.2f);
+        }
         
     }
 }
