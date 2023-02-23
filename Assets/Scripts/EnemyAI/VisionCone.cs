@@ -81,7 +81,6 @@ public class VisionCone : MonoBehaviour
     {
         vector = vector.normalized;
         float k = Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
-        k = k + 90;
         if (k < 0)
         {
             k += 360;
@@ -108,7 +107,8 @@ public class VisionCone : MonoBehaviour
     /// <param name="aimDirection"></param>
     public void SetAim(Vector3 aimDirection)
     {
-        angle = GetAngleFromVector(aimDirection) - fov / 2;
+        Debug.Log(GetAngleFromVector(aimDirection));
+        angle = GetAngleFromVector(aimDirection) + fov / 2;
     }
 
     /// <summary>
