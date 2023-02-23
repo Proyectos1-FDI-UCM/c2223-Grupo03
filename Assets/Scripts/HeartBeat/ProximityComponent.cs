@@ -11,38 +11,61 @@ public class ProximityComponent : MonoBehaviour
     [SerializeField]
     private float _sizeSpeed = 0.01f; //Velocidad en la que aumenta la barra o disminuye
 
-    private int _state = 0; //Estados de la barra y el tamaño de su posición en la y se pone abajo
-                        /*
-                         * Estado 0 = 8,36
-                         * Estado 1 = 6,06
-                         * Estado 2 = 4,17
-                         * Estado 3 = 2,19 
-                         */
+    private float _lessDistance = 20; //La distancia más baja registrada por el momento
+
+    private float _size; //El tamaño al que debe ir la barra
 
     #endregion
 
     #region properties
 
-    private GameObject _closest;
+    private GameObject _closest; //El enemigo más cercano al jugador
 
     #endregion
 
     #region methods
 
-    public void ChangeSafeZoneState(int newState, GameObject closeEnemy) //Se encarga de cambiar el estado según le marquen (Aún falta refinarlo para cuando hay varios enemigos pero eso ya lo hare YO) Adrián
+
+    public void ChangeToScale(float distance, GameObject closeEnemy) //Método para calcular la escala a la que debe aproximarse la zona segura según la distancia al enemigo
     {
 
-        if (newState > _state)
+        if (distance < _lessDistance) //Para aquellos enemigos que reduzcan la distancia mínima
         {
-            _closest = closeEnemy;
-            _state = newState;
-        }
-        else if (newState < _state && closeEnemy == _closest)
-        {
-            _state = newState;
-        }
-        
+            _closest = closeEnemy; //Se les pone como nuevos enemigos más cercanos
+            _lessDistance = distance; //La distancia mínima se actualiza
 
+            if(distance < 13 && distance > 2.88) //Si la distancia esta entre los valores extremos
+            {
+                _size = (distance * 9) / 13; //Se hace una regla de tres para calcular el tamaño respecto a la distancia
+            }
+            else if (distance >= 13) //Si la distancia es mayor de la máxima se pone el tope en tamaño 9
+            {
+                _size = 9;
+            }
+            else if (distance <= 2.88) //Si la distancia es menor de la mínima se pone el tope bajo en tamaño 2
+            {
+                _size = 2;
+            }
+            
+        }
+        else if (distance > _lessDistance && closeEnemy == _closest) //Si el enemigo esta a más distancia de la mínima solo nos interesa si es el más cercano, se hace lo mismo excepto el atribuir el enemigo más cercano
+        {
+            _lessDistance = distance;
+
+            if (distance < 13 && distance > 2.88)
+            {
+                _size = (distance * 9) / 13;
+            }
+            else if (distance >= 13)
+            {
+                _size = 9;
+            }
+            else if (distance <= 2.88)
+            {
+                _size = 2;
+            }
+
+        }
 
     }
 
@@ -58,49 +81,13 @@ public class ProximityComponent : MonoBehaviour
     void Update()
     {
 
-        if (_state == 3) //Se van comprobando uno a uno los estados y cambai el tamaño según el estado actual
+        if (transform.localScale.x > _size) //Si el tamaño es mayor del debido se reduce
         {
-            if (transform.localScale.x > 2.12) //Si el tamaño es mayor del debido se reduce
-            {
-                transform.localScale += new Vector3(-_sizeSpeed, 0, 0); //Sirve para disminuir el tamaño de la barra 
-            }
-            else if (transform.localScale.x < 2.12) //Si el tamaño es menor al debido se aumenta
-            {
-                transform.localScale += new Vector3(+_sizeSpeed, 0, 0); //Sirve para aumentar el tamaño de la barra 
-            }
+            transform.localScale += new Vector3(-_sizeSpeed, 0, 0); //Sirve para disminuir el tamaño de la barra 
         }
-        else if (_state == 2)
+        else if (transform.localScale.x < _size) //Si el tamaño es menor al debido se aumenta
         {
-            if (transform.localScale.x > 4.17)
-            {
-                transform.localScale += new Vector3(-_sizeSpeed, 0, 0);
-            }
-            else if (transform.localScale.x < 4.17)
-            {
-                transform.localScale += new Vector3(+_sizeSpeed, 0, 0);
-            }
-        }
-        else if (_state == 1)
-        {
-            if (transform.localScale.x > 6.06)
-            {
-                transform.localScale += new Vector3(-_sizeSpeed, 0, 0);
-            }
-            else if (transform.localScale.x < 6.06)
-            {
-                transform.localScale += new Vector3(+_sizeSpeed, 0, 0);
-            }
-        }
-        else if (_state == 0)
-        {
-            if (transform.localScale.x > 8.16)
-            {
-                transform.localScale += new Vector3(-_sizeSpeed, 0, 0);
-            }
-            else if (transform.localScale.x < 8.16)
-            {
-                transform.localScale += new Vector3(+_sizeSpeed, 0, 0);
-            }
+            transform.localScale += new Vector3(+_sizeSpeed, 0, 0); //Sirve para aumentar el tamaño de la barra 
         }
 
     }

@@ -27,6 +27,10 @@ public class InputComponent : MonoBehaviour
         {
             _heartDetection.SpacePressed();
         }
+        if (Input.GetKeyDown(KeyCode.J)) //AÑADIR CONDICION DE TENERLA EN EL INVENTARIO
+        {
+            GameManager.Instance.PillEffect();
+        }
 
     }
 }

@@ -48,7 +48,11 @@ public class HeartDetection : MonoBehaviour
             {
                 _hasPressed = true; //Se activa el bool de pulsado
                 GetComponent<Image>().color = new Color(1, 0, 0, 1); //Cambia el color del corazón para dar feedback al jugador
-                _warning.SetActive(false); //Desactiva el panel de aviso para dar feedback al jugador
+                if (!GameManager.Instance.WithEffect)
+                {
+                    _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Desactiva el panel de aviso para dar feedback al jugador
+                }
+                 
             }
         }
         
@@ -65,7 +69,7 @@ public class HeartDetection : MonoBehaviour
 
         if (collision.gameObject == _safeZone) //Si el trigger es el de la zona segura
         {
-            _warning.SetActive(true); //Se activa el panel de aviso
+            _warning.GetComponent<Image>().color = new Color(1, 0, 0, 0.25f); //Se activa el panel de aviso
             _inSafeZone = true; //El bool de zona segura se activa
         }
     }
@@ -75,7 +79,7 @@ public class HeartDetection : MonoBehaviour
 
         if (other.gameObject == _safeZone) //Si el trigger es el de la zona segura
         {
-            _warning.SetActive(false); //Se desactiva el panel de aviso
+            _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Se desactiva el panel de aviso
             _inSafeZone = false; //Se muestra que ya no se esta en la zona segura
 
             if (!_hasPressed) //Si no se a presionado el espacio quiere decir que se ha saltado la zona sagura y por tanto es un fallo
@@ -91,7 +95,7 @@ public class HeartDetection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _warning.SetActive(false); //Se desactiva el panel de aviso de primeras
+        _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Se desactiva el panel de aviso de primeras
     }
 
     // Update is called once per frame
