@@ -548,7 +548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &287092986
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1913,6 +1913,8 @@ MonoBehaviour:
   _chasing: 0
   _timeToStopChasing: 3
   _cone: {fileID: 1241049031}
+  _coneFov: 0
+  _coneDistance: 0
   _path: {fileID: 1528310847}
   _cicle: 1
   _points: []
@@ -2038,6 +2040,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae008fd9881cfdb44a70d0d29ecb366a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timeOutPill: 10
+  _warning: {fileID: 0}
+  _heart: {fileID: 0}
+  _safeZone: {fileID: 0}
+  _UIManager: {fileID: 0}
 --- !u!114 &1064123306
 MonoBehaviour:
   m_ObjectHideFlags: 0
