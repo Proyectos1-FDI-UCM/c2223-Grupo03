@@ -3,7 +3,7 @@ using UnityEngine;
 public class DanielInputComponent : MonoBehaviour
 {
     #region References
-    [SerializeField]
+    //[SerializeField]
     private GameObject _closet;
     #endregion
     #region Parameters
@@ -18,7 +18,7 @@ public class DanielInputComponent : MonoBehaviour
     {
         _player = GameManager.Player;
         _isBox = false;
-        _closet = GameObject.Find("closet");
+        _closet = GameObject.Find("Closet");
     }
 
     private void Update()

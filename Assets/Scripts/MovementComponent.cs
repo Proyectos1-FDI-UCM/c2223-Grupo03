@@ -18,14 +18,14 @@ public class MovementComponent : MonoBehaviour
 
     private void Update()
     {
-        _animator.SetFloat("Horizontal", movement.x);
-        _animator.SetFloat("Vertical", movement.y);
+       // _animator.SetFloat("Horizontal", movement.x);
+       // _animator.SetFloat("Vertical", movement.y);
     }
     private void Start()
     {
         movement = Vector2.zero;
         _playerRigidbody = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
+        //_animator = GetComponent<Animator>();
     }
     private void FixedUpdate()
     {
