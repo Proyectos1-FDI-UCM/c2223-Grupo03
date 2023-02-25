@@ -28,7 +28,6 @@ public class InputComponent2 : MonoBehaviour
         {
             if (_isBox)
             {
-                // Destroy the box and enable the player 
                 Destroy(_box);
                 _closet.GetComponent<ClosetComponent>().enabled = true;
                 _player.SetActive(true);
@@ -36,7 +35,6 @@ public class InputComponent2 : MonoBehaviour
             }
             else
             {
-                // Disable the player and instantiate the box 
                 _player.SetActive(false);
                 _box = Instantiate(_boxPrefab, _player.transform.position, Quaternion.identity);
                 _closet.GetComponent<ClosetComponent>().enabled = false;

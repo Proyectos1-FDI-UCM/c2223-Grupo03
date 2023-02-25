@@ -5,20 +5,22 @@ using UnityEngine;
 public class ClosetComponent : MonoBehaviour
 {
 
-    #region Variables
+    #region Parameters
     [SerializeField] private float _interactDistance;
     private bool _isHiding = false;
     private Vector2 _playerPos;
     private Vector2 _closetPos;
     [SerializeField] private GameObject _player;
+    private GameObject _closet;
     #endregion
 
     #region Methods
 
+    //Comptueba si el juagr esta dentro del rango poara entrar en el armario
     private bool CanHide()
     {
         _playerPos = _player.transform.position;
-        _closetPos = transform.position;
+        _closetPos = _closet.transform.position;
         if (Vector2.Distance(_playerPos, _closetPos) <= _interactDistance)
         {
             return true;
@@ -30,20 +32,24 @@ public class ClosetComponent : MonoBehaviour
 
     }
 
+    //Esconde al jugador
     private void HidePlayer()
     {
         _player.SetActive(false);
         _isHiding = true;
     }
 
+    //Muestra al jugador
     private void ShowPlayer()
     {
         _player.SetActive(true);
         _isHiding = false;
     }
 
-    #endregion
-
+    private void Start()
+    {
+        _closet = GameObject.Find("Closet");
+    }
     // Update is called once per frame
     void Update()
     {
@@ -59,4 +65,5 @@ public class ClosetComponent : MonoBehaviour
             }
         }
     }
+    #endregion
 }
