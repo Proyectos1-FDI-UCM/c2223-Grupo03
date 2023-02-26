@@ -5,7 +5,7 @@ using UnityEngine;
 public class InputComponent : MonoBehaviour
 {
 
-    #region properties
+    #region Properties
     [SerializeField] private GameObject _heart;
     private HeartDetection _heartDetection;
     private MovementComponent _movementComponent;
@@ -19,6 +19,10 @@ public class InputComponent : MonoBehaviour
     private bool _isBox;
     #endregion
 
+    #region References
+    private Inventory _inventory;
+    #endregion
+
 
     void Start()
     {
@@ -27,6 +31,7 @@ public class InputComponent : MonoBehaviour
         _closet = GameObject.Find("Closet");
         _heartDetection = _heart.GetComponent<HeartDetection>();
         _movementComponent = GameManager.Player.GetComponent<MovementComponent>();
+        _inventory = GetComponent<Inventory>();
     }
 
     void Update()
@@ -43,7 +48,7 @@ public class InputComponent : MonoBehaviour
         }
 
         // If the player presses the "K" key, change between the player and the box 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K) && _inventory._cajaEquipado)
         {
             if (_isBox)
             {
@@ -51,6 +56,8 @@ public class InputComponent : MonoBehaviour
                 _closet.GetComponent<ClosetComponent>().enabled = true;
                 _player.SetActive(true);
                 _isBox = false;
+                _inventory._cajaEquipado = false;
+                _inventory.EliminaObjeto(2);
             }
             else
             {
