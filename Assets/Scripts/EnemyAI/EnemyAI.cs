@@ -16,18 +16,20 @@ public class EnemyAI : MonoBehaviour
     bool _isMoving;
     public bool Moving { set { _isMoving = value; } }
     public bool Chasing { get { return _chasing; } }
+    public enum EnemyType { Brown, Blue, Red, Green};
 
     [Header("Parámetros cono visión")]
     [SerializeField] private GameObject _cone;
     private VisionCone _fovEnemigo;
     [SerializeField] float _coneFov;
     [SerializeField] float _coneDistance;
+    private GameObject _closet;
+    public GameObject SetCloset { set { _closet = value; } }
+    public GameObject GetCloset { get { return _closet; } }
 
     [Header("Parámetros pathing")]
     [SerializeField] private GameObject _path;
     [SerializeField] private bool _cicle;
-
-    private VisionCone _visionCone;
     #endregion
 
     #region Variables
@@ -128,6 +130,22 @@ public class EnemyAI : MonoBehaviour
     public void InvertDirection()
     {
         direction = -direction;
+    }
+
+    public void LookAtObject(GameObject objectSeen)
+    {
+        direction = ((Vector2)objectSeen.transform.position - _enemyRigidbody.position).normalized;
+    }
+
+    public void SetDestination (EnemyType myType)
+    {
+        if (myType == EnemyType.Blue || myType == EnemyType.Brown)
+        {
+            _navMeshAgent.SetDestination(_enemyRigidbody.position);
+        } else if (myType == EnemyType.Red)
+        {
+            _navMeshAgent.SetDestination(_enemyRigidbody.position + 3 * direction);
+        }
     }
     #endregion
 

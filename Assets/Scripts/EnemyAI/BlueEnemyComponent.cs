@@ -26,6 +26,7 @@ public class BlueEnemyComponent : MonoBehaviour
             _current = LookingStates.Searching;
             _time = _searchingTime;
             _myEnemyAI.Moving = false;
+            _myEnemyAI.SetDestination(EnemyAI.EnemyType.Blue);
         } else if (_current == LookingStates.Searching)
         {
             _current = LookingStates.Backwards;
