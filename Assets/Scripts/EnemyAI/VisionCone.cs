@@ -107,7 +107,6 @@ public class VisionCone : MonoBehaviour
     /// <param name="aimDirection"></param>
     public void SetAim(Vector3 aimDirection)
     {
-        Debug.Log(GetAngleFromVector(aimDirection));
         angle = GetAngleFromVector(aimDirection) + fov / 2;
     }
 
