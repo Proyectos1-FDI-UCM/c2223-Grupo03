@@ -78,6 +78,28 @@ public class ParpadeoComponent : MonoBehaviour
                 _elapsedTime += Time.deltaTime;
             }
         }
+        else
+        {
+            if (_elapsedTime >= _flickerSpeed)
+            {
+                if (_oneColor)
+                {
+                    _oneColor = false;
+                    gameObject.SetActive(false);
+
+                }
+                else
+                {
+                    _oneColor = true;
+                    gameObject.SetActive(true);
+                }
+                _elapsedTime = 0;
+            }
+            else
+            {
+                _elapsedTime += Time.deltaTime;
+            }
+        }
         
 
 

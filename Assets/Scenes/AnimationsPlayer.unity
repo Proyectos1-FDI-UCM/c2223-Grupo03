@@ -505,6 +505,7 @@ GameObject:
   - component: {fileID: 248969097}
   - component: {fileID: 248969096}
   - component: {fileID: 248969095}
+  - component: {fileID: 248969100}
   m_Layer: 5
   m_Name: SafeZone
   m_TagString: Untagged
@@ -609,6 +610,19 @@ RectTransform:
   m_AnchoredPosition: {x: 13.652, y: 493.56}
   m_SizeDelta: {x: 173.768, y: 170.388}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &248969100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248969094}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ce3493eae429b47944d98b8566bcdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flickerSpeed: 0.1
 --- !u!1 &287092985
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +660,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -94}
+  m_AnchoredPosition: {x: 0, y: -86}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &292003229
@@ -944,6 +958,7 @@ GameObject:
   - component: {fileID: 450403135}
   - component: {fileID: 450403134}
   - component: {fileID: 450403133}
+  - component: {fileID: 450403139}
   m_Layer: 5
   m_Name: Heart
   m_TagString: Untagged
@@ -1075,6 +1090,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450403131}
   m_CullTransparentMesh: 1
+--- !u!114 &450403139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450403131}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ce3493eae429b47944d98b8566bcdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flickerSpeed: 0.1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3902,6 +3930,7 @@ GameObject:
   - component: {fileID: 676272306}
   - component: {fileID: 676272308}
   - component: {fileID: 676272307}
+  - component: {fileID: 676272309}
   m_Layer: 5
   m_Name: VoidZone
   m_TagString: Untagged
@@ -3969,6 +3998,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676272305}
   m_CullTransparentMesh: 1
+--- !u!114 &676272309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676272305}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ce3493eae429b47944d98b8566bcdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flickerSpeed: 0.1
 --- !u!1 &686664873
 GameObject:
   m_ObjectHideFlags: 0
@@ -4870,6 +4912,7 @@ MonoBehaviour:
   _heart: {fileID: 450403131}
   _safeZone: {fileID: 248969094}
   _UIManager: {fileID: 0}
+  _heartBar: {fileID: 287092985}
 --- !u!114 &1064123306
 MonoBehaviour:
   m_ObjectHideFlags: 0
