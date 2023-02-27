@@ -8,28 +8,21 @@ public class GameManager : MonoBehaviour
 
     #region parameters
 
-    [SerializeField]
-    private float _timeOutPill = 10;
+    [SerializeField] private float _timeOutPill = 10;
 
     #endregion
 
     #region references
-    [SerializeField]
-    private GameObject _warning;
-    [SerializeField]
-    private GameObject _heart;
-    [SerializeField]
-    private GameObject _safeZone;
-    [SerializeField]
-    private GameObject _UIManager;
-    [SerializeField]
-    private GameObject _heartBar;
+    [SerializeField] private GameObject _warning;
+    [SerializeField] private GameObject _heart;
+    [SerializeField] private GameObject _safeZone;
+    [SerializeField] private GameObject _UIManager;
+    [SerializeField] private GameObject _heartBar;
+
 
     #endregion
 
-
-    #region properties
-
+    #region getter/setters
     // Instance para poder coger variables del gamemanager
     static private GameManager _instance;
     static public GameManager Instance { get { return _instance; } }
@@ -39,14 +32,8 @@ public class GameManager : MonoBehaviour
     static public GameObject Player { get { return _player; } }
 
     private bool _withEffect = false;
+    public bool WithEffect { get { return _withEffect; } }
 
-    public bool WithEffect
-    {
-        get 
-        { 
-            return _withEffect; 
-        }
-    }
     #endregion
 
     #region methods
