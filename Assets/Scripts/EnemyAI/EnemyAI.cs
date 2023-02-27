@@ -28,6 +28,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private bool _cicle;
 
     private VisionCone _visionCone;
+    private Animator _animator;
     #endregion
 
     #region Variables
@@ -40,7 +41,13 @@ public class EnemyAI : MonoBehaviour
     private Vector2 direction; //direccion del cono de vision
     #endregion
 
-    #region methods
+    #region 
+    //actualiza los valores de movimiento en el animator
+    private void UpdateAnimatorValues()
+    {
+        _animator.SetFloat("Horizontal", direction.x);
+        _animator.SetFloat("Vertical", direction.y);
+    }
     // funciones que comprueban si el enemigo tiene que dejar de perseguir
     public void StartChase()
     {
@@ -143,16 +150,19 @@ public class EnemyAI : MonoBehaviour
         SetPointsFromPath();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _enemyRigidbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
 
         _isMoving = true;
+
     }
     private void Update()
     {
         _fovEnemigo.SetAim(direction);
         _fovEnemigo.SetOrigin(_enemyRigidbody.position);
         UpdateChase();
+        UpdateAnimatorValues();
     }
     void FixedUpdate()
     {

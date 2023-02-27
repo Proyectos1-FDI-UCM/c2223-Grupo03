@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 307ad5a70a84493419da46d5648b49c8
+guid: c3983bd5f6386e144b4298fb1c026863
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,23 +100,179 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: marron_walking_0
+      name: marron_walking-updated_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f3cef9de51c2bf4ca8e0dd747b4b02a
+      internalID: -1267139762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marron_walking-updated_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdd1d1f8a2d463e4ea5dfb7e456f4688
+      internalID: 1600722503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marron_walking-updated_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6cb3f8e157c8514293cf28888ac51fe
+      internalID: -182297219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marron_walking-updated_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbb95d2560a8fd642a460d05855bb56b
+      internalID: -1468267517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marron_walking-updated_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5d365fda7998494eada542ec2a4b26a
+      internalID: -245682942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marron_walking-updated_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 212eb6faeef48d9448d9cd3c343e8138
+      internalID: 1176154803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marron_walking-updated_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 098cbc90ab31c7c4f85fb15733612cdf
+      internalID: -2065424838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marron_walking-updated_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2178dc03bb126c442b78740b071e629d
+      internalID: 164629139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: marron_walking-updated_8
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +286,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84c708faa94217a4f94bf0a07a5fa461
-      internalID: 1661243702
+      spriteID: 1652bea7a11695f46bf53585a3615b2b
+      internalID: -129350237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: marron_walking_1
+      name: marron_walking-updated_9
       rect:
         serializedVersion: 2
         x: 32
@@ -151,14 +307,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c4a6a7a8978b5d41b2de6bffb4c48ba
-      internalID: -714009177
+      spriteID: 18c7addf81f39b745871fb4d58f83dee
+      internalID: -503474047
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: marron_walking_2
+      name: marron_walking-updated_10
       rect:
         serializedVersion: 2
         x: 64
@@ -172,14 +328,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a38186b7b684fc419887888f8f4e7eb
-      internalID: -1440826741
+      spriteID: c306168c5ae027f4b975ac031bbd3ed5
+      internalID: 307643783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: marron_walking_3
+      name: marron_walking-updated_11
       rect:
         serializedVersion: 2
         x: 96
@@ -193,14 +349,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d73512ee8479a084d8596617b79d3d81
-      internalID: 1243366251
+      spriteID: ed738ab7d100b1e4f899992eb7c39cf8
+      internalID: 1135670315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: marron_walking_4
+      name: marron_walking-updated_12
       rect:
         serializedVersion: 2
         x: 128
@@ -214,14 +370,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: caab48ea0f8cb7d4cb6f5ae0bef13df3
-      internalID: -1383618549
+      spriteID: 479d4dd5325ebf745b3139412128ac78
+      internalID: -759517372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: marron_walking_5
+      name: marron_walking-updated_13
       rect:
         serializedVersion: 2
         x: 160
@@ -235,14 +391,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cecbcab449454c4a9ce8aa599a8ec3c
-      internalID: -18930463
+      spriteID: 09e580c117a9ef2499a089fe305aab54
+      internalID: -2061322713
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: marron_walking_6
+      name: marron_walking-updated_14
       rect:
         serializedVersion: 2
         x: 192
@@ -256,14 +412,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fc155f454605d148a5d655f950b5f91
-      internalID: -1402213352
+      spriteID: cc5667081f7cde2468c364af33fe3d37
+      internalID: 852874288
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: marron_walking_7
+      name: marron_walking-updated_15
       rect:
         serializedVersion: 2
         x: 224
@@ -277,8 +433,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b17b696dc571346458cc0d64b05cedb1
-      internalID: -354991055
+      spriteID: 108864e64a00bb040b1b488a97dd3ee1
+      internalID: 1136019224
       vertices: []
       indices: 
       edges: []
@@ -294,14 +450,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      marron_walking_2: -1440826741
-      marron_walking_7: -354991055
-      marron_walking_1: -714009177
-      marron_walking_0: 1661243702
-      marron_walking_3: 1243366251
-      marron_walking_5: -18930463
-      marron_walking_4: -1383618549
-      marron_walking_6: -1402213352
+      marron_walking-updated_9: -503474047
+      marron_walking-updated_12: -759517372
+      marron_walking-updated_15: 1136019224
+      marron_walking-updated_8: -129350237
+      marron_walking-updated_0: -1267139762
+      marron_walking-updated_14: 852874288
+      marron_walking-updated_13: -2061322713
+      marron_walking-updated_1: 1600722503
+      marron_walking-updated_4: -245682942
+      marron_walking-updated_10: 307643783
+      marron_walking-updated_7: 164629139
+      marron_walking-updated_11: 1135670315
+      marron_walking-updated_2: -182297219
+      marron_walking-updated_5: 1176154803
+      marron_walking-updated_3: -1468267517
+      marron_walking-updated_6: -2065424838
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
