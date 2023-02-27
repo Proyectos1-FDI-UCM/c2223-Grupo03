@@ -127,17 +127,28 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Invierte la dirección (para los azules)
+    /// </summary>
     public void InvertDirection()
     {
         direction = -direction;
     }
 
+    /// <summary>
+    /// Cambia la dirección para mirar a un objeto
+    /// </summary>
+    /// <param name="objectSeen"> GameObject al que quieres mirar </param>
     public void LookAtObject(GameObject objectSeen)
     {
         direction = ((Vector2)objectSeen.transform.position - _enemyRigidbody.position).normalized;
     }
 
-    public void SetDestination (EnemyType myType)
+    /// <summary>
+    /// Para enemigos rojos y azules (aunque también sirve para marrones diesese el caso). Establece donde se tiene que parar el enemigo
+    /// </summary>
+    /// <param name="myType"> Tipo de enemigo </param>
+    public void StopDestination (EnemyType myType)
     {
         if (myType == EnemyType.Blue || myType == EnemyType.Brown)
         {
@@ -146,6 +157,15 @@ public class EnemyAI : MonoBehaviour
         {
             _navMeshAgent.SetDestination(_enemyRigidbody.position + 3 * direction);
         }
+    }
+
+    /// <summary>
+    /// Permite que el enemigo se mueva a una dirección prefijada
+    /// </summary>
+    /// <param name="destination"> Posición a la que queremos que llegue el enemigo </param>
+    public void SetDestination(Vector3 destination)
+    {
+        _navMeshAgent.SetDestination(destination);
     }
     #endregion
 

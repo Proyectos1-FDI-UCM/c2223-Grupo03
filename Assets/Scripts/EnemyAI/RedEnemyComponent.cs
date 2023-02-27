@@ -28,7 +28,7 @@ public class RedEnemyComponent : MonoBehaviour
             _current = WardroveStates.Search;
             _time = _wardroveTime;
             _myEnemyAI.Moving = false;
-            _myEnemyAI.SetDestination(EnemyAI.EnemyType.Red);
+            _myEnemyAI.StopDestination(EnemyAI.EnemyType.Red);
         }
         else if (_current == WardroveStates.Search)
         {
