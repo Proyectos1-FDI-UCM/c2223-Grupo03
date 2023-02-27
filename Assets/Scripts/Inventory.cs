@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour
     #endregion
 
     #region Properties
-    private bool _pildoraEquipado;
+    public bool _pildoraEquipado;
     public bool _cajaEquipado;
     private bool _despertadorEquipado;
     private bool _llaveEquipado;

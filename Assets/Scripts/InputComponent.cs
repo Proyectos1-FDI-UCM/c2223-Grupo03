@@ -42,9 +42,12 @@ public class InputComponent : MonoBehaviour
         {
             _heartDetection.SpacePressed();
         }
-        if (Input.GetKeyDown(KeyCode.J)) //AÑADIR CONDICION DE TENERLA EN EL INVENTARIO
+        if (Input.GetKeyDown(KeyCode.J) && _inventory._pildoraEquipado) //AÑADIR CONDICION DE TENERLA EN EL INVENTARIO
         {
             GameManager.Instance.PillEffect();
+            Debug.Log("hola");
+            _inventory._pildoraEquipado = false;
+            _inventory.EliminaObjeto(1);
         }
 
         // If the player presses the "K" key, change between the player and the box 
