@@ -222,6 +222,10 @@ public class VisionCone : MonoBehaviour
         if (collision.tag == "Player")
         {
             playerFound = true;
+        } 
+        else if (collision.gameObject.GetComponent<ClosetComponent>() != null && _enemyAI.GetCloset == null)
+        {
+            _enemyAI.SetCloset = collision.gameObject;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -229,6 +233,10 @@ public class VisionCone : MonoBehaviour
         if (collision.tag == "Player")
         {
             playerFound = false;
+        }
+        if (collision.gameObject.GetComponent<ClosetComponent>() != null && collision.gameObject == _enemyAI.GetCloset)
+        {
+            _enemyAI.SetCloset = null;
         }
     }
 }

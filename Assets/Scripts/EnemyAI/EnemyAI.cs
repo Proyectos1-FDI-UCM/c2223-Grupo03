@@ -7,7 +7,7 @@ public class EnemyAI : MonoBehaviour
 {
     #region References
 
-    [Header("Par醡etros enemigo")]
+    [Header("Par谩metros enemigo")]
     [SerializeField] private Rigidbody2D _player;
     [SerializeField] private float _speed;
     [SerializeField] private bool _chasing;
@@ -16,18 +16,20 @@ public class EnemyAI : MonoBehaviour
     bool _isMoving;
     public bool Moving { set { _isMoving = value; } }
     public bool Chasing { get { return _chasing; } }
+    public enum EnemyType { Brown, Blue, Red, Green};
 
-    [Header("Par醡etros cono visi髇")]
+    [Header("Par谩metros cono visi贸n")]
     [SerializeField] private GameObject _cone;
     private VisionCone _fovEnemigo;
     [SerializeField] float _coneFov;
     [SerializeField] float _coneDistance;
+    private GameObject _closet;
+    public GameObject SetCloset { set { _closet = value; } }
+    public GameObject GetCloset { get { return _closet; } }
 
-    [Header("Par醡etros pathing")]
+    [Header("Par谩metros pathing")]
     [SerializeField] private GameObject _path;
     [SerializeField] private bool _cicle;
-
-    private VisionCone _visionCone;
     #endregion
 
     #region Variables
@@ -38,9 +40,17 @@ public class EnemyAI : MonoBehaviour
     private bool forward; //bool para en caso de no ser ciclico poder dar la vuelta
     private int i; //index
     private Vector2 direction; //direccion del cono de vision
+
+    private Animator _animator;
     #endregion
 
-    #region methods
+    #region 
+    //actualiza los valores de movimiento en el animator
+    private void UpdateAnimatorValues()
+    {
+        _animator.SetFloat("Horizontal", direction.x);
+        _animator.SetFloat("Vertical", direction.y);
+    }
     // funciones que comprueban si el enemigo tiene que dejar de perseguir
     public void StartChase()
     {
@@ -125,9 +135,45 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Invierte la direcci贸n (para los azules)
+    /// </summary>
     public void InvertDirection()
     {
         direction = -direction;
+    }
+
+    /// <summary>
+    /// Cambia la direcci贸n para mirar a un objeto
+    /// </summary>
+    /// <param name="objectSeen"> GameObject al que quieres mirar </param>
+    public void LookAtObject(GameObject objectSeen)
+    {
+        direction = ((Vector2)objectSeen.transform.position - _enemyRigidbody.position).normalized;
+    }
+
+    /// <summary>
+    /// Para enemigos rojos y azules (aunque tambi茅n sirve para marrones diesese el caso). Establece donde se tiene que parar el enemigo
+    /// </summary>
+    /// <param name="myType"> Tipo de enemigo </param>
+    public void StopDestination (EnemyType myType)
+    {
+        if (myType == EnemyType.Blue || myType == EnemyType.Brown)
+        {
+            _navMeshAgent.SetDestination(_enemyRigidbody.position);
+        } else if (myType == EnemyType.Red)
+        {
+            _navMeshAgent.SetDestination(_enemyRigidbody.position + 3 * direction);
+        }
+    }
+
+    /// <summary>
+    /// Permite que el enemigo se mueva a una direcci贸n prefijada
+    /// </summary>
+    /// <param name="destination"> Posici贸n a la que queremos que llegue el enemigo </param>
+    public void SetDestination(Vector3 destination)
+    {
+        _navMeshAgent.SetDestination(destination);
     }
     #endregion
 
@@ -143,16 +189,19 @@ public class EnemyAI : MonoBehaviour
         SetPointsFromPath();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _enemyRigidbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
 
         _isMoving = true;
+
     }
     private void Update()
     {
         _fovEnemigo.SetAim(direction);
         _fovEnemigo.SetOrigin(_enemyRigidbody.position);
         UpdateChase();
+        UpdateAnimatorValues();
     }
     void FixedUpdate()
     {
