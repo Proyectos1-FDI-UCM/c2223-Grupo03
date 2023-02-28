@@ -8,26 +8,21 @@ public class GameManager : MonoBehaviour
 
     #region parameters
 
-    [SerializeField]
-    private float _timeOutPill = 10;
+    [SerializeField] private float _timeOutPill = 10;
 
     #endregion
 
     #region references
-    [SerializeField]
-    private GameObject _warning;
-    [SerializeField]
-    private GameObject _heart;
-    [SerializeField]
-    private GameObject _safeZone;
-    [SerializeField]
-    private GameObject _UIManager;
+    [SerializeField] private GameObject _warning;
+    [SerializeField] private GameObject _heart;
+    [SerializeField] private GameObject _safeZone;
+    [SerializeField] private GameObject _UIManager;
+    [SerializeField] private GameObject _heartBar;
+
 
     #endregion
 
-
-    #region properties
-
+    #region getter/setters
     // Instance para poder coger variables del gamemanager
     static private GameManager _instance;
     static public GameManager Instance { get { return _instance; } }
@@ -37,14 +32,8 @@ public class GameManager : MonoBehaviour
     static public GameObject Player { get { return _player; } }
 
     private bool _withEffect = false;
+    public bool WithEffect { get { return _withEffect; } }
 
-    public bool WithEffect
-    {
-        get 
-        { 
-            return _withEffect; 
-        }
-    }
     #endregion
 
     #region methods
@@ -55,8 +44,7 @@ public class GameManager : MonoBehaviour
         {
             _heart.GetComponent<HeartMove>().enabled = false;
             _safeZone.GetComponent<ProximityComponent>().enabled = false;
-            _warning.SetActive(true);
-            _warning.GetComponent<Image>().color = new Color(0, 1, 0, 0.25f);
+            _heartBar.SetActive(false);
             Invoke("Flicker", _timeOutPill - 4);
             Invoke("ActiveHeart", _timeOutPill);
             //QUITAR PASTILLA DEL INVENTARIO
@@ -66,16 +54,20 @@ public class GameManager : MonoBehaviour
 
     private void Flicker()
     {
+        _heartBar.SetActive(true);
+        _heartBar.transform.GetChild(0).GetComponent<ParpadeoComponent>().enabled = true;
+        _heartBar.transform.GetChild(1).GetComponent<ParpadeoComponent>().enabled = true;
+        _heartBar.transform.GetChild(2).GetComponent<ParpadeoComponent>().enabled = true;
 
-        _warning.GetComponent<ParpadeoComponent>().enabled = true;
     }
 
     private void ActiveHeart()
     {
+        _heartBar.transform.GetChild(0).GetComponent<ParpadeoComponent>().enabled = false;
+        _heartBar.transform.GetChild(1).GetComponent<ParpadeoComponent>().enabled = false;
+        _heartBar.transform.GetChild(2).GetComponent<ParpadeoComponent>().enabled = false;
         _heart.GetComponent<HeartMove>().enabled = true;
         _safeZone.GetComponent<ProximityComponent>().enabled = true;
-        _warning.GetComponent<Image>().color = new Color(1, 0, 0, 0);
-        _warning.GetComponent<ParpadeoComponent>().enabled = false;
         _withEffect = false;
     }
 

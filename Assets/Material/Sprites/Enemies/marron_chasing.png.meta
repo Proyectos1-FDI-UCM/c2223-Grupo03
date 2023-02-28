@@ -100,18 +100,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -130,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fa9cb177dc5a7646b596349017ed4e9
-      internalID: -1419885383
+      spriteID: a8e7e499d11b719448b0d16c09be615d
+      internalID: 1920630715
       vertices: []
       indices: 
       edges: []
@@ -151,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81b7062553c893348ab34540f2faebf5
-      internalID: 1517693986
+      spriteID: c885c27beca7ed448b1ef2822489bd05
+      internalID: -510511960
       vertices: []
       indices: 
       edges: []
@@ -172,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f2fccda8a878af4da13e3907da879b8
-      internalID: -437132193
+      spriteID: 194420bb2936be84f8afd1b3f95fdc54
+      internalID: 734998531
       vertices: []
       indices: 
       edges: []
@@ -193,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2f5392c517e4c84f8aa17797edad651
-      internalID: 863536309
+      spriteID: 11174c19902cf7f47b00d0e64bda81c5
+      internalID: 695452259
       vertices: []
       indices: 
       edges: []
@@ -214,8 +202,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cec3f208d82470d4c87076e6a3b68fd3
-      internalID: -317600697
+      spriteID: fa783d9b275c8044a9ad0368cb856bd2
+      internalID: -2055833817
       vertices: []
       indices: 
       edges: []
@@ -235,8 +223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52c9721fb95b2aa4a85d7333e7894b39
-      internalID: -243712858
+      spriteID: 09f51273a9096ea4aa0b090c0a79e3a8
+      internalID: 508844392
       vertices: []
       indices: 
       edges: []
@@ -256,8 +244,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ac2a6541bd4bcb4e9876adf670f630e
-      internalID: 757143446
+      spriteID: a3a2612871002994b9658cb1d196f712
+      internalID: 442330479
       vertices: []
       indices: 
       edges: []
@@ -277,8 +265,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e63fc0d42f49094da7dbf1d18d3b4b0
-      internalID: -2133582588
+      spriteID: 17b4f7afd0c9bd44ebf0ccaed17ae950
+      internalID: -2136790677
       vertices: []
       indices: 
       edges: []
@@ -294,14 +282,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      marron_chasing_0: -1419885383
-      marron_chasing_6: 757143446
-      marron_chasing_7: -2133582588
-      marron_chasing_4: -317600697
-      marron_chasing_1: 1517693986
-      marron_chasing_3: 863536309
-      marron_chasing_2: -437132193
-      marron_chasing_5: -243712858
+      marron_chasing_0: 1920630715
+      marron_chasing_6: 442330479
+      marron_chasing_7: -2136790677
+      marron_chasing_4: -2055833817
+      marron_chasing_1: -510511960
+      marron_chasing_3: 695452259
+      marron_chasing_2: 734998531
+      marron_chasing_5: 508844392
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

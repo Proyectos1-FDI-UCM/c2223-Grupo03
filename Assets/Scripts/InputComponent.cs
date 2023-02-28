@@ -20,6 +20,8 @@ public class InputComponent : MonoBehaviour
     #endregion
 
 
+
+
     void Start()
     {
         _player = GameManager.Player;

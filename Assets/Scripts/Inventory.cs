@@ -22,10 +22,10 @@ public class Inventory : MonoBehaviour
     #endregion
 
     // Para poder acceder a los booleanos sin poder cambiar su valor, solo se puede cambiar su valor con los métodos de abajo por seguridad
-    public bool _PildoraEquipado { get { return _pildoraEquipado; } set { _pildoraEquipado = value; } }
-    public bool _CajaEquipado { get { return _cajaEquipado; } set { _cajaEquipado = value; } }
-    public bool _DespertadorEquipado { get { return _despertadorEquipado; } set { _despertadorEquipado = value; } }
-    public bool _LlaveEquipado { get { return _llaveEquipado; } set { _llaveEquipado = value; } }
+    public bool _PildoraEquipado { get { return _pildoraEquipado; }}
+    public bool _CajaEquipado { get { return _cajaEquipado; }}
+    public bool _DespertadorEquipado { get { return _despertadorEquipado; }}
+    public bool _LlaveEquipado { get { return _llaveEquipado; }}
 
     private void Start()
     {
