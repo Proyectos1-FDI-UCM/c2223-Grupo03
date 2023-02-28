@@ -21,6 +21,7 @@ public class HeartMove : MonoBehaviour
     [SerializeField]
     private GameObject _startOfVoid; //Zona inicial de la barra de fallo
 
+    private Rigidbody2D _rigidbody;
     #endregion
 
     #region properties
@@ -45,14 +46,14 @@ public class HeartMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
-        transform.position += new Vector3(1,0,0) * _speed * Time.deltaTime; //Movimiento constante del corazón por medio del transform
+        _rigidbody.position += new Vector2(1,0) * _speed * Time.deltaTime; //Movimiento constante del corazón por medio del transform
 
     }
 }

@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _warning;
     [SerializeField] private GameObject _heart;
     [SerializeField] private GameObject _safeZone;
-    [SerializeField] private GameObject _UIManager;
     [SerializeField] private GameObject _heartBar;
 
 
