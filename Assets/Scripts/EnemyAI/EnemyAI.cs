@@ -40,6 +40,8 @@ public class EnemyAI : MonoBehaviour
     private bool forward; //bool para en caso de no ser ciclico poder dar la vuelta
     private int i; //index
     private Vector2 direction; //direccion del cono de vision
+
+    private Animator _animator;
     #endregion
 
     #region 
