@@ -12,6 +12,7 @@ public class InputComponent : MonoBehaviour
     #endregion
 
     #region Parameters
+    [SerializeField]
     private GameObject _closet;
     [SerializeField] private GameObject _boxPrefab;
     private GameObject _player;
@@ -30,7 +31,6 @@ public class InputComponent : MonoBehaviour
     {
         _player = GameManager.Player;
         _isBox = false;
-        _closet = GameObject.Find("Closet");
         _heartDetection = _heart.GetComponent<HeartDetection>();
         _movementComponent = GameManager.Player.GetComponent<MovementComponent>();
         _inventory = GetComponent<Inventory>();
@@ -57,6 +57,7 @@ public class InputComponent : MonoBehaviour
         {
             if (_isBox)
             {
+                Debug.Log("iiiii");
                 Destroy(_box);
                 _closet.GetComponent<ClosetComponent>().enabled = true;
                 _player.SetActive(true);
@@ -70,6 +71,7 @@ public class InputComponent : MonoBehaviour
                 _box = Instantiate(_boxPrefab, _player.transform.position, Quaternion.identity);
                 _closet.GetComponent<ClosetComponent>().enabled = false;
                 _isBox = true;
+                Debug.Log(_isBox);
             }
         }
 
