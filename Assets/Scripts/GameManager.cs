@@ -39,10 +39,6 @@ public class GameManager : MonoBehaviour
     
 
     #endregion
-
-
-
-
     void Awake()
     {
         _instance = this;

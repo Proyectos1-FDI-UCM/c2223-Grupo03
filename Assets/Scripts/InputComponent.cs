@@ -23,13 +23,6 @@ public class InputComponent : MonoBehaviour
     private Inventory _inventory;
     #endregion
 
-    #region References
-    private Inventory _inventory;
-    #endregion
-
-
-
-
     void Start()
     {
         _player = GameManager.Player;
@@ -49,7 +42,7 @@ public class InputComponent : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.J) && _inventory._pildoraEquipado) //A�ADIR CONDICION DE TENERLA EN EL INVENTARIO
         {
-            GameManager.Instance.PillEffect();
+            //GameManager.Instance.PillEffect();
             Debug.Log("hola");
             _inventory._pildoraEquipado = false;
             _inventory.EliminaObjeto(1);

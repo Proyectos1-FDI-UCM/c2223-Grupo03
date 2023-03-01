@@ -12,8 +12,8 @@ public class ClosetComponent : MonoBehaviour
     private bool _isHiding = false;
     private Vector2 _playerPos;
     private Vector2 _closetPos;
-    [SerializeField] private GameObject _player;
-    [SerializeField] private Sprite _closet;
+    private GameObject _player;
+    [SerializeField] private Sprite _closetSprite;
     [SerializeField] private Sprite _closetShine;
     #endregion
 
@@ -31,7 +31,7 @@ public class ClosetComponent : MonoBehaviour
         }
         else
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = _closet;
+            gameObject.GetComponent<SpriteRenderer>().sprite = _closetSprite;
             return false;
         }
 
@@ -53,7 +53,6 @@ public class ClosetComponent : MonoBehaviour
 
     private void Start()
     {
-        _closet = gameObject;
         _player = GameManager.Player;
     }
     // Update is called once per frame
