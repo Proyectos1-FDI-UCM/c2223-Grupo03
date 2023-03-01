@@ -6,30 +6,30 @@ public class InputComponent : MonoBehaviour
 {
 
     #region Properties
-    [SerializeField] private GameObject _heart;
-    private HeartDetection _heartDetection;
-    private MovementComponent _movementComponent;
+
     #endregion
 
     #region Parameters
-    [SerializeField] private GameObject _boxPrefab;
     private GameObject _player;
-    private GameObject _box;
-    private bool _isBox;
-    public bool IsBox { get { return _isBox; } }
+
     #endregion
 
     #region References
+    [SerializeField] private GameObject _heart;
+    private HeartDetection _heartDetection;
+    private MovementComponent _movementComponent;
     private Inventory _inventory;
+
+    private PlayerStates _playerStates;
     #endregion
 
     void Start()
     {
         _player = GameManager.Player;
-        _isBox = false;
+        _playerStates = _player.GetComponent<PlayerStates>();
         _heartDetection = _heart.GetComponent<HeartDetection>();
+        _inventory = GameManager.Instance.GetComponent<Inventory>();
         _movementComponent = GameManager.Player.GetComponent<MovementComponent>();
-        _inventory = GetComponent<Inventory>();
     }
 
     void Update()
@@ -42,30 +42,19 @@ public class InputComponent : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.J) && _inventory._pildoraEquipado) //A�ADIR CONDICION DE TENERLA EN EL INVENTARIO
         {
-            //GameManager.Instance.PillEffect();
-            Debug.Log("hola");
-            _inventory._pildoraEquipado = false;
-            _inventory.EliminaObjeto(1);
+            _playerStates.PillEffect();
         }
 
         // If the player presses the "K" key, change between the player and the box 
         if (Input.GetKeyDown(KeyCode.K) && _inventory._cajaEquipado)
         {
-            if (_isBox)
+            if (_playerStates.IsBox)
             {
-                Debug.Log("iiiii");
-                Destroy(_box);
-                _player.SetActive(true);
-                _isBox = false;
-                _inventory._cajaEquipado = false;
-                _inventory.EliminaObjeto(2);
+                _playerStates.ExitBox();
             }
             else
             {
-                _player.SetActive(false);
-                _box = Instantiate(_boxPrefab, _player.transform.position, Quaternion.identity);
-                _isBox = true;
-                Debug.Log(_isBox);
+                _playerStates.EnterBox();
             }
         }
 

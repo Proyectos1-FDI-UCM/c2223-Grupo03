@@ -41,6 +41,7 @@ public class ClosetComponent : MonoBehaviour
     private void HidePlayer()
     {
         _player.SetActive(false);
+        GameManager.PlayerStates.EnterCloset();
         _isHiding = true;
     }
 
@@ -48,6 +49,7 @@ public class ClosetComponent : MonoBehaviour
     private void ShowPlayer()
     {
         _player.SetActive(true);
+        GameManager.PlayerStates.ExitCloset();
         _isHiding = false;
     }
 
@@ -58,7 +60,7 @@ public class ClosetComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CanHide() && Input.GetKeyDown(KeyCode.E) && !GameManager.InputComponent.IsBox)
+        if (CanHide() && Input.GetKeyDown(KeyCode.E) && !GameManager.PlayerStates.IsBox)
         {
             if (!_isHiding)
             {
