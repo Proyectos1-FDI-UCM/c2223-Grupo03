@@ -8,15 +8,10 @@ public class GameManager : MonoBehaviour
 
     #region parameters
 
-    [SerializeField] private float _timeOutPill = 10;
-
+    
     #endregion
 
     #region references
-    [SerializeField] private GameObject _warning;
-    [SerializeField] private GameObject _heart;
-    [SerializeField] private GameObject _safeZone;
-    [SerializeField] private GameObject _heartBar;
 
 
     #endregion
@@ -30,45 +25,18 @@ public class GameManager : MonoBehaviour
     static private GameObject _player;
     static public GameObject Player { get { return _player; } }
 
-    private bool _withEffect = false;
-    public bool WithEffect { get { return _withEffect; } }
+    static private PlayerStates _playerStates;
+    static public PlayerStates PlayerStates { get { return _playerStates; } }
+
+    static private InputComponent _inputComponent;
+    static public InputComponent InputComponent { get { return _inputComponent; } }
+    
 
     #endregion
 
     #region methods
 
-    public void PillEffect ()
-    {
-        if (!_withEffect)
-        {
-            _heart.GetComponent<HeartMove>().enabled = false;
-            _safeZone.GetComponent<ProximityComponent>().enabled = false;
-            _heartBar.SetActive(false);
-            Invoke("Flicker", _timeOutPill - 4);
-            Invoke("ActiveHeart", _timeOutPill);
-            //QUITAR PASTILLA DEL INVENTARIO
-            _withEffect = true;
-        }
-    }
-
-    private void Flicker()
-    {
-        _heartBar.SetActive(true);
-        _heartBar.transform.GetChild(0).GetComponent<ParpadeoComponent>().enabled = true;
-        _heartBar.transform.GetChild(1).GetComponent<ParpadeoComponent>().enabled = true;
-        _heartBar.transform.GetChild(2).GetComponent<ParpadeoComponent>().enabled = true;
-
-    }
-
-    private void ActiveHeart()
-    {
-        _heartBar.transform.GetChild(0).GetComponent<ParpadeoComponent>().enabled = false;
-        _heartBar.transform.GetChild(1).GetComponent<ParpadeoComponent>().enabled = false;
-        _heartBar.transform.GetChild(2).GetComponent<ParpadeoComponent>().enabled = false;
-        _heart.GetComponent<HeartMove>().enabled = true;
-        _safeZone.GetComponent<ProximityComponent>().enabled = true;
-        _withEffect = false;
-    }
+    
 
     #endregion
 
@@ -79,6 +47,8 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
         _player = GameObject.Find("Player");
+        _playerStates = _player.GetComponent<PlayerStates>();
+        _inputComponent = GetComponent<InputComponent>();
     }
     void Start()
     {

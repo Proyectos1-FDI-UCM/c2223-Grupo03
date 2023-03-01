@@ -13,7 +13,7 @@ public class ProximityComponent : MonoBehaviour
 
     private float _lessDistance = 20; //La distancia más baja registrada por el momento
 
-    private float _size; //El tamaño al que debe ir la barra
+    private float _size = 9; //El tamaño al que debe ir la barra
 
     #endregion
 
