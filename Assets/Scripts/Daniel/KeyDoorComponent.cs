@@ -5,9 +5,7 @@ using UnityEngine;
 public class KeyDoorComponent : MonoBehaviour
 {
     #region Referencias
-    [Header("Animacion")]
-    private Animator animator;
-    [SerializeField] GameManager _gameManager;
+    private Animator _animator;
     #endregion
 
     #region Referencias
@@ -21,8 +19,8 @@ public class KeyDoorComponent : MonoBehaviour
     Inventory _inventory;
     void Start()
     {
-        _inventory = _gameManager.GetComponent<Inventory>();
-        animator = GetComponent<Animator>();    
+        _inventory = GameManager.Instance.GetComponent<Inventory>();
+        _animator = GetComponent<Animator>();    
     }
   
     private void OnTriggerEnter2D(Collider2D col) //Si el jugador choca con la puerta activa y tiene la llave -> la animacion de abrir la puerta
@@ -44,7 +42,7 @@ public class KeyDoorComponent : MonoBehaviour
             Debug.Log("La puerta está abierta");
             if (col.CompareTag("Player"))
             {
-                animator.SetTrigger("Tocar");
+                _animator.SetTrigger("Tocar");
             }
         }
     }
@@ -53,7 +51,7 @@ public class KeyDoorComponent : MonoBehaviour
     {
         if (col.CompareTag("Player") && _puertaAbierta)
         {
-            animator.SetTrigger("Tocar");
+            _animator.SetTrigger("Tocar");
         }
     }
 }

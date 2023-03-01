@@ -12,11 +12,11 @@ public class InputComponent : MonoBehaviour
     #endregion
 
     #region Parameters
-    private GameObject _closet;
     [SerializeField] private GameObject _boxPrefab;
     private GameObject _player;
     private GameObject _box;
     private bool _isBox;
+    public bool IsBox { get { return _isBox; } }
     #endregion
 
 
@@ -26,7 +26,6 @@ public class InputComponent : MonoBehaviour
     {
         _player = GameManager.Player;
         _isBox = false;
-        _closet = GameObject.Find("Closet");
         _heartDetection = _heart.GetComponent<HeartDetection>();
         _movementComponent = GameManager.Player.GetComponent<MovementComponent>();
     }
@@ -39,9 +38,10 @@ public class InputComponent : MonoBehaviour
         {
             _heartDetection.SpacePressed();
         }
-        if (Input.GetKeyDown(KeyCode.J)) //AÑADIR CONDICION DE TENERLA EN EL INVENTARIO
+        if (Input.GetKeyDown(KeyCode.J)) 
         {
-            GameManager.Instance.PillEffect();
+            if (GameManager.Instance.GetComponent<Inventory>()._PildoraEquipado)
+                GameManager.PlayerStates.PillEffect();
         }
 
         // If the player presses the "K" key, change between the player and the box 
@@ -50,7 +50,6 @@ public class InputComponent : MonoBehaviour
             if (_isBox)
             {
                 Destroy(_box);
-                _closet.GetComponent<ClosetComponent>().enabled = true;
                 _player.SetActive(true);
                 _isBox = false;
             }
@@ -58,7 +57,6 @@ public class InputComponent : MonoBehaviour
             {
                 _player.SetActive(false);
                 _box = Instantiate(_boxPrefab, _player.transform.position, Quaternion.identity);
-                _closet.GetComponent<ClosetComponent>().enabled = false;
                 _isBox = true;
             }
         }

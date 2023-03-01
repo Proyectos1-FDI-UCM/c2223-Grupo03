@@ -10,7 +10,7 @@ public class ClosetComponent : MonoBehaviour
     private bool _isHiding = false;
     private Vector2 _playerPos;
     private Vector2 _closetPos;
-    [SerializeField] private GameObject _player;
+    private GameObject _player;
     private GameObject _closet;
     #endregion
 
@@ -48,12 +48,13 @@ public class ClosetComponent : MonoBehaviour
 
     private void Start()
     {
-        _closet = GameObject.Find("Closet");
+        _closet = gameObject;
+        _player = GameManager.Player;
     }
     // Update is called once per frame
     void Update()
     {
-        if (CanHide() && Input.GetKeyDown(KeyCode.E))
+        if (CanHide() && Input.GetKeyDown(KeyCode.E) && !GameManager.InputComponent.IsBox)
         {
             if (!_isHiding)
             {
