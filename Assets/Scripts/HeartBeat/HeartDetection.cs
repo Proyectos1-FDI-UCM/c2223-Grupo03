@@ -19,14 +19,19 @@ public class HeartDetection : MonoBehaviour
 
     #region parameters
 
-    private int _fails; //Numero de fallos
+    private int _fails = 0; //Numero de fallos
 
     #endregion
 
     #region properties
 
     private bool _inSafeZone = false; //Se activa si se esta en la zona verde y se desactiva al salir de ella
-    private bool _hasPressed = false; //Se activa al presionar el espacio una vez y se desactiva al botar, iniciando asi un nuevo proceso
+    private bool _hasPressed = false; //Se activa al presionar el espacio una vez y se desactiva al botar,
+                                      //iniciando asi un nuevo proceso
+    [SerializeField]
+    private Sprite _brokenHeart;
+    [SerializeField]
+    private Sprite _normalHeart;
 
     #endregion
 
@@ -41,7 +46,9 @@ public class HeartDetection : MonoBehaviour
             if (!_inSafeZone) //Si no esta en la zona segura
             {
                 _fails++; //Aumenta en uno los fallos
-                //Debug.Log(_fails);
+                GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                GetComponent<Image>().sprite = _brokenHeart;
+                GetComponent<RectTransform>().localScale = new Vector3(1.75f, 1.75f, 1f);
                 _hasPressed = true; //Se activa el bool de pulsado
             }
             else
@@ -61,6 +68,8 @@ public class HeartDetection : MonoBehaviour
     public void ResetValues() //Al haber dado una vuelta se activa este metodo para restablecer valores al estado original
     {
         GetComponent<Image>().color = new Color(0, 0, 1, 1); //Cambia el color del corazón
+        GetComponent<Image>().sprite = _normalHeart;
+        GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         _hasPressed = false; //Se reestablece el bool de presionado
     }
 
@@ -85,6 +94,9 @@ public class HeartDetection : MonoBehaviour
             if (!_hasPressed) //Si no se a presionado el espacio quiere decir que se ha saltado la zona sagura y por tanto es un fallo
             {
                 _fails++;
+                GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                GetComponent<Image>().sprite = _brokenHeart;
+                GetComponent<RectTransform>().localScale = new Vector3(1.75f, 1.75f, 1f);
             }
         }
     }
@@ -105,7 +117,7 @@ public class HeartDetection : MonoBehaviour
         {
             GameManager.PlayerStates.CancelMovement();
             GetComponent<HeartMove>().CancelMovement();
-            _fails = 0; //Se reestablecen los fallos
+            _fails = -1; //Se reestablecen los fallos
         }
     }
 }
