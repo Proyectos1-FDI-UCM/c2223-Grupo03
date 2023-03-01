@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ClosetComponent : MonoBehaviour
 {
@@ -10,8 +12,9 @@ public class ClosetComponent : MonoBehaviour
     private bool _isHiding = false;
     private Vector2 _playerPos;
     private Vector2 _closetPos;
-    private GameObject _player;
-    private GameObject _closet;
+    [SerializeField] private GameObject _player;
+    [SerializeField] private Sprite _closet;
+    [SerializeField] private Sprite _closetShine;
     #endregion
 
     #region Methods
@@ -20,13 +23,15 @@ public class ClosetComponent : MonoBehaviour
     private bool CanHide()
     {
         _playerPos = _player.transform.position;
-        _closetPos = _closet.transform.position;
+        _closetPos = transform.position;
         if (Vector2.Distance(_playerPos, _closetPos) <= _interactDistance)
         {
+            gameObject.GetComponent<SpriteRenderer>().sprite = _closetShine;
             return true;
         }
         else
         {
+            gameObject.GetComponent<SpriteRenderer>().sprite = _closet;
             return false;
         }
 
