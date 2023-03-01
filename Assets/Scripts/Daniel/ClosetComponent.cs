@@ -51,11 +51,15 @@ public class ClosetComponent : MonoBehaviour
         _isHiding = false;
     }
 
-
+    private void Start()
+    {
+        _closet = gameObject;
+        _player = GameManager.Player;
+    }
     // Update is called once per frame
     void Update()
     {
-        if (CanHide() && Input.GetKeyDown(KeyCode.E))
+        if (CanHide() && Input.GetKeyDown(KeyCode.E) && !GameManager.InputComponent.IsBox)
         {
             if (!_isHiding)
             {

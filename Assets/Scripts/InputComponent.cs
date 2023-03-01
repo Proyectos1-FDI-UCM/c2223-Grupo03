@@ -12,12 +12,15 @@ public class InputComponent : MonoBehaviour
     #endregion
 
     #region Parameters
-    [SerializeField]
-    private GameObject _closet;
     [SerializeField] private GameObject _boxPrefab;
     private GameObject _player;
     private GameObject _box;
     private bool _isBox;
+    public bool IsBox { get { return _isBox; } }
+    #endregion
+
+    #region References
+    private Inventory _inventory;
     #endregion
 
     #region References
@@ -44,7 +47,7 @@ public class InputComponent : MonoBehaviour
         {
             _heartDetection.SpacePressed();
         }
-        if (Input.GetKeyDown(KeyCode.J) && _inventory._pildoraEquipado) //AÑADIR CONDICION DE TENERLA EN EL INVENTARIO
+        if (Input.GetKeyDown(KeyCode.J) && _inventory._pildoraEquipado) //Aï¿½ADIR CONDICION DE TENERLA EN EL INVENTARIO
         {
             GameManager.Instance.PillEffect();
             Debug.Log("hola");
@@ -59,7 +62,6 @@ public class InputComponent : MonoBehaviour
             {
                 Debug.Log("iiiii");
                 Destroy(_box);
-                _closet.GetComponent<ClosetComponent>().enabled = true;
                 _player.SetActive(true);
                 _isBox = false;
                 _inventory._cajaEquipado = false;
@@ -69,7 +71,6 @@ public class InputComponent : MonoBehaviour
             {
                 _player.SetActive(false);
                 _box = Instantiate(_boxPrefab, _player.transform.position, Quaternion.identity);
-                _closet.GetComponent<ClosetComponent>().enabled = false;
                 _isBox = true;
                 Debug.Log(_isBox);
             }
