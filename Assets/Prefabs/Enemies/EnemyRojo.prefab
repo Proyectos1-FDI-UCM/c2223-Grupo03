@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 1302032981126837770}
   - component: {fileID: 1302032981126837771}
   - component: {fileID: 1302032981126837768}
+  - component: {fileID: 6107940113036499733}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -84,7 +85,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954abf70335d157408c0c4d073d3a10e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
   _speed: 5
   _chasing: 0
   _timeToStopChasing: 3
@@ -237,8 +237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f24acce5413bf4ca6c9d521cb7a89e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
-  _safeZone: {fileID: 0}
 --- !u!114 &1302032981126837768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +252,20 @@ MonoBehaviour:
   _current: 0
   _wardroveTime: 2
   _ignoreTime: 5
+--- !u!114 &6107940113036499733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302032981126837775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04fe73892f00e7e4d8a7697730cff465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distractTime: 2
+  _arrivalDistance: 0.1
 --- !u!1 &1302032981674574250
 GameObject:
   m_ObjectHideFlags: 0
