@@ -11,7 +11,7 @@ public class HeartMove : MonoBehaviour
 
     [SerializeField]
     private float _speed; //Velocidad del corazón
-
+    private float _tempSpeed;
     #endregion
 
     #region references
@@ -39,6 +39,17 @@ public class HeartMove : MonoBehaviour
             _speed = _speed * -1; //La velocidad cambia de sentido
             GetComponent<HeartDetection>().ResetValues(); //Se le dice al HeartDetection que reestablezca los valores predeterminaods del corazón
         }
+    }
+
+    public void CancelMovement()
+    {
+        _tempSpeed = _speed;
+        _speed = 0;
+        Invoke("ActiveMovement", 3);
+    }
+    private void ActiveMovement()
+    {
+        _speed = _tempSpeed;
     }
 
     #endregion

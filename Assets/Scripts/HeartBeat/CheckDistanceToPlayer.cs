@@ -8,12 +8,10 @@ public class CheckDistanceToPlayer : MonoBehaviour
 
     #region references
 
-    [SerializeField]
     private GameObject _player; //Jugador
 
-    [SerializeField]
     private GameObject _safeZone; //Zona segura la cual deben cambiar
-
+    private ProximityComponent _ProximityComponent;
     #endregion
 
 
@@ -21,14 +19,15 @@ public class CheckDistanceToPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _player = GameManager.Player;
+        _safeZone = GameObject.Find("SafeZone");
+        _ProximityComponent = _safeZone.GetComponent<ProximityComponent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        _safeZone.GetComponent<ProximityComponent>().ChangeToScale(Vector3.Distance(_player.transform.position, transform.position), gameObject); //Se envia una nueva distancia a la zona segura para que cambie su tamaño segun esa distancia
-
+        //Se envia una nueva distancia a la zona segura para que cambie su tamaño segun esa distancia
+        _ProximityComponent.ChangeToScale(Vector3.Distance(_player.transform.position, transform.position), gameObject);
     }
 }

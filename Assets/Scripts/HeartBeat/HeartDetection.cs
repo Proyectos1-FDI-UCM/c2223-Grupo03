@@ -19,6 +19,7 @@ public class HeartDetection : MonoBehaviour
 
     #region parameters
 
+    [SerializeField] bool DEBUG;
     private int _fails; //Numero de fallos
 
     #endregion
@@ -48,7 +49,7 @@ public class HeartDetection : MonoBehaviour
             {
                 _hasPressed = true; //Se activa el bool de pulsado
                 GetComponent<Image>().color = new Color(1, 0, 0, 1); //Cambia el color del corazón para dar feedback al jugador
-                if (!GameManager.Instance.WithEffect)
+                if (!GameManager.PlayerStates.WithEffect)
                 {
                     _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Desactiva el panel de aviso para dar feedback al jugador
                 }
@@ -101,9 +102,10 @@ public class HeartDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_fails == 3) //Se comprueba si se ha llegado a 3 fallos
+        if (_fails == 3 && !DEBUG) //Se comprueba si se ha llegado a 3 fallos
         {
-            //DECIR AL GAMEMANAGER QUE DESACTIVE EL INPUT DEL JUGADOR
+            GameManager.PlayerStates.CancelMovement();
+            GetComponent<HeartMove>().CancelMovement();
             _fails = 0; //Se reestablecen los fallos
         }
     }

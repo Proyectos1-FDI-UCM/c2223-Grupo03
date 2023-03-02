@@ -6,29 +6,29 @@ public class DoorComponent : MonoBehaviour
 {
     #region Referencias
     [Header("Animacion")]
-    private Animator animator;
+    private Animator _animator;
     #endregion
 
     #region Metodos
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();    
+        _animator = GetComponent<Animator>();    
     }
   
     private void OnTriggerEnter2D(Collider2D col) //Si el jugador choca con la puerta activa la animacion de abrir la puerta
     {
-       if (col.CompareTag("player"))
+       if (col.CompareTag("Player"))
         {
-            animator.SetTrigger("Tocar");
+            _animator.SetTrigger("Tocar");
         }
     }
 
     private void OnTriggerExit2D(Collider2D col) //Si el jugador deja de tocar la puerta activa la animacion de cerrar la puerta
     {
-        if (col.CompareTag("player"))
+        if (col.CompareTag("Player"))
         {
-            animator.SetTrigger("Tocar");
+            _animator.SetTrigger("Tocar");
         }
     }
     #endregion
