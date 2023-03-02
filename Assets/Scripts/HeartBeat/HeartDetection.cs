@@ -19,6 +19,7 @@ public class HeartDetection : MonoBehaviour
 
     #region parameters
 
+    [SerializeField] bool DEBUG;
     private int _fails; //Numero de fallos
 
     #endregion
@@ -101,7 +102,7 @@ public class HeartDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_fails == 3) //Se comprueba si se ha llegado a 3 fallos
+        if (_fails == 3 && !DEBUG) //Se comprueba si se ha llegado a 3 fallos
         {
             GameManager.PlayerStates.CancelMovement();
             GetComponent<HeartMove>().CancelMovement();
