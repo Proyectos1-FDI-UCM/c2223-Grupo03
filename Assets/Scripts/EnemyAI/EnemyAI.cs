@@ -8,7 +8,7 @@ public class EnemyAI : MonoBehaviour
     #region References
 
     [Header("Parámetros enemigo")]
-    [SerializeField] private Rigidbody2D _player;
+    private Rigidbody2D _player;
     [SerializeField] private float _speed;
     [SerializeField] private bool _chasing;
     [SerializeField] float _timeToStopChasing;
@@ -195,6 +195,8 @@ public class EnemyAI : MonoBehaviour
 
         _isMoving = true;
 
+        _player = GameManager.Player.GetComponent<Rigidbody2D>();
+        _navMeshAgent.speed = _speed;
     }
     private void Update()
     {
