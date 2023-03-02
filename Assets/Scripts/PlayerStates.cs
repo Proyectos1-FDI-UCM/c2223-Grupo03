@@ -31,6 +31,9 @@ public class PlayerStates : MonoBehaviour
     [SerializeField] private GameObject _safeZone;
     [SerializeField] private GameObject _heartBar;
 
+    [SerializeField] private GameObject _clockPrefab;
+    private GameObject _clock;
+
     [SerializeField] private GameObject _playerInCloset;
     private Inventory _inventory;
     private GameObject _player;
@@ -38,6 +41,12 @@ public class PlayerStates : MonoBehaviour
 
 
     #region methods
+    public void Clock()
+    {
+        _inventory.EliminaObjeto(3);
+        _clock = Instantiate(_clockPrefab, _player.transform.position, new Quaternion(0, 0, 0, 0));
+        _clock.GetComponent<ClockDistractionComponent>().SetInstance = true;
+    }
     public void EnterCloset()
     {
         _playerInCloset.SetActive(true);
