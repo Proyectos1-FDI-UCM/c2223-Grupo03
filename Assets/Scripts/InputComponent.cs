@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class InputComponent : MonoBehaviour
 {
-    #region references
-    private Inventory _inventory;
-    #endregion
 
     //cosas de pablo
     [SerializeField] private GameObject _clockPrefab; 
