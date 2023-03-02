@@ -7986,8 +7986,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.7039986, y: -47.880005}
-  m_SizeDelta: {x: 1823.072, y: 884.665}
+  m_AnchoredPosition: {x: -1.7039986, y: -52.713}
+  m_SizeDelta: {x: 1823.072, y: 902.208}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &292003231
 MonoBehaviour:
@@ -8370,9 +8370,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.13970947, y: 0}
+  m_Offset: {x: -0.2742533, y: 0}
   serializedVersion: 2
-  m_Radius: 18.282227
+  m_Radius: 13.1305895
 --- !u!114 &450403137
 MonoBehaviour:
   m_ObjectHideFlags: 0

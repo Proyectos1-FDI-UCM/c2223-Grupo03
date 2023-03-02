@@ -48,10 +48,10 @@ public class HeartDetection : MonoBehaviour
                 _fails++; //Aumenta en uno los fallos
                 GetComponent<Image>().color = new Color(1, 1, 1, 1);
                 GetComponent<Image>().sprite = _brokenHeart;
-                GetComponent<RectTransform>().localScale = new Vector3(1.75f, 1.75f, 1f);
+                GetComponent<RectTransform>().localScale = new Vector3(1.65f, 1.65f, 1f);
                 _hasPressed = true; //Se activa el bool de pulsado
             }
-            else
+            else if (GetComponent<Image>().sprite != _brokenHeart)
             {
                 _hasPressed = true; //Se activa el bool de pulsado
                 GetComponent<Image>().color = new Color(1, 0, 0, 1); //Cambia el color del corazón para dar feedback al jugador
@@ -78,7 +78,7 @@ public class HeartDetection : MonoBehaviour
 
         if (collision.gameObject == _safeZone) //Si el trigger es el de la zona segura
         {
-            _warning.GetComponent<Image>().color = new Color(1, 0, 0, 0.25f); //Se activa el panel de aviso
+            _warning.GetComponent<Image>().color = new Color(1, 0, 0, 0.20f); //Se activa el panel de aviso
             _inSafeZone = true; //El bool de zona segura se activa
         }
     }
