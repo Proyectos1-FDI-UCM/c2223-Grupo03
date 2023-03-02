@@ -6,6 +6,7 @@ public class RedEnemyComponent : MonoBehaviour
 {
     #region references
     private EnemyAI _myEnemyAI;
+    private DistractedComponent _myDistracted;
     #endregion
 
     #region properties
@@ -50,12 +51,13 @@ public class RedEnemyComponent : MonoBehaviour
         _time = _ignoreTime;
         _current = WardroveStates.Ignore;
         _myEnemyAI = GetComponent<EnemyAI>();
+        _myDistracted = GetComponent<DistractedComponent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_myEnemyAI.Chasing == false)
+        if (_myEnemyAI.Chasing == false && _myDistracted.GetDistraught == DistractedComponent.Distract.NotDistracted)
         {
             if (_current == WardroveStates.Look)
             {
@@ -76,8 +78,11 @@ public class RedEnemyComponent : MonoBehaviour
         else if (_current != WardroveStates.Ignore)
         {
             _current = WardroveStates.Ignore;
-            _myEnemyAI.Moving = true;
-        }
+            if (_myEnemyAI.Chasing)
+            {
+                _myEnemyAI.Moving = true;
+            }
+        } 
         if (_time < 0)
         {
             ChangeLooking();

@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class InputComponent : MonoBehaviour
 {
+    #region references
+    private Inventory _inventory;
+    #endregion
 
+    //cosas de pablo
+    [SerializeField] private GameObject _clockPrefab; 
+    private GameObject _clock;
+    //cosas de pablo
+    
     #region Properties
 
     #endregion
@@ -30,6 +38,7 @@ public class InputComponent : MonoBehaviour
         _heartDetection = _heart.GetComponent<HeartDetection>();
         _inventory = GameManager.Instance.GetComponent<Inventory>();
         _movementComponent = GameManager.Player.GetComponent<MovementComponent>();
+        _inventory = gameObject.GetComponent<Inventory>();
     }
 
     void Update()
@@ -56,6 +65,14 @@ public class InputComponent : MonoBehaviour
             {
                 _playerStates.EnterBox();
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.L) && _inventory._DespertadorEquipado)
+        {
+            //_inventory.EliminaObjeto(3);
+            _clock = Instantiate(_clockPrefab, GameManager.Player.transform.position, new Quaternion(0,0,0,0));
+            _clock.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+            _clock.GetComponent<ClockDistractionComponent>().SetInstance = true;
         }
 
     }
