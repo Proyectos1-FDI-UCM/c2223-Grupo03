@@ -105,4 +105,4 @@ MonoBehaviour:
   _raysDistance: 10
   _raysMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64

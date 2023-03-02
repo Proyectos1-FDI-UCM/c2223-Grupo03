@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: 0ae7f98fd1414434286956187d90a37c
   - enabled: 1
-    path: "Assets/Scenes/main pi\xF1a.unity"
-    guid: 73e3eea79ad5ea749b933001063a8261
+    path: Assets/Scenes/Main 3 marzo.unity
+    guid: 9c9af491ca9b0874e8c9d3975653b4e0
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 74fa536fa9951bf4e938a4e5af04ae15
