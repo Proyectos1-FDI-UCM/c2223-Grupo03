@@ -98,11 +98,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timesCalled: 2
-  _totalTime: 10
+  _totalTime: 8
   _loopTime: 0
   _currentLoop: 0
   _raysCasted: 50
-  _raysDistance: 20
+  _raysDistance: 10
   _raysMask:
     serializedVersion: 2
     m_Bits: 0

@@ -12,8 +12,9 @@ public class DistractedComponent : MonoBehaviour
     #endregion
 
     #region parameters
-    private enum Distract { NotDistracted, MovingTowards, OnDistraction}
+    public enum Distract { NotDistracted, MovingTowards, OnDistraction}
     private Distract _current;
+    public Distract GetDistraught { get { return _current; } }
 
     private float _time;
     [SerializeField] private float _distractTime;

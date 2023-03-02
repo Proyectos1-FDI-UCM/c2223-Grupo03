@@ -24,10 +24,9 @@ public class ClockDistractionComponent : MonoBehaviour
     public void CreateDistraction ()
     {
         _currentAngle = 0;
-        for (int i = 0; i < _raysCasted; i++)
+        for (int i = 0; i <= _raysCasted; i++)
         {
             RaycastHit2D raycast = Physics2D.Raycast(this.transform.position, GetVectorFromAngle(_currentAngle), _raysDistance);
-            Debug.DrawRay(gameObject.transform.position, GetVectorFromAngle(_currentAngle), Color.red, _raysDistance);
 
             if (raycast.collider != null && raycast.collider.gameObject.GetComponent<EnemyAI>() != null)
             {

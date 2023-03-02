@@ -70,6 +70,7 @@ public class InputComponent : MonoBehaviour
         {
             //_inventory.EliminaObjeto(3);
             _clock = Instantiate(_clockPrefab, GameManager.Player.transform.position, new Quaternion(0,0,0,0));
+            _clock.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
             _clock.GetComponent<ClockDistractionComponent>().SetInstance = true;
         }
 

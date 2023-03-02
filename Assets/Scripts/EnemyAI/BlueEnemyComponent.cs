@@ -6,6 +6,7 @@ public class BlueEnemyComponent : MonoBehaviour
 {
     #region references
     private EnemyAI _myEnemyAI;
+    private DistractedComponent _distractedComponent;
     #endregion
 
     #region properties
@@ -45,18 +46,22 @@ public class BlueEnemyComponent : MonoBehaviour
     void Start()
     {
         _myEnemyAI = GetComponent<EnemyAI>();
+        _distractedComponent = GetComponent<DistractedComponent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_myEnemyAI.Chasing == false)
+        if (_myEnemyAI.Chasing == false && _distractedComponent.GetDistraught == DistractedComponent.Distract.NotDistracted)
         {
             _time -= Time.deltaTime;
         } else if (_current != LookingStates.Forward)
         {
             _current = LookingStates.Forward;
-            _myEnemyAI.Moving = true;
+            if (_myEnemyAI.Chasing)
+            {
+                _myEnemyAI.Moving = true;
+            }
         }
         if (_time < 0 )
         {
