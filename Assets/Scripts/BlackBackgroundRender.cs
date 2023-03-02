@@ -20,7 +20,7 @@ public class BlackBackgroundRender : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) // si entra
     {
-        if (collision.tag == "Player") // si es el jugador
+        if (collision.tag == "Player" || collision.tag == "PlayerInCloset") // si es el jugador
         {
             _activoB = true;
             _activoA = false;
@@ -29,7 +29,7 @@ public class BlackBackgroundRender : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision) // si sale
     {
-        if (collision.tag == "Player") // si es el jugador
+        if (collision.tag == "Player" || collision.tag == "PlayerInCloset") // si es el jugador
         {
             _activoA = true;
             _activoB = false;

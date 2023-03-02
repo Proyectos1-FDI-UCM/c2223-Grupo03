@@ -18,8 +18,8 @@ public class MovementComponent : MonoBehaviour
 
     private void Update()
     {
-       _animator.SetFloat("Horizontal", movement.x);
-       _animator.SetFloat("Vertical", movement.y);
+        _animator.SetFloat("Horizontal", movement.x);
+        _animator.SetFloat("Vertical", movement.y);
     }
     private void Start()
     {

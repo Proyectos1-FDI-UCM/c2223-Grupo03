@@ -8,27 +8,35 @@ public class InputComponent : MonoBehaviour
     private Inventory _inventory;
     #endregion
 
-    #region properties
+    //cosas de pablo
+    [SerializeField] private GameObject _clockPrefab; 
+    private GameObject _clock;
+    //cosas de pablo
+    
+    #region Properties
+
+    #endregion
+
+    #region Parameters
+    private GameObject _player;
+
+    #endregion
+
+    #region References
     [SerializeField] private GameObject _heart;
     private HeartDetection _heartDetection;
     private MovementComponent _movementComponent;
+    private Inventory _inventory;
 
-    private GameObject _closet;
-    [SerializeField] private GameObject _boxPrefab;
-    private GameObject _player;
-    private GameObject _box;
-    private bool _isBox;
-
-    [SerializeField] private GameObject _clockPrefab; 
-    private GameObject _clock;
+    private PlayerStates _playerStates;
     #endregion
 
     void Start()
     {
         _player = GameManager.Player;
-        _isBox = false;
-        _closet = GameObject.Find("Closet");
+        _playerStates = _player.GetComponent<PlayerStates>();
         _heartDetection = _heart.GetComponent<HeartDetection>();
+        _inventory = GameManager.Instance.GetComponent<Inventory>();
         _movementComponent = GameManager.Player.GetComponent<MovementComponent>();
         _inventory = gameObject.GetComponent<Inventory>();
     }
@@ -41,28 +49,21 @@ public class InputComponent : MonoBehaviour
         {
             _heartDetection.SpacePressed();
         }
-        if (Input.GetKeyDown(KeyCode.J) && _inventory._PildoraEquipado) //AÑADIR CONDICION DE TENERLA EN EL INVENTARIO
+        if (Input.GetKeyDown(KeyCode.J) && _inventory._pildoraEquipado) //Aï¿½ADIR CONDICION DE TENERLA EN EL INVENTARIO
         {
-            GameManager.Instance.PillEffect();
-            _inventory.EliminaObjeto(1);
+            _playerStates.PillEffect();
         }
 
         // If the player presses the "K" key, change between the player and the box 
-        if (Input.GetKeyDown(KeyCode.K) && _inventory._CajaEquipado)
+        if (Input.GetKeyDown(KeyCode.K) && _inventory._cajaEquipado)
         {
-            if (_isBox)
+            if (_playerStates.IsBox)
             {
-                Destroy(_box);
-                _closet.GetComponent<ClosetComponent>().enabled = true;
-                _player.SetActive(true);
-                _isBox = false;
+                _playerStates.ExitBox();
             }
             else
             {
-                _player.SetActive(false);
-                _box = Instantiate(_boxPrefab, _player.transform.position, Quaternion.identity);
-                _closet.GetComponent<ClosetComponent>().enabled = false;
-                _isBox = true;
+                _playerStates.EnterBox();
             }
         }
 
