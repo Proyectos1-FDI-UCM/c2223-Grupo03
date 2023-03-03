@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 750497186744007737}
   - component: {fileID: 2805825109641712513}
   - component: {fileID: 7902365985647429618}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ MonoBehaviour:
   _timeToStopChasing: 3
   _cone: {fileID: 750497187649707706}
   _coneFov: 60
-  _coneDistance: 3
+  _coneDistance: 3.5
   _path: {fileID: 750497188355966019}
   _cicle: 1
   _points: []

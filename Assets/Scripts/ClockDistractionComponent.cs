@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,9 +27,8 @@ public class ClockDistractionComponent : MonoBehaviour
         _currentAngle = 0;
         for (int i = 0; i <= _raysCasted; i++)
         {
-            RaycastHit2D raycast = Physics2D.Raycast(this.transform.position, GetVectorFromAngle(_currentAngle), _raysDistance);
-
-            if (raycast.collider != null && raycast.collider.gameObject.GetComponent<EnemyAI>() != null)
+            RaycastHit2D raycast = Physics2D.Raycast(this.transform.position, GetVectorFromAngle(_currentAngle), _raysDistance, _raysMask);
+            if (raycast.collider != null  && raycast.collider.gameObject.GetComponent<EnemyAI>() != null)
             {
                 raycast.collider.gameObject.GetComponent<DistractedComponent>().CreateDistraction(gameObject);
             } 
