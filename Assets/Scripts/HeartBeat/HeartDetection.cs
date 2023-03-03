@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HeartDetection : MonoBehaviour
 {
-    //El Script se encarga de recibir el input del espacio pulsado y procesarlo seg鷑 la situaci髇 del coraz髇 respecto a la barra de seguridad
+    //El Script se encarga de recibir el input del espacio pulsado y procesarlo seg煤n la situaci贸n del coraz贸n respecto a la barra de seguridad
 
     #region references
 
@@ -19,7 +19,8 @@ public class HeartDetection : MonoBehaviour
 
     #region parameters
 
-    private int _fails = 0; //Numero de fallos
+    [SerializeField] bool DEBUG;
+    private int _fails; //Numero de fallos
 
     #endregion
 
@@ -38,7 +39,7 @@ public class HeartDetection : MonoBehaviour
 
     #region methots
 
-    public void SpacePressed() //Metodo que se activa al pulsar el espacio y realiza acciones diferentes segun el estado del coraz髇 respecto a la barra de pulsaciones
+    public void SpacePressed() //Metodo que se activa al pulsar el espacio y realiza acciones diferentes segun el estado del coraz贸n respecto a la barra de pulsaciones
     {
 
         if (!_hasPressed) //Si ya se ha presionado espacio en esa vuelta no hace nada
@@ -54,7 +55,7 @@ public class HeartDetection : MonoBehaviour
             else if (GetComponent<Image>().sprite != _brokenHeart)
             {
                 _hasPressed = true; //Se activa el bool de pulsado
-                GetComponent<Image>().color = new Color(1, 0, 0, 1); //Cambia el color del coraz髇 para dar feedback al jugador
+                GetComponent<Image>().color = new Color(1, 0, 0, 1); //Cambia el color del coraz贸n para dar feedback al jugador
                 if (!GameManager.PlayerStates.WithEffect)
                 {
                     _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Desactiva el panel de aviso para dar feedback al jugador
@@ -67,7 +68,7 @@ public class HeartDetection : MonoBehaviour
 
     public void ResetValues() //Al haber dado una vuelta se activa este metodo para restablecer valores al estado original
     {
-        GetComponent<Image>().color = new Color(0, 0, 1, 1); //Cambia el color del coraz髇
+        GetComponent<Image>().color = new Color(0, 0, 1, 1); //Cambia el color del coraz贸n
         GetComponent<Image>().sprite = _normalHeart;
         GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         _hasPressed = false; //Se reestablece el bool de presionado
@@ -113,7 +114,7 @@ public class HeartDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_fails == 3) //Se comprueba si se ha llegado a 3 fallos
+        if (_fails == 3 && !DEBUG) //Se comprueba si se ha llegado a 3 fallos
         {
             GameManager.PlayerStates.CancelMovement();
             GetComponent<HeartMove>().CancelMovement();

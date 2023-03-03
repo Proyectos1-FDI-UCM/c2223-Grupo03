@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class FollowPoints : MonoBehaviour
 {
-    [SerializeField] private Transform[] _points;
-    [SerializeField] private float _speed;
+    [SerializeField] private GameObject _path;
+    private Transform[] _points;
     [SerializeField] private bool _cicle;
     private Rigidbody2D _enemyRigidbody;
     private NavMeshAgent _navMeshAgent;
     private int i;
     private bool forward;
-    
+
+    private void SetPointsFromPath()
+    {
+        int pointNum = _path.transform.childCount;
+        _points = new Transform[pointNum];
+        i = 0;
+        foreach (Transform child in _path.transform)
+        {
+            _points[i] = child;
+            i++;
+        }
+    }
     void FixedUpdate()
     {
         if (_cicle)
@@ -61,7 +73,7 @@ public class FollowPoints : MonoBehaviour
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
         _enemyRigidbody = GetComponent<Rigidbody2D>();
-        i = 0;
         forward = true;
+        SetPointsFromPath();
     }
 }

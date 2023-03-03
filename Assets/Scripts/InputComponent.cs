@@ -4,29 +4,34 @@ using UnityEngine;
 
 public class InputComponent : MonoBehaviour
 {
+    //cosas de pablo
+    
+    //cosas de pablo
+    
+    #region Properties
 
-    #region properties
-    [SerializeField] private GameObject _heart;
-    private HeartDetection _heartDetection;
-    private MovementComponent _movementComponent;
     #endregion
 
     #region Parameters
-    [SerializeField] private GameObject _boxPrefab;
     private GameObject _player;
-    private GameObject _box;
-    private bool _isBox;
-    public bool IsBox { get { return _isBox; } }
+
     #endregion
 
+    #region References
+    [SerializeField] private GameObject _heart;
+    private HeartDetection _heartDetection;
+    private MovementComponent _movementComponent;
+    private Inventory _inventory;
 
-
+    private PlayerStates _playerStates;
+    #endregion
 
     void Start()
     {
         _player = GameManager.Player;
-        _isBox = false;
+        _playerStates = _player.GetComponent<PlayerStates>();
         _heartDetection = _heart.GetComponent<HeartDetection>();
+        _inventory = GameManager.Instance.GetComponent<Inventory>();
         _movementComponent = GameManager.Player.GetComponent<MovementComponent>();
     }
 
@@ -38,27 +43,27 @@ public class InputComponent : MonoBehaviour
         {
             _heartDetection.SpacePressed();
         }
-        if (Input.GetKeyDown(KeyCode.J)) 
+        if (Input.GetKeyDown(KeyCode.J) && _inventory._pildoraEquipado) //A�ADIR CONDICION DE TENERLA EN EL INVENTARIO
         {
-            if (GameManager.Instance.GetComponent<Inventory>()._PildoraEquipado)
-                GameManager.PlayerStates.PillEffect();
+            _playerStates.PillEffect();
         }
 
         // If the player presses the "K" key, change between the player and the box 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K) && _inventory._cajaEquipado)
         {
-            if (_isBox)
+            if (_playerStates.IsBox)
             {
-                Destroy(_box);
-                _player.SetActive(true);
-                _isBox = false;
+                _playerStates.ExitBox();
             }
             else
             {
-                _player.SetActive(false);
-                _box = Instantiate(_boxPrefab, _player.transform.position, Quaternion.identity);
-                _isBox = true;
+                _playerStates.EnterBox();
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.L) && _inventory._DespertadorEquipado)
+        {
+            _playerStates.Clock();
         }
 
     }

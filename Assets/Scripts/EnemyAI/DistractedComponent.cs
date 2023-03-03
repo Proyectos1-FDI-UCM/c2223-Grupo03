@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -11,8 +12,9 @@ public class DistractedComponent : MonoBehaviour
     #endregion
 
     #region parameters
-    private enum Distract { NotDistracted, MovingTowards, OnDistraction}
+    public enum Distract { NotDistracted, MovingTowards, OnDistraction}
     private Distract _current;
+    public Distract GetDistraught { get { return _current; } }
 
     private float _time;
     [SerializeField] private float _distractTime;
@@ -44,13 +46,14 @@ public class DistractedComponent : MonoBehaviour
         }
     }
 
-    private void CreateDistraction(GameObject distraction)
+    public void CreateDistraction(GameObject distraction)
     {
         _newDistance = (_myRigidbody2D.position - (Vector2)distraction.transform.position).magnitude;
         if (_currentDistance > _newDistance || _current == Distract.NotDistracted)
         {
             _distractPosition = distraction.transform.position;
             ChangeDistraction(Distract.NotDistracted);
+            _myEnemyAI.LookAtObject(distraction);
         }     
     }
     #endregion
@@ -77,7 +80,8 @@ public class DistractedComponent : MonoBehaviour
             }
         } else
         {
-
+            _current = Distract.NotDistracted;
+            _myEnemyAI.Moving = true;
         }
     }
 }
