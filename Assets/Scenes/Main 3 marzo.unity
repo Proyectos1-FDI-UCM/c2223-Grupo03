@@ -1479,7 +1479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _safeZone: {fileID: 248969094}
   _warning: {fileID: 292003229}
-  DEBUG: 1
+  DEBUG: 0
   _brokenHeart: {fileID: 21300000, guid: e83af88223627f34a88031edae9877bf, type: 3}
   _normalHeart: {fileID: 21300000, guid: cb6d7870730d34648a98d55684fa633d, type: 3}
 --- !u!114 &450403135
@@ -7830,7 +7830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 954abf70335d157408c0c4d073d3a10e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 4
+  _speed: 2
   _chasing: 0
   _timeToStopChasing: 3
   _cone: {fileID: 3946648269820003225}

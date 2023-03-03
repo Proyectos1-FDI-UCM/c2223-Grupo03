@@ -186,7 +186,7 @@ MonoBehaviour:
   m_VoxelSize: 0.13333334
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: 1ae86063518504341b179a4ed63bf8e8, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: fb8309955fe433949bf4bdef91f8f539, type: 2}
 --- !u!4 &28514205
 Transform:
   m_ObjectHideFlags: 0
@@ -867,6 +867,7 @@ MonoBehaviour:
   _heart: {fileID: 450403131}
   _safeZone: {fileID: 248969094}
   _heartBar: {fileID: 287092985}
+  _clockPrefab: {fileID: 0}
   _playerInCloset: {fileID: 1502721669}
 --- !u!1 &97728920
 GameObject:
@@ -7899,6 +7900,8 @@ MonoBehaviour:
   _safeZone: {fileID: 248969094}
   _warning: {fileID: 292003229}
   DEBUG: 1
+  _brokenHeart: {fileID: 0}
+  _normalHeart: {fileID: 0}
 --- !u!114 &450403135
 MonoBehaviour:
   m_ObjectHideFlags: 0
