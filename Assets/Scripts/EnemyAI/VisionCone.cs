@@ -8,13 +8,18 @@ public class VisionCone : MonoBehaviour
 {
     #region properties
     /// <summary>
+    /// Esta variable controla la velocidad de la transicion de rotación del
+    /// cono de visión, valores entre {0.01 y 0.1}
+    /// </summary>
+    [SerializeField] float _smoothRotation;
+    /// <summary>
     /// Esta variable controla el ángulo total de la visión 
     /// </summary>
-    [SerializeField] float fov;
+    float fov;
     /// <summary>
     /// Controla el ángulo desde el cual se crea el rayo (se genera en sentido horario
     /// </summary>
-    [SerializeField] float angle;
+    float angle;
     /// <summary>
     /// Punto de origen del mesh
     /// </summary>
@@ -23,7 +28,7 @@ public class VisionCone : MonoBehaviour
     /// <summary>
     /// Rango máximo al que puede ver el enemigo
     /// </summary>
-    [SerializeField] float viewDistance;
+    float viewDistance;
 
     //Aunque en algunos pone serializeField, los valores van a ser dependientes de los enemigos.
     //Para ello, simplemente habría que quitar el serialize field y acceder a estos valores desde el script
@@ -107,7 +112,7 @@ public class VisionCone : MonoBehaviour
     /// <param name="aimDirection"></param>
     public void SetAim(Vector3 aimDirection)
     {
-        angle = GetAngleFromVector(aimDirection) + fov / 2;
+        angle = Mathf.LerpAngle(angle, GetAngleFromVector(aimDirection) + fov / 2, _smoothRotation);
     }
 
     /// <summary>

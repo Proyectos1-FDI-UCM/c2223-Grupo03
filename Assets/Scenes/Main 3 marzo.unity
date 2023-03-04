@@ -5849,7 +5849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1167998502
 Transform:
   m_ObjectHideFlags: 0
@@ -8185,9 +8185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc465fd75a32fc645966bbac6d05d123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fov: 0
-  angle: 0
-  viewDistance: 0
+  _smoothRotation: 0
   rayCount: 20
   _myLayerMask:
     serializedVersion: 2
@@ -8630,9 +8628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc465fd75a32fc645966bbac6d05d123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fov: 0
-  angle: 0
-  viewDistance: 0
+  _smoothRotation: 0.03
   rayCount: 20
   _myLayerMask:
     serializedVersion: 2
@@ -8704,9 +8700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc465fd75a32fc645966bbac6d05d123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fov: 0
-  angle: 0
-  viewDistance: 0
+  _smoothRotation: 0
   rayCount: 20
   _myLayerMask:
     serializedVersion: 2

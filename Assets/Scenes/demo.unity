@@ -14282,9 +14282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc465fd75a32fc645966bbac6d05d123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fov: 0
-  angle: 0
-  viewDistance: 0
+  _smoothRotation: 0.02
   rayCount: 20
   _myLayerMask:
     serializedVersion: 2
@@ -14647,7 +14645,7 @@ Transform:
   - {fileID: 195787151}
   - {fileID: 69984938}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1113284263
 GameObject:
@@ -14693,7 +14691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6012942128377598855, guid: 89c8dc0719cabdf42a4b645f736336f8, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6012942128377598855, guid: 89c8dc0719cabdf42a4b645f736336f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14862,7 +14860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6012942128377598855, guid: 89c8dc0719cabdf42a4b645f736336f8, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6012942128377598855, guid: 89c8dc0719cabdf42a4b645f736336f8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16526,9 +16524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc465fd75a32fc645966bbac6d05d123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fov: 0
-  angle: 0
-  viewDistance: 0
+  _smoothRotation: 0.02
   rayCount: 20
   _myLayerMask:
     serializedVersion: 2
@@ -16756,9 +16752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc465fd75a32fc645966bbac6d05d123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fov: 0
-  angle: 0
-  viewDistance: 0
+  _smoothRotation: 0.02
   rayCount: 20
   _myLayerMask:
     serializedVersion: 2
