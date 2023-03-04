@@ -37,6 +37,7 @@ public class PlayerStates : MonoBehaviour
     [SerializeField] private GameObject _playerInCloset;
     private Inventory _inventory;
     private GameObject _player;
+    private Animator _playerAnimator;
     #endregion
 
 
@@ -112,6 +113,7 @@ public class PlayerStates : MonoBehaviour
 
     public void CancelMovement() // fatiga al fallar 3 veces
     {
+        _playerAnimator.SetBool("Sweat", true);
         _oldSpeed = GetComponent<MovementComponent>().speed;
         GetComponent<MovementComponent>().speed = 0;
         Invoke("ActiveMovement", 3);
@@ -119,6 +121,7 @@ public class PlayerStates : MonoBehaviour
 
     private void ActiveMovement() // reanuda el movimiento
     {
+        _playerAnimator.SetBool("Sweat", false);
         GetComponent<MovementComponent>().speed = _oldSpeed;
     }
     #endregion
@@ -128,6 +131,7 @@ public class PlayerStates : MonoBehaviour
         _isBox = false;
         _inventory = GameManager.Instance.GetComponent<Inventory>();
         _player = GameManager.Player;
+        _playerAnimator = _player.GetComponent<Animator>();
     }
 
     // Update is called once per frame
