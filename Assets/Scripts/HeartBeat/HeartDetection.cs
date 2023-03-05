@@ -29,11 +29,13 @@ public class HeartDetection : MonoBehaviour
     private bool _inSafeZone = false; //Se activa si se esta en la zona verde y se desactiva al salir de ella
     private bool _hasPressed = false; //Se activa al presionar el espacio una vez y se desactiva al botar,
                                       //iniciando asi un nuevo proceso
-    [SerializeField]
-    private Sprite _brokenHeart;
-    [SerializeField]
-    private Sprite _normalHeart;
+    [SerializeField] private Sprite _brokenHeart3;
+    [SerializeField] private Sprite _brokenHeart2;
+    [SerializeField] private Sprite _brokenHeart1;
+    [SerializeField] private Sprite _normalHeart;
+    [SerializeField] private Sprite _safeHeart;
 
+    private Image _currentImage;
     #endregion
 
 
@@ -47,15 +49,19 @@ public class HeartDetection : MonoBehaviour
             if (!_inSafeZone) //Si no esta en la zona segura
             {
                 _fails++; //Aumenta en uno los fallos
-                GetComponent<Image>().color = new Color(1, 1, 1, 1);
-                GetComponent<Image>().sprite = _brokenHeart;
-                GetComponent<RectTransform>().localScale = new Vector3(1.65f, 1.65f, 1f);
+                if (_fails == 1)
+                    _currentImage.sprite = _brokenHeart1;
+                if (_fails == 2)
+                    _currentImage.sprite = _brokenHeart2;
+                if (_fails == 3)
+                    _currentImage.sprite = _brokenHeart3;
                 _hasPressed = true; //Se activa el bool de pulsado
             }
-            else if (GetComponent<Image>().sprite != _brokenHeart)
+            else if (_fails < 3)
             {
                 _hasPressed = true; //Se activa el bool de pulsado
-                GetComponent<Image>().color = new Color(1, 0, 0, 1); //Cambia el color del corazón para dar feedback al jugador
+                _currentImage.sprite = _safeHeart;
+                _fails = 0;
                 if (!GameManager.PlayerStates.WithEffect)
                 {
                     _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Desactiva el panel de aviso para dar feedback al jugador
@@ -68,9 +74,8 @@ public class HeartDetection : MonoBehaviour
 
     public void ResetValues() //Al haber dado una vuelta se activa este metodo para restablecer valores al estado original
     {
-        GetComponent<Image>().color = new Color(0, 0, 1, 1); //Cambia el color del corazón
-        GetComponent<Image>().sprite = _normalHeart;
-        GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+        if (_currentImage.sprite == _safeHeart || _currentImage.sprite == _brokenHeart3)
+            _currentImage.sprite = _normalHeart;
         _hasPressed = false; //Se reestablece el bool de presionado
     }
 
@@ -95,10 +100,15 @@ public class HeartDetection : MonoBehaviour
             if (!_hasPressed) //Si no se a presionado el espacio quiere decir que se ha saltado la zona sagura y por tanto es un fallo
             {
                 _fails++;
-                GetComponent<Image>().color = new Color(1, 1, 1, 1);
-                GetComponent<Image>().sprite = _brokenHeart;
-                GetComponent<RectTransform>().localScale = new Vector3(1.75f, 1.75f, 1f);
+                if (_fails == 1)
+                    _currentImage.sprite = _brokenHeart1;
+                if (_fails == 2)
+                    _currentImage.sprite = _brokenHeart2;
+                if (_fails == 3)
+                    _currentImage.sprite = _brokenHeart3;
             }
+            if (_currentImage.sprite == _safeHeart)
+                _currentImage.sprite = _normalHeart;
         }
     }
 
@@ -108,6 +118,7 @@ public class HeartDetection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _currentImage = GetComponent<Image>();
         _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Se desactiva el panel de aviso de primeras
     }
 
@@ -116,7 +127,6 @@ public class HeartDetection : MonoBehaviour
     {
         if (_fails == 3 && !DEBUG) //Se comprueba si se ha llegado a 3 fallos
         {
-            Debug.Log("Muerto");
             GameManager.PlayerStates.CancelMovement();
             GetComponent<HeartMove>().CancelMovement();
             _fails = -1; //Se reestablecen los fallos
