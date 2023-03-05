@@ -37,7 +37,8 @@ public class HeartMove : MonoBehaviour
         if (collision.gameObject == _endOfVoid || collision.gameObject == _startOfVoid) //Si el choque a sido en efecto con dichos componentes
         {
             _speed = _speed * -1; //La velocidad cambia de sentido
-            GetComponent<HeartDetection>().ResetValues(); //Se le dice al HeartDetection que reestablezca los valores predeterminaods del corazón
+            //Se le dice al HeartDetection que reestablezca los valores predeterminaods del corazón
+            GetComponent<HeartDetection>().ResetValues(); 
         }
     }
 
@@ -50,6 +51,7 @@ public class HeartMove : MonoBehaviour
     private void ActiveMovement()
     {
         _speed = _tempSpeed;
+        GetComponent<HeartDetection>().ResetValues();
     }
 
     #endregion
