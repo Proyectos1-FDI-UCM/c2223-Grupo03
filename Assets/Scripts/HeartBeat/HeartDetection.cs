@@ -61,7 +61,6 @@ public class HeartDetection : MonoBehaviour
             {
                 _hasPressed = true; //Se activa el bool de pulsado
                 _currentImage.sprite = _safeHeart;
-                _fails = 0;
                 if (!GameManager.PlayerStates.WithEffect)
                 {
                     _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Desactiva el panel de aviso para dar feedback al jugador
@@ -100,15 +99,15 @@ public class HeartDetection : MonoBehaviour
             if (!_hasPressed) //Si no se a presionado el espacio quiere decir que se ha saltado la zona sagura y por tanto es un fallo
             {
                 _fails++;
-                if (_fails == 1)
-                    _currentImage.sprite = _brokenHeart1;
-                if (_fails == 2)
-                    _currentImage.sprite = _brokenHeart2;
-                if (_fails == 3)
-                    _currentImage.sprite = _brokenHeart3;
             }
-            if (_currentImage.sprite == _safeHeart)
+            if (_fails == 0)
                 _currentImage.sprite = _normalHeart;
+            if (_fails == 1)
+                _currentImage.sprite = _brokenHeart1;
+            if (_fails == 2)
+                _currentImage.sprite = _brokenHeart2;
+            if (_fails == 3)
+                _currentImage.sprite = _brokenHeart3;
         }
     }
 
