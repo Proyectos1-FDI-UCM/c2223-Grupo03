@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CloseDoor
+  m_Name: CloseKey_Side
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1937654319, guid: 284ea331c69e47d4eb3702e4be6dd476, type: 3}
+      value: {fileID: 1892857313, guid: 8a76362fb75abe54094344d7d3c0b364, type: 3}
     - time: 0.083333336
-      value: {fileID: 1419608945, guid: 284ea331c69e47d4eb3702e4be6dd476, type: 3}
+      value: {fileID: 91918382, guid: 8a76362fb75abe54094344d7d3c0b364, type: 3}
     - time: 0.16666667
-      value: {fileID: 642821517, guid: 284ea331c69e47d4eb3702e4be6dd476, type: 3}
+      value: {fileID: 279776242, guid: 8a76362fb75abe54094344d7d3c0b364, type: 3}
     - time: 0.25
-      value: {fileID: 431480763, guid: 284ea331c69e47d4eb3702e4be6dd476, type: 3}
+      value: {fileID: 1721838453, guid: 8a76362fb75abe54094344d7d3c0b364, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,10 +46,10 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1937654319, guid: 284ea331c69e47d4eb3702e4be6dd476, type: 3}
-    - {fileID: 1419608945, guid: 284ea331c69e47d4eb3702e4be6dd476, type: 3}
-    - {fileID: 642821517, guid: 284ea331c69e47d4eb3702e4be6dd476, type: 3}
-    - {fileID: 431480763, guid: 284ea331c69e47d4eb3702e4be6dd476, type: 3}
+    - {fileID: 1892857313, guid: 8a76362fb75abe54094344d7d3c0b364, type: 3}
+    - {fileID: 91918382, guid: 8a76362fb75abe54094344d7d3c0b364, type: 3}
+    - {fileID: 279776242, guid: 8a76362fb75abe54094344d7d3c0b364, type: 3}
+    - {fileID: 1721838453, guid: 8a76362fb75abe54094344d7d3c0b364, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

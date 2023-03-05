@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 284ea331c69e47d4eb3702e4be6dd476
+guid: 8a76362fb75abe54094344d7d3c0b364
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,133 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: front4
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 464
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63fee84e9a929314dbc37d06b089f0db
-      internalID: 1428814869
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sidedoor1
-      rect:
-        serializedVersion: 2
-        x: 220
-        y: 464
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 324072fba9d0b494192d95eb0c96cfea
-      internalID: -933442360
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: front3
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 367
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3d4a52d8fd2f2bd41b2dfa3e1b904210
-      internalID: -797255660
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sidedoor2
-      rect:
-        serializedVersion: 2
-        x: 222
-        y: 368
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 20c872a1dcc7b3e4baa5ce2b7ff2d2ae
-      internalID: 660041783
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: front2
-      rect:
-        serializedVersion: 2
-        x: 31
-        y: 272
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a02e82ec5b0e4148a6b028d983c841a
-      internalID: 62102345
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sidedoor3
-      rect:
-        serializedVersion: 2
-        x: 223
-        y: 272
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b59d89c013a7f7842aec001f0b19cb25
-      internalID: -1253714220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: front1
+      name: keydoor_front0
       rect:
         serializedVersion: 2
         x: 32
@@ -244,18 +118,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ecd4a4b2107e1249bedc2ce095ca678
-      internalID: 637197101
+      spriteID: 3230a0d534288304f8302756c4b15d7e
+      internalID: -1324439373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sidedoor4
+      name: keydoor_front1
       rect:
         serializedVersion: 2
-        x: 224
-        y: 208
+        x: 31
+        y: 272
         width: 32
         height: 64
       alignment: 0
@@ -265,8 +139,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 139180543a01c0345a5d31ff0326391d
-      internalID: -1499631689
+      spriteID: 9bc00f2c53c40cb47995c8a7abdff39b
+      internalID: -222449055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keydoor_front2
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 368
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bf0257ef41916847ba2f344d03644a7
+      internalID: -1908099143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keydoor_front3
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 464
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0021c99cb5db1b49a511823e0bb092f
+      internalID: -1674096735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keydoor_side0
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 208
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c77af59c8ac2e84cb00638b0f46cb69
+      internalID: 1892857313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keydoor_side1
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 272
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c357d851b4e48ab4889e853a9de2d08b
+      internalID: 91918382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keydoor_side2
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 368
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4719792e954ad6e40874e69d7b820cf3
+      internalID: 279776242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: keydoor_3
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 465
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00e4e5a7019bc624c8ab47809d092652
+      internalID: 1721838453
       vertices: []
       indices: 
       edges: []
@@ -282,48 +282,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lpc-doors-animated-1_22: 1024655955
-      lpc-doors-animated-1_27: -937583324
-      lpc-doors-animated-1_33: 1955572759
-      lpc-doors-animated-1_31: -1215931127
-      lpc-doors-animated-1_35: -908120259
-      lpc-doors-animated-1_2: 368747168
-      lpc-doors-animated-1_1: 62102345
-      lpc-doors-animated-1_20: -450961218
-      lpc-doors-animated-1_8: 1724876501
-      front3: -797255660
-      lpc-doors-animated-1_16: -1448725787
-      lpc-doors-animated-1_37: 637197101
-      lpc-doors-animated-1_25: -797255660
-      back1: 642821517
-      lpc-doors-animated-1_5: -81768618
-      lpc-doors-animated-1_14: 2106892849
-      lpc-doors-animated-1_29: -1103027478
-      lpc-doors-animated-1_38: -370318137
-      lpc-doors-animated-1_7: -180477990
-      lpc-doors-animated-1_41: 642821517
-      lpc-doors-animated-1_39: 1875561192
-      sidedoor4: 431480763
-      front1: 637197101
-      lpc-doors-animated-1_4: -238112081
-      lpc-doors-animated-1_34: -1434272878
-      sidedoor2: -1253714220
-      lpc-doors-animated-1_23: 1544573267
-      front4: 1428814869
-      sidedoor3: -1499631689
-      sidedoor1: 660041783
-      lpc-doors-animated-1_26: -629757782
-      back2: 1419608945
-      lpc-doors-animated-1_10: 1428814869
-      lpc-doors-animated-1_32: 1419608945
-      front2: 62102345
-      lpc-doors-animated-1_13: -1736161516
-      back3: -1937654319
-      lpc-doors-animated-1_19: -223268365
-      lpc-doors-animated-1_40: -1365831569
-      lpc-doors-animated-1_28: -552418661
-      lpc-doors-animated-1_17: -272700906
-      lpc-doors-animated-1_11: -933442360
+      keydoor_side0: 1892857313
+      keydoor_front3: -1674096735
+      keydoor_front2: -1908099143
+      keydoor_front0: -1324439373
+      keydoor_side1: 91918382
+      keydoor_front1: -222449055
+      keydoor_side2: 279776242
+      keydoor_3: 1721838453
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
