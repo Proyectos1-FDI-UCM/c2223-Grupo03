@@ -9310,7 +9310,7 @@ GameObject:
   - component: {fileID: 1000596369}
   - component: {fileID: 1000596368}
   - component: {fileID: 1000596367}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap_Furniture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
