@@ -61,6 +61,7 @@ public class HeartDetection : MonoBehaviour
             {
                 _hasPressed = true; //Se activa el bool de pulsado
                 _currentImage.sprite = _safeHeart;
+                _fails = 0;
                 if (!GameManager.PlayerStates.WithEffect)
                 {
                     _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Desactiva el panel de aviso para dar feedback al jugador

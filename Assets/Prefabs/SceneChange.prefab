@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 815147919935258584}
   - component: {fileID: 2721186392037604967}
-  - component: {fileID: 6726651322797810865}
   - component: {fileID: 2772001314280625708}
+  - component: {fileID: 5520505104183516836}
   m_Layer: 0
-  m_Name: Room
+  m_Name: SceneChange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -86,18 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6726651322797810865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823646916731017774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e64f3022657cdc04cb92d34753eced26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &2772001314280625708
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -127,3 +115,16 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.5}
       - {x: 0.5, y: -0.5}
       - {x: 0.5, y: 0.5}
+--- !u!114 &5520505104183516836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823646916731017774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd574d0e70f4bf40bb603432f598800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 0
