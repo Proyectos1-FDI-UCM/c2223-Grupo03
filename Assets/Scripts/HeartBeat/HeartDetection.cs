@@ -46,6 +46,8 @@ public class HeartDetection : MonoBehaviour
 
         if (!_hasPressed) //Si ya se ha presionado espacio en esa vuelta no hace nada
         {
+            Debug.Log("Aun no has presionado");
+
             if (!_inSafeZone) //Si no esta en la zona segura
             {
                 _fails++; //Aumenta en uno los fallos
@@ -73,6 +75,7 @@ public class HeartDetection : MonoBehaviour
 
     public void ResetValues() //Al haber dado una vuelta se activa este metodo para restablecer valores al estado original
     {
+        Debug.Log("Reseteo");
         if (_currentImage.sprite == _safeHeart || _currentImage.sprite == _brokenHeart3)
             _currentImage.sprite = _normalHeart;
         _hasPressed = false; //Se reestablece el bool de presionado
@@ -99,6 +102,7 @@ public class HeartDetection : MonoBehaviour
             if (!_hasPressed) //Si no se a presionado el espacio quiere decir que se ha saltado la zona sagura y por tanto es un fallo
             {
                 _fails++;
+                _hasPressed = true;
             }
             if (_fails == 0)
                 _currentImage.sprite = _normalHeart;
@@ -128,7 +132,7 @@ public class HeartDetection : MonoBehaviour
         {
             GameManager.PlayerStates.CancelMovement();
             GetComponent<HeartMove>().CancelMovement();
-            _fails = -1; //Se reestablecen los fallos
+            _fails = 0; //Se reestablecen los fallos
         }
     }
 }

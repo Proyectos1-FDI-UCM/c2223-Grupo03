@@ -51,7 +51,6 @@ public class HeartMove : MonoBehaviour
     private void ActiveMovement()
     {
         _speed = _tempSpeed;
-        GetComponent<HeartDetection>().ResetValues();
     }
 
     #endregion
