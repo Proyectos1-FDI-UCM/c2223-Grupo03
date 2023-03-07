@@ -76,7 +76,8 @@ public class PlayerStates : MonoBehaviour
     {
         if (!_withEffect)
         {
-            //activamos efecto pasti 
+            //activamos efecto pastilla
+            _heart.GetComponent<HeartDetection>()._pillEffects = true;
             _heart.GetComponent<HeartMove>().enabled = false;
             _safeZone.GetComponent<ProximityComponent>().enabled = false;
             _heartBar.SetActive(false);
@@ -106,6 +107,7 @@ public class PlayerStates : MonoBehaviour
         _heartBar.transform.GetChild(1).GetComponent<Image>().color += new Color(0, 0, 0, 0.25f);
         _heartBar.transform.GetChild(2).GetComponent<ParpadeoComponent>().enabled = false;
         _heartBar.transform.GetChild(2).GetComponent<Image>().color += new Color(0, 0, 0, 0.25f);
+        _heart.GetComponent<HeartDetection>()._pillEffects = false;
         _heart.GetComponent<HeartMove>().enabled = true;
         _safeZone.GetComponent<ProximityComponent>().enabled = true;
         _withEffect = false;
