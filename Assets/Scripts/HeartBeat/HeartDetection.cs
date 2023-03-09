@@ -29,6 +29,8 @@ public class HeartDetection : MonoBehaviour
     private bool _inSafeZone = false; //Se activa si se esta en la zona verde y se desactiva al salir de ella
     private bool _hasPressed = false; //Se activa al presionar el espacio una vez y se desactiva al botar,
                                       //iniciando asi un nuevo proceso
+    public bool _pillEffects = false;
+
     [SerializeField] private Sprite _brokenHeart3;
     [SerializeField] private Sprite _brokenHeart2;
     [SerializeField] private Sprite _brokenHeart1;
@@ -46,8 +48,10 @@ public class HeartDetection : MonoBehaviour
 
         if (!_hasPressed) //Si ya se ha presionado espacio en esa vuelta no hace nada
         {
+
             if (!_inSafeZone) //Si no esta en la zona segura
             {
+                Debug.Log("Fallo al presionar");
                 _fails++; //Aumenta en uno los fallos
                 if (_fails == 1)
                     _currentImage.sprite = _brokenHeart1;
@@ -96,9 +100,11 @@ public class HeartDetection : MonoBehaviour
             _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Se desactiva el panel de aviso
             _inSafeZone = false; //Se muestra que ya no se esta en la zona segura
 
-            if (!_hasPressed) //Si no se a presionado el espacio quiere decir que se ha saltado la zona sagura y por tanto es un fallo
+            if (!_hasPressed && !_pillEffects) //Si no se a presionado el espacio quiere decir que se ha saltado la zona segura y por tanto es un fallo
             {
+                Debug.Log("Fallo por salida");
                 _fails++;
+                _hasPressed = true;
             }
             if (_fails == 0)
                 _currentImage.sprite = _normalHeart;
@@ -128,7 +134,7 @@ public class HeartDetection : MonoBehaviour
         {
             GameManager.PlayerStates.CancelMovement();
             GetComponent<HeartMove>().CancelMovement();
-            _fails = -1; //Se reestablecen los fallos
+            _fails = 0; //Se reestablecen los fallos
         }
     }
 }

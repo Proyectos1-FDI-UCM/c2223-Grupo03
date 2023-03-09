@@ -1216,6 +1216,7 @@ MonoBehaviour:
   _safeZone: {fileID: 248969094}
   _warning: {fileID: 292003229}
   DEBUG: 0
+  _pillEffects: 0
   _brokenHeart3: {fileID: 1430472703, guid: 44ecdaa7c303dab48af3f5e9805a567e, type: 3}
   _brokenHeart2: {fileID: -1175015732, guid: 44ecdaa7c303dab48af3f5e9805a567e, type: 3}
   _brokenHeart1: {fileID: 1010853628, guid: 44ecdaa7c303dab48af3f5e9805a567e, type: 3}
@@ -8770,6 +8771,14 @@ PrefabInstance:
     - target: {fileID: 8358699430043619907, guid: b1ee2d2fbb91697408066dd5a6abfd35, type: 3}
       propertyPath: m_LocalPosition.y
       value: -3.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358699430043619909, guid: b1ee2d2fbb91697408066dd5a6abfd35, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8358699430043619909, guid: b1ee2d2fbb91697408066dd5a6abfd35, type: 3}
+      propertyPath: m_FlipY
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8753945854030278512, guid: b1ee2d2fbb91697408066dd5a6abfd35, type: 3}
       propertyPath: m_Name
