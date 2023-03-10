@@ -125,3 +125,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 3
+  _Spawner: {fileID: 6456082047430946671, guid: 48efc2fb45649ce43b09f04b7bb1446f, type: 3}
+  _canSpawn: 1
