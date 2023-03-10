@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using System;
+using System.Runtime.CompilerServices;
 
 public class ParpadeoComponent : MonoBehaviour
 {
@@ -19,6 +22,11 @@ public class ParpadeoComponent : MonoBehaviour
 
     private float _elapsedTime; //Tiempo que ha pasado
     private bool _oneColor; //Booleano que sirve para alternar entre la transparencia y la opacidad
+
+
+    private bool _aumenta;
+    private bool _cambia;
+    private int i = 5;
 
 
     #endregion
@@ -76,6 +84,34 @@ public class ParpadeoComponent : MonoBehaviour
             else
             {
                 _elapsedTime += Time.deltaTime;
+            }
+        }
+        else if ( gameObject.GetComponent<Light2D>() != null)
+        {
+            if (_elapsedTime > _flickerSpeed)
+            {
+                _cambia = true;
+                _elapsedTime = 0;
+            }
+            else
+            {
+                _elapsedTime += Time.deltaTime;
+                _cambia = false;
+            }
+            if (_cambia)
+            {
+                Debug.Log("CAMBIA");
+            }
+            if (_cambia)
+            {
+                if (_aumenta)
+                {
+                    gameObject.GetComponent<Light2D>().intensity += 0.01f;
+                }
+                else
+                {
+                    gameObject.GetComponent<Light2D>().intensity -= 0.01f;
+                }
             }
         }
         else
