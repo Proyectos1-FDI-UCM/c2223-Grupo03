@@ -8,10 +8,14 @@ public class SpawnerComponent : MonoBehaviour
     public GameObject _objectPrefab;
     private GameObject _spawnedObject;
     [SerializeField] public float _spawnDelay = 2f;
+    private Inventory _inventory;
+
+
 
     private void Start()
     {
         SpawnObject();
+        _inventory = GameManager.Instance.GetComponent<Inventory>();
     }
 
     public void SpawnObject()

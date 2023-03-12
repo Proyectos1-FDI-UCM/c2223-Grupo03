@@ -5,6 +5,13 @@ using UnityEngine;
 public class ObjectController : MonoBehaviour
 {
     private SpawnerComponent _spawnerComp;
+    private Inventory _inventory;
+
+
+    private void Start()
+    {
+        _inventory = GameManager.Instance.GetComponent<Inventory>();
+    }
 
 
     public void SetSpawner(SpawnerComponent newSpawner)
