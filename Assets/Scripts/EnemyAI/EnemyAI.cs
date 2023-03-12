@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -217,11 +215,11 @@ public class EnemyAI : MonoBehaviour
         {
             if (_chasing)
             {
-                _timeToSound = _timeChase;
+                _timeToSound = Random.Range(_timeChase, _timeChase+0.1f);
                 _myAudio.Play();
             } else
             {
-                _timeToSound = _time;
+                _timeToSound = Random.Range(_time, _time+0.2f);
                 _myAudio.Play();
             }    
         } else
