@@ -1,4 +1,4 @@
-using Microsoft.Unity.VisualStudio.Editor;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -55,7 +55,7 @@ public class Inventory : MonoBehaviour
         else if (_item == 4)
         {
             _llaveEquipado = true;
-            _llaveUI.gameObject.SetActive(true);
+            _llaveUI.gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 1);
         }
     }
 
@@ -79,7 +79,7 @@ public class Inventory : MonoBehaviour
         else if (_item == 4)
         {
             _llaveEquipado = false;
-            _llaveUI.gameObject.SetActive(false);
+            _llaveUI.gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0.25f);
         }
     }
 }

@@ -20,7 +20,7 @@ public class DoorComponent : MonoBehaviour
     {
        if (col.CompareTag("Player"))
         {
-            _animator.SetTrigger("Tocar");
+            _animator.SetBool("EnPuerta", true);
         }
     }
 
@@ -28,7 +28,7 @@ public class DoorComponent : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            _animator.SetTrigger("Tocar");
+            _animator.SetBool("EnPuerta", false);
         }
     }
     #endregion

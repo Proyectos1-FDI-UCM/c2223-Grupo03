@@ -48,9 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc465fd75a32fc645966bbac6d05d123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fov: 0
-  angle: 0
-  viewDistance: 0
+  _smoothRotation: 0.02
   rayCount: 20
   _myLayerMask:
     serializedVersion: 2
@@ -224,7 +222,7 @@ GameObject:
   - component: {fileID: 1841242808948413951}
   - component: {fileID: 1841242808948413936}
   - component: {fileID: 3348115776394158634}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +262,7 @@ MonoBehaviour:
   _timeToStopChasing: 3
   _cone: {fileID: 1841242808282447247}
   _coneFov: 60
-  _coneDistance: 5
+  _coneDistance: 3.5
   _path: {fileID: 1841242808569706103}
   _cicle: 1
   _points: []
@@ -288,7 +286,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -51,7 +51,7 @@ GameObject:
   - component: {fileID: 1302032981126837768}
   - component: {fileID: 6107940113036499733}
   - component: {fileID: 6698463111236927710}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ MonoBehaviour:
   _timeToStopChasing: 3
   _cone: {fileID: 1302032981674574250}
   _coneFov: 60
-  _coneDistance: 3
+  _coneDistance: 3.5
   _path: {fileID: 1302032981029496317}
   _cicle: 1
   _points: []
@@ -327,9 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc465fd75a32fc645966bbac6d05d123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fov: 0
-  angle: 0
-  viewDistance: 0
+  _smoothRotation: 0.02
   rayCount: 20
   _myLayerMask:
     serializedVersion: 2
