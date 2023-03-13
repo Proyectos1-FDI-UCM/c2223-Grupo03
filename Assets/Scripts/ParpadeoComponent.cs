@@ -86,34 +86,6 @@ public class ParpadeoComponent : MonoBehaviour
                 _elapsedTime += Time.deltaTime;
             }
         }
-        else if ( gameObject.GetComponent<Light2D>() != null)
-        {
-            if (_elapsedTime > _flickerSpeed)
-            {
-                _cambia = true;
-                _elapsedTime = 0;
-            }
-            else
-            {
-                _elapsedTime += Time.deltaTime;
-                _cambia = false;
-            }
-            if (_cambia)
-            {
-                Debug.Log("CAMBIA");
-            }
-            if (_cambia)
-            {
-                if (_aumenta)
-                {
-                    gameObject.GetComponent<Light2D>().intensity += 0.01f;
-                }
-                else
-                {
-                    gameObject.GetComponent<Light2D>().intensity -= 0.01f;
-                }
-            }
-        }
         else
         {
             if (_elapsedTime >= _flickerSpeed)
