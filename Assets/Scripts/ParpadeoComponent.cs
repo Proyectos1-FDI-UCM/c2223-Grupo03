@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using System;
+using System.Runtime.CompilerServices;
 
 public class ParpadeoComponent : MonoBehaviour
 {
@@ -19,6 +22,11 @@ public class ParpadeoComponent : MonoBehaviour
 
     private float _elapsedTime; //Tiempo que ha pasado
     private bool _oneColor; //Booleano que sirve para alternar entre la transparencia y la opacidad
+
+
+    private bool _aumenta;
+    private bool _cambia;
+    private int i = 5;
 
 
     #endregion
