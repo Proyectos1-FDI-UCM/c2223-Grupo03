@@ -19,9 +19,9 @@ public class ObjectController : MonoBehaviour
         _spawnerComp = newSpawner;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (collision.tag == "Player")
+        if (col.CompareTag("Player"))
         {
             //Aquí es donde se detecta que el objeto ha sido recogido por el jugador
             if (_spawnerComp != null)

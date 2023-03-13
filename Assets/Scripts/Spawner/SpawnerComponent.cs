@@ -29,8 +29,12 @@ public class SpawnerComponent : MonoBehaviour
 
     public void ObjectHasBeenCollected()
     {
-        _spawnedObject = null;
-        Invoke("SpawnObject", _spawnDelay);
+        if (_inventory._cajaEquipado)
+        {
+            _spawnedObject = null;
+            Invoke("SpawnObject", _spawnDelay);
+        }
+       
     }
 }
 
