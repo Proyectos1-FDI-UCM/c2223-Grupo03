@@ -136,7 +136,7 @@ public class HeartDetection : MonoBehaviour
     {
         if (_fails == 3 && !DEBUG) //Se comprueba si se ha llegado a 3 fallos
         {
-            GameManager.PlayerStates.CancelMovement();
+            GameManager.PlayerStates.SweatCancelMovement();
             GetComponent<HeartMove>().CancelMovement();
             _fails = 0; //Se reestablecen los fallos
         }
