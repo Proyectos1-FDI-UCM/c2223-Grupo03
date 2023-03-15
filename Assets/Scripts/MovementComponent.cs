@@ -15,6 +15,10 @@ public class MovementComponent : MonoBehaviour
     public void ChangeValues(float horizontal, float vertical)
     {
         movement = new Vector2(horizontal, vertical);
+        if (horizontal > 0.2 || vertical > 0.2 )
+        {
+            _audioSource.Play();
+        }
        
     }
 
