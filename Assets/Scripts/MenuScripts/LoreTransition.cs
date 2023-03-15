@@ -5,12 +5,16 @@ using UnityEngine;
 
 public class LoreTransition : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI _dialogText;
     [SerializeField] int _lettersPerSecond;
-    [SerializeField] string _text;
+    [SerializeField] TextMeshProUGUI _dialogText;
+    GameObject[] _transitions;
+    int _actualTransition = 0;
+    
     void Start()
     {
-        StartCoroutine(TypeDialog(_text));
+        _transitions = gameObject.GetComponentsInChildren<GameObject>();
+        
+        StartCoroutine(TypeDialog("test"));
     }
 
     public IEnumerator TypeDialog(string dialog)
