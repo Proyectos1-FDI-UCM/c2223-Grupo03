@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Material/Tilesets/LPC_house_interior/Palettes/GroundPalette/preview_224.asset.meta
 guid: a86f69aa035bd1244b169757fc8ec7a2
+=======
+guid: b9704c51fdba611428c75658b9016f3f
+>>>>>>> Stashed changes:Assets/LPC_house_interior/Palettes/GroundPalette/preview_224.asset.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 11400000
