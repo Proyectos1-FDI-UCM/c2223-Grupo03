@@ -19,10 +19,10 @@ public class ObjectController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Box"))
+        if (col.gameObject.tag == "Box")
         {
             //Aquí es donde se detecta que el objeto ha sido recogido por el jugador
-            if (_spawnerComp._boxPicked == false)
+            if (_spawnerComp._boxPicked == false && _spawnerComp._spawnedObject == null)
             {
                 Debug.Log("hola");
                 _spawnerComp._boxPicked = true;

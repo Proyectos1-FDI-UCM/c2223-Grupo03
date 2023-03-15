@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpawnerComponent : MonoBehaviour
 {
     [SerializeField] private GameObject _objectPrefab;
-    private GameObject _spawnedObject;
+    public bool _spawnedObject = false;
     [SerializeField] public float _spawnDelay = 2f;
     private Inventory _inventory;
     private ObjectController _objectController;
