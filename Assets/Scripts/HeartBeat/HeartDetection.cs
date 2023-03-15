@@ -89,6 +89,7 @@ public class HeartDetection : MonoBehaviour
 
         if (collision.gameObject == _safeZone) //Si el trigger es el de la zona segura
         {
+            Debug.Log("Entro");
             _beepSound.Play();
             _warning.GetComponent<Image>().color = new Color(1, 0, 0, 0.20f); //Se activa el panel de aviso
             _inSafeZone = true; //El bool de zona segura se activa
