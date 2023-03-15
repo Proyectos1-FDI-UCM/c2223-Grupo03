@@ -25,8 +25,7 @@ public class OnPick : MonoBehaviour
             else if (_id == 2 && !_Inventory._CajaEquipado) 
             {
                 _Inventory.AñadeObjeto(_id);
-                //Destroy(gameObject);
-                gameObject.SetActive(false);
+                Destroy(gameObject);
 
             }
             else if (_id == 3 && !_Inventory._DespertadorEquipado) 

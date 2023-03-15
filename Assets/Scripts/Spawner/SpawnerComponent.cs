@@ -5,39 +5,33 @@ using UnityEngine;
 
 public class SpawnerComponent : MonoBehaviour
 {
-    public GameObject _objectPrefab;
+    [SerializeField] private GameObject _objectPrefab;
     private GameObject _spawnedObject;
     [SerializeField] public float _spawnDelay = 2f;
     private Inventory _inventory;
-    private bool _boxspawned = true;
-
+    private ObjectController _objectController;
+    public bool _boxPicked = false;
 
 
     private void Start()
     {
-        SpawnObject();
+        _spawnedObject = Instantiate(_objectPrefab, transform.position, Quaternion.identity);
         _inventory = GameManager.Instance.GetComponent<Inventory>();
+        _objectController = GameManager.Player.GetComponent<ObjectController>();
     }
 
     public void SpawnObject()
     {
-        if (_spawnedObject == null)
-        {
-            _boxspawned = true;
-            _spawnedObject = Instantiate(_objectPrefab, transform.position, Quaternion.identity);
-            _spawnedObject.GetComponent<ObjectController>().SetSpawner(this);
-        }
+ 
+        _spawnedObject = Instantiate(_objectPrefab, transform.position, Quaternion.identity);
+       
     }
 
     public void ObjectHasBeenCollected()
     {
-        if (_inventory._CajaEquipado && _spawnedObject == null && _boxspawned == false)
-        {
-            _boxspawned = false;
-            _spawnedObject = null;
-            Invoke("SpawnObject", _spawnDelay);
-        }
-       
+        Invoke("SpawnObject", _spawnDelay);
+        _boxPicked = false;
+
     }
 }
 

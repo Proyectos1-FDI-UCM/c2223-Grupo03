@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 6003108268043784047}
   - component: {fileID: 5069850315928051617}
   - component: {fileID: 4493523044498556185}
-  - component: {fileID: 8372427459481604544}
   m_Layer: 0
   m_Name: CajaPrefab
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,15 +125,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6169686, y: 1.6698233}
   m_EdgeRadius: 0
---- !u!114 &8372427459481604544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3000885595798816680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f55e2d54e0249e348b265df866408092, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
