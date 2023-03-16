@@ -496,6 +496,7 @@ GameObject:
   - component: {fileID: 79729604}
   - component: {fileID: 79729610}
   - component: {fileID: 79729611}
+  - component: {fileID: 79729612}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -670,6 +671,19 @@ MonoBehaviour:
   _heartBar: {fileID: 287092985}
   _clockPrefab: {fileID: 3697284210538362169, guid: 1ab7110cc449ca64a897a3bb0dc4af9c, type: 3}
   _playerInCloset: {fileID: 1502721669}
+--- !u!114 &79729612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79729603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55e2d54e0249e348b265df866408092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawner: {fileID: 6456082047430946671, guid: 48efc2fb45649ce43b09f04b7bb1446f, type: 3}
 --- !u!4 &118438879 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 815147919935258584, guid: 9d3302a22db5c3447a4accbea2fb7b81, type: 3}
@@ -4422,6 +4436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 4
+  _spawner: {fileID: 0}
 --- !u!61 &667596775
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9191,6 +9206,10 @@ PrefabInstance:
       propertyPath: _spawnDelay
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6456082047430946670, guid: 48efc2fb45649ce43b09f04b7bb1446f, type: 3}
+      propertyPath: _spawnedObject
+      value: 
+      objectReference: {fileID: 3000885595798816680, guid: 4967b4ec75003ba429f7d246162de57f, type: 3}
     - target: {fileID: 6456082047430946671, guid: 48efc2fb45649ce43b09f04b7bb1446f, type: 3}
       propertyPath: m_Name
       value: Spawner
