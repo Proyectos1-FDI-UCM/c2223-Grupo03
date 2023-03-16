@@ -9,10 +9,14 @@ public class TutorialEvents : MonoBehaviour
     [SerializeField] private GameObject _pulsaEspacioTexto;
     [SerializeField] private GameObject _textoPildora;
     [SerializeField] private GameObject _enemigo1;
+    [SerializeField] private GameObject _enemigo2;
+    [SerializeField] private GameObject _muroInvisible;
     [SerializeField] private Transform _changeCameraPosition;
     private GameObject _instancePulsaEspacioTexto;
     private GameObject _instanceTextoPildora;
     private GameObject _instanceEnemigo1;
+    private GameObject _instanceEnemigo2;
+    private GameObject _instanceMuroInvisible;
 
     private PlayerStates _playerStates;
     private HeartDetection _heartDetection;
@@ -50,7 +54,13 @@ public class TutorialEvents : MonoBehaviour
     }
     private void InsideCloset()
     {
-
+        _instanceEnemigo2 = Instantiate(_enemigo2);
+        Destroy(_instanceMuroInvisible);
+        Invoke("FinishCloset", 7);
+    }
+    private void FinishCloset()
+    {
+        Destroy(_instanceEnemigo2);
     }
     private void ShowEnemy()
     {
@@ -64,6 +74,8 @@ public class TutorialEvents : MonoBehaviour
     {
         Camera.main.GetComponent<CameraFollow>().ChangeCameraPosition(GameManager.Player.transform);
         Invoke("StopShowEnemy2", 0.3f);
+        _instanceMuroInvisible = Instantiate(_muroInvisible);
+        _blackRooms.SetActive(true);
     }
     private void StopShowEnemy2()
     {
@@ -98,6 +110,13 @@ public class TutorialEvents : MonoBehaviour
     {
         _heartMove.ActiveMovement();
         _animatorHeartBar.SetTrigger("Salir");
+    }
+    private void Update()
+    {
+        if (numOfEvent == 5 && !GameManager.Player.active)
+        {
+            Triggered();
+        }
     }
     void Start()
     {
