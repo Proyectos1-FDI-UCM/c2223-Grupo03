@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lettersPerSecond: 10
+  _imageAnimTime: 1
   _dialogText: {fileID: 1385322451}
   _imageContainer: {fileID: 1751528293}
   _dialogs:
@@ -280,7 +281,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a017448d7cd194542816ea577b91259c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
