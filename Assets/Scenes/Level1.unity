@@ -17211,6 +17211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28690e406ed8c74aaf3de1c42d488eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerInCloset: {fileID: 1502721669}
 --- !u!82 &4895117381649016321
 AudioSource:
   m_ObjectHideFlags: 0
@@ -18165,6 +18166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28690e406ed8c74aaf3de1c42d488eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerInCloset: {fileID: 1502721669}
 --- !u!82 &7279807761975536663
 AudioSource:
   m_ObjectHideFlags: 0
