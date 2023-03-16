@@ -12,12 +12,12 @@ public class OnPick : MonoBehaviour
     private void Start()
     {
         _Inventory = GameManager.Instance.GetComponent<Inventory>();
-        _pickupAudio = GetComponent<AudioSource>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
+            collision.GetComponent<AudioSource>().Play();
             if (_id == 1 && !_Inventory._PildoraEquipado)
             {
                 _Inventory.AñadeObjeto(_id);
@@ -38,8 +38,6 @@ public class OnPick : MonoBehaviour
                 _Inventory.AñadeObjeto(_id);
                 Destroy(gameObject);
             }
-            _pickupAudio.Play();
-
         }
     }
 }
