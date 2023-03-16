@@ -7,10 +7,12 @@ public class OnPick : MonoBehaviour
 {
     [SerializeField] private int _id;
     Inventory _Inventory;
+    private AudioSource _pickupAudio;
 
     private void Start()
     {
         _Inventory = GameManager.Instance.GetComponent<Inventory>();
+        _pickupAudio = GetComponent<AudioSource>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -36,6 +38,8 @@ public class OnPick : MonoBehaviour
                 _Inventory.AñadeObjeto(_id);
                 Destroy(gameObject);
             }
+            _pickupAudio.Play();
+
         }
     }
 }
