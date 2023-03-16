@@ -28,6 +28,7 @@ public class CheckDistanceToPlayer : MonoBehaviour
     void Update()
     {
         //Se envia una nueva distancia a la zona segura para que cambie su tamaño segun esa distancia
-        _ProximityComponent.ChangeToScale(Vector3.Distance(_player.transform.position, transform.position), gameObject);
+        if (_ProximityComponent != null)
+            _ProximityComponent.ChangeToScale(Vector3.Distance(_player.transform.position, transform.position), gameObject);
     }
 }

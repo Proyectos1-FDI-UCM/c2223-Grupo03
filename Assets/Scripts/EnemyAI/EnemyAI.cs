@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -30,6 +28,8 @@ public class EnemyAI : MonoBehaviour
     [Header("Parámetros pathing")]
     [SerializeField] private GameObject _path;
     [SerializeField] private bool _cicle;
+
+    private AudioSource _myAudio;
     #endregion
 
     #region Variables
@@ -42,9 +42,14 @@ public class EnemyAI : MonoBehaviour
     private Vector2 direction; //direccion del cono de vision
 
     private Animator _animator;
+
+    [SerializeField] private float _time;
+    [SerializeField]
+    private float _timeChase;
+    private float _timeToSound;
     #endregion
 
-    #region 
+    #region methods
     //actualiza los valores de movimiento en el animator
     private void UpdateAnimatorValues()
     {
@@ -197,6 +202,8 @@ public class EnemyAI : MonoBehaviour
 
         _player = GameManager.Player.GetComponent<Rigidbody2D>();
         _navMeshAgent.speed = _speed;
+
+        //_myAudio = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -204,6 +211,21 @@ public class EnemyAI : MonoBehaviour
         _fovEnemigo.SetOrigin(_enemyRigidbody.position);
         UpdateChase();
         UpdateAnimatorValues();
+        if (_timeToSound < 0)
+        {
+            if (_chasing)
+            {
+                _timeToSound = Random.Range(_timeChase, _timeChase+0.1f);
+                //_myAudio.Play();
+            } else
+            {
+                _timeToSound = Random.Range(_time, _time+0.2f);
+                //_myAudio.Play();
+            }    
+        } else
+        {
+            _timeToSound -= Time.deltaTime;
+        }
     }
     void FixedUpdate()
     {
