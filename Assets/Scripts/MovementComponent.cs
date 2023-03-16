@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class MovementComponent : MonoBehaviour
 {
@@ -12,20 +13,24 @@ public class MovementComponent : MonoBehaviour
     private AudioSource _audioSource;
 
 
+
     public void ChangeValues(float horizontal, float vertical)
     {
         movement = new Vector2(horizontal, vertical);
-        if (horizontal > 0.2 || vertical > 0.2 )
+        if (horizontal > 0 || vertical > 0)
         {
+            Debug.Log("suena");
             _audioSource.Play();
         }
-       
+
+
     }
 
     private void Update()
     {
         _animator.SetFloat("Horizontal", movement.x);
         _animator.SetFloat("Vertical", movement.y);
+     
 
     }
     private void Start()
@@ -38,6 +43,7 @@ public class MovementComponent : MonoBehaviour
     private void FixedUpdate()
     {
         _playerRigidbody.velocity = movement * speed;
+
 
     }
 }
