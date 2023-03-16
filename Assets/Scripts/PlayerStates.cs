@@ -112,16 +112,26 @@ public class PlayerStates : MonoBehaviour
         _safeZone.GetComponent<ProximityComponent>().enabled = true;
         _withEffect = false;
     }
-
-    public void CancelMovement() // fatiga al fallar 3 veces
+    public void CancelMovementTutorial()
     {
         _playerAnimator.SetBool("Sweat", true);
         _oldSpeed = GetComponent<MovementComponent>().speed;
         GetComponent<MovementComponent>().speed = 0;
-        Invoke("ActiveMovement", 3);
+    }
+    public void ActiveMovementTutorial()
+    {
+        GetComponent<MovementComponent>().speed = _oldSpeed;
+        _playerAnimator.SetBool("Sweat", false);
+    }
+    public void SweatCancelMovement() // fatiga al fallar 3 veces
+    {
+        _playerAnimator.SetBool("Sweat", true);
+        _oldSpeed = GetComponent<MovementComponent>().speed;
+        GetComponent<MovementComponent>().speed = 0;
+        Invoke("SweatActiveMovement", 3);
     }
 
-    private void ActiveMovement() // reanuda el movimiento
+    private void SweatActiveMovement() // reanuda el movimiento
     {
         _playerAnimator.SetBool("Sweat", false);
         GetComponent<MovementComponent>().speed = _oldSpeed;
