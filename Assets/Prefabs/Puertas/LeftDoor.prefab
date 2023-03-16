@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 989876839300545979}
   - component: {fileID: 3997954787263785942}
   - component: {fileID: 200181903931202919}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LeftDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
