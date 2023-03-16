@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour
             _pildoraEquipado = true;
             _pildoraUI.gameObject.SetActive(true);
         }
-        else if (_item == 2)
+        else if (_item == 2 || _item == 5)
         {
             _cajaEquipado = true;
             _cajaUI.gameObject.SetActive(true);

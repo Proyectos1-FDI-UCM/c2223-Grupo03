@@ -22,11 +22,11 @@ public class ObjectController : MonoBehaviour
         if (col.gameObject.tag == "Box")
         {
             //Aquí es donde se detecta que el objeto ha sido recogido por el jugador
-            if (_spawnerComp._boxPicked == false && _spawnerComp._spawnedObject == null)
+            if (_spawnerComp._boxPicked == false)
             {
                 Debug.Log("hola");
                 _spawnerComp._boxPicked = true;
-                _spawnerComp.ObjectHasBeenCollected();
+                _spawnerComp.ObjectCollected();
 
             }
 

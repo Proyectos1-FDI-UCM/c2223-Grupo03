@@ -7,7 +7,7 @@ public class OnPick : MonoBehaviour
 {
     [SerializeField] private int _id;
     Inventory _Inventory;
-    [SerializeField] private GameObject _spawner;
+
 
     private void Start()
     {
@@ -40,6 +40,8 @@ public class OnPick : MonoBehaviour
                 _Inventory.AñadeObjeto(_id);
                 Destroy(gameObject);
             }
+      
+         
         }
     }
 }

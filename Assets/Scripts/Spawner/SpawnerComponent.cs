@@ -27,7 +27,7 @@ public class SpawnerComponent : MonoBehaviour
        
     }
 
-    public void ObjectHasBeenCollected()
+    public void ObjectCollected()
     {
         Invoke("SpawnObject", _spawnDelay);
         _boxPicked = false;
