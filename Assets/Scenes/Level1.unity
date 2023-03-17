@@ -1014,7 +1014,6 @@ GameObject:
   - component: {fileID: 79729604}
   - component: {fileID: 79729610}
   - component: {fileID: 79729611}
-  - component: {fileID: 79729612}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1190,14 +1189,6 @@ MonoBehaviour:
   _heartBar: {fileID: 2094099039}
   _clockPrefab: {fileID: 3697284210538362169, guid: 1ab7110cc449ca64a897a3bb0dc4af9c, type: 3}
   _playerInCloset: {fileID: 1502721669}
---- !u!81 &79729612
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 79729603}
-  m_Enabled: 0
 --- !u!1 &97728920
 GameObject:
   m_ObjectHideFlags: 0
@@ -17923,6 +17914,7 @@ MonoBehaviour:
   _coneDistance: 4
   _path: {fileID: 4895117382027134575}
   _cicle: 1
+  _exclaimColor: {r: 0, g: 0, b: 0, a: 0}
   _points: []
   _time: 0
   _timeChase: 0
@@ -18864,6 +18856,7 @@ MonoBehaviour:
   _coneDistance: 4
   _path: {fileID: 7279807760524906372}
   _cicle: 1
+  _exclaimColor: {r: 0, g: 0, b: 0, a: 0}
   _points: []
   _time: 0
   _timeChase: 0
