@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
 
     static private InputComponent _inputComponent;
     static public InputComponent InputComponent { get { return _inputComponent; } }
+
+    static private GameObject _camera;
+    static public GameObject Camera { get { return _camera;} }
     
 
     #endregion
@@ -45,6 +48,7 @@ public class GameManager : MonoBehaviour
         _player = GameObject.Find("Player");
         _playerStates = _player.GetComponent<PlayerStates>();
         _inputComponent = GetComponent<InputComponent>();
+        _camera = GameObject.Find("Main Camera");
     }
     void Start()
     {
