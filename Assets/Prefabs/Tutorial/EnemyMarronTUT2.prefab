@@ -252,7 +252,6 @@ GameObject:
   - component: {fileID: 7645889803898619014}
   - component: {fileID: 7645889803898619015}
   - component: {fileID: 7645889803898619012}
-  - component: {fileID: 7645889803898619013}
   - component: {fileID: 7645889803898619066}
   - component: {fileID: 7645889803898619067}
   m_Layer: 0
@@ -298,6 +297,7 @@ MonoBehaviour:
   _coneDistance: 4
   _path: {fileID: 7645889804323976386}
   _cicle: 1
+  _exclaimColor: {r: 0, g: 0, b: 0, a: 0}
   _points: []
   _time: 0
   _timeChase: 0
@@ -432,18 +432,6 @@ CircleCollider2D:
   m_Offset: {x: -0.0017729601, y: -0.023049077}
   serializedVersion: 2
   m_Radius: 0.4042578
---- !u!114 &7645889803898619013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7645889803898619070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7f24acce5413bf4ca6c9d521cb7a89e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7645889803898619066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,6 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28690e406ed8c74aaf3de1c42d488eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerInCloset: {fileID: 0}
 --- !u!82 &7645889803898619067
 AudioSource:
   m_ObjectHideFlags: 0
