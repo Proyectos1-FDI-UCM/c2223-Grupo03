@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoreTransition : MonoBehaviour
@@ -64,5 +65,6 @@ public class LoreTransition : MonoBehaviour
             new WaitForSeconds(2f);
             _transitions[i].gameObject.SetActive(false);
         }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
