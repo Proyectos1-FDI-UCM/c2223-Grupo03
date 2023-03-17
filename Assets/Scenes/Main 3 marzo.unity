@@ -4436,7 +4436,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 4
-  _spawner: {fileID: 0}
 --- !u!61 &667596775
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6182,7 +6181,7 @@ GameObject:
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -9210,6 +9209,10 @@ PrefabInstance:
       propertyPath: _spawnedObject
       value: 
       objectReference: {fileID: 3000885595798816680, guid: 4967b4ec75003ba429f7d246162de57f, type: 3}
+    - target: {fileID: 6456082047430946671, guid: 48efc2fb45649ce43b09f04b7bb1446f, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 6456082047430946671, guid: 48efc2fb45649ce43b09f04b7bb1446f, type: 3}
       propertyPath: m_Name
       value: Spawner

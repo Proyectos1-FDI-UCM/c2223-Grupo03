@@ -41,10 +41,19 @@ public class GameManager : MonoBehaviour
     #endregion
     void Awake()
     {
-        _instance = this;
-        _player = GameObject.Find("Player");
-        _playerStates = _player.GetComponent<PlayerStates>();
-        _inputComponent = GetComponent<InputComponent>();
+        if(_instance == null)
+        {
+            _instance = this;
+            _player = GameObject.Find("Player");
+            _playerStates = _player.GetComponent<PlayerStates>();
+            _inputComponent = GetComponent<InputComponent>();
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
     }
     void Start()
     {
