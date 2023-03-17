@@ -8,11 +8,10 @@ public class GameManager : MonoBehaviour
 
     #region parameters
 
-    
+
     #endregion
 
     #region references
-
 
     #endregion
 
@@ -45,13 +44,15 @@ public class GameManager : MonoBehaviour
         _player = GameObject.Find("Player");
         _playerStates = _player.GetComponent<PlayerStates>();
         _inputComponent = GetComponent<InputComponent>();
+       
     }
     void Start()
     {
-
     }
     void Update()
     {
 
     }
+
+ 
 }

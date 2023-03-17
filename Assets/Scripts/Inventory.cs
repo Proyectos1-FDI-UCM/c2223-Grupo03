@@ -1,8 +1,11 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Inventory : MonoBehaviour
 {
@@ -12,6 +15,11 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject _cajaUI;
     [SerializeField] private GameObject _despertadorUI;
     [SerializeField] private GameObject _llaveUI;
+    private Inventory _inventory;
+    [SerializeField] private GameObject _spawnPoint;
+    [SerializeField] private GameObject _keyCheckPoint;
+    [SerializeField] private GameObject _player;
+    static private Inventory _instance;
     #endregion
 
     #region Properties
@@ -29,10 +37,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        EliminaObjeto(1); // 1 -> píldoras
-        EliminaObjeto(2); // 2 -> caja
-        EliminaObjeto(3); // 3 -> despertador
-        EliminaObjeto(4); // 4 -> llave
+        _inventory = GameManager.Instance.GetComponent<Inventory>();
     }
 
     public void AñadeObjeto(int _item) // 1 -> píldoras, 2 -> caja, 3 -> despertador, 4 -> llave.
@@ -82,4 +87,31 @@ public class Inventory : MonoBehaviour
             _llaveUI.gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0.25f);
         }
     }
+
+    public void Respawn()
+    {
+        if (_LlaveEquipado)
+        {
+            _player.transform.position = _keyCheckPoint.transform.position;
+        }
+        else
+        {
+            _player.transform.position = _spawnPoint.transform.position;
+        }
+
+    }
+
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
 }
