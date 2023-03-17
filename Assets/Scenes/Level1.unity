@@ -18383,8 +18383,8 @@ MonoBehaviour:
   _cicle: 1
   _exclaimColor: {r: 0, g: 0, b: 0, a: 0}
   _points: []
-  _time: 0
-  _timeChase: 0
+  _time: 1
+  _timeChase: 0.6
 --- !u!58 &4895117381649016295
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -19362,8 +19362,8 @@ MonoBehaviour:
   _cicle: 1
   _exclaimColor: {r: 1, g: 1, b: 0, a: 0}
   _points: []
-  _time: 0
-  _timeChase: 0
+  _time: 1
+  _timeChase: 0.6
 --- !u!95 &7279807761975536654
 Animator:
   serializedVersion: 4
