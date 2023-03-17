@@ -34,6 +34,7 @@ public class EnemyAI : MonoBehaviour
     private GameObject _myHeadSign;
     private SpriteRenderer _myExclamationRender;
     [SerializeField] Color _exclaimColor;
+    private AudioSource _myChasePlayer;
     #endregion
 
     #region Variables
@@ -67,7 +68,7 @@ public class EnemyAI : MonoBehaviour
         _chasing = true;
         _myAudio.pitch = 3;
         _myExclamationRender.color = _exclaimColor + new Color(0, 0, 0, 255);
-        _myHeadSign.transform.position = transform.position + new Vector3(0,1,0);
+        _myChasePlayer.mute = false;
     }
     private void UpdateChase()
     {
@@ -75,13 +76,14 @@ public class EnemyAI : MonoBehaviour
         {
             _timeChasing = _timeChasing + Time.deltaTime;
             _myExclamationRender.color -= new Color(0, 0, 0, 1);
-            _myHeadSign.transform.position -= new Vector3 (0, 0.001f, 0);
+            
         }
         else
         {
             _chasing = false;
             _myAudio.pitch = 2;
             _myExclamationRender.color = _exclaimColor;
+            _myChasePlayer.mute = true;
         }
     }
     // Funcion auxiliar, guarda en una array puntos de un camino 
@@ -226,6 +228,7 @@ public class EnemyAI : MonoBehaviour
         _myHeadSign = transform.GetChild(1).gameObject;
         _myExclamationRender = _myHeadSign.GetComponent<SpriteRenderer>();
         _myExclamationRender.color = _exclaimColor;
+        _myChasePlayer = _myHeadSign.GetComponent<AudioSource>();
 
     }
     private void Update()
