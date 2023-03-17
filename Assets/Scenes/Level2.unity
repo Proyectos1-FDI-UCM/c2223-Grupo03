@@ -9500,6 +9500,7 @@ MonoBehaviour:
   _coneDistance: 4.5
   _path: {fileID: 264836263}
   _cicle: 1
+  _exclaimColor: {r: 0, g: 0, b: 0, a: 0}
   _points: []
   _time: 0
   _timeChase: 0
@@ -17467,7 +17468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158663869}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -86.9, y: -0.7408444, z: 0}
+  m_LocalPosition: {x: -86.9, y: 76.6, z: 0}
   m_LocalScale: {x: 0.6057443, y: 99.29458, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17880,7 +17881,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416338346}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 86.96, y: -0.7408444, z: 0}
+  m_LocalPosition: {x: 86.96, y: 81, z: 0}
   m_LocalScale: {x: 0.6057443, y: 99.29458, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20004,6 +20005,7 @@ MonoBehaviour:
   _coneDistance: 4.5
   _path: {fileID: 6738364343520976789}
   _cicle: 1
+  _exclaimColor: {r: 0, g: 0, b: 0, a: 0}
   _points: []
   _time: 0
   _timeChase: 0
