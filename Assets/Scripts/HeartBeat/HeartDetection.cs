@@ -45,6 +45,10 @@ public class HeartDetection : MonoBehaviour
 
     #region methots
 
+    public void ResetFails() // para el tutorial
+    {
+        _fails = 0;
+    }
     public void SpacePressed() //Metodo que se activa al pulsar el espacio y realiza acciones diferentes segun el estado del corazón respecto a la barra de pulsaciones
     {
 
@@ -53,7 +57,6 @@ public class HeartDetection : MonoBehaviour
 
             if (!_inSafeZone) //Si no esta en la zona segura
             {
-                Debug.Log("Fallo al presionar");
                 _fails++; //Aumenta en uno los fallos
                 if (_fails == 1)
                     _currentImage.sprite = _brokenHeart1;
@@ -86,7 +89,6 @@ public class HeartDetection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) //Metodo que comprueba que se haya entrado a la zona segura
     {
-
         if (collision.gameObject == _safeZone) //Si el trigger es el de la zona segura
         {
             _beepSound.Play();
@@ -105,7 +107,6 @@ public class HeartDetection : MonoBehaviour
 
             if (!_hasPressed && !_pillEffects) //Si no se a presionado el espacio quiere decir que se ha saltado la zona segura y por tanto es un fallo
             {
-                Debug.Log("Fallo por salida");
                 _fails++;
                 _hasPressed = true;
             }
@@ -136,7 +137,7 @@ public class HeartDetection : MonoBehaviour
     {
         if (_fails == 3 && !DEBUG) //Se comprueba si se ha llegado a 3 fallos
         {
-            GameManager.PlayerStates.CancelMovement();
+            GameManager.PlayerStates.SweatCancelMovement();
             GetComponent<HeartMove>().CancelMovement();
             _fails = 0; //Se reestablecen los fallos
         }

@@ -9,11 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: 0ae7f98fd1414434286956187d90a37c
   - enabled: 1
-    path: Assets/Scenes/LoreTransition.unity
-    guid: cd0a562e401473e49bb52cb4de076391
-  - enabled: 1
-    path: Assets/Scenes/Level1 LIGHTS.unity
-    guid: 42f1c3e2eb08a9f43b4f75d70effd498
+    path: Assets/Scenes/Level1.unity
+    guid: fd5e1043f5f6aad49ac562e9db284e7e
   - enabled: 1
     path: Assets/Scenes/GameOverLvl1.unity
     guid: 31f813450f2bc8e44a767ae97111df62

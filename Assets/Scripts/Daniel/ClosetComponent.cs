@@ -15,6 +15,8 @@ public class ClosetComponent : MonoBehaviour
     private GameObject _player;
     [SerializeField] private Sprite _closetSprite;
     [SerializeField] private Sprite _closetShine;
+
+    private AudioSource _closetAudio;
     #endregion
 
     #region Methods
@@ -43,6 +45,8 @@ public class ClosetComponent : MonoBehaviour
         _player.SetActive(false);
         GameManager.PlayerStates.EnterCloset();
         _isHiding = true;
+        _closetAudio.Play();
+        
     }
 
     //Muestra al jugador
@@ -51,11 +55,13 @@ public class ClosetComponent : MonoBehaviour
         _player.SetActive(true);
         GameManager.PlayerStates.ExitCloset();
         _isHiding = false;
+        _closetAudio.Play();
     }
 
     private void Start()
     {
         _player = GameManager.Player;
+        _closetAudio = GetComponent<AudioSource>();
     }
     // Update is called once per frame
     void Update()

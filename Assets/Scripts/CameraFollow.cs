@@ -6,11 +6,24 @@ using UnityEngine;
 // para cambiar la velocidad de seguimiento baja el valor de smoothspeed
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] Transform _player;
-    [SerializeField] float _smoothSpeed;
+    private Transform target;
+    public float _smoothSpeed;
+
+    private void Start()
+    {
+        target = GameManager.Player.transform;
+    }
+    public void ChangeCameraPosition(Transform newTarget)
+    {
+        target = newTarget;
+    }
+    public void RestartPlayerFocus()
+    {
+        target = GameManager.Player.transform;
+    }
     void Update()
     {
-        Vector2 desiredPosition = _player.position;
+        Vector2 desiredPosition = target.transform.position;
         Vector2 smoothedPosition = Vector2.Lerp(transform.position, desiredPosition, _smoothSpeed);
         transform.position = new Vector3(smoothedPosition.x, smoothedPosition.y, transform.position.z);
     }
