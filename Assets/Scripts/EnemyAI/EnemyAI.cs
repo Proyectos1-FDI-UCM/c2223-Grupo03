@@ -63,25 +63,22 @@ public class EnemyAI : MonoBehaviour
     // funciones que comprueban si el enemigo tiene que dejar de perseguir
     public void StartChase()
     {
+        _myExclamationRender.color = new Color(255, 255, 0, 255);
         _timeChasing = 0;
         _chasing = true;
         _myAudio.pitch = 3;
-        _myExclamationRender.color = _exclaimColor + new Color(0, 0, 0, 255);
-        _myHeadSign.transform.position = transform.position + new Vector3(0,1,0);
     }
     private void UpdateChase()
     {
         if (_timeChasing < _timeToStopChasing)
         {
             _timeChasing = _timeChasing + Time.deltaTime;
-            _myExclamationRender.color -= new Color(0, 0, 0, 1);
-            _myHeadSign.transform.position -= new Vector3 (0, 0.001f, 0);
         }
         else
         {
             _chasing = false;
             _myAudio.pitch = 2;
-            _myExclamationRender.color = _exclaimColor;
+            _myExclamationRender.color = _exclaimColor + new Color (0, 0, 0, -1);
         }
     }
     // Funcion auxiliar, guarda en una array puntos de un camino 
@@ -239,11 +236,11 @@ public class EnemyAI : MonoBehaviour
             if (_chasing)
             {
                 _timeToSound = Random.Range(_timeChase, _timeChase+0.1f);
-                //_myAudio.Play();
+                _myAudio.Play();
             } else
             {
                 _timeToSound = Random.Range(_time, _time+0.2f);
-                //_myAudio.Play();
+                _myAudio.Play();
             }    
         } else
         {
