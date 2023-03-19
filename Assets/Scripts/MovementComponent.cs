@@ -17,14 +17,6 @@ public class MovementComponent : MonoBehaviour
     public void ChangeValues(float horizontal, float vertical)
     {
         movement = new Vector2(horizontal, vertical);
-        if (horizontal > 0 || vertical > 0)
-        {
-            Debug.Log("suena");
-            _audioSource.Play();
-        }
-
-
-
     }
 
     private void Update()

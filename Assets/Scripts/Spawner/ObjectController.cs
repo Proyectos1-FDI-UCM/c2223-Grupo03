@@ -7,7 +7,7 @@ public class ObjectController : MonoBehaviour
     [SerializeField] GameObject _spawner;
     private SpawnerComponent _spawnerComp;
     private Inventory _inventory;
-    //public bool _boxPicked = false;
+    public bool _boxPicked = false;
 
 
     private void Start()
@@ -19,13 +19,15 @@ public class ObjectController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Box")
+        if (col.gameObject.tag == "Spawner")
         {
+            Debug.Log("choca");
             //Aquí es donde se detecta que el objeto ha sido recogido por el jugador
-            if (_spawnerComp._boxPicked == false)
+            if (_boxPicked == false || _inventory._cajaEquipado)
             {
                 Debug.Log("hola");
-                _spawnerComp._boxPicked = true;
+                _boxPicked = true;
+                
                 _spawnerComp.ObjectCollected();
 
             }
