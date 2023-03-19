@@ -8,11 +8,29 @@ public class GameManager : MonoBehaviour
 
     #region parameters
 
-    
+
     #endregion
 
     #region references
 
+    [SerializeField] GameObject _UIManager;
+    [SerializeField] GameObject _enemyGroup;
+
+    #endregion
+
+    #region properties
+
+    private bool _isInPause;
+
+    private int _amountOfChildren;
+
+    public bool IsPause
+    {
+        get
+        {
+            return _isInPause;
+        }
+    }
 
     #endregion
 
@@ -36,6 +54,40 @@ public class GameManager : MonoBehaviour
 
     #region methods
 
+    public void ChangePause()
+    {
+        _player.GetComponent<PlayerStates>().Pause();
+        _player.GetComponent<MovementComponent>().Pause();
+
+        _UIManager.GetComponent<UIManager>().PauseMenu();
+
+        _enemyGroup.BroadcastMessage("Pause");
+
+        if (!_isInPause)
+        {
+            _player.GetComponent<Animator>().enabled = false;
+            GetComponent<InputComponent>().enabled = false;
+
+            for (int i = 0; i < _enemyGroup.transform.childCount; i++)
+            {
+                _enemyGroup.transform.GetChild(i).transform.GetChild(0).GetComponent<Animator>().enabled = false;
+            }
+            
+            _isInPause= true;
+        }
+        else
+        {
+            _player.GetComponent<Animator>().enabled = true;
+            GetComponent<InputComponent>().enabled = true;
+
+            for (int i = 0; i < _enemyGroup.transform.childCount; i++)
+            {
+                _enemyGroup.transform.GetChild(i).transform.GetChild(0).GetComponent<Animator>().enabled = true;
+            }
+
+            _isInPause = false;
+        }
+    }
     
 
     #endregion
@@ -48,7 +100,8 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-
+        _isInPause= false;
+        _amountOfChildren = _enemyGroup.transform.childCount;
     }
     void Update()
     {

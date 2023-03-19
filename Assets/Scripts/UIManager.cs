@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 
     #region references
 
+    [SerializeField] GameObject _pauseMenu;
     #endregion
 
     #region properties
@@ -18,6 +19,17 @@ public class UIManager : MonoBehaviour
 
     #region methods
 
+    public void PauseMenu()
+    {
+        if (!GameManager.Instance.IsPause)
+        {
+            _pauseMenu.SetActive(true);
+        }
+        else
+        {
+            _pauseMenu.SetActive(false);
+        }
+    }
 
     #endregion
 
@@ -25,7 +37,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        _pauseMenu.SetActive(false);
     }
 
     // Update is called once per frame

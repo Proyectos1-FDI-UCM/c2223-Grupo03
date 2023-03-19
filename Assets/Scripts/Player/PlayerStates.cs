@@ -90,6 +90,23 @@ public class PlayerStates : MonoBehaviour
         }
     }
 
+    public void Pause()
+    {
+        if (!GameManager.Instance.IsPause)
+        {
+            _heart.GetComponent<HeartMove>().enabled = false;
+            _safeZone.GetComponent<ProximityComponent>().enabled = false;
+            _heart.GetComponent<HeartDetection>().enabled = false;
+        }
+        else
+        {
+            _heart.GetComponent<HeartMove>().enabled = true;
+            _safeZone.GetComponent<ProximityComponent>().enabled = true;
+            _heart.GetComponent<HeartDetection>().enabled = true;
+        }
+        
+    }
+
     private void Flicker()
     {
         _heartBar.SetActive(true);
