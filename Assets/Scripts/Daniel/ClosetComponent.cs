@@ -15,6 +15,7 @@ public class ClosetComponent : MonoBehaviour
     private GameObject _player;
     [SerializeField] private Sprite _closetSprite;
     [SerializeField] private Sprite _closetShine;
+    private float _timeCont;
 
     private AudioSource _closetAudio;
     #endregion
@@ -66,8 +67,9 @@ public class ClosetComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CanHide() && (Input.GetKeyDown(KeyCode.E) || Input.GetButton("AspaPs4")) && !GameManager.PlayerStates.IsBox)
+        if (CanHide() && (Input.GetKeyDown(KeyCode.E) || Input.GetButton("AspaPs4")) && !GameManager.PlayerStates.IsBox && _timeCont >= 0.5)
         {
+            _timeCont = 0;
             if (!_isHiding)
             {
                 HidePlayer();
@@ -77,6 +79,8 @@ public class ClosetComponent : MonoBehaviour
                 ShowPlayer();
             }
         }
+        _timeCont += Time.deltaTime;
+        Debug.Log(_timeCont);
     }
     #endregion
 }
