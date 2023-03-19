@@ -39,17 +39,17 @@ public class InputComponent : MonoBehaviour
     {
         _movementComponent.ChangeValues(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("R1Ps4"))
         {
             _heartDetection.SpacePressed();
         }
-        if (Input.GetKeyDown(KeyCode.J) && _inventory._pildoraEquipado) //A�ADIR CONDICION DE TENERLA EN EL INVENTARIO
+        if ((Input.GetKeyDown(KeyCode.J) || Input.GetButton("CuadradoPs4")) && _inventory._pildoraEquipado) //A�ADIR CONDICION DE TENERLA EN EL INVENTARIO
         {
             _playerStates.PillEffect();
         }
 
         // If the player presses the "K" key, change between the player and the box 
-        if (Input.GetKeyDown(KeyCode.K) && _inventory._cajaEquipado)
+        if ((Input.GetKeyDown(KeyCode.K) || Input.GetButton("TrianguloPs4")) && _inventory._cajaEquipado)
         {
             if (_playerStates.IsBox)
             {
@@ -61,7 +61,7 @@ public class InputComponent : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.L) && _inventory._DespertadorEquipado)
+        if ((Input.GetKeyDown(KeyCode.L) || Input.GetButton("CirculoPs4")) && _inventory._DespertadorEquipado)
         {
             _playerStates.Clock();
         }

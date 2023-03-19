@@ -66,7 +66,7 @@ public class ClosetComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CanHide() && Input.GetKeyDown(KeyCode.E) && !GameManager.PlayerStates.IsBox)
+        if (CanHide() && (Input.GetKeyDown(KeyCode.E) || Input.GetButton("AspaPs4")) && !GameManager.PlayerStates.IsBox)
         {
             if (!_isHiding)
             {
