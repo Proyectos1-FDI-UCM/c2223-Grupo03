@@ -23,12 +23,12 @@ public class OnPick : MonoBehaviour
                 _Inventory.AñadeObjeto(_id);
                 Destroy(gameObject);
             }
-            else if (_id == 2 && !_Inventory._CajaEquipado) 
+            else if (_id == 2 && !_Inventory._CajaEquipado)
             {
                 _Inventory.AñadeObjeto(_id);
                 Destroy(gameObject);
             }
-            else if (_id == 3 && !_Inventory._DespertadorEquipado) 
+            else if (_id == 3 && !_Inventory._DespertadorEquipado)
             {
                 _Inventory.AñadeObjeto(_id);
                 Destroy(gameObject);
