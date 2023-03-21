@@ -12,6 +12,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float _timeToStopChasing;
     float _timeChasing;
     bool _isMoving;
+    private float _oldSpeed;
     public bool Moving { set { _isMoving = value; } }
     public bool Chasing { get { return _chasing; } }
     public enum EnemyType { Brown, Blue, Red, Green};
@@ -54,6 +55,20 @@ public class EnemyAI : MonoBehaviour
     #endregion
 
     #region methods
+
+    private void Pause()
+    {
+
+        if (!GameManager.Instance.IsPause)
+        {
+            _navMeshAgent.speed = 0;
+        }
+        else
+        {
+            _navMeshAgent.speed = _speed;
+        }
+    }
+
     //actualiza los valores de movimiento en el animator
     private void UpdateAnimatorValues()
     {

@@ -66,5 +66,7 @@ public class InputComponent : MonoBehaviour
             _playerStates.Clock();
         }
 
+
+
     }
 }
