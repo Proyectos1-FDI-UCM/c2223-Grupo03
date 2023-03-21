@@ -41,6 +41,11 @@ public class ClockDistractionComponent : MonoBehaviour
         float angRadians = (angle * Mathf.PI) / 180;
         return new Vector3(Mathf.Cos(angRadians), Mathf.Sin(angRadians)).normalized;
     }
+
+    private void UpdateSound()
+    {
+
+    }
     #endregion
 
     // Start is called before the first frame update
