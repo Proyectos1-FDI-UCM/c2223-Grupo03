@@ -31,6 +31,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private bool _cicle;
 
     private AudioSource _myAudio;
+    private float _audioVolume;
 
     private GameObject _myHeadSign;
     private SpriteRenderer _myExclamationRender;
@@ -68,7 +69,13 @@ public class EnemyAI : MonoBehaviour
         else
         {
             _navMeshAgent.speed = _speed;
+            UpdateSound();
         }
+    }
+
+    private void UpdateSound()
+    {
+        _myAudio.volume = _audioVolume * GameManager.Instance.getSFX;
     }
 
     //actualiza los valores de movimiento en el animator
@@ -236,6 +243,7 @@ public class EnemyAI : MonoBehaviour
 
         _myAudio = GetComponent<AudioSource>();
         _myAudio.pitch = 2;
+        _audioVolume = _myAudio.volume;
 
         _myHeadSign = transform.GetChild(1).gameObject;
         _myExclamationRender = _myHeadSign.GetComponent<SpriteRenderer>();

@@ -51,10 +51,10 @@ public class GameManager : MonoBehaviour
     static public InputComponent InputComponent { get { return _inputComponent; } }
     
     //Volumen del audio 
-    private float getSFX { get { return _audioSFX; } }
-    private float setSFX { set { _audioSFX = value; } }
-    private float getMusic { get { return _audioMusic; } }
-    private float setMusic { set { _audioMusic = value; } }
+    public float getSFX { get { return _audioSFX; } }
+    public float setSFX { set { _audioSFX = value; } }
+    public float getMusic { get { return _audioMusic; } }
+    public float setMusic { set { _audioMusic = value; } }
     #endregion
 
     #region methods
