@@ -38,6 +38,7 @@ public class PlayerStates : MonoBehaviour
     private Inventory _inventory;
     private GameObject _player;
     private Animator _playerAnimator;
+    private AudioSource _audioSource;
     #endregion
 
 
@@ -58,6 +59,8 @@ public class PlayerStates : MonoBehaviour
     }
     public void EnterBox() // player entra a caja
     {
+        _audioSource.Play();
+        new WaitForSeconds(2);
         _player.SetActive(false);
         _playerInCloset.SetActive(true);
         _boxInstance = Instantiate(_boxPrefab, _player.transform.position, Quaternion.identity);
@@ -67,6 +70,7 @@ public class PlayerStates : MonoBehaviour
     {
         Destroy(_boxInstance);
         _player.SetActive(true);
+        _audioSource.Play();
         _playerInCloset.SetActive(false);
         _inventory._cajaEquipado = false;
         _inventory.EliminaObjeto(2);
@@ -132,6 +136,7 @@ public class PlayerStates : MonoBehaviour
         _inventory = GameManager.Instance.GetComponent<Inventory>();
         _player = GameManager.Player;
         _playerAnimator = _player.GetComponent<Animator>();
+        _audioSource = _player.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
