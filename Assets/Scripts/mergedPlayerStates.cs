@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class PlayerStates : MonoBehaviour
+public class mergedPlayerStates : MonoBehaviour
 {
     #region parameters
     [SerializeField] private GameObject _boxPrefab;
@@ -93,6 +93,23 @@ public class PlayerStates : MonoBehaviour
         }
     }
 
+    public void Pause()
+    {
+        if (!GameManager.Instance.IsPause)
+        {
+            _heart.GetComponent<HeartMove>().enabled = false;
+            _safeZone.GetComponent<ProximityComponent>().enabled = false;
+            _heart.GetComponent<HeartDetection>().enabled = false;
+        }
+        else
+        {
+            _heart.GetComponent<HeartMove>().enabled = true;
+            _safeZone.GetComponent<ProximityComponent>().enabled = true;
+            _heart.GetComponent<HeartDetection>().enabled = true;
+        }
+
+    }
+
     private void Flicker()
     {
         _heartBar.SetActive(true);
@@ -115,15 +132,26 @@ public class PlayerStates : MonoBehaviour
         _withEffect = false;
     }
 
-    public void CancelMovement() // fatiga al fallar 3 veces
+    public void CancelMovementTutorial()
     {
         _playerAnimator.SetBool("Sweat", true);
         _oldSpeed = GetComponent<MovementComponent>().speed;
         GetComponent<MovementComponent>().speed = 0;
-        Invoke("ActiveMovement", 3);
+    }
+    public void ActiveMovementTutorial()
+    {
+        GetComponent<MovementComponent>().speed = _oldSpeed;
+        _playerAnimator.SetBool("Sweat", false);
+    }
+    public void SweatCancelMovement() // fatiga al fallar 3 veces
+    {
+        _playerAnimator.SetBool("Sweat", true);
+        _oldSpeed = GetComponent<MovementComponent>().speed;
+        GetComponent<MovementComponent>().speed = 0;
+        Invoke("SweatActiveMovement", 3);
     }
 
-    private void ActiveMovement() // reanuda el movimiento
+    private void SweatActiveMovement() // reanuda el movimiento
     {
         _playerAnimator.SetBool("Sweat", false);
         GetComponent<MovementComponent>().speed = _oldSpeed;

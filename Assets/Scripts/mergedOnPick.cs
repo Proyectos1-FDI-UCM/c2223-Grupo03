@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class OnPick : MonoBehaviour
+public class mergedOnPick : MonoBehaviour
 {
     [SerializeField] private int _id;
     Inventory _Inventory;
