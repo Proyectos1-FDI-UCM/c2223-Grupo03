@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 {
 
     #region parameters
-
+    private float _audioSFX;
+    private float _audioMusic;
 
     #endregion
 
@@ -49,7 +50,11 @@ public class GameManager : MonoBehaviour
     static private InputComponent _inputComponent;
     static public InputComponent InputComponent { get { return _inputComponent; } }
     
-
+    //Volumen del audio 
+    private float getSFX { get { return _audioSFX; } }
+    private float setSFX { set { _audioSFX = value; } }
+    private float getMusic { get { return _audioMusic; } }
+    private float setMusic { set { _audioMusic = value; } }
     #endregion
 
     #region methods
