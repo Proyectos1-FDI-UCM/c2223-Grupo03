@@ -53,6 +53,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private float _timeChase;
     private float _timeToSound;
+
+    private bool _paused;
     #endregion
 
     #region methods
@@ -65,11 +67,13 @@ public class EnemyAI : MonoBehaviour
         {
             Debug.Log("Speed 0");
             _navMeshAgent.speed = 0;
+            _paused = true;
         }
         else
         {
             _navMeshAgent.speed = _speed;
             UpdateSound();
+            _paused = false;
         }
     }
 
@@ -252,25 +256,30 @@ public class EnemyAI : MonoBehaviour
     }
     private void Update()
     {
-        _fovEnemigo.SetAim(direction);
-        _fovEnemigo.SetOrigin(_enemyRigidbody.position);
-        UpdateChase();
-        UpdateAnimatorValues();
-        if (_timeToSound < 0)
+        if (!_paused)
         {
-            if (_chasing)
+            _fovEnemigo.SetAim(direction);
+            _fovEnemigo.SetOrigin(_enemyRigidbody.position);
+            UpdateChase();
+            UpdateAnimatorValues();
+            if (_timeToSound < 0)
             {
-                _timeToSound = Random.Range(_timeChase, _timeChase+0.1f);
-                _myAudio.Play();
-            } else
+                if (_chasing)
+                {
+                    _timeToSound = Random.Range(_timeChase, _timeChase + 0.1f);
+                    _myAudio.Play();
+                }
+                else
+                {
+                    _timeToSound = Random.Range(_time, _time + 0.2f);
+                    _myAudio.Play();
+                }
+            }
+            else
             {
-                _timeToSound = Random.Range(_time, _time+0.2f);
-                _myAudio.Play();
-            }    
-        } else
-        {
-            _timeToSound -= Time.deltaTime;
-        }
+                _timeToSound -= Time.deltaTime;
+            }
+        }       
     }
     void FixedUpdate()
     {
