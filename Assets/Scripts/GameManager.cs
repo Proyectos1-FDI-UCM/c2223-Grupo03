@@ -54,6 +54,9 @@ public class GameManager : MonoBehaviour
 
     static private InputComponent _inputComponent;
     static public InputComponent InputComponent { get { return _inputComponent; } }
+
+    static private GameObject _camera;
+    static public GameObject Camera { get { return _camera;} }
     
     //Volumen del audio 
     public float getSFX { get { return _audioSFX; } }
@@ -154,13 +157,14 @@ public class GameManager : MonoBehaviour
             _player = GameObject.Find("Player");
             _playerStates = _player.GetComponent<PlayerStates>();
             _inputComponent = GetComponent<InputComponent>();
+            _camera = Camera.Main;
             //DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
-        
+
     }
     void Start()
     {

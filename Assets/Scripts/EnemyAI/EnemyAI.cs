@@ -36,6 +36,9 @@ public class EnemyAI : MonoBehaviour
     private GameObject _myHeadSign;
     private SpriteRenderer _myExclamationRender;
     [SerializeField] Color _exclaimColor;
+    private AudioSource _myChasePlayer;
+
+    private GameObject _sceneCamera;
     #endregion
 
     #region Variables
@@ -93,17 +96,22 @@ public class EnemyAI : MonoBehaviour
         _timeChasing = 0;
         _chasing = true;
         _myAudio.pitch = 3;
+        _myChasePlayer.mute = false;
+        _sceneCamera.GetComponent<AudioSource>().mute = true;
     }
     private void UpdateChase()
     {
         if (_timeChasing < _timeToStopChasing)
         {
             _timeChasing = _timeChasing + Time.deltaTime;
+            _sceneCamera.GetComponent<AudioSource>().mute = true;
         }
         else
         {
             _chasing = false;
             _myAudio.pitch = 2;
+            _myChasePlayer.mute = true;
+            _sceneCamera.GetComponent<AudioSource>().mute = false;
             _myExclamationRender.color = _exclaimColor + new Color (0, 0, 0, -1);
         }
     }
@@ -250,7 +258,9 @@ public class EnemyAI : MonoBehaviour
         _myHeadSign = transform.GetChild(1).gameObject;
         _myExclamationRender = _myHeadSign.GetComponent<SpriteRenderer>();
         _myExclamationRender.color = _exclaimColor;
+        _myChasePlayer = _myHeadSign.GetComponent<AudioSource>();
 
+        _sceneCamera = GameManager.Camera;
     }
     private void Update()
     {
