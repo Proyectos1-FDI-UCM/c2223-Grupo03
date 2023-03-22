@@ -2,14 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class PlayerStates : MonoBehaviour
 {
+    private Vector3 _alturaFinal;
+    private Vector3 _alturaInicial;
+    private float _speed = 1.0f;
+    private float _time;
+
     #region parameters
     [SerializeField] private GameObject _boxPrefab;
     private GameObject _boxInstance;
     [SerializeField] private float _timeOutPill = 10;
     private float _oldSpeed;
+    private Vector3 _boxTransform;
     #endregion
 
 
@@ -39,6 +46,8 @@ public class PlayerStates : MonoBehaviour
     private GameObject _player;
     private Animator _playerAnimator;
     private AudioSource _audioSource;
+    private BoxAnimation _boxAnimation;
+    private Animator _boxAnimator;
     #endregion
 
 
@@ -61,9 +70,11 @@ public class PlayerStates : MonoBehaviour
     {
         _audioSource.Play();
         new WaitForSeconds(2);
+        _boxInstance = Instantiate(_boxPrefab, _boxTransform, Quaternion.identity);
+        _boxAnimator.SetTrigger("CajaFall");
         _player.SetActive(false);
         _playerInCloset.SetActive(true);
-        _boxInstance = Instantiate(_boxPrefab, _player.transform.position, Quaternion.identity);
+        
         _isBox = true;
     }
     public void ExitBox() // player sale de caja
@@ -165,11 +176,23 @@ public class PlayerStates : MonoBehaviour
         _player = GameManager.Player;
         _playerAnimator = _player.GetComponent<Animator>();
         _audioSource = _player.GetComponent<AudioSource>();
+        _boxAnimation = _boxPrefab.GetComponent<BoxAnimation>();
+        _boxAnimator = _boxPrefab.GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        _boxTransform = _player.transform.position + new Vector3(0, 2, 0);
+        _time = _speed * Time.deltaTime;
+        _alturaInicial = _boxTransform;
+        _alturaFinal = _boxTransform + new Vector3(0, -2, 0);
+        _boxPrefab.transform.position = Vector3.MoveTowards(_alturaInicial, _alturaFinal, _time);
+    }
 
+    public void AnimacionCaja()
+    {
+       
     }
 }

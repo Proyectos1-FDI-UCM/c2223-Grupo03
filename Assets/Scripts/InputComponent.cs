@@ -23,6 +23,7 @@ public class InputComponent : MonoBehaviour
     private MovementComponent _movementComponent;
     private Inventory _inventory;
 
+
     private PlayerStates _playerStates;
     #endregion
 
