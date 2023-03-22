@@ -12,6 +12,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] float _timeToStopChasing;
     float _timeChasing;
     bool _isMoving;
+    private float _oldSpeed;
     public bool Moving { set { _isMoving = value; } }
     public bool Chasing { get { return _chasing; } }
     public enum EnemyType { Brown, Blue, Red, Green};
@@ -30,6 +31,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private bool _cicle;
 
     private AudioSource _myAudio;
+    private float _audioVolume;
 
     private GameObject _myHeadSign;
     private SpriteRenderer _myExclamationRender;
@@ -54,9 +56,33 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private float _timeChase;
     private float _timeToSound;
+
+    private bool _paused;
     #endregion
 
     #region methods
+
+    private void Pause()
+    {
+
+        if (!GameManager.Instance.IsPause)
+        {
+            _navMeshAgent.speed = 0;
+            _paused = true;
+        }
+        else
+        {
+            _navMeshAgent.speed = _speed;
+            UpdateSound();
+            _paused = false;
+        }
+    }
+
+    private void UpdateSound()
+    {
+        _myAudio.volume = _audioVolume * GameManager.Instance.getSFX;
+    }
+
     //actualiza los valores de movimiento en el animator
     private void UpdateAnimatorValues()
     {
@@ -66,10 +92,10 @@ public class EnemyAI : MonoBehaviour
     // funciones que comprueban si el enemigo tiene que dejar de perseguir
     public void StartChase()
     {
+        _myExclamationRender.color = new Color(255, 255, 0, 255);
         _timeChasing = 0;
         _chasing = true;
         _myAudio.pitch = 3;
-        _myExclamationRender.color = _exclaimColor + new Color(0, 0, 0, 255);
         _myChasePlayer.mute = false;
         _sceneCamera.GetComponent<AudioSource>().mute = true;
     }
@@ -78,16 +104,15 @@ public class EnemyAI : MonoBehaviour
         if (_timeChasing < _timeToStopChasing)
         {
             _timeChasing = _timeChasing + Time.deltaTime;
-            _myExclamationRender.color -= new Color(0, 0, 0, 1);
             _sceneCamera.GetComponent<AudioSource>().mute = true;
         }
         else
         {
             _chasing = false;
             _myAudio.pitch = 2;
-            _myExclamationRender.color = _exclaimColor;
             _myChasePlayer.mute = true;
             _sceneCamera.GetComponent<AudioSource>().mute = false;
+            _myExclamationRender.color = _exclaimColor + new Color (0, 0, 0, -1);
         }
     }
     // Funcion auxiliar, guarda en una array puntos de un camino 
@@ -228,6 +253,7 @@ public class EnemyAI : MonoBehaviour
 
         _myAudio = GetComponent<AudioSource>();
         _myAudio.pitch = 2;
+        _audioVolume = _myAudio.volume;
 
         _myHeadSign = transform.GetChild(1).gameObject;
         _myExclamationRender = _myHeadSign.GetComponent<SpriteRenderer>();
@@ -238,25 +264,30 @@ public class EnemyAI : MonoBehaviour
     }
     private void Update()
     {
-        _fovEnemigo.SetAim(direction);
-        _fovEnemigo.SetOrigin(_enemyRigidbody.position);
-        UpdateChase();
-        UpdateAnimatorValues();
-        if (_timeToSound < 0)
+        if (!_paused)
         {
-            if (_chasing)
+            _fovEnemigo.SetAim(direction);
+            _fovEnemigo.SetOrigin(_enemyRigidbody.position);
+            UpdateChase();
+            UpdateAnimatorValues();
+            if (_timeToSound < 0)
             {
-                _timeToSound = Random.Range(_timeChase, _timeChase+0.1f);
-                _myAudio.Play();
-            } else
+                if (_chasing)
+                {
+                    _timeToSound = Random.Range(_timeChase, _timeChase + 0.1f);
+                    _myAudio.Play();
+                }
+                else
+                {
+                    _timeToSound = Random.Range(_time, _time + 0.2f);
+                    _myAudio.Play();
+                }
+            }
+            else
             {
-                _timeToSound = Random.Range(_time, _time+0.2f);
-                _myAudio.Play();
-            }    
-        } else
-        {
-            _timeToSound -= Time.deltaTime;
-        }
+                _timeToSound -= Time.deltaTime;
+            }
+        }       
     }
     void FixedUpdate()
     {

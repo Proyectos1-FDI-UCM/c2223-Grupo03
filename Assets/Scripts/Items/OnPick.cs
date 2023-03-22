@@ -7,7 +7,6 @@ public class OnPick : MonoBehaviour
 {
     [SerializeField] private int _id;
     Inventory _Inventory;
-    private AudioSource _pickupAudio;
 
     private void Start()
     {
@@ -18,17 +17,18 @@ public class OnPick : MonoBehaviour
         if (collision.tag == "Player")
         {
             collision.GetComponent<AudioSource>().Play();
+
             if (_id == 1 && !_Inventory._PildoraEquipado)
             {
                 _Inventory.AñadeObjeto(_id);
                 Destroy(gameObject);
             }
-            else if (_id == 2 && !_Inventory._CajaEquipado) 
+            else if (_id == 2 && !_Inventory._CajaEquipado)
             {
                 _Inventory.AñadeObjeto(_id);
                 Destroy(gameObject);
             }
-            else if (_id == 3 && !_Inventory._DespertadorEquipado) 
+            else if (_id == 3 && !_Inventory._DespertadorEquipado)
             {
                 _Inventory.AñadeObjeto(_id);
                 Destroy(gameObject);
