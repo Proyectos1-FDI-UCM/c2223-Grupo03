@@ -17,13 +17,19 @@ public class SliderPassValue : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.Instance;
+        _mySlide = GetComponent<Slider>();
+        if (_mySlide!= null )
+        {
+            Debug.Log("is?");
+        }
     }
-
+   
     // Update is called once per frame
     void Update()
     {
         if (_mySlide.value != _previousValue)
         {
+            Debug.Log("waluigi");
             _previousValue = _mySlide.value;
             gameManager.changeSound(gameObject.name, _previousValue);
         }

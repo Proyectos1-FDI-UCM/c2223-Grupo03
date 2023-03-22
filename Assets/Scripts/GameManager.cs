@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 {
 
     #region parameters
-    private float _audioSFX;
-    private float _audioMusic;
+    [SerializeField] private float _audioSFX;
+    [SerializeField] private float _audioMusic;
 
     #endregion
 
@@ -93,11 +93,13 @@ public class GameManager : MonoBehaviour
 
     public void changeSound(string soundType, float newValue)
     {
+        Debug.Log("numbah");
         if (soundType == "MusicSlider")
         {
             _audioMusic = newValue;
         } else if (soundType == "SFXSlider") 
         {
+            Debug.Log("ONE");
             _audioSFX = newValue;
         }
     }
@@ -114,6 +116,7 @@ public class GameManager : MonoBehaviour
     {
         _isInPause= false;
         _amountOfChildren = _enemyGroup.transform.childCount;
+        _audioMusic = _audioSFX = 1;
     }
     void Update()
     {
