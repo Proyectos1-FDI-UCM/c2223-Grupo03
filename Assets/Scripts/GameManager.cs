@@ -100,7 +100,6 @@ public class GameManager : MonoBehaviour
     {
         if (newMenu == Menus.OPTIONS)
         {
-            Debug.Log("Llego 3");
             _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.OPTIONS);
         }
         else if (newMenu == Menus.CONTROLS)
@@ -115,14 +114,19 @@ public class GameManager : MonoBehaviour
 
     public void RequestMenuChange(Menus newMenu)
     {
-        if (_actualMenu == Menus.PAUSE && (newMenu == Menus.OPTIONS))
+        if ((_actualMenu == Menus.PAUSE || _actualMenu == Menus.CONTROLS || _actualMenu == Menus.SOUND) && (newMenu == Menus.OPTIONS))
         {
-            Debug.Log("LLego 2");
             _beforeMenu = _actualMenu;
             _actualMenu = newMenu;
             UpdateMenu(newMenu);
         }
         else if (_actualMenu == Menus.OPTIONS && (newMenu == Menus.CONTROLS || newMenu == Menus.SOUND))
+        {
+            _beforeMenu = _actualMenu;
+            _actualMenu = newMenu;
+            UpdateMenu(newMenu);
+        }
+        else if (_actualMenu == Menus.OPTIONS && (newMenu == Menus.PAUSE))
         {
             _beforeMenu = _actualMenu;
             _actualMenu = newMenu;

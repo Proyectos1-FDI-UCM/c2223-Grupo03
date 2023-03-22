@@ -39,8 +39,9 @@ public class UIManager : MonoBehaviour
     {
         if (newMenu == GameManager.Menus.OPTIONS)
         {
-            Debug.Log("Llego 4");
             _pauseMenu.SetActive(false);
+            _controlsMenu.SetActive(false);
+            _soundMenu.SetActive(false);
             _optionsMenu.SetActive(true);
         }
         else if (newMenu == GameManager.Menus.CONTROLS)
@@ -52,6 +53,11 @@ public class UIManager : MonoBehaviour
         {
             _optionsMenu.SetActive(false);
             _soundMenu.SetActive(true);
+        }
+        else if (newMenu == GameManager.Menus.PAUSE)
+        {
+            _optionsMenu.SetActive(false);
+            _pauseMenu.SetActive(true);
         }
     }
 
