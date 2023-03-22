@@ -52,9 +52,7 @@ public class GameManager : MonoBehaviour
     
     //Volumen del audio 
     public float getSFX { get { return _audioSFX; } }
-    public float setSFX { set { _audioSFX = value; } }
     public float getMusic { get { return _audioMusic; } }
-    public float setMusic { set { _audioMusic = value; } }
     #endregion
 
     #region methods
@@ -93,11 +91,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void changeSound(string soundType)
+    public void changeSound(string soundType, float newValue)
     {
         if (soundType == "MusicSlider")
         {
-
+            _audioMusic = newValue;
+        } else if (soundType == "SFXSlider") 
+        {
+            _audioSFX = newValue;
         }
     }
     #endregion
