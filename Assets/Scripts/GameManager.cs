@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     public enum Menus { PAUSE, OPTIONS, CONTROLS, SOUND, NoMenu };
 
     #region parameters
-
+    [SerializeField] private float _audioSFX;
+    [SerializeField] private float _audioMusic;
 
     #endregion
 
@@ -54,11 +55,12 @@ public class GameManager : MonoBehaviour
     static private InputComponent _inputComponent;
     static public InputComponent InputComponent { get { return _inputComponent; } }
     
-
+    //Volumen del audio 
+    public float getSFX { get { return _audioSFX; } }
+    public float getMusic { get { return _audioMusic; } }
     #endregion
 
     #region methods
-
     public void ChangePause()
     {
         _player.GetComponent<PlayerStates>().Pause();
@@ -129,9 +131,21 @@ public class GameManager : MonoBehaviour
             UpdateMenu(newMenu);
         }
     }
-    
 
+    public void changeSound(string soundType, float newValue)
+    {
+        Debug.Log("numbah");
+        if (soundType == "MusicSlider")
+        {
+            _audioMusic = newValue;
+        } else if (soundType == "SFXSlider") 
+        {
+            Debug.Log("ONE");
+            _audioSFX = newValue;
+        }
+    }
     #endregion
+  
     void Awake()
     {
         if(_instance == null)
@@ -152,6 +166,7 @@ public class GameManager : MonoBehaviour
     {
         _isInPause= false;
         _amountOfChildren = _enemyGroup.transform.childCount;
+        _audioMusic = _audioSFX = 1;
     }
     void Update()
     {

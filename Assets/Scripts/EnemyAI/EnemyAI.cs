@@ -31,6 +31,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private bool _cicle;
 
     private AudioSource _myAudio;
+    private float _audioVolume;
 
     private GameObject _myHeadSign;
     private SpriteRenderer _myExclamationRender;
@@ -52,6 +53,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private float _timeChase;
     private float _timeToSound;
+
+    private bool _paused;
     #endregion
 
     #region methods
@@ -62,11 +65,19 @@ public class EnemyAI : MonoBehaviour
         if (!GameManager.Instance.IsPause)
         {
             _navMeshAgent.speed = 0;
+            _paused = true;
         }
         else
         {
             _navMeshAgent.speed = _speed;
+            UpdateSound();
+            _paused = false;
         }
+    }
+
+    private void UpdateSound()
+    {
+        _myAudio.volume = _audioVolume * GameManager.Instance.getSFX;
     }
 
     //actualiza los valores de movimiento en el animator
@@ -234,6 +245,7 @@ public class EnemyAI : MonoBehaviour
 
         _myAudio = GetComponent<AudioSource>();
         _myAudio.pitch = 2;
+        _audioVolume = _myAudio.volume;
 
         _myHeadSign = transform.GetChild(1).gameObject;
         _myExclamationRender = _myHeadSign.GetComponent<SpriteRenderer>();
@@ -242,25 +254,30 @@ public class EnemyAI : MonoBehaviour
     }
     private void Update()
     {
-        _fovEnemigo.SetAim(direction);
-        _fovEnemigo.SetOrigin(_enemyRigidbody.position);
-        UpdateChase();
-        UpdateAnimatorValues();
-        if (_timeToSound < 0)
+        if (!_paused)
         {
-            if (_chasing)
+            _fovEnemigo.SetAim(direction);
+            _fovEnemigo.SetOrigin(_enemyRigidbody.position);
+            UpdateChase();
+            UpdateAnimatorValues();
+            if (_timeToSound < 0)
             {
-                _timeToSound = Random.Range(_timeChase, _timeChase+0.1f);
-                _myAudio.Play();
-            } else
+                if (_chasing)
+                {
+                    _timeToSound = Random.Range(_timeChase, _timeChase + 0.1f);
+                    _myAudio.Play();
+                }
+                else
+                {
+                    _timeToSound = Random.Range(_time, _time + 0.2f);
+                    _myAudio.Play();
+                }
+            }
+            else
             {
-                _timeToSound = Random.Range(_time, _time+0.2f);
-                _myAudio.Play();
-            }    
-        } else
-        {
-            _timeToSound -= Time.deltaTime;
-        }
+                _timeToSound -= Time.deltaTime;
+            }
+        }       
     }
     void FixedUpdate()
     {

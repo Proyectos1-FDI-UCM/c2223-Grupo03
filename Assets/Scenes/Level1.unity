@@ -1250,7 +1250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 79729603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6, y: 4.32, z: 0}
+  m_LocalPosition: {x: 1.6, y: -14.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16602,6 +16602,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseMenu: {fileID: 619164851}
+  _musicSlider: {fileID: 0}
+  _SFXslider: {fileID: 0}
   _optionsMenu: {fileID: 1314199755}
   _controlsMenu: {fileID: 1380185761}
   _soundMenu: {fileID: 2057395232}
@@ -19855,7 +19857,7 @@ GameObject:
   - component: {fileID: 1564942387}
   - component: {fileID: 1564942388}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: MusicSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19931,7 +19933,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -19946,7 +19948,7 @@ GameObject:
   - component: {fileID: 1565260468}
   - component: {fileID: 1565260469}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: SFXSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20022,7 +20024,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -20838,7 +20840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1826233394}
   m_Layer: 5
-  m_Name: MusicOption (1)
+  m_Name: SFXOption
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

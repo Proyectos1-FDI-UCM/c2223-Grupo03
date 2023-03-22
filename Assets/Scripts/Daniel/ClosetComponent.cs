@@ -17,6 +17,7 @@ public class ClosetComponent : MonoBehaviour
     [SerializeField] private Sprite _closetShine;
 
     private AudioSource _closetAudio;
+    private float _audioVolume;
     #endregion
 
     #region Methods
@@ -58,16 +59,23 @@ public class ClosetComponent : MonoBehaviour
         _closetAudio.Play();
     }
 
+    private void UpdateSound()
+    {
+        _closetAudio.volume = _audioVolume * GameManager.Instance.getSFX;
+    }
+
     private void Start()
     {
         _player = GameManager.Player;
         _closetAudio = GetComponent<AudioSource>();
+        _audioVolume = _closetAudio.volume;
     }
     // Update is called once per frame
     void Update()
     {
         if (CanHide() && Input.GetKeyDown(KeyCode.E) && !GameManager.PlayerStates.IsBox)
         {
+            UpdateSound();
             if (!_isHiding)
             {
                 HidePlayer();
