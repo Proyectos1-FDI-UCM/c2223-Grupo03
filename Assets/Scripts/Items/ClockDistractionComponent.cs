@@ -6,6 +6,10 @@ using UnityEngine.U2D;
 
 public class ClockDistractionComponent : MonoBehaviour
 {
+    #region refrences
+    private AudioSource _ring;
+    #endregion
+
     #region parameters
     private bool _isIstanced;
     public bool SetInstance { set { _isIstanced = value; } }
@@ -53,6 +57,7 @@ public class ClockDistractionComponent : MonoBehaviour
     {
         _currentLoop = 0;
         _loopTime = _totalTime / _timesCalled;
+        _ring = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -62,9 +67,20 @@ public class ClockDistractionComponent : MonoBehaviour
         {
             if (_loopTime < 0)
             {
-                _currentLoop++;
-                _loopTime = _totalTime / _timesCalled;
-                CreateDistraction();
+                if (_currentLoop < 2)
+                {
+                    transform.GetChild(_currentLoop).GetComponent<SpriteRenderer>().color -= new Color (0,0,0,255);
+                    transform.GetChild(_currentLoop + 1).GetComponent<SpriteRenderer>().color += new Color (0,0,0,255);
+                    _currentLoop++;
+                    _loopTime = _totalTime / _timesCalled;
+                } else
+                {
+                    CreateDistraction();
+                    transform.GetChild(2).GetComponent<SpriteRenderer>().color -= new Color(0,0,0,255);
+                    _ring.Play();
+                    _currentLoop++;
+                    _loopTime = _totalTime / _timesCalled;
+                }
             } else
             {
                 _loopTime -= Time.deltaTime;

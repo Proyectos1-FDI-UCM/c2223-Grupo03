@@ -17,8 +17,8 @@ public class Inventory : MonoBehaviour
     #region Properties
     public bool _pildoraEquipado;
     public bool _cajaEquipado;
-    private bool _despertadorEquipado;
-    private bool _llaveEquipado;
+    public bool _despertadorEquipado;
+    public bool _llaveEquipado;
     #endregion
 
     // Para poder acceder a los booleanos sin poder cambiar su valor, solo se puede cambiar su valor con los métodos de abajo por seguridad
@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour
             _pildoraEquipado = true;
             _pildoraUI.gameObject.SetActive(true);
         }
-        else if (_item == 2)
+        else if (_item == 2 || _item == 5)
         {
             _cajaEquipado = true;
             _cajaUI.gameObject.SetActive(true);

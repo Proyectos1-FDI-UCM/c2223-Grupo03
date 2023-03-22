@@ -61,11 +61,9 @@ public class EnemyAI : MonoBehaviour
 
     private void Pause()
     {
-        Debug.Log("llego");
 
         if (!GameManager.Instance.IsPause)
         {
-            Debug.Log("Speed 0");
             _navMeshAgent.speed = 0;
             _paused = true;
         }

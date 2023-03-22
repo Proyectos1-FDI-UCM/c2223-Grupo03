@@ -38,6 +38,7 @@ public class PlayerStates : MonoBehaviour
     private Inventory _inventory;
     private GameObject _player;
     private Animator _playerAnimator;
+    private AudioSource _audioSource;
     #endregion
 
 
@@ -58,6 +59,8 @@ public class PlayerStates : MonoBehaviour
     }
     public void EnterBox() // player entra a caja
     {
+        _audioSource.Play();
+        new WaitForSeconds(2);
         _player.SetActive(false);
         _playerInCloset.SetActive(true);
         _boxInstance = Instantiate(_boxPrefab, _player.transform.position, Quaternion.identity);
@@ -67,6 +70,7 @@ public class PlayerStates : MonoBehaviour
     {
         Destroy(_boxInstance);
         _player.SetActive(true);
+        _audioSource.Play();
         _playerInCloset.SetActive(false);
         _inventory._cajaEquipado = false;
         _inventory.EliminaObjeto(2);
@@ -76,8 +80,7 @@ public class PlayerStates : MonoBehaviour
     {
         if (!_withEffect)
         {
-            //activamos efecto pastilla
-            _heart.GetComponent<HeartDetection>()._pillEffects = true;
+            //activamos efecto pasti 
             _heart.GetComponent<HeartMove>().enabled = false;
             _safeZone.GetComponent<ProximityComponent>().enabled = false;
             _heartBar.SetActive(false);
@@ -85,7 +88,7 @@ public class PlayerStates : MonoBehaviour
             Invoke("ActiveHeart", _timeOutPill);
             _withEffect = true;
             //quitamos pasti del inventario
-            _inventory._pildoraEquipado = false; 
+            _inventory._pildoraEquipado = false;
             _inventory.EliminaObjeto(1);
         }
     }
@@ -104,7 +107,7 @@ public class PlayerStates : MonoBehaviour
             _safeZone.GetComponent<ProximityComponent>().enabled = true;
             _heart.GetComponent<HeartDetection>().enabled = true;
         }
-        
+
     }
 
     private void Flicker()
@@ -124,11 +127,11 @@ public class PlayerStates : MonoBehaviour
         _heartBar.transform.GetChild(1).GetComponent<Image>().color += new Color(0, 0, 0, 0.25f);
         _heartBar.transform.GetChild(2).GetComponent<ParpadeoComponent>().enabled = false;
         _heartBar.transform.GetChild(2).GetComponent<Image>().color += new Color(0, 0, 0, 0.25f);
-        _heart.GetComponent<HeartDetection>()._pillEffects = false;
         _heart.GetComponent<HeartMove>().enabled = true;
         _safeZone.GetComponent<ProximityComponent>().enabled = true;
         _withEffect = false;
     }
+
     public void CancelMovementTutorial()
     {
         _playerAnimator.SetBool("Sweat", true);
@@ -161,11 +164,12 @@ public class PlayerStates : MonoBehaviour
         _inventory = GameManager.Instance.GetComponent<Inventory>();
         _player = GameManager.Player;
         _playerAnimator = _player.GetComponent<Animator>();
+        _audioSource = _player.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

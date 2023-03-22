@@ -6,6 +6,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+    public enum Menus { PAUSE, OPTIONS, CONTROLS, SOUND, NoMenu };
+
     #region parameters
     [SerializeField] private float _audioSFX;
     [SerializeField] private float _audioMusic;
@@ -24,6 +26,9 @@ public class GameManager : MonoBehaviour
     private bool _isInPause;
 
     private int _amountOfChildren;
+
+    private Menus _actualMenu;
+    private Menus _beforeMenu;
 
     public bool IsPause
     {
@@ -76,6 +81,7 @@ public class GameManager : MonoBehaviour
             }
             
             _isInPause= true;
+            _actualMenu = Menus.PAUSE;
         }
         else
         {
@@ -88,6 +94,41 @@ public class GameManager : MonoBehaviour
             }
 
             _isInPause = false;
+            _actualMenu = Menus.NoMenu;
+        }
+    }
+
+    private void UpdateMenu(Menus newMenu)
+    {
+        if (newMenu == Menus.OPTIONS)
+        {
+            Debug.Log("Llego 3");
+            _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.OPTIONS);
+        }
+        else if (newMenu == Menus.CONTROLS)
+        {
+            _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.CONTROLS);
+        }
+        else if (newMenu == Menus.SOUND)
+        {
+            _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.SOUND);
+        }
+    }
+
+    public void RequestMenuChange(Menus newMenu)
+    {
+        if (_actualMenu == Menus.PAUSE && (newMenu == Menus.OPTIONS))
+        {
+            Debug.Log("LLego 2");
+            _beforeMenu = _actualMenu;
+            _actualMenu = newMenu;
+            UpdateMenu(newMenu);
+        }
+        else if (_actualMenu == Menus.OPTIONS && (newMenu == Menus.CONTROLS || newMenu == Menus.SOUND))
+        {
+            _beforeMenu = _actualMenu;
+            _actualMenu = newMenu;
+            UpdateMenu(newMenu);
         }
     }
 
@@ -107,10 +148,19 @@ public class GameManager : MonoBehaviour
   
     void Awake()
     {
-        _instance = this;
-        _player = GameObject.Find("Player");
-        _playerStates = _player.GetComponent<PlayerStates>();
-        _inputComponent = GetComponent<InputComponent>();
+        if(_instance == null)
+        {
+            _instance = this;
+            _player = GameObject.Find("Player");
+            _playerStates = _player.GetComponent<PlayerStates>();
+            _inputComponent = GetComponent<InputComponent>();
+            //DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
     }
     void Start()
     {
