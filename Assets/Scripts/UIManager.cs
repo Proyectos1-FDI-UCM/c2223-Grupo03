@@ -7,8 +7,9 @@ public class UIManager : MonoBehaviour
 {
 
     #region references
-
     [SerializeField] GameObject _pauseMenu;
+    [SerializeField] GameObject _musicSlider;
+    [SerializeField] GameObject _SFXslider;
     #endregion
 
     #region properties

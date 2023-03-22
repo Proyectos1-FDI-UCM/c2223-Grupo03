@@ -58,7 +58,6 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region methods
-
     public void ChangePause()
     {
         _player.GetComponent<PlayerStates>().Pause();
@@ -93,9 +92,16 @@ public class GameManager : MonoBehaviour
             _isInPause = false;
         }
     }
-    
 
+    public void changeSound(string soundType)
+    {
+        if (soundType == "MusicSlider")
+        {
+
+        }
+    }
     #endregion
+  
     void Awake()
     {
         _instance = this;
