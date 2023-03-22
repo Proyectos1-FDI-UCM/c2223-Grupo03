@@ -260,7 +260,7 @@ public class EnemyAI : MonoBehaviour
         _myExclamationRender.color = _exclaimColor;
         _myChasePlayer = _myHeadSign.GetComponent<AudioSource>();
 
-        _sceneCamera = GameManager.Camera;
+        _sceneCamera = GameManager.getCamera.gameObject;
     }
     private void Update()
     {
