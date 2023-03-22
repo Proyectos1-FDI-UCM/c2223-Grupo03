@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _audioSFX;
     [SerializeField] private float _audioMusic;
 
+    [SerializeField] private float _audioVolume;
     #endregion
 
     #region references
@@ -137,15 +138,20 @@ public class GameManager : MonoBehaviour
 
     public void changeSound(string soundType, float newValue)
     {
-        Debug.Log("numbah");
         if (soundType == "MusicSlider")
         {
             _audioMusic = newValue;
+            SetSoundChange();
         } else if (soundType == "SFXSlider") 
-        {
-            Debug.Log("ONE");
+        { 
             _audioSFX = newValue;
         }
+    }
+
+    public void SetSoundChange()
+    {
+        _camera.GetComponent<AudioSource>().volume = _audioVolume * _audioMusic;
+        _camera.transform.GetChild(0).GetComponent<AudioSource>().volume = _audioVolume * _audioMusic;
     }
     #endregion
   
