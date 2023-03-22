@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour
     private int _amountOfChildren;
 
     private Menus _actualMenu;
+    public Menus ActualMenu
+    {
+        get { return _actualMenu; }
+    }
+
     private Menus _beforeMenu;
 
     public bool IsPause
@@ -110,12 +115,17 @@ public class GameManager : MonoBehaviour
         {
             _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.SOUND);
         }
+        else if (newMenu == Menus.PAUSE)
+        {
+            _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.PAUSE);
+        }
     }
 
     public void RequestMenuChange(Menus newMenu)
     {
         if ((_actualMenu == Menus.PAUSE || _actualMenu == Menus.CONTROLS || _actualMenu == Menus.SOUND) && (newMenu == Menus.OPTIONS))
         {
+            Debug.Log("LLego 2");
             _beforeMenu = _actualMenu;
             _actualMenu = newMenu;
             UpdateMenu(newMenu);
