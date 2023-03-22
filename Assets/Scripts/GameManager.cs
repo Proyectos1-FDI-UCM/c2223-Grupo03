@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
             _player = GameObject.Find("Player");
             _playerStates = _player.GetComponent<PlayerStates>();
             _inputComponent = GetComponent<InputComponent>();
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {

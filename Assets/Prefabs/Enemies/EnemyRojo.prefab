@@ -99,8 +99,8 @@ MonoBehaviour:
   _cicle: 1
   _exclaimColor: {r: 1, g: 1, b: 0, a: 0}
   _points: []
-  _time: 0
-  _timeChase: 0
+  _time: 1
+  _timeChase: 0.6
 --- !u!212 &1302032981126837766
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -252,10 +252,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 20
+  MinDistance: 10
+  MaxDistance: 25
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -263,23 +263,32 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.38016358
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -10.378908
+      outSlope: -10.378908
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0.096902266
+    - serializedVersion: 3
+      time: 0.52802736
+      value: 0.2875061
+      inSlope: -1.2080636
+      outSlope: -1.2080636
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.79304403
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.4001595
+      outSlope: -0.4001595
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -288,7 +297,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -378,7 +387,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1302032981126837775}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d28690e406ed8c74aaf3de1c42d488eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d86a26c818600a499f105ed206912dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playerInCloset: {fileID: 0}

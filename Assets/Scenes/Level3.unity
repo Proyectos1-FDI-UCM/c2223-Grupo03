@@ -945,6 +945,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneChange
       objectReference: {fileID: 0}
+    - target: {fileID: 5520505104183516836, guid: b8c9c7d309fd25e4c96b9ef1b50c807a, type: 3}
+      propertyPath: _id
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8c9c7d309fd25e4c96b9ef1b50c807a, type: 3}
 --- !u!1 &176967549
@@ -1525,6 +1529,8 @@ MonoBehaviour:
   _llaveUI: {fileID: 1842419888}
   _pildoraEquipado: 0
   _cajaEquipado: 0
+  _despertadorEquipado: 0
+  _llaveEquipado: 0
 --- !u!114 &285229870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29182,12 +29188,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1889801678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88523283ed477594f8c63e4b3b2846bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 714a2e1451b5296479dae61da8085489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _boxPrefab: {fileID: 3000885595798816680, guid: 4967b4ec75003ba429f7d246162de57f, type: 3}
   _timeOutPill: 10
-  _warning: {fileID: 493795853}
+  _warning: {fileID: 0}
   _heart: {fileID: 1336410300}
   _safeZone: {fileID: 395390054}
   _heartBar: {fileID: 862602731}
