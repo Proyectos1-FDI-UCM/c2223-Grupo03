@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class DoorComponent : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class DoorComponent : MonoBehaviour
     [Header("Animacion")]
     private Animator _animator;
     private AudioSource _source;
+    private float _audioVolume;
     #endregion
 
     #region Metodos
@@ -16,12 +19,19 @@ public class DoorComponent : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _source = GetComponent<AudioSource>();
+        _audioVolume = _source.volume;
     }
-  
+
+    private void UpdateSound()
+    {
+        _source.volume = _audioVolume * GameManager.Instance.getSFX;
+    }
+
     private void OnTriggerEnter2D(Collider2D col) //Si el jugador choca con la puerta activa la animacion de abrir la puerta
     {
        if (col.CompareTag("Player"))
         {
+            UpdateSound();
             _animator.SetBool("EnPuerta", true);
             _source.Play();
         }
@@ -31,6 +41,7 @@ public class DoorComponent : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            UpdateSound();
             _animator.SetBool("EnPuerta", false);
         }
     }
