@@ -66,7 +66,7 @@ public class TutorialEvents : MonoBehaviour
     {
         _blackRooms.SetActive(false);
         _instanceEnemigo1 = Instantiate(_enemigo1);
-        Camera.main.GetComponent<CameraFollow>()._smoothSpeed = 0.1f;
+        Camera.main.GetComponent<CameraFollow>()._smoothSpeed = 0.02f;
         Camera.main.GetComponent<CameraFollow>().ChangeCameraPosition(_changeCameraPosition);
         Invoke("StopShowEnemy", 1.5f);
     }

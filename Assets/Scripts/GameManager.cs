@@ -157,7 +157,7 @@ public class GameManager : MonoBehaviour
             _player = GameObject.Find("Player");
             _playerStates = _player.GetComponent<PlayerStates>();
             _inputComponent = GetComponent<InputComponent>();
-            _camera = Camera.Main;
+            _camera = GameObject.Find("Main Camera");
             //DontDestroyOnLoad(gameObject);
         }
         else
