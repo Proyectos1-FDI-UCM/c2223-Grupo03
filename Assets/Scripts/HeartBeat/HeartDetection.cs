@@ -40,19 +40,20 @@ public class HeartDetection : MonoBehaviour
     [SerializeField] private Sprite _safeHeart;
 
     private Image _currentImage;
+
+    private bool _canPress;
     #endregion
 
 
     #region methots
 
-    public void ResetFails() // para el tutorial
+    public void CanPress() // para el tutorial
     {
-        _fails = 0;
+        _canPress = true;
     }
     public void SpacePressed() //Metodo que se activa al pulsar el espacio y realiza acciones diferentes segun el estado del corazón respecto a la barra de pulsaciones
     {
-
-        if (!_hasPressed) //Si ya se ha presionado espacio en esa vuelta no hace nada
+        if (!_hasPressed && _canPress) //Si ya se ha presionado espacio en esa vuelta no hace nada
         {
 
             if (!_inSafeZone) //Si no esta en la zona segura
@@ -130,6 +131,7 @@ public class HeartDetection : MonoBehaviour
         _currentImage = GetComponent<Image>();
         _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Se desactiva el panel de aviso de primeras
         _beepSound = GetComponent<AudioSource>();
+        _canPress = false;
     }
 
     // Update is called once per frame

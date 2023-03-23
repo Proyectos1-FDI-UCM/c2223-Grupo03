@@ -93,6 +93,7 @@ public class TutorialEvents : MonoBehaviour
     }
     private void SpawnTextHeartBar()
     {
+        _heartDetection.CanPress();
         _instancePulsaEspacioTexto = Instantiate(_pulsaEspacioTexto, transform);
     }
     private void DespawnTextHeartBar()
