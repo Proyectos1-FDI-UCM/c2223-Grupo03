@@ -9,4 +9,8 @@ public class GameOver : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
