@@ -6,17 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class KillComponent : MonoBehaviour
 {
+    
+    #region References
     [SerializeField] private GameObject _playerInCloset;
     private EnemyAI _enemyAI;
+    private RespawnComponent _respawnComp;
+    #endregion
 
-
-    private void Start()
+    #region Methods
+    void Start()
     {
         _enemyAI = GetComponent<EnemyAI>();
+        //_respawnComp = GameManager.Instance.GetComponent<RespawnComponent>();
     }
+
     private void Update()
     {
-        if (_enemyAI.Chasing && _playerInCloset.active && 
+        if (_enemyAI.Chasing && _playerInCloset.active &&
             Vector2.Distance(transform.position, _playerInCloset.transform.position) < 1f)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -26,7 +32,9 @@ public class KillComponent : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            //_respawnComp.Respawn();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
+    #endregion
 }

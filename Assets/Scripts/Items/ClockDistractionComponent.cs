@@ -6,6 +6,10 @@ using UnityEngine.U2D;
 
 public class ClockDistractionComponent : MonoBehaviour
 {
+    #region refrences
+    private AudioSource _ring;
+    #endregion
+
     #region parameters
     private bool _isIstanced;
     public bool SetInstance { set { _isIstanced = value; } }
@@ -19,6 +23,8 @@ public class ClockDistractionComponent : MonoBehaviour
     [SerializeField] private float _raysDistance;
     [SerializeField] private LayerMask _raysMask;
     private float _currentAngle;
+
+    private float _audioVolume;
     #endregion
 
     #region methods
@@ -41,6 +47,11 @@ public class ClockDistractionComponent : MonoBehaviour
         float angRadians = (angle * Mathf.PI) / 180;
         return new Vector3(Mathf.Cos(angRadians), Mathf.Sin(angRadians)).normalized;
     }
+
+    private void UpdateSound()
+    {
+        _ring.volume = _audioVolume * GameManager.Instance.getSFX;
+    }
     #endregion
 
     // Start is called before the first frame update
@@ -48,6 +59,8 @@ public class ClockDistractionComponent : MonoBehaviour
     {
         _currentLoop = 0;
         _loopTime = _totalTime / _timesCalled;
+        _ring = GetComponent<AudioSource>();
+        _audioVolume = _ring.volume;
     }
 
     // Update is called once per frame
@@ -57,9 +70,21 @@ public class ClockDistractionComponent : MonoBehaviour
         {
             if (_loopTime < 0)
             {
-                _currentLoop++;
-                _loopTime = _totalTime / _timesCalled;
-                CreateDistraction();
+                if (_currentLoop < 2)
+                {
+                    transform.GetChild(_currentLoop).GetComponent<SpriteRenderer>().color -= new Color (0,0,0,255);
+                    transform.GetChild(_currentLoop + 1).GetComponent<SpriteRenderer>().color += new Color (0,0,0,255);
+                    _currentLoop++;
+                    _loopTime = _totalTime / _timesCalled;
+                } else
+                {
+                    UpdateSound();
+                    CreateDistraction();
+                    transform.GetChild(2).GetComponent<SpriteRenderer>().color -= new Color(0,0,0,255);
+                    _ring.Play();
+                    _currentLoop++;
+                    _loopTime = _totalTime / _timesCalled;
+                }
             } else
             {
                 _loopTime -= Time.deltaTime;
