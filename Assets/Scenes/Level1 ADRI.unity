@@ -17534,6 +17534,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseMenu: {fileID: 619164851}
+  _musicSlider: {fileID: 0}
+  _SFXslider: {fileID: 0}
   _optionsMenu: {fileID: 1314199755}
   _controlsMenu: {fileID: 1380185761}
   _soundMenu: {fileID: 2057395232}
@@ -18201,6 +18203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae008fd9881cfdb44a70d0d29ecb366a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioSFX: 0
+  _audioMusic: 0
+  _audioVolume: 0
   _UIManager: {fileID: 922123958}
   _enemyGroup: {fileID: 369549440}
 --- !u!114 &1064123306
@@ -18249,6 +18254,8 @@ MonoBehaviour:
   _llaveUI: {fileID: 1524068973}
   _pildoraEquipado: 0
   _cajaEquipado: 0
+  _despertadorEquipado: 0
+  _llaveEquipado: 0
 --- !u!114 &1064123310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21027,7 +21034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1380185762
 RectTransform:
   m_ObjectHideFlags: 0
