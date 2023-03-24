@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -111,10 +112,22 @@ public class EnemyAI : MonoBehaviour
         {
             _chasing = false;
             _myAudio.pitch = 2;
-            _myChasePlayer.mute = true;
-            _sceneCamera.GetComponent<AudioSource>().mute = false;
             _myExclamationRender.color = _exclaimColor + new Color (0, 0, 0, -1);
+            StartCoroutine(StopChaseMusic());
         }
+    }
+    private IEnumerator StopChaseMusic()
+    {
+        float oldVolume = _myChasePlayer.volume;
+        while (_myChasePlayer.volume > 0)
+        {
+            _myChasePlayer.volume = _myChasePlayer.volume - 0.01f;
+            yield return new WaitForSeconds(0.05f);
+        }
+        
+        _sceneCamera.GetComponent<AudioSource>().mute = false;
+        _myChasePlayer.mute = true;
+        _myChasePlayer.volume = oldVolume;
     }
     // Funcion auxiliar, guarda en una array puntos de un camino 
     // para no tener que estar asignandolos manualmente
@@ -270,7 +283,8 @@ public class EnemyAI : MonoBehaviour
         {
             _fovEnemigo.SetAim(direction);
             _fovEnemigo.SetOrigin(_enemyRigidbody.position);
-            UpdateChase();
+            if (_chasing)
+                UpdateChase();
             UpdateAnimatorValues();
             if (_timeToSound < 0)
             {
