@@ -68,6 +68,7 @@ public class TutorialEvents : MonoBehaviour
         GameManager.Player.SetActive(true);
         _playerInCloset.SetActive(false);
         Destroy(_instanceEnemigo2);
+        GameManager.Instance.GetComponent<PauseInput>().enabled = true;
     }
     private void ShowEnemy()
     {  
@@ -146,5 +147,6 @@ public class TutorialEvents : MonoBehaviour
         _playerInCloset = GameObject.Find("PlayerInCloset");
         _playerInCloset.SetActive(false);
         _heartDetection.CantPress();
+        GameManager.Instance.GetComponent<PauseInput>().enabled = false;
     }
 }
