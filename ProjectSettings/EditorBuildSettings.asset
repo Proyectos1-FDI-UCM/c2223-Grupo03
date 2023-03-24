@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: 0ae7f98fd1414434286956187d90a37c
   - enabled: 1
+    path: Assets/Scenes/LevelSelector.unity
+    guid: 6f2604d017025f44f8909bafae620459
+  - enabled: 1
     path: Assets/Scenes/LoreTransition.unity
     guid: cd0a562e401473e49bb52cb4de076391
   - enabled: 1
@@ -41,4 +44,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOverLvl5.unity
     guid: 82f2db92c8a26ed4e88d9891de5a2820
+  - enabled: 1
+    path: Assets/Scenes/LevelTransitions/LevelTransition Lvl1.unity
+    guid: 7572569faadac7d488ff5be81cf221a7
+  - enabled: 1
+    path: Assets/Scenes/LevelTransitions/LevelTransition Lvl2.unity
+    guid: 582342f91f97b514aa5d4cc1512165d9
+  - enabled: 1
+    path: Assets/Scenes/LevelTransitions/LevelTransition Lvl3.unity
+    guid: ae50fecaa632ef44e8265aa945a680c3
+  - enabled: 1
+    path: Assets/Scenes/LevelTransitions/LevelTransition Lvl5.unity
+    guid: 1d86a66b74b4ad643b624ad4b39b4414
+  - enabled: 1
+    path: Assets/Scenes/LevelTransitions/LevelTransition Lvl6.unity
+    guid: bd3f2848fe7e0bf4ab1c1b32ad697398
+  - enabled: 1
+    path: Assets/Scenes/LevelTransitions/LevelTransition Lvl4.unity
+    guid: d0f8e96ef45d9e1489644655608b93bd
   m_configObjects: {}
