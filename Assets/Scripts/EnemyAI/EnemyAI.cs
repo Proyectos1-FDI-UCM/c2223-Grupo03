@@ -33,6 +33,7 @@ public class EnemyAI : MonoBehaviour
 
     private AudioSource _myAudio;
     private float _audioVolume;
+    private float _chaseVolume;
 
     private GameObject _myHeadSign;
     private SpriteRenderer _myExclamationRender;
@@ -65,7 +66,6 @@ public class EnemyAI : MonoBehaviour
 
     private void Pause()
     {
-
         if (!GameManager.Instance.IsPause)
         {
             _navMeshAgent.speed = 0;
@@ -82,6 +82,7 @@ public class EnemyAI : MonoBehaviour
     private void UpdateSound()
     {
         _myAudio.volume = _audioVolume * GameManager.Instance.getSFX;
+        _myChasePlayer.volume = _chaseVolume * GameManager.Instance.getSFX;
     }
 
     //actualiza los valores de movimiento en el animator
@@ -264,16 +265,17 @@ public class EnemyAI : MonoBehaviour
         _player = GameManager.Player.GetComponent<Rigidbody2D>();
         _navMeshAgent.speed = _speed;
 
-        _myAudio = GetComponent<AudioSource>();
-        _myAudio.pitch = 2;
-        _audioVolume = _myAudio.volume;
-
         _myHeadSign = transform.GetChild(1).gameObject;
         _myExclamationRender = _myHeadSign.GetComponent<SpriteRenderer>();
         _myExclamationRender.color = _exclaimColor;
         _myChasePlayer = _myHeadSign.GetComponent<AudioSource>();
 
-        _sceneCamera = GameManager.Camera;
+        _myAudio = GetComponent<AudioSource>();
+        _myAudio.pitch = 2;
+        _audioVolume = _myAudio.volume;
+        _chaseVolume = _myChasePlayer.volume;
+
+        _sceneCamera = GameManager.getCamera.gameObject;
     }
     private void Update()
     {

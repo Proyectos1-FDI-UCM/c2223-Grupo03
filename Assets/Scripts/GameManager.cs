@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float _audioSFX;
     [SerializeField] private float _audioMusic;
 
+    [SerializeField] private float _audioVolume;
     #endregion
 
     #region references
@@ -55,8 +56,8 @@ public class GameManager : MonoBehaviour
     static private InputComponent _inputComponent;
     static public InputComponent InputComponent { get { return _inputComponent; } }
 
-    static private GameObject _camera;
-    static public GameObject Camera { get { return _camera;} }
+    static private Camera _camera;
+    static public Camera getCamera { get { return _camera;} }
     
     //Volumen del audio 
     public float getSFX { get { return _audioSFX; } }
@@ -137,15 +138,20 @@ public class GameManager : MonoBehaviour
 
     public void changeSound(string soundType, float newValue)
     {
-        Debug.Log("numbah");
         if (soundType == "MusicSlider")
         {
             _audioMusic = newValue;
+            SetSoundChange();
         } else if (soundType == "SFXSlider") 
-        {
-            Debug.Log("ONE");
+        { 
             _audioSFX = newValue;
         }
+    }
+
+    public void SetSoundChange()
+    {
+        _camera.GetComponent<AudioSource>().volume = _audioVolume * _audioMusic;
+        _camera.transform.GetChild(0).GetComponent<AudioSource>().volume = _audioVolume * _audioMusic;
     }
     #endregion
   
@@ -157,7 +163,7 @@ public class GameManager : MonoBehaviour
             _player = GameObject.Find("Player");
             _playerStates = _player.GetComponent<PlayerStates>();
             _inputComponent = GetComponent<InputComponent>();
-            _camera = GameObject.Find("Main Camera");
+            _camera = Camera.main;
             //DontDestroyOnLoad(gameObject);
         }
         else

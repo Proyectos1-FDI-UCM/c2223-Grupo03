@@ -23,6 +23,8 @@ public class ClockDistractionComponent : MonoBehaviour
     [SerializeField] private float _raysDistance;
     [SerializeField] private LayerMask _raysMask;
     private float _currentAngle;
+
+    private float _audioVolume;
     #endregion
 
     #region methods
@@ -48,7 +50,7 @@ public class ClockDistractionComponent : MonoBehaviour
 
     private void UpdateSound()
     {
-
+        _ring.volume = _audioVolume * GameManager.Instance.getSFX;
     }
     #endregion
 
@@ -58,6 +60,7 @@ public class ClockDistractionComponent : MonoBehaviour
         _currentLoop = 0;
         _loopTime = _totalTime / _timesCalled;
         _ring = GetComponent<AudioSource>();
+        _audioVolume = _ring.volume;
     }
 
     // Update is called once per frame
@@ -75,6 +78,7 @@ public class ClockDistractionComponent : MonoBehaviour
                     _loopTime = _totalTime / _timesCalled;
                 } else
                 {
+                    UpdateSound();
                     CreateDistraction();
                     transform.GetChild(2).GetComponent<SpriteRenderer>().color -= new Color(0,0,0,255);
                     _ring.Play();

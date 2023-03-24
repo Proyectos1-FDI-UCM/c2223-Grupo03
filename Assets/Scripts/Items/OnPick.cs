@@ -16,6 +16,7 @@ public class OnPick : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            collision.GetComponent<AudioSource>().volume = GameManager.Instance.getSFX * 0.25f;
             collision.GetComponent<AudioSource>().Play();
 
             if (_id == 1 && !_Inventory._PildoraEquipado)
