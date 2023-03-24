@@ -38,11 +38,26 @@ public class PlayerStates : MonoBehaviour
     private Inventory _inventory;
     private GameObject _player;
     private Animator _playerAnimator;
+
     private AudioSource _pickUpAudio;
+    private AudioSource _boxAudio;
+    private float _pickUpVolume;
+    private float _boxVolume;
+
+    private GameObject instancedBoxAudio;
     #endregion
 
 
     #region methods
+
+    public void PlayPickUpAudio()
+    {
+        _pickUpAudio.Play();
+    }
+    public void PlayBoxAudio()
+    {
+        _boxAudio.Play();
+    }
     public void Clock()
     {
         _inventory.EliminaObjeto(3);
@@ -59,7 +74,11 @@ public class PlayerStates : MonoBehaviour
     }
     public void EnterBox() // player entra a caja
     {
-        _pickUpAudio.Play();
+        instancedBoxAudio = new GameObject();
+        AudioSource _instancedAudioSource = instancedBoxAudio.AddComponent<AudioSource>();
+        _instancedAudioSource.clip = _boxAudio.clip;
+        _instancedAudioSource.volume = _boxAudio.volume;
+        _instancedAudioSource.Play();
         _player.SetActive(false);
         _playerInCloset.SetActive(true);
         _boxInstance = Instantiate(_boxPrefab, _player.transform.position, Quaternion.identity);
@@ -68,8 +87,9 @@ public class PlayerStates : MonoBehaviour
     public void ExitBox() // player sale de caja
     {
         Destroy(_boxInstance);
+        Destroy(instancedBoxAudio);
         _player.SetActive(true);
-        _pickUpAudio.Play();
+        PlayBoxAudio();
         _playerInCloset.SetActive(false);
         _inventory._cajaEquipado = false;
         _inventory.EliminaObjeto(2);
@@ -163,12 +183,18 @@ public class PlayerStates : MonoBehaviour
         _inventory = GameManager.Instance.GetComponent<Inventory>();
         _player = GameManager.Player;
         _playerAnimator = _player.GetComponent<Animator>();
-        _pickUpAudio = _player.GetComponent<AudioSource>();
+
+        AudioSource[] _audioArray = GetComponents<AudioSource>();
+        _pickUpAudio = _audioArray[0];
+        _boxAudio = _audioArray[1];
+        _pickUpVolume = _pickUpAudio.volume;
+        _boxVolume = _boxAudio.volume;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        _boxAudio.volume = _boxVolume * GameManager.Instance.getSFX;
+        _pickUpAudio.volume = _pickUpVolume * GameManager.Instance.getSFX;
     }
 }
