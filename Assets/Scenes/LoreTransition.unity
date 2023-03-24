@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9, y: 179.445}
-  m_SizeDelta: {x: 1281.972, y: 759.234}
+  m_AnchoredPosition: {x: -0.015012, y: 156}
+  m_SizeDelta: {x: 1918.6, y: 884.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &241283043
 MonoBehaviour:
@@ -254,23 +254,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92f7dc362d980d4cafb8580812f189f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lettersPerSecond: 10
+  _lettersPerSecond: 13
   _imageAnimTime: 1
   _dialogText: {fileID: 1385322451}
   _imageContainer: {fileID: 1751528293}
   _dialogs:
-  - "En un pueblito peque\xF1o, en un pais desconocido vivia un chico de cabellos
-    rojizos llamado Fanegas. La noche parecia tranquila, por lo que decidio aproachar
-    para pasear a su perrita Vivu, sin darse cuenta que eran m\xE1s de las doce."
-  - Es a esas horas donde horribles seres cubiertos de pelo llamados Lutanos rondan
-    el lugar. Sin sitio al cual esconderse o huir, Fanegas seria secuestrado por
-    estas atrocidades de la naturaleza.
-  - 'Confuso y adolorido Fanegas se despertaria en el atico de una gran mansion.
-    El polvo y los huesos rondaban por todas partes. Ademas su querida perrita ya
-    no estaba junto a el. '
-  - "Por si fuera poco, Fanegas sientio una fuerte punzada en su coraz\xF3n, a que
-    se deberia? No obstante quedarse lamentandose no le servira de nada. Por lo que
-    Fanegas debera encontrar una salida y a Vivu lo antes posible."
+  - "En un pueblo diminuto, en un pais desconocido vivia un chico de cabellos rojizos
+    llamado Fanegas. La noche parecia tranquila, por lo que decidio aproachar para
+    pasear a su perrita Vivu, sin darse cuenta que eran m\xE1s de las doce."
+  - A estas horas seres horribles cubiertos de pelo llamados "Lutanos" rondan el
+    lugar. Sin sitio al cual esconderse o huir, Fanegas fue secuestrado por estas
+    atrocidades de la naturaleza.
+  - 'Confuso y adolorido Fanegas se despierta en el atico de una gran mansion llena
+    de polvo y huesos. Ademas, su querida perrita ya no estaba junto a el. '
+  - Por si fuera poco, Fanegas noto un gran dolor en su pecho que le preocupo. No
+    obstante, lamentarse no le sirve de nada, por lo que Fanegas debe encontrar una
+    salida y a Vivu lo antes posible.
   _audioSource: {fileID: 299750359}
 --- !u!114 &299750357
 MonoBehaviour:
@@ -518,8 +517,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9, y: 179.445}
-  m_SizeDelta: {x: 1281.972, y: 759.234}
+  m_AnchoredPosition: {x: 0.015032, y: 127.36}
+  m_SizeDelta: {x: 1918.6, y: 1034.626}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &458136072
 MonoBehaviour:
@@ -594,8 +593,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9, y: 160.383}
-  m_SizeDelta: {x: 1281.972, y: 759.234}
+  m_AnchoredPosition: {x: 0.000026703, y: 156}
+  m_SizeDelta: {x: 1918.63, y: 977.351}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1130628708
 MonoBehaviour:
@@ -818,10 +817,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 36
+  m_fontSize: 57
+  m_fontSizeBase: 57
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1140,8 +1139,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9, y: 179.445}
-  m_SizeDelta: {x: 1281.972, y: 759.234}
+  m_AnchoredPosition: {x: 0.01503, y: 215.04}
+  m_SizeDelta: {x: 1918.6, y: 1095.423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1984722416
 MonoBehaviour:
