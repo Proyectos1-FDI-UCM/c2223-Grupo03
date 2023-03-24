@@ -70,11 +70,10 @@ public class PlayerStates : MonoBehaviour
     {
         _audioSource.Play();
         new WaitForSeconds(2);
-        _boxInstance = Instantiate(_boxPrefab, _boxTransform, Quaternion.identity);
-        _boxAnimator.SetTrigger("CajaFall");
+        _boxInstance = Instantiate(_boxPrefab, _player.transform.position, Quaternion.identity);
+        _boxAnimator.SetTrigger("SpawnBox");
         _player.SetActive(false);
         _playerInCloset.SetActive(true);
-        
         _isBox = true;
     }
     public void ExitBox() // player sale de caja
@@ -176,7 +175,6 @@ public class PlayerStates : MonoBehaviour
         _player = GameManager.Player;
         _playerAnimator = _player.GetComponent<Animator>();
         _audioSource = _player.GetComponent<AudioSource>();
-        _boxAnimation = _boxPrefab.GetComponent<BoxAnimation>();
         _boxAnimator = _boxPrefab.GetComponent<Animator>();
         
     }
