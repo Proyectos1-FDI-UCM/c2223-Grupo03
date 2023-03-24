@@ -8,6 +8,7 @@ public class ChangeScene : MonoBehaviour
     [SerializeField] private int _id;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene(_id);
+        if (collision.tag == "Player")
+            SceneManager.LoadScene(_id);
     }
 }
