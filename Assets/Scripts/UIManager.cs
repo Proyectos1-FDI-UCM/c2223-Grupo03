@@ -14,13 +14,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject _optionsMenu;
     [SerializeField] GameObject _controlsMenu;
     [SerializeField] GameObject _soundMenu;
+    [SerializeField] GameObject _tecladoControlsMenu;
     #endregion
 
     #region properties
 
 
     #endregion
-
 
     #region methods
 
@@ -40,19 +40,32 @@ public class UIManager : MonoBehaviour
     {
         if (newMenu == GameManager.Menus.OPTIONS)
         {
-            Debug.Log("Llego 4");
             _pauseMenu.SetActive(false);
+            _controlsMenu.SetActive(false);
+            _soundMenu.SetActive(false);
+            _tecladoControlsMenu.SetActive(false);
             _optionsMenu.SetActive(true);
         }
         else if (newMenu == GameManager.Menus.CONTROLS)
         {
             _optionsMenu.SetActive(false);
+            _tecladoControlsMenu.SetActive(false);
             _controlsMenu.SetActive(true);
         }
         else if (newMenu == GameManager.Menus.SOUND)
         {
             _optionsMenu.SetActive(false);
             _soundMenu.SetActive(true);
+        }
+        else if (newMenu == GameManager.Menus.PAUSE)
+        {
+            _optionsMenu.SetActive(false);
+            _pauseMenu.SetActive(true);
+        }
+        else if (newMenu == GameManager.Menus.TECLADO)
+        {
+            _controlsMenu.SetActive(false);
+            _tecladoControlsMenu.SetActive(true);
         }
     }
 

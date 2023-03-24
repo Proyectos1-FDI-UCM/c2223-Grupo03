@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    public enum Menus { PAUSE, OPTIONS, CONTROLS, SOUND, NoMenu };
+    public enum Menus { PAUSE, OPTIONS, CONTROLS, SOUND, NoMenu, TECLADO};
 
     #region parameters
     [SerializeField] private float _audioSFX;
@@ -29,7 +29,10 @@ public class GameManager : MonoBehaviour
     private int _amountOfChildren;
 
     private Menus _actualMenu;
-    private Menus _beforeMenu;
+    public Menus ActualMenu
+    {
+        get { return _actualMenu; }
+    }
 
     public bool IsPause
     {
@@ -106,7 +109,6 @@ public class GameManager : MonoBehaviour
     {
         if (newMenu == Menus.OPTIONS)
         {
-            Debug.Log("Llego 3");
             _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.OPTIONS);
         }
         else if (newMenu == Menus.CONTROLS)
@@ -117,20 +119,40 @@ public class GameManager : MonoBehaviour
         {
             _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.SOUND);
         }
+        else if (newMenu == Menus.PAUSE)
+        {
+            _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.PAUSE);
+        }
+        else if (newMenu == Menus.TECLADO)
+        {
+            _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.TECLADO);
+        }
     }
 
     public void RequestMenuChange(Menus newMenu)
     {
-        if (_actualMenu == Menus.PAUSE && (newMenu == Menus.OPTIONS))
+        if ((_actualMenu == Menus.PAUSE || _actualMenu == Menus.CONTROLS || _actualMenu == Menus.SOUND || _actualMenu == Menus.TECLADO) && (newMenu == Menus.OPTIONS))
         {
-            Debug.Log("LLego 2");
-            _beforeMenu = _actualMenu;
             _actualMenu = newMenu;
             UpdateMenu(newMenu);
         }
         else if (_actualMenu == Menus.OPTIONS && (newMenu == Menus.CONTROLS || newMenu == Menus.SOUND))
         {
-            _beforeMenu = _actualMenu;
+            _actualMenu = newMenu;
+            UpdateMenu(newMenu);
+        }
+        else if (_actualMenu == Menus.OPTIONS && (newMenu == Menus.PAUSE))
+        {
+            _actualMenu = newMenu;
+            UpdateMenu(newMenu);
+        }
+        else if (_actualMenu == Menus.CONTROLS && (newMenu == Menus.TECLADO))
+        {
+            _actualMenu = newMenu;
+            UpdateMenu(newMenu);
+        }
+        else if (_actualMenu == Menus.TECLADO && (newMenu == Menus.CONTROLS))
+        {
             _actualMenu = newMenu;
             UpdateMenu(newMenu);
         }
