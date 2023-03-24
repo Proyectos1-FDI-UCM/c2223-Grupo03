@@ -19,18 +19,18 @@ public class Light2DAnim : MonoBehaviour
     {
         if (_light2DCom != null)
         {
-            if (_iteraciones >= 100)
+            if (_iteraciones >= 200)
             {
                 _sentido = !_sentido;
                 _iteraciones = 0;
             }
             if (_sentido)
             {
-                _light2DCom.intensity += 0.01f;
+                _light2DCom.intensity += 0.005f;
             }
             else
             {
-                _light2DCom.intensity -= 0.01f;
+                _light2DCom.intensity -= 0.005f;
             }
             _iteraciones++;
         }

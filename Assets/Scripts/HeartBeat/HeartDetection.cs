@@ -51,6 +51,10 @@ public class HeartDetection : MonoBehaviour
     {
         _canPress = true;
     }
+    public void CantPress() // para el tutorial
+    {
+        _canPress = true;
+    }
     public void SpacePressed() //Metodo que se activa al pulsar el espacio y realiza acciones diferentes segun el estado del corazón respecto a la barra de pulsaciones
     {
         if (!_hasPressed && _canPress) //Si ya se ha presionado espacio en esa vuelta no hace nada
@@ -131,7 +135,7 @@ public class HeartDetection : MonoBehaviour
         _currentImage = GetComponent<Image>();
         _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Se desactiva el panel de aviso de primeras
         _beepSound = GetComponent<AudioSource>();
-        _canPress = false;
+        _canPress = true;
     }
 
     // Update is called once per frame

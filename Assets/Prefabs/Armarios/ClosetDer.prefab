@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e5da7ff0508bf445b218bcca78f325b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactDistance: 3
+  _interactDistance: 1.7
   _closetSprite: {fileID: -1813991624, guid: d5200f83ca1fd2f4aaa998e29106c0c8, type: 3}
   _closetShine: {fileID: 21300000, guid: c119c4244e501534c83b87f5a9936da5, type: 3}
 --- !u!114 &5149328509344097205

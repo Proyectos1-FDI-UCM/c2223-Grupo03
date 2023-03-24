@@ -122,7 +122,6 @@ public class TutorialEvents : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(numOfEvent);
         if (numOfEvent == 5 && !GameManager.Player.active)
         {
             numOfEvent++;
@@ -146,5 +145,6 @@ public class TutorialEvents : MonoBehaviour
         _blackRooms = GameObject.Find("BlackRooms");
         _playerInCloset = GameObject.Find("PlayerInCloset");
         _playerInCloset.SetActive(false);
+        _heartDetection.CantPress();
     }
 }

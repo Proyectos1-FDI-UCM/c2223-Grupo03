@@ -60,7 +60,6 @@ public class PlayerStates : MonoBehaviour
     public void EnterBox() // player entra a caja
     {
         _audioSource.Play();
-        new WaitForSeconds(2);
         _player.SetActive(false);
         _playerInCloset.SetActive(true);
         _boxInstance = Instantiate(_boxPrefab, _player.transform.position, Quaternion.identity);
