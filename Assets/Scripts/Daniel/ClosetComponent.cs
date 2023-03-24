@@ -22,7 +22,7 @@ public class ClosetComponent : MonoBehaviour
 
     #region Methods
 
-    //Comptueba si el juagr esta dentro del rango poara entrar en el armario
+    //Comptueba si el juagdor esta dentro del rango para entrar en el armario
     private bool CanHide()
     {
         _playerPos = _player.transform.position;

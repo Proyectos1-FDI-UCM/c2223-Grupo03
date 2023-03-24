@@ -17111,6 +17111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae008fd9881cfdb44a70d0d29ecb366a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioSFX: 0
+  _audioMusic: 0
   _UIManager: {fileID: 922123958}
   _enemyGroup: {fileID: 369549440}
 --- !u!114 &1064123306
@@ -23675,7 +23677,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7269376886922104213}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 24.3904, y: -38.5698, z: 0}
+  m_LocalPosition: {x: 1.77, y: -10.02, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []

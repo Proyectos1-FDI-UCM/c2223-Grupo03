@@ -71,7 +71,7 @@ public class PlayerStates : MonoBehaviour
         _audioSource.Play();
         new WaitForSeconds(2);
         _boxInstance = Instantiate(_boxPrefab, _player.transform.position, Quaternion.identity);
-        _boxAnimator.SetTrigger("SpawnBox");
+        _boxAnimator.SetBool("SpawnBox", true);
         _player.SetActive(false);
         _playerInCloset.SetActive(true);
         _isBox = true;
