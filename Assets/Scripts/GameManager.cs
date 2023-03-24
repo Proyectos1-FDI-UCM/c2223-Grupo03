@@ -150,8 +150,11 @@ public class GameManager : MonoBehaviour
 
     public void SetSoundChange()
     {
-        _camera.GetComponent<AudioSource>().volume = _audioVolume * _audioMusic;
-        _camera.transform.GetChild(0).GetComponent<AudioSource>().volume = _audioVolume * _audioMusic;
+        AudioSource[] audios = _camera.GetComponents<AudioSource>();
+        foreach (AudioSource audio in audios)
+        {
+            audio.volume = _audioVolume * _audioMusic;
+        }
     }
     #endregion
   
