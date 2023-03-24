@@ -32,6 +32,7 @@ public class HeartDetection : MonoBehaviour
     public bool _pillEffects = false;
 
     private AudioSource _beepSound;
+    private float _beepVolume;
 
     [SerializeField] private Sprite _brokenHeart3;
     [SerializeField] private Sprite _brokenHeart2;
@@ -96,6 +97,7 @@ public class HeartDetection : MonoBehaviour
     {
         if (collision.gameObject == _safeZone) //Si el trigger es el de la zona segura
         {
+            _beepSound.volume = GameManager.Instance.getSFX * _beepVolume; 
             _beepSound.Play();
             _warning.GetComponent<Image>().color = new Color(1, 0, 0, 0.20f); //Se activa el panel de aviso
             _inSafeZone = true; //El bool de zona segura se activa
@@ -136,6 +138,7 @@ public class HeartDetection : MonoBehaviour
         _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Se desactiva el panel de aviso de primeras
         _beepSound = GetComponent<AudioSource>();
         _canPress = true;
+        _beepVolume = _beepSound.volume;
     }
 
     // Update is called once per frame
