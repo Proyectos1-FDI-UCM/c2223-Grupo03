@@ -26,6 +26,8 @@ public class TutorialEvents : MonoBehaviour
 
     private GameObject _playerInCloset;
     private bool intoCloset;
+
+    [SerializeField] GameObject _firstCloset;
     public void Triggered()
     {
         numOfEvent++;
@@ -71,10 +73,9 @@ public class TutorialEvents : MonoBehaviour
         GameManager.Instance.GetComponent<PauseInput>().enabled = true;
     }
     private void ShowEnemy()
-    {  
+    {
         _blackRooms.SetActive(false);
         _instanceEnemigo1 = Instantiate(_enemigo1);
-        Debug.Log("instanced");
         Camera.main.GetComponent<CameraFollow>()._smoothSpeed = 0.02f;
         Camera.main.GetComponent<CameraFollow>().ChangeCameraPosition(_changeCameraPosition);
         Invoke("StopShowEnemy", 2f);
@@ -88,6 +89,7 @@ public class TutorialEvents : MonoBehaviour
     }
     private void StopShowEnemy2()
     {
+        _firstCloset.GetComponent<ClosetComponent>().enabled = true;
         Destroy(_instanceEnemigo1);
         Camera.main.GetComponent<CameraFollow>()._smoothSpeed = 2f;
     }
@@ -148,5 +150,6 @@ public class TutorialEvents : MonoBehaviour
         _playerInCloset.SetActive(false);
         _heartDetection.CantPress();
         GameManager.Instance.GetComponent<PauseInput>().enabled = false;
+        _firstCloset.GetComponent<ClosetComponent>().enabled = false;
     }
 }

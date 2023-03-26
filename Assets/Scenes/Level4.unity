@@ -14700,7 +14700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7711759599151219928, guid: 15fd5673e5589884fa051935500f02d2, type: 3}
       propertyPath: m_Size.y
-      value: 0.72518796
+      value: 0.56564486
       objectReference: {fileID: 0}
     - target: {fileID: 7711759599151219928, guid: 15fd5673e5589884fa051935500f02d2, type: 3}
       propertyPath: m_Offset.x
@@ -14708,7 +14708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7711759599151219928, guid: 15fd5673e5589884fa051935500f02d2, type: 3}
       propertyPath: m_Offset.y
-      value: -0.20064667
+      value: -0.12087515
       objectReference: {fileID: 0}
     - target: {fileID: 7711759599151219934, guid: 15fd5673e5589884fa051935500f02d2, type: 3}
       propertyPath: m_RootOrder
@@ -21581,7 +21581,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 1647304501}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 29b5a73550c708c40a06344d5b147023, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

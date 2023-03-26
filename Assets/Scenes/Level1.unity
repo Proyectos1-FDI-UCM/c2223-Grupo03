@@ -11149,7 +11149,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 705884308}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 29b5a73550c708c40a06344d5b147023, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -23061,6 +23061,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826288823}
   m_CullTransparentMesh: 1
+--- !u!1 &1826619911 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5508834420113465198, guid: 64ee46b38c1bb404585dc43193fe5aa6, type: 3}
+  m_PrefabInstance: {fileID: 1710734325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1828051805
 GameObject:
   m_ObjectHideFlags: 0
@@ -24177,6 +24182,7 @@ MonoBehaviour:
   _enemigo2: {fileID: 7645889803803477305, guid: 0357c741afb997e4faf03f482dfe4843, type: 3}
   _muroInvisible: {fileID: 7737744970360899498, guid: 7768a1282429fdd48916cbac0d184adb, type: 3}
   _changeCameraPosition: {fileID: 4159796026467648853, guid: dd809d31d07513e48a9ac3e170c332f3, type: 3}
+  _firstCloset: {fileID: 1826619911}
 --- !u!1 &1925831066
 GameObject:
   m_ObjectHideFlags: 0
