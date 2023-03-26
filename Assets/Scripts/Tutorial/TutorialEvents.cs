@@ -77,12 +77,12 @@ public class TutorialEvents : MonoBehaviour
         Debug.Log("instanced");
         Camera.main.GetComponent<CameraFollow>()._smoothSpeed = 0.02f;
         Camera.main.GetComponent<CameraFollow>().ChangeCameraPosition(_changeCameraPosition);
-        Invoke("StopShowEnemy", 1.5f);
+        Invoke("StopShowEnemy", 2f);
     }
     private void StopShowEnemy()
     {
         Camera.main.GetComponent<CameraFollow>().ChangeCameraPosition(GameManager.Player.transform);
-        Invoke("StopShowEnemy2", 0.3f);
+        Invoke("StopShowEnemy2", 0.7f);
         _instanceMuroInvisible = Instantiate(_muroInvisible);
         _blackRooms.SetActive(true);
     }

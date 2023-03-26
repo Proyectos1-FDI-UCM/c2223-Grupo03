@@ -10974,6 +10974,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 97730221}
     m_Modifications:
+    - target: {fileID: 1841242808282447233, guid: 3d59b9c8530d796488b775f0ff3021d0, type: 3}
+      propertyPath: _smoothRotation
+      value: 0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 1841242808845823329, guid: 3d59b9c8530d796488b775f0ff3021d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.54
@@ -10984,7 +10988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1841242808948413950, guid: 3d59b9c8530d796488b775f0ff3021d0, type: 3}
       propertyPath: _speed
-      value: 4
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 1841242808948413950, guid: 3d59b9c8530d796488b775f0ff3021d0, type: 3}
       propertyPath: _coneFov
@@ -11920,7 +11924,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 7c53fcfeb7c8c0d48aa958029122826c, type: 2}
     - target: {fileID: 5520505104183516836, guid: b8c9c7d309fd25e4c96b9ef1b50c807a, type: 3}
       propertyPath: _id
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8c9c7d309fd25e4c96b9ef1b50c807a, type: 3}
@@ -12311,7 +12315,7 @@ MonoBehaviour:
   _chasing: 0
   _timeToStopChasing: 3
   _cone: {fileID: 1031401401}
-  _coneFov: 45
+  _coneFov: 35
   _coneDistance: 4.5
   _path: {fileID: 264836263}
   _cicle: 1
@@ -28514,7 +28518,7 @@ MonoBehaviour:
   _chasing: 0
   _timeToStopChasing: 3
   _cone: {fileID: 6738364343749514349}
-  _coneFov: 45
+  _coneFov: 35
   _coneDistance: 4.5
   _path: {fileID: 6738364343520976789}
   _cicle: 1
