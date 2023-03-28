@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92f7dc362d980d4cafb8580812f189f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lettersPerSecond: 13
+  _lettersPerSecond: 17
   _imageAnimTime: 1
   _dialogText: {fileID: 1385322451}
   _imageContainer: {fileID: 1751528293}
