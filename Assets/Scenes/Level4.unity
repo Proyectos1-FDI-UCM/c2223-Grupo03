@@ -1782,7 +1782,7 @@ RectTransform:
   - {fileID: 642851844}
   - {fileID: 1543426045}
   m_Father: {fileID: 2056740116}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2883,6 +2883,7 @@ GameObject:
   - component: {fileID: 285229870}
   - component: {fileID: 285229869}
   - component: {fileID: 285229873}
+  - component: {fileID: 285229874}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2967,6 +2968,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a4eb654b93d7b4aad3427dec9df393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &285229874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285229868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9d60dba433b064a913aa7efb2230d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pauseFirstButton: {fileID: 412503729}
+  _optionFirstButton: {fileID: 1206624000}
+  _controlerFirstButton: {fileID: 1148491785}
+  _keyboardFirstButton: {fileID: 272852400}
+  _soundFirstButton: {fileID: 1289175889}
 --- !u!1001 &292889958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11289,7 +11307,7 @@ RectTransform:
   - {fileID: 254121787}
   - {fileID: 1044409964}
   m_Father: {fileID: 2056740116}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -19779,7 +19797,7 @@ RectTransform:
   - {fileID: 1405757240}
   - {fileID: 577553294}
   m_Father: {fileID: 2056740116}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -28915,7 +28933,7 @@ RectTransform:
   - {fileID: 888242117}
   - {fileID: 1193015421}
   m_Father: {fileID: 2056740116}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -32441,10 +32459,10 @@ RectTransform:
   - {fileID: 1115790546}
   - {fileID: 1842419889}
   - {fileID: 1473079063}
-  - {fileID: 346888770}
-  - {fileID: 1534472663}
   - {fileID: 202905023}
+  - {fileID: 346888770}
   - {fileID: 1650706771}
+  - {fileID: 1534472663}
   - {fileID: 663076895}
   m_Father: {fileID: 0}
   m_RootOrder: 7

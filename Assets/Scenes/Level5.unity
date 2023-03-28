@@ -2040,6 +2040,7 @@ GameObject:
   - component: {fileID: 285229870}
   - component: {fileID: 285229869}
   - component: {fileID: 285229873}
+  - component: {fileID: 285229874}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2124,6 +2125,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a4eb654b93d7b4aad3427dec9df393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &285229874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 285229868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9d60dba433b064a913aa7efb2230d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pauseFirstButton: {fileID: 1784691848}
+  _optionFirstButton: {fileID: 1479216757}
+  _controlerFirstButton: {fileID: 1841883577}
+  _keyboardFirstButton: {fileID: 988249080}
+  _soundFirstButton: {fileID: 395339064}
 --- !u!1 &285568001
 GameObject:
   m_ObjectHideFlags: 0
@@ -2782,7 +2800,7 @@ RectTransform:
   - {fileID: 2022172219}
   - {fileID: 1080801268}
   m_Father: {fileID: 2056740116}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -28541,7 +28559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _safeZone: {fileID: 395390054}
   _warning: {fileID: 493795853}
-  DEBUG: 1
+  DEBUG: 0
   _pillEffects: 0
   _brokenHeart3: {fileID: 1430472703, guid: 44ecdaa7c303dab48af3f5e9805a567e, type: 3}
   _brokenHeart2: {fileID: -1175015732, guid: 44ecdaa7c303dab48af3f5e9805a567e, type: 3}
@@ -31100,7 +31118,7 @@ RectTransform:
   - {fileID: 1649666127}
   - {fileID: 813037728}
   m_Father: {fileID: 2056740116}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -33501,7 +33519,7 @@ RectTransform:
   - {fileID: 1069536053}
   - {fileID: 573437450}
   m_Father: {fileID: 2056740116}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -34910,10 +34928,10 @@ RectTransform:
   - {fileID: 1115790546}
   - {fileID: 1842419889}
   - {fileID: 1473079063}
-  - {fileID: 1644894936}
-  - {fileID: 1901327293}
-  - {fileID: 85344140}
   - {fileID: 333976031}
+  - {fileID: 1644894936}
+  - {fileID: 85344140}
+  - {fileID: 1901327293}
   - {fileID: 1734900293}
   m_Father: {fileID: 0}
   m_RootOrder: 7
