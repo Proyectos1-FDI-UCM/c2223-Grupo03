@@ -31,7 +31,7 @@ public class FollowPoints : MonoBehaviour
         {
             if (i < _points.Length)
             {
-                if (Vector2.Distance(_enemyRigidbody.position, _points[i].position) > 0.1f)
+                if (Vector2.Distance(_enemyRigidbody.position, _points[i].position) > 0.3f)
                 {
                     _navMeshAgent.SetDestination(_points[i].position);
                 }
@@ -43,7 +43,7 @@ public class FollowPoints : MonoBehaviour
         {
             if (i < _points.Length && forward)
             {
-                if (Vector2.Distance(_enemyRigidbody.position, _points[i].position) > 0.1f)
+                if (Vector2.Distance(_enemyRigidbody.position, _points[i].position) > 0.3f)
                 {
                     _navMeshAgent.SetDestination(_points[i].position);
                 }
@@ -52,7 +52,7 @@ public class FollowPoints : MonoBehaviour
             }
             else if (i > 0 && !forward)
             {
-                if (Vector2.Distance(_enemyRigidbody.position, _points[i].position) > 0.1f)
+                if (Vector2.Distance(_enemyRigidbody.position, _points[i].position) > 0.3f)
                 {
                     _navMeshAgent.SetDestination(_points[i].position);
                 }
