@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     #region references
     [SerializeField] GameObject _UIManager;
     [SerializeField] GameObject _enemyGroup;
-    [SerializeField] GameObject _spawnManager;
+    GameObject _spawnManager;
 
     #endregion
 
@@ -190,6 +190,7 @@ public class GameManager : MonoBehaviour
         _playerStates = _player.GetComponent<PlayerStates>();
         _inputComponent = GetComponent<InputComponent>();
         _camera = Camera.main;
+        _spawnManager = GameObject.Find("SpawnManager");
         _spawner = _spawnManager.GetComponent<SpawnManger>();
     }
     void Start()
@@ -197,6 +198,7 @@ public class GameManager : MonoBehaviour
         _isInPause= false;
         _amountOfChildren = _enemyGroup.transform.childCount;
         _audioMusic = _audioSFX = 1;
+
     }
     void Update()
     {

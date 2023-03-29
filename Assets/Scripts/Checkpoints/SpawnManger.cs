@@ -7,9 +7,13 @@ public class SpawnManger : MonoBehaviour
 {
     public static SpawnManger Instance;
 
-    private bool checkPointActive;
-    public bool getCP { get { return checkPointActive; } }
-    public bool setCP { set { checkPointActive = value; } }
+    [SerializeField] private bool checkPointActive;
+    public bool getCP() { return checkPointActive; }
+    public void setCP(bool value) 
+    { 
+        checkPointActive = value; 
+        
+    }
 
     private void Awake()
     {
