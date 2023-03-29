@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Inventory : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class Inventory : MonoBehaviour
     public bool _DespertadorEquipado { get { return _despertadorEquipado; }}
     public bool _LlaveEquipado { get { return _llaveEquipado; }}
 
+   
     private void Start()
     {
         EliminaObjeto(1); // 1 -> píldoras
