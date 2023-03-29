@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
+using TMPro;
 
 public class ClockDistractionComponent : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class ClockDistractionComponent : MonoBehaviour
     [SerializeField] private float _raysDistance;
     [SerializeField] private LayerMask _raysMask;
     private float _currentAngle;
+
+    private float _audioVolume;
     #endregion
 
     #region methods
@@ -48,7 +51,7 @@ public class ClockDistractionComponent : MonoBehaviour
 
     private void UpdateSound()
     {
-
+        _ring.volume = _audioVolume * GameManager.Instance.getSFX;
     }
     #endregion
 
@@ -58,6 +61,7 @@ public class ClockDistractionComponent : MonoBehaviour
         _currentLoop = 0;
         _loopTime = _totalTime / _timesCalled;
         _ring = GetComponent<AudioSource>();
+        _audioVolume = _ring.volume;
     }
 
     // Update is called once per frame
@@ -69,14 +73,15 @@ public class ClockDistractionComponent : MonoBehaviour
             {
                 if (_currentLoop < 2)
                 {
-                    transform.GetChild(_currentLoop).GetComponent<SpriteRenderer>().color -= new Color (0,0,0,255);
-                    transform.GetChild(_currentLoop + 1).GetComponent<SpriteRenderer>().color += new Color (0,0,0,255);
+                    transform.GetChild(_currentLoop).GetComponent<TextMeshPro>().color -= new Color (0,0,0,255);
+                    transform.GetChild(_currentLoop + 1).GetComponent<TextMeshPro>().color += new Color (0,0,0,255);
                     _currentLoop++;
                     _loopTime = _totalTime / _timesCalled;
                 } else
                 {
+                    UpdateSound();
                     CreateDistraction();
-                    transform.GetChild(2).GetComponent<SpriteRenderer>().color -= new Color(0,0,0,255);
+                    transform.GetChild(2).GetComponent<TextMeshPro>().color -= new Color(0,0,0,255);
                     _ring.Play();
                     _currentLoop++;
                     _loopTime = _totalTime / _timesCalled;

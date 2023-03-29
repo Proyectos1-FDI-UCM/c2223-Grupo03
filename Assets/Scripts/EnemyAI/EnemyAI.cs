@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -32,10 +33,14 @@ public class EnemyAI : MonoBehaviour
 
     private AudioSource _myAudio;
     private float _audioVolume;
+    private float _chaseVolume;
 
     private GameObject _myHeadSign;
     private SpriteRenderer _myExclamationRender;
     [SerializeField] Color _exclaimColor;
+    private AudioSource _myChasePlayer;
+
+    private GameObject _sceneCamera;
     #endregion
 
     #region Variables
@@ -61,7 +66,6 @@ public class EnemyAI : MonoBehaviour
 
     private void Pause()
     {
-
         if (!GameManager.Instance.IsPause)
         {
             _navMeshAgent.speed = 0;
@@ -78,6 +82,7 @@ public class EnemyAI : MonoBehaviour
     private void UpdateSound()
     {
         _myAudio.volume = _audioVolume * GameManager.Instance.getSFX;
+        _myChasePlayer.volume = _chaseVolume * GameManager.Instance.getSFX;
     }
 
     //actualiza los valores de movimiento en el animator
@@ -93,19 +98,36 @@ public class EnemyAI : MonoBehaviour
         _timeChasing = 0;
         _chasing = true;
         _myAudio.pitch = 3;
+        _myChasePlayer.mute = false;
+        _sceneCamera.GetComponent<AudioSource>().mute = true;
     }
     private void UpdateChase()
     {
         if (_timeChasing < _timeToStopChasing)
         {
             _timeChasing = _timeChasing + Time.deltaTime;
+            _sceneCamera.GetComponent<AudioSource>().mute = true;
         }
         else
         {
             _chasing = false;
             _myAudio.pitch = 2;
             _myExclamationRender.color = _exclaimColor + new Color (0, 0, 0, -1);
+            StartCoroutine(StopChaseMusic());
         }
+    }
+    private IEnumerator StopChaseMusic()
+    {
+        float oldVolume = _myChasePlayer.volume;
+        while (_myChasePlayer.volume > 0)
+        {
+            _myChasePlayer.volume = _myChasePlayer.volume - 0.01f;
+            yield return new WaitForSeconds(0.05f);
+        }
+        
+        _sceneCamera.GetComponent<AudioSource>().mute = false;
+        _myChasePlayer.mute = true;
+        _myChasePlayer.volume = oldVolume;
     }
     // Funcion auxiliar, guarda en una array puntos de un camino 
     // para no tener que estar asignandolos manualmente
@@ -243,14 +265,17 @@ public class EnemyAI : MonoBehaviour
         _player = GameManager.Player.GetComponent<Rigidbody2D>();
         _navMeshAgent.speed = _speed;
 
-        _myAudio = GetComponent<AudioSource>();
-        _myAudio.pitch = 2;
-        _audioVolume = _myAudio.volume;
-
         _myHeadSign = transform.GetChild(1).gameObject;
         _myExclamationRender = _myHeadSign.GetComponent<SpriteRenderer>();
         _myExclamationRender.color = _exclaimColor;
+        _myChasePlayer = _myHeadSign.GetComponent<AudioSource>();
 
+        _myAudio = GetComponent<AudioSource>();
+        _myAudio.pitch = 2;
+        _audioVolume = _myAudio.volume;
+        _chaseVolume = _myChasePlayer.volume;
+
+        _sceneCamera = GameManager.getCamera.gameObject;
     }
     private void Update()
     {
@@ -258,7 +283,8 @@ public class EnemyAI : MonoBehaviour
         {
             _fovEnemigo.SetAim(direction);
             _fovEnemigo.SetOrigin(_enemyRigidbody.position);
-            UpdateChase();
+            if (_chasing)
+                UpdateChase();
             UpdateAnimatorValues();
             if (_timeToSound < 0)
             {

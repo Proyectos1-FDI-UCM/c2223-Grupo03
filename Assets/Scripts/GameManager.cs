@@ -6,12 +6,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    public enum Menus { PAUSE, OPTIONS, CONTROLS, SOUND, NoMenu };
+    public enum Menus { PAUSE, OPTIONS, CONTROLS, SOUND, NoMenu, TECLADO};
 
     #region parameters
     [SerializeField] private float _audioSFX;
     [SerializeField] private float _audioMusic;
 
+    [SerializeField] private float _audioVolume;
     #endregion
 
     #region references
@@ -28,7 +29,10 @@ public class GameManager : MonoBehaviour
     private int _amountOfChildren;
 
     private Menus _actualMenu;
-    private Menus _beforeMenu;
+    public Menus ActualMenu
+    {
+        get { return _actualMenu; }
+    }
 
     public bool IsPause
     {
@@ -54,6 +58,9 @@ public class GameManager : MonoBehaviour
 
     static private InputComponent _inputComponent;
     static public InputComponent InputComponent { get { return _inputComponent; } }
+
+    static private Camera _camera;
+    static public Camera getCamera { get { return _camera;} }
     
     //Volumen del audio 
     public float getSFX { get { return _audioSFX; } }
@@ -102,7 +109,6 @@ public class GameManager : MonoBehaviour
     {
         if (newMenu == Menus.OPTIONS)
         {
-            Debug.Log("Llego 3");
             _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.OPTIONS);
         }
         else if (newMenu == Menus.CONTROLS)
@@ -113,20 +119,40 @@ public class GameManager : MonoBehaviour
         {
             _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.SOUND);
         }
+        else if (newMenu == Menus.PAUSE)
+        {
+            _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.PAUSE);
+        }
+        else if (newMenu == Menus.TECLADO)
+        {
+            _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.TECLADO);
+        }
     }
 
     public void RequestMenuChange(Menus newMenu)
     {
-        if (_actualMenu == Menus.PAUSE && (newMenu == Menus.OPTIONS))
+        if ((_actualMenu == Menus.PAUSE || _actualMenu == Menus.CONTROLS || _actualMenu == Menus.SOUND || _actualMenu == Menus.TECLADO) && (newMenu == Menus.OPTIONS))
         {
-            Debug.Log("LLego 2");
-            _beforeMenu = _actualMenu;
             _actualMenu = newMenu;
             UpdateMenu(newMenu);
         }
         else if (_actualMenu == Menus.OPTIONS && (newMenu == Menus.CONTROLS || newMenu == Menus.SOUND))
         {
-            _beforeMenu = _actualMenu;
+            _actualMenu = newMenu;
+            UpdateMenu(newMenu);
+        }
+        else if (_actualMenu == Menus.OPTIONS && (newMenu == Menus.PAUSE))
+        {
+            _actualMenu = newMenu;
+            UpdateMenu(newMenu);
+        }
+        else if (_actualMenu == Menus.CONTROLS && (newMenu == Menus.TECLADO))
+        {
+            _actualMenu = newMenu;
+            UpdateMenu(newMenu);
+        }
+        else if (_actualMenu == Menus.TECLADO && (newMenu == Menus.CONTROLS))
+        {
             _actualMenu = newMenu;
             UpdateMenu(newMenu);
         }
@@ -134,14 +160,22 @@ public class GameManager : MonoBehaviour
 
     public void changeSound(string soundType, float newValue)
     {
-        Debug.Log("numbah");
         if (soundType == "MusicSlider")
         {
             _audioMusic = newValue;
+            SetSoundChange();
         } else if (soundType == "SFXSlider") 
-        {
-            Debug.Log("ONE");
+        { 
             _audioSFX = newValue;
+        }
+    }
+
+    public void SetSoundChange()
+    {
+        AudioSource[] audios = _camera.GetComponents<AudioSource>();
+        foreach (AudioSource audio in audios)
+        {
+            audio.volume = _audioVolume * _audioMusic;
         }
     }
     #endregion
@@ -154,13 +188,14 @@ public class GameManager : MonoBehaviour
             _player = GameObject.Find("Player");
             _playerStates = _player.GetComponent<PlayerStates>();
             _inputComponent = GetComponent<InputComponent>();
+            _camera = Camera.main;
             //DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
-        
+
     }
     void Start()
     {

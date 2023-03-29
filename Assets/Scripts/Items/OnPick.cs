@@ -16,25 +16,27 @@ public class OnPick : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            collision.GetComponent<AudioSource>().Play();
-
             if (_id == 1 && !_Inventory._PildoraEquipado)
             {
+                GameManager.PlayerStates.PlayPickUpAudio();
                 _Inventory.AñadeObjeto(_id);
                 Destroy(gameObject);
             }
             else if (_id == 2 && !_Inventory._CajaEquipado)
             {
+                GameManager.PlayerStates.PlayPickUpAudio();
                 _Inventory.AñadeObjeto(_id);
                 Destroy(gameObject);
             }
             else if (_id == 3 && !_Inventory._DespertadorEquipado)
             {
+                GameManager.PlayerStates.PlayPickUpAudio();
                 _Inventory.AñadeObjeto(_id);
                 Destroy(gameObject);
             }
             else if (_id == 4 && !_Inventory._LlaveEquipado)
             {
+                GameManager.PlayerStates.PlayPickUpAudio();
                 _Inventory.AñadeObjeto(_id);
                 Destroy(gameObject);
             }

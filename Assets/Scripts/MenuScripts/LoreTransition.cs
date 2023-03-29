@@ -46,7 +46,7 @@ public class LoreTransition : MonoBehaviour
             {
                 _dialogText.text += letter;
                 _audioSource.Play();
-                yield return new WaitForSeconds(1f / _lettersPerSecond);
+                yield return new WaitForSeconds(1.3f / _lettersPerSecond);
             }
 
             // Esperar un tiempo antes de continuar

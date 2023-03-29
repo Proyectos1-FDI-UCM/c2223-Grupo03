@@ -23,6 +23,11 @@ public class TutorialEvents : MonoBehaviour
     private HeartMove _heartMove;
     private Animator _animatorHeartBar;
     private GameObject _blackRooms;
+
+    private GameObject _playerInCloset;
+    private bool intoCloset;
+
+    [SerializeField] GameObject _firstCloset;
     public void Triggered()
     {
         numOfEvent++;
@@ -54,31 +59,37 @@ public class TutorialEvents : MonoBehaviour
     }
     private void InsideCloset()
     {
+        intoCloset = true;
         _instanceEnemigo2 = Instantiate(_enemigo2);
         Destroy(_instanceMuroInvisible);
         Invoke("FinishCloset", 7);
     }
     private void FinishCloset()
     {
+        intoCloset = false;
+        GameManager.Player.SetActive(true);
+        _playerInCloset.SetActive(false);
         Destroy(_instanceEnemigo2);
+        GameManager.Instance.GetComponent<PauseInput>().enabled = true;
     }
     private void ShowEnemy()
     {
         _blackRooms.SetActive(false);
         _instanceEnemigo1 = Instantiate(_enemigo1);
-        Camera.main.GetComponent<CameraFollow>()._smoothSpeed = 0.1f;
+        Camera.main.GetComponent<CameraFollow>()._smoothSpeed = 0.02f;
         Camera.main.GetComponent<CameraFollow>().ChangeCameraPosition(_changeCameraPosition);
-        Invoke("StopShowEnemy", 1.5f);
+        Invoke("StopShowEnemy", 2f);
     }
     private void StopShowEnemy()
     {
         Camera.main.GetComponent<CameraFollow>().ChangeCameraPosition(GameManager.Player.transform);
-        Invoke("StopShowEnemy2", 0.3f);
+        Invoke("StopShowEnemy2", 0.7f);
         _instanceMuroInvisible = Instantiate(_muroInvisible);
         _blackRooms.SetActive(true);
     }
     private void StopShowEnemy2()
     {
+        _firstCloset.GetComponent<ClosetComponent>().enabled = true;
         Destroy(_instanceEnemigo1);
         Camera.main.GetComponent<CameraFollow>()._smoothSpeed = 2f;
     }
@@ -93,6 +104,7 @@ public class TutorialEvents : MonoBehaviour
     }
     private void SpawnTextHeartBar()
     {
+        _heartDetection.CanPress();
         _instancePulsaEspacioTexto = Instantiate(_pulsaEspacioTexto, transform);
     }
     private void DespawnTextHeartBar()
@@ -115,17 +127,29 @@ public class TutorialEvents : MonoBehaviour
     {
         if (numOfEvent == 5 && !GameManager.Player.active)
         {
-            Triggered();
+            numOfEvent++;
+            ChangeEvent();
+        }
+        if (intoCloset)
+        {
+            GameManager.Player.SetActive(false);
+            _playerInCloset.SetActive(true);
         }
     }
     void Start()
     {
         numOfEvent = 0;
+        intoCloset = false;
         _playerStates = GameManager.Player.GetComponent<PlayerStates>();
         _heartDetection = GameObject.Find("Heart").GetComponent<HeartDetection>();
         _heartMove = GameObject.Find("Heart").GetComponent<HeartMove>();
         _heartMove.CancelMovementTutorial();
         _animatorHeartBar = GameObject.Find("HeartBeat").GetComponent<Animator>();
         _blackRooms = GameObject.Find("BlackRooms");
+        _playerInCloset = GameObject.Find("PlayerInCloset");
+        _playerInCloset.SetActive(false);
+        _heartDetection.CantPress();
+        GameManager.Instance.GetComponent<PauseInput>().enabled = false;
+        _firstCloset.GetComponent<ClosetComponent>().enabled = false;
     }
 }

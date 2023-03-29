@@ -32,6 +32,7 @@ public class HeartDetection : MonoBehaviour
     public bool _pillEffects = false;
 
     private AudioSource _beepSound;
+    private float _beepVolume;
 
     [SerializeField] private Sprite _brokenHeart3;
     [SerializeField] private Sprite _brokenHeart2;
@@ -40,19 +41,24 @@ public class HeartDetection : MonoBehaviour
     [SerializeField] private Sprite _safeHeart;
 
     private Image _currentImage;
+
+    private bool _canPress;
     #endregion
 
 
     #region methots
 
-    public void ResetFails() // para el tutorial
+    public void CanPress() // para el tutorial
     {
-        _fails = 0;
+        _canPress = true;
+    }
+    public void CantPress() // para el tutorial
+    {
+        _canPress = false;
     }
     public void SpacePressed() //Metodo que se activa al pulsar el espacio y realiza acciones diferentes segun el estado del corazón respecto a la barra de pulsaciones
     {
-
-        if (!_hasPressed) //Si ya se ha presionado espacio en esa vuelta no hace nada
+        if (!_hasPressed && _canPress) //Si ya se ha presionado espacio en esa vuelta no hace nada
         {
 
             if (!_inSafeZone) //Si no esta en la zona segura
@@ -91,6 +97,7 @@ public class HeartDetection : MonoBehaviour
     {
         if (collision.gameObject == _safeZone) //Si el trigger es el de la zona segura
         {
+            _beepSound.volume = GameManager.Instance.getSFX * _beepVolume; 
             _beepSound.Play();
             _warning.GetComponent<Image>().color = new Color(1, 0, 0, 0.20f); //Se activa el panel de aviso
             _inSafeZone = true; //El bool de zona segura se activa
@@ -123,13 +130,18 @@ public class HeartDetection : MonoBehaviour
 
     #endregion
 
-
+    private void Awake()
+    {
+        _canPress = true;
+    }
     // Start is called before the first frame update
     void Start()
     {
         _currentImage = GetComponent<Image>();
         _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Se desactiva el panel de aviso de primeras
         _beepSound = GetComponent<AudioSource>();
+        
+        _beepVolume = _beepSound.volume;
     }
 
     // Update is called once per frame
