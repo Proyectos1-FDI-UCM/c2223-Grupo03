@@ -198,7 +198,6 @@ public class GameManager : MonoBehaviour
         _isInPause= false;
         _amountOfChildren = _enemyGroup.transform.childCount;
         _audioMusic = _audioSFX = 1;
-
     }
     void Update()
     {

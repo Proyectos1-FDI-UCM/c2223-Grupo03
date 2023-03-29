@@ -15,6 +15,8 @@ public class SpawnAtComponent : MonoBehaviour
         else
         {
             GameManager.Player.transform.position = transform.GetChild(1).transform.position;
+            Destroy(GameObject.Find("Llave"));
+            GameManager.Instance.GetComponent<Inventory>().AñadeObjeto(4);
         }
     }
 }
