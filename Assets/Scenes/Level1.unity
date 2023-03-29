@@ -9470,7 +9470,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7269376887690495511, guid: a0ab6e029b923a1499a2f84916462539, type: 3}
       propertyPath: m_Name
-      value: Llave (1)
+      value: Llave
       objectReference: {fileID: 0}
     - target: {fileID: 7269376887690495515, guid: a0ab6e029b923a1499a2f84916462539, type: 3}
       propertyPath: m_RootOrder
