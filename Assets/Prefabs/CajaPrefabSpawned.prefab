@@ -10,9 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7046360552316438920}
   - component: {fileID: 6003108268043784047}
-  - component: {fileID: 5069850315928051617}
   - component: {fileID: 4493523044498556185}
-  - component: {fileID: -5692966745067965015}
   - component: {fileID: 8337731540674395411}
   m_Layer: 0
   m_Name: CajaPrefabSpawned
@@ -76,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 164b2719c77714845b8e8b44d57015f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -88,19 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5069850315928051617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3000885595798816680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe0545d950fafd043981abd14e677770, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _id: 2
 --- !u!61 &4493523044498556185
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -127,19 +112,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6169686, y: 1.6698233}
   m_EdgeRadius: 0
---- !u!114 &-5692966745067965015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3000885595798816680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42ccfb5eb75110641abdf061b732c5a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _box: {fileID: 3000885595798816680}
 --- !u!95 &8337731540674395411
 Animator:
   serializedVersion: 4

@@ -19,11 +19,9 @@ public class InputComponent : MonoBehaviour
 
     #region References
     [SerializeField] private GameObject _heart;
-    [SerializeField] private GameObject _boxPrefab;
     private HeartDetection _heartDetection;
     private MovementComponent _movementComponent;
     private Inventory _inventory;
-    private Animator _boxAnimator;
 
 
     private PlayerStates _playerStates;
@@ -36,7 +34,6 @@ public class InputComponent : MonoBehaviour
         _heartDetection = _heart.GetComponent<HeartDetection>();
         _inventory = GameManager.Instance.GetComponent<Inventory>();
         _movementComponent = GameManager.Player.GetComponent<MovementComponent>();
-        _boxAnimator = _boxPrefab.GetComponent<Animator>();
     }
 
     void Update()
@@ -62,8 +59,6 @@ public class InputComponent : MonoBehaviour
             else
             {
                 _playerStates.EnterBox();
-                _boxAnimator.SetTrigger("Spawn");
-
             }
         }
 

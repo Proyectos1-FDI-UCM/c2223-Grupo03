@@ -10,6 +10,7 @@ public class PlayerStates : MonoBehaviour
     #region parameters
     [SerializeField] private GameObject _boxPrefab;
     private GameObject _boxInstance;
+    private GameObject _parentBoxInstance;
     [SerializeField] private float _timeOutPill = 10;
     private float _oldSpeed;
     #endregion
@@ -83,11 +84,15 @@ public class PlayerStates : MonoBehaviour
         _instancedAudioSource.Play();
         _player.SetActive(false);
         _playerInCloset.SetActive(true);
+
+        _parentBoxInstance = new GameObject();
+        _parentBoxInstance.transform.position = _player.transform.position;
+        _boxInstance = Instantiate(_boxPrefab, _parentBoxInstance.transform);
         _isBox = true;
     }
     public void ExitBox() // player sale de caja
     {
-        Destroy(_boxInstance);
+        Destroy(_parentBoxInstance);
         Destroy(instancedBoxAudio);
         _player.SetActive(true);
         PlayBoxAudio();

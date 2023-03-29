@@ -15,12 +15,14 @@ public class BoxAnimation : MonoBehaviour
     void Start()
     {
         _player = GameManager.Player;
+        AnimacionCaja();
+        _time = 0.5f;
     }
 
     public void AnimacionCaja()
     {
         Debug.Log("cae");
-        _alturaFinal = transform.position + new Vector3(0, -2, 0);
+        _alturaFinal = transform.position + new Vector3(0, -10, 0);
         _alturaInicial = transform.position;
         _time = _speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(_alturaInicial, _alturaFinal, _time);
