@@ -218,7 +218,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 27
-      m_TileSpriteIndex: 27
+      m_TileSpriteIndex: 32
       m_TileMatrixIndex: 0
       m_TileColorIndex: 3
       m_TileObjectToInstantiateIndex: 65535
@@ -228,7 +228,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 26
-      m_TileSpriteIndex: 26
+      m_TileSpriteIndex: 31
       m_TileMatrixIndex: 0
       m_TileColorIndex: 3
       m_TileObjectToInstantiateIndex: 65535
@@ -395,20 +395,20 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 42330709, guid: 5bf937a8808f8f24d858e2103e2f2997, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1352978438, guid: 5bf937a8808f8f24d858e2103e2f2997, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: -1212356521, guid: 5bf937a8808f8f24d858e2103e2f2997, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -112398279, guid: 5bf937a8808f8f24d858e2103e2f2997, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 42330709, guid: 5bf937a8808f8f24d858e2103e2f2997, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -1352978438, guid: 5bf937a8808f8f24d858e2103e2f2997, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 6
     m_Data:
@@ -568,7 +568,79 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Creditos
+  m_text: 'Creditos
+
+
+    Lead Programmer
+
+    Miguel Ballester
+
+
+    Programmers
+
+    Adrian
+    del Pozo
+
+    Daniel Zhu
+
+    Pablo Marcos
+
+    Alvaro Pina
+
+
+    Level Designers
+
+    Adrian
+    del Pozo
+
+    Daniel Zhu
+
+    Pablo Marcos
+
+
+    Interface Designers
+
+    Alvaro
+    Pina
+
+    Adrian del Pozo
+
+
+    Sound
+
+    Pablo Marcos
+
+    Daniel Zhu
+
+
+    Animation
+    Designer
+
+    Miguel Ballester
+
+    Daniel Zhu
+
+
+    Story Writter
+
+    Adrian
+    del Pozo
+
+
+    Special Thanks
+
+    Eric the Tester
+
+    Antonio the teacher
+
+
+    The
+    End
+
+
+
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6b96d3b1aa679946af18bae92e7cf98, type: 2}
   m_sharedMaterial: {fileID: 1506943938940646599, guid: d6b96d3b1aa679946af18bae92e7cf98, type: 2}
@@ -631,7 +703,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -85.18882, y: 0, z: 0, w: 0}
+  m_margin: {x: -343.68747, y: 0, z: -256.46326, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -14638,7 +14710,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242193035}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -32.4, y: -9.71, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
