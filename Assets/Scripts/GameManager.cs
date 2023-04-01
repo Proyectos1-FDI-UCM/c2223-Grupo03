@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    public enum Menus { PAUSE, OPTIONS, CONTROLS, SOUND, NoMenu, TECLADO};
+    public enum Menus { PAUSE, OPTIONS, CONTROLS, SOUND, NoMenu, TECLADO };
 
     #region parameters
     [SerializeField] private float _audioSFX;
@@ -17,9 +17,9 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region references
-
     [SerializeField] GameObject _UIManager;
     [SerializeField] GameObject _enemyGroup;
+    GameObject _spawnManager;
 
     [SerializeField] GameObject _deathAnimation1;
     [SerializeField] GameObject _deathAnimation2;
@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private SpawnManger _spawner;
     #endregion
 
     #region getter/setters
@@ -63,11 +64,13 @@ public class GameManager : MonoBehaviour
     static public InputComponent InputComponent { get { return _inputComponent; } }
 
     static private Camera _camera;
-    static public Camera getCamera { get { return _camera;} }
-    
+    static public Camera getCamera { get { return _camera; } }
+
     //Volumen del audio 
     public float getSFX { get { return _audioSFX; } }
     public float getMusic { get { return _audioMusic; } }
+
+    public SpawnManger getSpawn { get { return _spawner; } }
     #endregion
 
     #region 
@@ -205,20 +208,13 @@ public class GameManager : MonoBehaviour
   
     void Awake()
     {
-        if(_instance == null)
-        {
-            _instance = this;
-            _player = GameObject.Find("Player");
-            _playerStates = _player.GetComponent<PlayerStates>();
-            _inputComponent = GetComponent<InputComponent>();
-            _camera = Camera.main;
-            //DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
+        _instance = this;
+        _player = GameObject.Find("Player");
+        _playerStates = _player.GetComponent<PlayerStates>();
+        _inputComponent = GetComponent<InputComponent>();
+        _camera = Camera.main;
+        _spawnManager = GameObject.Find("SpawnManager");
+        _spawner = _spawnManager.GetComponent<SpawnManger>();
     }
     void Start()
     {

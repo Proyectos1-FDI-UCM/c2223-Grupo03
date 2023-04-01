@@ -10,14 +10,13 @@ public class KillComponent : MonoBehaviour
     #region References
     [SerializeField] private GameObject _playerInCloset;
     private EnemyAI _enemyAI;
-    private RespawnComponent _respawnComp;
+
     #endregion
 
     #region Methods
     void Start()
     {
         _enemyAI = GetComponent<EnemyAI>();
-        //_respawnComp = GameManager.Instance.GetComponent<RespawnComponent>();
     }
 
     private void Update()
