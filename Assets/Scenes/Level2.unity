@@ -20910,6 +20910,8 @@ MonoBehaviour:
   _audioVolume: 0.2
   _UIManager: {fileID: 147013669}
   _enemyGroup: {fileID: 97730220}
+  _deathAnimation1: {fileID: 4284610431398484734, guid: 9e14c392d146ff743994dca66fb661aa, type: 3}
+  _deathAnimation2: {fileID: 8288867689972202086, guid: 19b51c1095359b945b52102eb4a613a5, type: 3}
 --- !u!114 &1064123306
 MonoBehaviour:
   m_ObjectHideFlags: 0

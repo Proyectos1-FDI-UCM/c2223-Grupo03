@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject _UIManager;
     [SerializeField] GameObject _enemyGroup;
 
+    [SerializeField] GameObject _deathAnimation1;
+    [SerializeField] GameObject _deathAnimation2;
     #endregion
 
     #region properties
@@ -67,7 +70,20 @@ public class GameManager : MonoBehaviour
     public float getMusic { get { return _audioMusic; } }
     #endregion
 
-    #region methods
+    #region 
+
+    public void GameOver()
+    {
+        GameObject canvas = GameObject.Find("Canvas");
+        Destroy(_player);
+        Instantiate(_deathAnimation1, canvas.transform);
+        Instantiate(_deathAnimation2, canvas.transform);
+        Invoke("ChangeSceneDeath", 1.5f);
+    }
+    private void ChangeSceneDeath()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
     public void ChangePause()
     {
         _player.GetComponent<PlayerStates>().Pause();
