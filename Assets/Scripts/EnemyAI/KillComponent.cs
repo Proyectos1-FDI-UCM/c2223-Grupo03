@@ -22,11 +22,11 @@ public class KillComponent : MonoBehaviour
 
     private void Update()
     {
-        if (_enemyAI.Chasing && _playerInCloset.active &&
+        /*if (_enemyAI.Chasing && _playerInCloset.active &&
             Vector2.Distance(transform.position, _playerInCloset.transform.position) < 1f)
         {
             GameManager.Instance.GameOver();
-        }
+        }*/
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
