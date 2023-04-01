@@ -21,17 +21,18 @@ public class KillComponent : MonoBehaviour
 
     private void Update()
     {
-        if (_enemyAI.Chasing && _playerInCloset.active &&
+        /*if (_enemyAI.Chasing && _playerInCloset.active &&
             Vector2.Distance(transform.position, _playerInCloset.transform.position) < 1f)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+            GameManager.Instance.GameOver();
+        }*/
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //_respawnComp.Respawn();
+            GameManager.Instance.GameOver();
         }
     }
     #endregion

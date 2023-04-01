@@ -23,6 +23,7 @@ public class InputComponent : MonoBehaviour
     private MovementComponent _movementComponent;
     private Inventory _inventory;
 
+
     private PlayerStates _playerStates;
     #endregion
 
@@ -49,7 +50,7 @@ public class InputComponent : MonoBehaviour
         }
 
         // If the player presses the "K" key, change between the player and the box 
-        if (Input.GetKeyDown(KeyCode.K) && _inventory._cajaEquipado)
+        if (Input.GetKeyDown(KeyCode.K) && _inventory._cajaEquipado )
         {
             if (_playerStates.IsBox)
             {

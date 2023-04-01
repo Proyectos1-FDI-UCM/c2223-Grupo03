@@ -45,3 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectPrefab: {fileID: 3000885595798816680, guid: 4967b4ec75003ba429f7d246162de57f, type: 3}
+  _spawnedObject: {fileID: 3000885595798816680, guid: 4967b4ec75003ba429f7d246162de57f, type: 3}
+  _spawnDelay: 2
+  _boxPicked: 0

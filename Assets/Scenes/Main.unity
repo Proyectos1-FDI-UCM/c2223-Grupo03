@@ -1237,6 +1237,7 @@ MonoBehaviour:
   _speed: 500
   _endOfVoid: {fileID: 1989166107}
   _startOfVoid: {fileID: 1538699653}
+  _tutorialPoint: {fileID: 0}
 --- !u!58 &450403136
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1432,7 +1433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b13c1a4565d88f3439977395642e8614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 79729609}
   _smoothSpeed: 5
 --- !u!1 &525000162
 GameObject:
@@ -5257,6 +5257,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae008fd9881cfdb44a70d0d29ecb366a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioSFX: 0
+  _audioMusic: 0
+  _audioVolume: 0
+  _UIManager: {fileID: 0}
+  _enemyGroup: {fileID: 0}
 --- !u!114 &1064123306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5303,6 +5308,8 @@ MonoBehaviour:
   _llaveUI: {fileID: 180839134}
   _pildoraEquipado: 0
   _cajaEquipado: 0
+  _despertadorEquipado: 0
+  _llaveEquipado: 0
 --- !u!1 &1113284263
 GameObject:
   m_ObjectHideFlags: 0
@@ -5494,7 +5501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1167998502
 Transform:
   m_ObjectHideFlags: 0
@@ -5968,7 +5975,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b13c1a4565d88f3439977395642e8614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 79729609}
   _smoothSpeed: 10
 --- !u!61 &1502721672
 BoxCollider2D:
@@ -7454,6 +7460,7 @@ MonoBehaviour:
   _coneDistance: 4
   _path: {fileID: 1977642995}
   _cicle: 1
+  _exclaimColor: {r: 0, g: 0, b: 0, a: 0}
   _points: []
   _time: 1
   _timeChase: 0.8
@@ -8044,6 +8051,7 @@ MonoBehaviour:
   _coneDistance: 4
   _path: {fileID: 1320718789}
   _cicle: 1
+  _exclaimColor: {r: 0, g: 0, b: 0, a: 0}
   _points: []
   _time: 1
   _timeChase: 0.8
@@ -8704,6 +8712,7 @@ MonoBehaviour:
   _coneDistance: 4
   _path: {fileID: 1448603616}
   _cicle: 1
+  _exclaimColor: {r: 0, g: 0, b: 0, a: 0}
   _points: []
   _time: 1
   _timeChase: 0.8

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject _enemyGroup;
     GameObject _spawnManager;
 
+    [SerializeField] GameObject _deathAnimation1;
+    [SerializeField] GameObject _deathAnimation2;
     #endregion
 
     #region properties
@@ -70,7 +73,20 @@ public class GameManager : MonoBehaviour
     public SpawnManger getSpawn { get { return _spawner; } }
     #endregion
 
-    #region methods
+    #region 
+
+    public void GameOver()
+    {
+        GameObject canvas = GameObject.Find("Canvas");
+        Destroy(_player);
+        Instantiate(_deathAnimation1, canvas.transform);
+        Instantiate(_deathAnimation2, canvas.transform);
+        Invoke("ChangeSceneDeath", 1.5f);
+    }
+    private void ChangeSceneDeath()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
     public void ChangePause()
     {
         _player.GetComponent<PlayerStates>().Pause();
@@ -89,6 +105,8 @@ public class GameManager : MonoBehaviour
             {
                 _enemyGroup.transform.GetChild(i).transform.GetChild(0).GetComponent<Animator>().enabled = false;
             }
+
+            GetComponent<MenuComponent>().ChangeMenu(Menus.PAUSE);
             
             _isInPause= true;
             _actualMenu = Menus.PAUSE;
@@ -113,22 +131,27 @@ public class GameManager : MonoBehaviour
         if (newMenu == Menus.OPTIONS)
         {
             _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.OPTIONS);
+            GetComponent<MenuComponent>().ChangeMenu(Menus.OPTIONS);
         }
         else if (newMenu == Menus.CONTROLS)
         {
             _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.CONTROLS);
+            GetComponent<MenuComponent>().ChangeMenu(Menus.CONTROLS);
         }
         else if (newMenu == Menus.SOUND)
         {
             _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.SOUND);
+            GetComponent<MenuComponent>().ChangeMenu(Menus.SOUND);
         }
         else if (newMenu == Menus.PAUSE)
         {
             _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.PAUSE);
+            GetComponent<MenuComponent>().ChangeMenu(Menus.PAUSE);
         }
         else if (newMenu == Menus.TECLADO)
         {
             _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.TECLADO);
+            GetComponent<MenuComponent>().ChangeMenu(Menus.TECLADO);
         }
     }
 
