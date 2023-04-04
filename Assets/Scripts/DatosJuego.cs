@@ -5,4 +5,5 @@ using UnityEngine;
 public class DatosJuego
 {
     public bool _checkpointActive;
+    public int _levelNumber;
 }

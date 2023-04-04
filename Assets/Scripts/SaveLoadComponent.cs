@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SaveLoadComponent : MonoBehaviour
 {
-
-    [SerializeField] private SpawnManger _spawnManger;
+    private SpawnManger _spawnManger;
     public string _archivoGuardado;
     public DatosJuego _datosJuego = new DatosJuego();
 
@@ -49,7 +48,8 @@ public class SaveLoadComponent : MonoBehaviour
     {
         DatosJuego nuevosDatos = new DatosJuego()
         {
-            _checkpointActive = _spawnManger.GetComponent<SpawnManger>().getCP()
+            _checkpointActive =_spawnManger.GetComponent<SpawnManger>().getCP(),
+            _levelNumber = GameObject.Find("Nivel").GetComponent<LevelNumber>()._levelNumber
 
         };
 
@@ -63,7 +63,11 @@ public class SaveLoadComponent : MonoBehaviour
 
     private void CurrentScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(_datosJuego._levelNumber);
     }
 
+    private void Start()
+    {
+        _spawnManger = GameObject.Find("SpawnManager").GetComponent<SpawnManger>();
+    }
 }
