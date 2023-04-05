@@ -36,19 +36,19 @@ public class StormManager : MonoBehaviour
         }
         else if (cont > rdnNum - 0.4)
         {
-            ActivarHijos(true);
-        }
-        else if (cont > rdnNum - 0.5)
-        {
             ActivarHijos(false);
         }
         else if (cont > rdnNum - 0.6)
         {
             ActivarHijos(true);
         }
-        else if (cont > rdnNum - 0.8)
+        else if (cont > rdnNum - 0.7)
         {
             ActivarHijos(false);
+        }
+        else if (cont > rdnNum - 0.8)
+        {
+            ActivarHijos(true);
         }
         else if (cont > rdnNum - 1)
         {
