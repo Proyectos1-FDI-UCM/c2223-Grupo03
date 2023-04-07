@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TutorialEvents : MonoBehaviour
 {
-    private int numOfEvent;
+    public int numOfEvent;
     [SerializeField] private GameObject _corazonRoto;
     [SerializeField] private GameObject _pulsaEspacioTexto;
     [SerializeField] private GameObject _textoPildora;
@@ -12,8 +12,10 @@ public class TutorialEvents : MonoBehaviour
     [SerializeField] private GameObject _enemigo2;
     [SerializeField] private GameObject _muroInvisible;
     [SerializeField] private Transform _changeCameraPosition;
+    [SerializeField] private GameObject _textoProximidadLatidos;
     private GameObject _instancePulsaEspacioTexto;
     private GameObject _instanceTextoPildora;
+    private GameObject _instanceTextoProximidadLatidos;
     private GameObject _instanceEnemigo1;
     private GameObject _instanceEnemigo2;
     private GameObject _instanceMuroInvisible;
@@ -62,6 +64,7 @@ public class TutorialEvents : MonoBehaviour
         intoCloset = true;
         _instanceEnemigo2 = Instantiate(_enemigo2);
         Destroy(_instanceMuroInvisible);
+        _instanceTextoProximidadLatidos = Instantiate(_textoProximidadLatidos, transform);
         Invoke("FinishCloset", 7);
     }
     private void FinishCloset()
@@ -70,6 +73,7 @@ public class TutorialEvents : MonoBehaviour
         GameManager.Player.SetActive(true);
         _playerInCloset.SetActive(false);
         Destroy(_instanceEnemigo2);
+        Destroy(_instanceTextoProximidadLatidos);
         GameManager.Instance.GetComponent<PauseInput>().enabled = true;
     }
     private void ShowEnemy()
