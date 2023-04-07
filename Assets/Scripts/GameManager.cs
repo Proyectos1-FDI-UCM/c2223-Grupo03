@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     public SpawnManger getSpawn { get { return _spawner; } }
     #endregion
 
-    #region 
+    #region methods
 
     public void GameOver()
     {
@@ -203,6 +203,11 @@ public class GameManager : MonoBehaviour
         {
             audio.volume = _audioVolume * _audioMusic;
         }
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
     #endregion
   
