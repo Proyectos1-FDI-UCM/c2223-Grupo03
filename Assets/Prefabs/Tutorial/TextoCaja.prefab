@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 71}
+  m_AnchoredPosition: {x: 0, y: 78}
   m_SizeDelta: {x: 1249.717, y: 203.692}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4947280015975340359
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Usa la caja para esconderte de los enemigos en cualquier lugar
+  m_text: Usa la caja con K para esconderte de los enemigos en cualquier lugar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6b96d3b1aa679946af18bae92e7cf98, type: 2}
   m_sharedMaterial: {fileID: 1506943938940646599, guid: d6b96d3b1aa679946af18bae92e7cf98, type: 2}

@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Usa la p\xEDldora para desactivar el latido temporalmente"
+  m_text: "Usa la p\xEDldora con la tecla J para desactivar el latido temporalmente"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6b96d3b1aa679946af18bae92e7cf98, type: 2}
   m_sharedMaterial: {fileID: 1506943938940646599, guid: d6b96d3b1aa679946af18bae92e7cf98, type: 2}
