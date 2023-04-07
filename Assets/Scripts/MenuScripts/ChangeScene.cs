@@ -9,6 +9,9 @@ public class ChangeScene : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
+        {
+            GameManager.Instance.getSpawn.setCP(false);
             SceneManager.LoadScene(_id);
+        }
     }
 }

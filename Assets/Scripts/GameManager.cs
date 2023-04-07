@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
 
-    public enum Menus { PAUSE, OPTIONS, CONTROLS, SOUND, NoMenu, TECLADO};
+    public enum Menus { PAUSE, OPTIONS, CONTROLS, SOUND, NoMenu, TECLADO };
 
     #region parameters
     [SerializeField] private float _audioSFX;
@@ -16,10 +17,12 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region references
-
     [SerializeField] GameObject _UIManager;
     [SerializeField] GameObject _enemyGroup;
+    GameObject _spawnManager;
 
+    [SerializeField] GameObject _deathAnimation1;
+    [SerializeField] GameObject _deathAnimation2;
     #endregion
 
     #region properties
@@ -42,6 +45,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private SpawnManger _spawner;
     #endregion
 
     #region getter/setters
@@ -60,14 +64,29 @@ public class GameManager : MonoBehaviour
     static public InputComponent InputComponent { get { return _inputComponent; } }
 
     static private Camera _camera;
-    static public Camera getCamera { get { return _camera;} }
-    
+    static public Camera getCamera { get { return _camera; } }
+
     //Volumen del audio 
     public float getSFX { get { return _audioSFX; } }
     public float getMusic { get { return _audioMusic; } }
+
+    public SpawnManger getSpawn { get { return _spawner; } }
     #endregion
 
-    #region methods
+    #region 
+
+    public void GameOver()
+    {
+        GameObject canvas = GameObject.Find("Canvas");
+        _player.SetActive(false);
+        Instantiate(_deathAnimation1, canvas.transform);
+        Instantiate(_deathAnimation2, canvas.transform);
+        Invoke("ChangeSceneDeath", 1.5f);
+    }
+    private void ChangeSceneDeath()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
     public void ChangePause()
     {
         _player.GetComponent<PlayerStates>().Pause();
@@ -86,6 +105,8 @@ public class GameManager : MonoBehaviour
             {
                 _enemyGroup.transform.GetChild(i).transform.GetChild(0).GetComponent<Animator>().enabled = false;
             }
+
+            GetComponent<MenuComponent>().ChangeMenu(Menus.PAUSE);
             
             _isInPause= true;
             _actualMenu = Menus.PAUSE;
@@ -110,22 +131,27 @@ public class GameManager : MonoBehaviour
         if (newMenu == Menus.OPTIONS)
         {
             _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.OPTIONS);
+            GetComponent<MenuComponent>().ChangeMenu(Menus.OPTIONS);
         }
         else if (newMenu == Menus.CONTROLS)
         {
             _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.CONTROLS);
+            GetComponent<MenuComponent>().ChangeMenu(Menus.CONTROLS);
         }
         else if (newMenu == Menus.SOUND)
         {
             _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.SOUND);
+            GetComponent<MenuComponent>().ChangeMenu(Menus.SOUND);
         }
         else if (newMenu == Menus.PAUSE)
         {
             _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.PAUSE);
+            GetComponent<MenuComponent>().ChangeMenu(Menus.PAUSE);
         }
         else if (newMenu == Menus.TECLADO)
         {
             _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.TECLADO);
+            GetComponent<MenuComponent>().ChangeMenu(Menus.TECLADO);
         }
     }
 
@@ -182,20 +208,13 @@ public class GameManager : MonoBehaviour
   
     void Awake()
     {
-        if(_instance == null)
-        {
-            _instance = this;
-            _player = GameObject.Find("Player");
-            _playerStates = _player.GetComponent<PlayerStates>();
-            _inputComponent = GetComponent<InputComponent>();
-            _camera = Camera.main;
-            //DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
+        _instance = this;
+        _player = GameObject.Find("Player");
+        _playerStates = _player.GetComponent<PlayerStates>();
+        _inputComponent = GetComponent<InputComponent>();
+        _camera = Camera.main;
+        _spawnManager = GameObject.Find("SpawnManager");
+        _spawner = _spawnManager.GetComponent<SpawnManger>();
     }
     void Start()
     {

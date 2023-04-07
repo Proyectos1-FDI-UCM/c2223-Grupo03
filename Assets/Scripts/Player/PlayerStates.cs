@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class PlayerStates : MonoBehaviour
 {
+
     #region parameters
     [SerializeField] private GameObject _boxPrefab;
     private GameObject _boxInstance;
+    private GameObject _parentBoxInstance;
     [SerializeField] private float _timeOutPill = 10;
     private float _oldSpeed;
     #endregion
@@ -81,12 +84,15 @@ public class PlayerStates : MonoBehaviour
         _instancedAudioSource.Play();
         _player.SetActive(false);
         _playerInCloset.SetActive(true);
-        _boxInstance = Instantiate(_boxPrefab, _player.transform.position, Quaternion.identity);
+
+        _parentBoxInstance = new GameObject();
+        _parentBoxInstance.transform.position = _player.transform.position;
+        _boxInstance = Instantiate(_boxPrefab, _parentBoxInstance.transform);
         _isBox = true;
     }
     public void ExitBox() // player sale de caja
     {
-        Destroy(_boxInstance);
+        Destroy(_parentBoxInstance);
         Destroy(instancedBoxAudio);
         _player.SetActive(true);
         PlayBoxAudio();
@@ -183,7 +189,7 @@ public class PlayerStates : MonoBehaviour
         _inventory = GameManager.Instance.GetComponent<Inventory>();
         _player = GameManager.Player;
         _playerAnimator = _player.GetComponent<Animator>();
-
+        //_audioSource = _player.GetComponent<AudioSource>();
         AudioSource[] _audioArray = GetComponents<AudioSource>();
         _pickUpAudio = _audioArray[0];
         _boxAudio = _audioArray[1];
@@ -197,4 +203,6 @@ public class PlayerStates : MonoBehaviour
         _boxAudio.volume = _boxVolume * GameManager.Instance.getSFX;
         _pickUpAudio.volume = _pickUpVolume * GameManager.Instance.getSFX;
     }
+
+
 }

@@ -38,6 +38,7 @@ public class OnPick : MonoBehaviour
             {
                 GameManager.PlayerStates.PlayPickUpAudio();
                 _Inventory.AñadeObjeto(_id);
+                GameManager.Instance.getSpawn.setCP(true);
                 Destroy(gameObject);
             }
         }

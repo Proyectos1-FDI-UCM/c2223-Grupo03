@@ -64,6 +64,8 @@ public class HeartDetection : MonoBehaviour
             if (!_inSafeZone) //Si no esta en la zona segura
             {
                 _fails++; //Aumenta en uno los fallos
+                _warning.SetActive(true);
+
                 if (_fails == 1)
                     _currentImage.sprite = _brokenHeart1;
                 if (_fails == 2)
@@ -76,10 +78,6 @@ public class HeartDetection : MonoBehaviour
             {
                 _hasPressed = true; //Se activa el bool de pulsado
                 _currentImage.sprite = _safeHeart;
-                if (!GameManager.PlayerStates.WithEffect)
-                {
-                    _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Desactiva el panel de aviso para dar feedback al jugador
-                }
                  
             }
         }
@@ -91,6 +89,7 @@ public class HeartDetection : MonoBehaviour
         if (_currentImage.sprite == _safeHeart || _currentImage.sprite == _brokenHeart3)
             _currentImage.sprite = _normalHeart;
         _hasPressed = false; //Se reestablece el bool de presionado
+        _warning.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) //Metodo que comprueba que se haya entrado a la zona segura
@@ -99,7 +98,6 @@ public class HeartDetection : MonoBehaviour
         {
             _beepSound.volume = GameManager.Instance.getSFX * _beepVolume; 
             _beepSound.Play();
-            _warning.GetComponent<Image>().color = new Color(1, 0, 0, 0.20f); //Se activa el panel de aviso
             _inSafeZone = true; //El bool de zona segura se activa
         }
     }
@@ -109,12 +107,12 @@ public class HeartDetection : MonoBehaviour
 
         if (other.gameObject == _safeZone) //Si el trigger es el de la zona segura
         {
-            _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Se desactiva el panel de aviso
             _inSafeZone = false; //Se muestra que ya no se esta en la zona segura
 
             if (!_hasPressed && !_pillEffects) //Si no se a presionado el espacio quiere decir que se ha saltado la zona segura y por tanto es un fallo
             {
                 _fails++;
+                _warning.SetActive(true);
                 _hasPressed = true;
             }
             if (_fails == 0)
@@ -138,7 +136,7 @@ public class HeartDetection : MonoBehaviour
     void Start()
     {
         _currentImage = GetComponent<Image>();
-        _warning.GetComponent<Image>().color = new Color(0, 0, 0, 0); //Se desactiva el panel de aviso de primeras
+        _warning.SetActive(false);
         _beepSound = GetComponent<AudioSource>();
         
         _beepVolume = _beepSound.volume;

@@ -10,14 +10,13 @@ public class KillComponent : MonoBehaviour
     #region References
     [SerializeField] private GameObject _playerInCloset;
     private EnemyAI _enemyAI;
-    private RespawnComponent _respawnComp;
+
     #endregion
 
     #region Methods
     void Start()
     {
         _enemyAI = GetComponent<EnemyAI>();
-        //_respawnComp = GameManager.Instance.GetComponent<RespawnComponent>();
     }
 
     private void Update()
@@ -25,7 +24,7 @@ public class KillComponent : MonoBehaviour
         /*if (_enemyAI.Chasing && _playerInCloset.active &&
             Vector2.Distance(transform.position, _playerInCloset.transform.position) < 1f)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            GameManager.Instance.GameOver();
         }*/
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -33,7 +32,7 @@ public class KillComponent : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             //_respawnComp.Respawn();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            GameManager.Instance.GameOver();
         }
     }
     #endregion
