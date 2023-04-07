@@ -2054,8 +2054,8 @@ MonoBehaviour:
   _audioVolume: 0.2
   _UIManager: {fileID: 525303084}
   _enemyGroup: {fileID: 638960805}
-  _deathAnimation1: {fileID: 0}
-  _deathAnimation2: {fileID: 0}
+  _deathAnimation1: {fileID: 4284610431398484734, guid: 9e14c392d146ff743994dca66fb661aa, type: 3}
+  _deathAnimation2: {fileID: 8288867689972202086, guid: 19b51c1095359b945b52102eb4a613a5, type: 3}
 --- !u!114 &285229871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3175,7 +3175,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 45
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &375874054
 GameObject:
@@ -5606,7 +5606,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -14892,7 +14892,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 47
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &638960805
 GameObject:
@@ -31592,7 +31592,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 44
+  m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1729242102
 GameObject:
@@ -32764,7 +32764,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 46
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1839206175
 GameObject:
@@ -35022,7 +35022,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 45
+  m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2043050904
 PrefabInstance:
