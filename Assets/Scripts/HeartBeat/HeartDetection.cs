@@ -64,7 +64,6 @@ public class HeartDetection : MonoBehaviour
             if (!_inSafeZone) //Si no esta en la zona segura
             {
                 _fails++; //Aumenta en uno los fallos
-                Debug.Log("LLego");
                 _warning.SetActive(true);
 
                 if (_fails == 1)

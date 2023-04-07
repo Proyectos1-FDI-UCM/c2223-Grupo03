@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         GameObject canvas = GameObject.Find("Canvas");
-        Destroy(_player);
+        _player.SetActive(false);
         Instantiate(_deathAnimation1, canvas.transform);
         Instantiate(_deathAnimation2, canvas.transform);
         Invoke("ChangeSceneDeath", 1.5f);
