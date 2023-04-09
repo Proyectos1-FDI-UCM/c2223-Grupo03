@@ -30093,6 +30093,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8358699430043619906, guid: b1ee2d2fbb91697408066dd5a6abfd35, type: 3}
+      propertyPath: roombaSpriteDer
+      value: 
+      objectReference: {fileID: 21300000, guid: 1422c28611ba2884fb7676549afbcb97, type: 3}
+    - target: {fileID: 8358699430043619906, guid: b1ee2d2fbb91697408066dd5a6abfd35, type: 3}
+      propertyPath: roombaSpriteIzq
+      value: 
+      objectReference: {fileID: 21300000, guid: dee5ccfe0d5518643b6633be9a897031, type: 3}
     - target: {fileID: 8358699430043619907, guid: b1ee2d2fbb91697408066dd5a6abfd35, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.08
