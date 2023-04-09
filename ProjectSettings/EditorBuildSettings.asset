@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LoreTransition.unity
     guid: cd0a562e401473e49bb52cb4de076391
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/Level1ADRI.unity
     guid: fd5e1043f5f6aad49ac562e9db284e7e
   - enabled: 1
     path: Assets/Scenes/GameOverLvl1.unity
@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelTransitions/LevelTransition Lvl1.unity
     guid: 7572569faadac7d488ff5be81cf221a7
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/Scenes/Level2ADRI.unity
     guid: 8129c46916b22c94597baf3114dfc6b9
   - enabled: 1
     path: Assets/Scenes/GameOverLvl2.unity
@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelTransitions/LevelTransition Lvl2.unity
     guid: 582342f91f97b514aa5d4cc1512165d9
   - enabled: 1
-    path: Assets/Scenes/Level3.unity
+    path: Assets/Scenes/Level3ADRI.unity
     guid: c59ea919c51fbf947b177e72eed2f96d
   - enabled: 1
     path: Assets/Scenes/GameOverLvl3.unity
@@ -42,7 +42,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelTransitions/LevelTransition Lvl3.unity
     guid: ae50fecaa632ef44e8265aa945a680c3
   - enabled: 1
-    path: Assets/Scenes/Level4.unity
+    path: Assets/Scenes/Level4ADRI.unity
     guid: 70dfe51c79e986744aa54b53695e5b03
   - enabled: 1
     path: Assets/Scenes/GameOverLvl4.unity
@@ -51,7 +51,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelTransitions/LevelTransition Lvl4.unity
     guid: d0f8e96ef45d9e1489644655608b93bd
   - enabled: 1
-    path: Assets/Scenes/Level5.unity
+    path: Assets/Scenes/Level5ADRI.unity
     guid: 05ffc5e373e5048439bb768942c88b3b
   - enabled: 1
     path: Assets/Scenes/GameOverLvl5.unity
