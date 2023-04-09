@@ -9,6 +9,8 @@ public class FollowPoints : MonoBehaviour
     [SerializeField] private GameObject _path;
     private Transform[] _points;
     [SerializeField] private bool _cicle;
+    [SerializeField] Sprite roombaSpriteIzq;
+    [SerializeField] Sprite roombaSpriteDer;
     private Rigidbody2D _enemyRigidbody;
     private NavMeshAgent _navMeshAgent;
     private int i;
@@ -45,19 +47,29 @@ public class FollowPoints : MonoBehaviour
             {
                 if (Vector2.Distance(_enemyRigidbody.position, _points[i].position) > 0.3f)
                 {
+                    Debug.Log(i);
                     _navMeshAgent.SetDestination(_points[i].position);
+                    
                 }
                 else
+                {
                     i++;
+                    GetComponent<SpriteRenderer>().sprite = roombaSpriteDer;
+                }
+                   
             }
             else if (i > 0 && !forward)
             {
                 if (Vector2.Distance(_enemyRigidbody.position, _points[i].position) > 0.3f)
-                {
+                {    
                     _navMeshAgent.SetDestination(_points[i].position);
                 }
                 else
+                {
                     i--;
+                    GetComponent<SpriteRenderer>().sprite = roombaSpriteIzq;
+                }
+                    
             }
             else
             {

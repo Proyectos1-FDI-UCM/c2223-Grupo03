@@ -7,9 +7,16 @@ using UnityEngine.UIElements;
 public class ClosetComponent : MonoBehaviour
 {
 
-    #region Parameters
+    #region Paramet    
     [SerializeField] private float _interactDistance;
     private bool _isHiding = false;
+    public bool IsHiding
+    {
+        get
+        {
+            return _isHiding;
+        }
+    }
     private Vector2 _playerPos;
     private Vector2 _closetPos;
     private GameObject _player;
@@ -22,7 +29,7 @@ public class ClosetComponent : MonoBehaviour
 
     #region Methods
 
-    //Comptueba si el juagdor esta dentro del rango para entrar en el armario
+    //Comptueba si el jugador esta dentro del rango para entrar en el armario
     private bool CanHide()
     {
         _playerPos = _player.transform.position;
@@ -51,7 +58,7 @@ public class ClosetComponent : MonoBehaviour
     }
 
     //Muestra al jugador
-    private void ShowPlayer()
+    public void ShowPlayer()
     {
         _player.SetActive(true);
         GameManager.PlayerStates.ExitCloset();

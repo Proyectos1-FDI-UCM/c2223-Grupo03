@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     public SpawnManger getSpawn { get { return _spawner; } }
     #endregion
 
-    #region 
+    #region methods
 
     public void GameOver()
     {
@@ -87,31 +87,39 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-    public void ChangePause()
+    public void ChangePause() //Método para cambiar de estado de pausa a estado de despausa
     {
+        //Pausados con logica de en que estado se esta en los propios componentes
+
+        //Pausado del jugador para activar o deactivar su pausado
         _player.GetComponent<PlayerStates>().Pause();
         _player.GetComponent<MovementComponent>().Pause();
 
+        //Se pone el menu de pausa o se quita
         _UIManager.GetComponent<UIManager>().PauseMenu();
 
+        //Se le envia a los enemigos el mensaje para que se pausen
         _enemyGroup.BroadcastMessage("Pause");
 
-        if (!_isInPause)
+        if (!_isInPause) //No estaba pausado el juego
         {
+            
             _player.GetComponent<Animator>().enabled = false;
             GetComponent<InputComponent>().enabled = false;
 
+            //Uno a uno se desactivan los animators de los enemigos
             for (int i = 0; i < _enemyGroup.transform.childCount; i++)
             {
                 _enemyGroup.transform.GetChild(i).transform.GetChild(0).GetComponent<Animator>().enabled = false;
             }
 
+            //Se cambia al menu de pausa (sin ver la lógica dentro del UI)
             GetComponent<MenuComponent>().ChangeMenu(Menus.PAUSE);
             
             _isInPause= true;
             _actualMenu = Menus.PAUSE;
         }
-        else
+        else //Igual pero activandolo todo y quitando la pausa
         {
             _player.GetComponent<Animator>().enabled = true;
             GetComponent<InputComponent>().enabled = true;
@@ -126,8 +134,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    //Método para cambiar los menus según el nuevo estado que le llegue
     private void UpdateMenu(Menus newMenu)
     {
+        //Va diciendo al UI a que menu cambiar y va asignando el primer boton para la navegación por teclado de los menús
         if (newMenu == Menus.OPTIONS)
         {
             _UIManager.GetComponent<UIManager>().ChangeMenu(Menus.OPTIONS);
@@ -155,6 +166,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //Comprueba si el cambio de menu es posible dentro de la maquina de estados diseñada
     public void RequestMenuChange(Menus newMenu)
     {
         if ((_actualMenu == Menus.PAUSE || _actualMenu == Menus.CONTROLS || _actualMenu == Menus.SOUND || _actualMenu == Menus.TECLADO) && (newMenu == Menus.OPTIONS))
@@ -203,6 +215,12 @@ public class GameManager : MonoBehaviour
         {
             audio.volume = _audioVolume * _audioMusic;
         }
+    }
+
+    //Sale del juego en el ejecutable
+    public void ExitGame()
+    {
+        Application.Quit();
     }
     #endregion
   

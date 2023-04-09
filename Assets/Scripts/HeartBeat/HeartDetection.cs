@@ -15,6 +15,9 @@ public class HeartDetection : MonoBehaviour
     [SerializeField]
     private GameObject _warning; //Panel rojo claro que avisa si se entra en la zona verde
 
+    [SerializeField]
+    private GameObject _closets;
+
     #endregion
 
     #region parameters
@@ -149,6 +152,17 @@ public class HeartDetection : MonoBehaviour
         {
             GameManager.PlayerStates.SweatCancelMovement();
             GetComponent<HeartMove>().CancelMovement();
+
+            
+            for (int i = 0; i < _closets.transform.childCount; i++)
+            {
+                if (_closets.transform.GetChild(i).GetComponent<ClosetComponent>().IsHiding)
+                {
+                    _closets.transform.GetChild(i).GetComponent<ClosetComponent>().ShowPlayer();
+                }
+                
+            }
+            
             _fails = 0; //Se reestablecen los fallos
         }
     }

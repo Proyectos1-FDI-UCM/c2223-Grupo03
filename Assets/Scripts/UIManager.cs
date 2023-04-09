@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
 
     #region methods
 
+    //Método para activar y deactivar el menu de pausa
     public void PauseMenu()
     {
         if (!GameManager.Instance.IsPause)
@@ -34,6 +35,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    //Metodo para cambiar a un menu concreto activandolo y desactivando todos los menus que pudiera haber antes
     public void ChangeMenu(GameManager.Menus newMenu)
     {
         if (newMenu == GameManager.Menus.OPTIONS)
@@ -67,6 +69,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    //Pide al GameManager que cambie el menu por otro dado un número
     public void RequestMenuChange(int i)
     {
         GameManager.Instance.RequestMenuChange((GameManager.Menus)i);
@@ -79,6 +82,11 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         _pauseMenu.SetActive(false);
+        _controlsMenu.SetActive(false);
+        _optionsMenu.SetActive(false);
+        _soundMenu.SetActive(false);
+        _tecladoControlsMenu.SetActive(false);
+        _controlsMenu.SetActive(false);
     }
 
     // Update is called once per frame

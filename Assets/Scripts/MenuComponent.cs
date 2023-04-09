@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class MenuComponent : MonoBehaviour
 {
+    //Metodo para cambiar el primer boton segun el menu al que se llegue para permitir la navegabilidad entre menus
+
     #region references
 
     [SerializeField] private GameObject _pauseFirstButton, _optionFirstButton, _controlerFirstButton, _keyboardFirstButton, _soundFirstButton;
