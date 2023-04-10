@@ -7,7 +7,7 @@ public class PalancaComponent : MonoBehaviour
 {
     #region references
 
-    [SerializeField] GameObject _deleteEnemy;
+    [SerializeField] public GameObject _deleteEnemy;
     [SerializeField] GameObject _checkpointManager;
 
     #endregion

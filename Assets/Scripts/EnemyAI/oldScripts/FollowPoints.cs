@@ -47,7 +47,7 @@ public class FollowPoints : MonoBehaviour
             {
                 if (Vector2.Distance(_enemyRigidbody.position, _points[i].position) > 0.3f)
                 {
-                    Debug.Log(i);
+                    //Debug.Log(i);
                     _navMeshAgent.SetDestination(_points[i].position);
                     
                 }

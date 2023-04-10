@@ -5,25 +5,42 @@ using UnityEngine;
 public class CheckpointsFinalLvl : MonoBehaviour
 {
     public static CheckpointsFinalLvl Instance;
-    [SerializeField] private GameObject _palancaRojo;
-    [SerializeField] private GameObject _palancaVerde;
-    [SerializeField] private GameObject _palancaAzul;
-    [SerializeField] private GameObject _palancaMarron;
+ 
 
-    [SerializeField] private GameObject _enemigoRojo;
-    [SerializeField] private GameObject _enemigoVerde;
-    [SerializeField] private GameObject _enemigoAzul;
-    [SerializeField] private GameObject _enemigoMarron;
+    private GameObject _palancas;
+    private GameObject _palancaRojo;
+    private GameObject _palancaVerde;
+    private GameObject _palancaAzul;
+    private GameObject _palancaMarron;
+
+    private GameObject _enemigos;
+    private GameObject _enemigoVerde;
+    private GameObject _enemigoAzul;
+    private GameObject _enemigoRojo;
+    private GameObject _enemigoMarron;
 
     public bool _rojo, _verde, _azul, _marron;
 
-    // Start is called before the first frame update
-    void Start()
+    private void CheckpointFinalLvl()
     {
-        if(_rojo)
+
+        _palancas = GameObject.Find("Palancas");
+        _palancaRojo = _palancas.transform.GetChild(0).gameObject;
+        _palancaMarron = _palancas.transform.GetChild(1).gameObject;
+        _palancaAzul = _palancas.transform.GetChild(2).gameObject;
+        _palancaVerde = _palancas.transform.GetChild(3).gameObject;
+
+        _enemigos = GameObject.Find("Enemigos");
+        _enemigoRojo = _enemigos.transform.GetChild(3).gameObject;
+        _enemigoMarron = _enemigos.transform.GetChild(0).gameObject;
+        _enemigoAzul = _enemigos.transform.GetChild(1).gameObject;
+        _enemigoVerde = _enemigos.transform.GetChild(2).gameObject;
+
+      
+        if (_rojo)
         {
             _enemigoRojo.SetActive(false);
-            Destroy(_palancaRojo); 
+            Destroy(_palancaRojo);
         }
         if(_verde)
         {
@@ -55,12 +72,15 @@ public class CheckpointsFinalLvl : MonoBehaviour
     {
         if (Instance == null)
         {
+            CheckpointFinalLvl();
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
         {
+            Instance.CheckpointFinalLvl();
             Destroy(gameObject);
+
         }
     }
 
