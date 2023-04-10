@@ -1285,6 +1285,10 @@ PrefabInstance:
       propertyPath: _speed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1841242808948413950, guid: 741350c6032f6134193e507c36d49aeb, type: 3}
+      propertyPath: _coneDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1841242809439882331, guid: 741350c6032f6134193e507c36d49aeb, type: 3}
       propertyPath: m_Name
       value: EnemyVerde
@@ -4552,7 +4556,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -33830,6 +33834,14 @@ PrefabInstance:
       propertyPath: _speed
       value: 2.7
       objectReference: {fileID: 0}
+    - target: {fileID: 1841242808948413950, guid: 3d59b9c8530d796488b775f0ff3021d0, type: 3}
+      propertyPath: _coneFov
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841242808948413950, guid: 3d59b9c8530d796488b775f0ff3021d0, type: 3}
+      propertyPath: _coneDistance
+      value: 3.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1841242809439882331, guid: 3d59b9c8530d796488b775f0ff3021d0, type: 3}
       propertyPath: m_Name
       value: EnemyMarron
@@ -35262,7 +35274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1302032981126837769, guid: 6b9119e79660c06459269d88027aeb37, type: 3}
       propertyPath: _coneFov
-      value: 60
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1302032981126837769, guid: 6b9119e79660c06459269d88027aeb37, type: 3}
       propertyPath: _coneDistance
@@ -37984,6 +37996,10 @@ PrefabInstance:
       propertyPath: _speed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1841242808948413950, guid: 741350c6032f6134193e507c36d49aeb, type: 3}
+      propertyPath: _coneDistance
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1841242809439882331, guid: 741350c6032f6134193e507c36d49aeb, type: 3}
       propertyPath: m_Name
       value: EnemyVerde (1)
@@ -38661,8 +38677,12 @@ PrefabInstance:
       value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 1841242808948413950, guid: 3d59b9c8530d796488b775f0ff3021d0, type: 3}
+      propertyPath: _coneFov
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1841242808948413950, guid: 3d59b9c8530d796488b775f0ff3021d0, type: 3}
       propertyPath: _coneDistance
-      value: 3.5
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 1841242809439882331, guid: 3d59b9c8530d796488b775f0ff3021d0, type: 3}
       propertyPath: m_Name
