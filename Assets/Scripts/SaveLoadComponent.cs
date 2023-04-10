@@ -14,7 +14,7 @@ public class SaveLoadComponent : MonoBehaviour
     private void Awake()
     {
         _archivoGuardado = Application.dataPath + "/datosJuego.json";
-
+        
     }
 
     private void Update()
@@ -28,7 +28,7 @@ public class SaveLoadComponent : MonoBehaviour
             GuardarDatos();
         }
     }
-    private void CargarDatos()
+    public void CargarDatos()
     {
         if(File.Exists(_archivoGuardado)) 
         {
@@ -44,7 +44,7 @@ public class SaveLoadComponent : MonoBehaviour
         }
     }
 
-    private void GuardarDatos()
+    public void GuardarDatos()
     {
         DatosJuego nuevosDatos = new DatosJuego()
         {
