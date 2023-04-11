@@ -48,11 +48,13 @@ public class SaveLoadComponent : MonoBehaviour
             _lvlNumber = _datosJuego._levelNumber;
             if (_lvlNumber == 18)
             {
+                CurrentScene();
+
                 _spawnManger.GetComponent<CheckpointsFinalLvl>()._rojo = _datosJuego._redEnemy;
                 _spawnManger.GetComponent<CheckpointsFinalLvl>()._azul = _datosJuego._blueEnemy;
                 _spawnManger.GetComponent<CheckpointsFinalLvl>()._verde = _datosJuego._greenEnemy;
                 _spawnManger.GetComponent<CheckpointsFinalLvl>()._marron = _datosJuego._brownEnemy;
-                CurrentScene();
+                Debug.Log("Verde" + _spawnManger.GetComponent<CheckpointsFinalLvl>()._verde);
                 Debug.Log("Carga Partida");
             }
             else

@@ -21,14 +21,27 @@ public class CheckpointsFinalLvl : MonoBehaviour
 
     public bool _rojo, _verde, _azul, _marron;
 
-    private void CheckpointFinalLvl()
-    {
+    [SerializeField] private int _lvlNumber;
 
+    public void CheckpointFinalLvl()
+    {
+        Debug.Log("Checkpoint");
+        Debug.Log("Color" + _verde);
         _palancas = GameObject.Find("Palancas");
+        if (_palancas != null)
+        {
+            Debug.Log("hay palanca");
+        }
         _palancaRojo = _palancas.transform.GetChild(0).gameObject;
         _palancaMarron = _palancas.transform.GetChild(1).gameObject;
         _palancaAzul = _palancas.transform.GetChild(2).gameObject;
         _palancaVerde = _palancas.transform.GetChild(3).gameObject;
+
+        Debug.Log("p" + _palancaRojo);
+        Debug.Log("p" + _palancaMarron);
+        Debug.Log("p" + _palancaAzul);
+        Debug.Log("p" + _palancaVerde);
+
 
         _enemigos = GameObject.Find("Enemigos");
         _enemigoRojo = _enemigos.transform.GetChild(3).gameObject;
@@ -44,6 +57,7 @@ public class CheckpointsFinalLvl : MonoBehaviour
         }
         if(_verde)
         {
+            Debug.Log("Enemigo verde");
             _enemigoVerde.SetActive(false);
             Destroy(_palancaVerde);
         }
@@ -64,44 +78,60 @@ public class CheckpointsFinalLvl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PalancaActive();
-        
+        if (_lvlNumber == 18)
+        {
+            PalancaActive();
+        }
+
     }
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            CheckpointFinalLvl();
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Instance.CheckpointFinalLvl();
-            Destroy(gameObject);
 
+        _lvlNumber = GameObject.Find("Nivel").GetComponent<LevelNumber>()._levelNumber;
+        Debug.Log("nivel" + _lvlNumber);
+        if (_lvlNumber == 18)
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+                CheckpointFinalLvl();
+            }
+            else
+            {
+                CheckpointFinalLvl();
+                Destroy(gameObject);
+            }
         }
+
+
     }
 
     private void PalancaActive()
     {
-        if (!_rojo && _palancaRojo.GetComponent<PalancaComponent>()._palancaActive)
+        if (_palancaRojo.GetComponent<PalancaComponent>() != null)
         {
-            _rojo = true;
+          
         }
-        if (!_verde && _palancaVerde.GetComponent<PalancaComponent>()._palancaActive)
-        {
-            _verde = true;
-        }
-        if (!_azul && _palancaAzul.GetComponent<PalancaComponent>()._palancaActive)
-        {
-            _azul = true;
-        }
-        if (!_marron && _palancaMarron.GetComponent<PalancaComponent>()._palancaActive)
-        {
-            _marron = true;
-        }
+            if (!_rojo && _palancaRojo.GetComponent<PalancaComponent>()._palancaActive)
+            {
+                _rojo = true;
+            }
+            if (!_verde && _palancaVerde.GetComponent<PalancaComponent>()._palancaActive)
+            {
+                _verde = true;
+            }
+            if (!_azul && _palancaAzul.GetComponent<PalancaComponent>()._palancaActive)
+            {
+                _azul = true;
+            }
+            if (!_marron && _palancaMarron.GetComponent<PalancaComponent>()._palancaActive)
+            {
+                _marron = true;
+            }
+
+        
     }
 
     }
