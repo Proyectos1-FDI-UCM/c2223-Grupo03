@@ -87,7 +87,6 @@ public class CheckpointsFinalLvl : MonoBehaviour
 
     private void Awake()
     {
-
         _lvlNumber = GameObject.Find("Nivel").GetComponent<LevelNumber>()._levelNumber;
         Debug.Log("nivel" + _lvlNumber);
         if (_lvlNumber == 18)
@@ -110,10 +109,6 @@ public class CheckpointsFinalLvl : MonoBehaviour
 
     private void PalancaActive()
     {
-        if (_palancaRojo.GetComponent<PalancaComponent>() != null)
-        {
-          
-        }
             if (!_rojo && _palancaRojo.GetComponent<PalancaComponent>()._palancaActive)
             {
                 _rojo = true;
@@ -130,8 +125,5 @@ public class CheckpointsFinalLvl : MonoBehaviour
             {
                 _marron = true;
             }
-
-        
     }
-
-    }
+}

@@ -16,5 +16,4 @@ public class LevelNumber : MonoBehaviour
             _checkpointFinal.GetComponent<CheckpointsFinalLvl>().CheckpointFinalLvl();
         }
     }
-
 }
