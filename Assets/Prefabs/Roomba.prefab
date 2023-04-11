@@ -342,6 +342,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _path: {fileID: 8358699429066985070}
   _cicle: 0
+  roombaSpriteIzq: {fileID: 21300000, guid: dee5ccfe0d5518643b6633be9a897031, type: 3}
+  roombaSpriteDer: {fileID: 21300000, guid: 1422c28611ba2884fb7676549afbcb97, type: 3}
 --- !u!50 &8358699430043619911
 Rigidbody2D:
   serializedVersion: 4
