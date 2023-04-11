@@ -58,7 +58,7 @@ public class StormManager : MonoBehaviour
 
     static int GeneraRadom()
     {
-        int num = Random.Range(5, 10);
+        int num = Random.Range(10, 25);
         return num;
     }
 
