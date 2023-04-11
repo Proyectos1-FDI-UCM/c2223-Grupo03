@@ -25,8 +25,6 @@ public class StormManager : MonoBehaviour
     void Update()
     {
         cont += Time.deltaTime;
-        Debug.Log("Cont: " + cont);
-        Debug.Log("RdnNum: " + rdnNum);
         if (cont > rdnNum)
         {
             Debug.Log("Suena");

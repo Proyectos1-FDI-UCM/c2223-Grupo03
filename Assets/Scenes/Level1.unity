@@ -11030,7 +11030,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b2322f7f5a3cb9c4caf407aabba02bb5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -18451,7 +18451,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.6
+  m_Intensity: 0.4
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -21002,6 +21002,7 @@ GameObject:
   - component: {fileID: 1064123305}
   - component: {fileID: 1064123309}
   - component: {fileID: 1064123310}
+  - component: {fileID: 1064123311}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -21088,6 +21089,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a4eb654b93d7b4aad3427dec9df393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1064123311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064123304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b9d60dba433b064a913aa7efb2230d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pauseFirstButton: {fileID: 1038213229}
+  _optionFirstButton: {fileID: 1524017815}
+  _controlerFirstButton: {fileID: 623154679}
+  _keyboardFirstButton: {fileID: 597473494}
+  _soundFirstButton: {fileID: 60165938}
 --- !u!1 &1089635143
 GameObject:
   m_ObjectHideFlags: 0
@@ -24586,7 +24604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.2740173, y: -126}
+  m_AnchoredPosition: {x: -4, y: -126}
   m_SizeDelta: {x: 403.086, y: 123.221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1656746956

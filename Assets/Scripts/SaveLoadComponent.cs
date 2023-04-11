@@ -27,17 +27,16 @@ public class SaveLoadComponent : MonoBehaviour
         }
         
     }
-
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.C)) 
+        /*if(Input.GetKeyDown(KeyCode.C)) 
         {
             CargarDatos();
         }
         if(Input.GetKeyDown(KeyCode.G))
         {
             GuardarDatos();
-        }
+        }*/
     }
     public void CargarDatos()
     {

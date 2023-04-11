@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
     }
     public void ChangePause() //Método para cambiar de estado de pausa a estado de despausa
     {
+        Debug.Log("f");
         //Pausados con logica de en que estado se esta en los propios componentes
 
         //Pausado del jugador para activar o deactivar su pausado
