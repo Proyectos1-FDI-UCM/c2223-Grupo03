@@ -21,7 +21,7 @@ public class PalancaComponent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == GameManager.Player)
+        if (collision.gameObject.tag == "Player")
         {
             _deleteEnemy.SetActive(false);
             collision.gameObject.transform.position = _newPosition.position;
