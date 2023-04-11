@@ -13,6 +13,15 @@ public class CameraFollow : MonoBehaviour
     {
         target = GameManager.Player.transform;
     }
+    public void ChangeCameraPosition(Transform newTarget, float smoothspeed)
+    {
+        _smoothSpeed = smoothspeed;
+        target = newTarget;
+    }
+    public void RestoreSmoothness()
+    {
+        _smoothSpeed = 2f;
+    }
     public void ChangeCameraPosition(Transform newTarget)
     {
         target = newTarget;

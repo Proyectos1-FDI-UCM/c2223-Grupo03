@@ -25,6 +25,9 @@ public class ClosetComponent : MonoBehaviour
 
     private AudioSource _closetAudio;
     private float _audioVolume;
+
+    [SerializeField] private float _Xoffset;
+    [SerializeField] private float _Yoffset;
     #endregion
 
     #region Methods
@@ -51,10 +54,11 @@ public class ClosetComponent : MonoBehaviour
     private void HidePlayer()
     {
         _player.SetActive(false);
+        _player.transform.position = (Vector2)transform.position + new Vector2(_Xoffset, _Yoffset);
         GameManager.PlayerStates.EnterCloset();
         _isHiding = true;
         _closetAudio.Play();
-        
+        Camera.main.GetComponent<CameraFollow>().ChangeCameraPosition(transform, 0.2f);
     }
 
     //Muestra al jugador
@@ -64,6 +68,12 @@ public class ClosetComponent : MonoBehaviour
         GameManager.PlayerStates.ExitCloset();
         _isHiding = false;
         _closetAudio.Play();
+        Camera.main.GetComponent<CameraFollow>().RestartPlayerFocus();
+        Invoke("RestoreSmooth", 0.2f);
+    }
+    private void RestoreSmooth()
+    {
+        Camera.main.GetComponent<CameraFollow>().RestoreSmoothness();
     }
 
     private void UpdateSound()

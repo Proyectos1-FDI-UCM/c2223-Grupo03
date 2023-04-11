@@ -129,6 +129,8 @@ MonoBehaviour:
   _interactDistance: 1.7
   _closetSprite: {fileID: 630394412, guid: d5200f83ca1fd2f4aaa998e29106c0c8, type: 3}
   _closetShine: {fileID: 21300000, guid: d4aaa8a72a64ab743bfe3e21ca5ca0f8, type: 3}
+  _Xoffset: 0
+  _Yoffset: -1.5
 --- !u!114 &8259155431641388323
 MonoBehaviour:
   m_ObjectHideFlags: 0

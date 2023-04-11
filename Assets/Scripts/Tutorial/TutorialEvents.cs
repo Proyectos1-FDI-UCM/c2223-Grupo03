@@ -75,6 +75,7 @@ public class TutorialEvents : MonoBehaviour
         Destroy(_instanceEnemigo2);
         Destroy(_instanceTextoProximidadLatidos);
         GameManager.Instance.GetComponent<PauseInput>().enabled = true;
+        Camera.main.GetComponent<CameraFollow>().RestartPlayerFocus();
     }
     private void ShowEnemy()
     {
@@ -138,6 +139,7 @@ public class TutorialEvents : MonoBehaviour
         {
             GameManager.Player.SetActive(false);
             _playerInCloset.SetActive(true);
+            Camera.main.GetComponent<CameraFollow>().ChangeCameraPosition(_firstCloset.transform);
         }
     }
     void Start()
