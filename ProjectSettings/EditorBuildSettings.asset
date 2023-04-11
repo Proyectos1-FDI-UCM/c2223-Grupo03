@@ -65,4 +65,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOverLvlFinal.unity
     guid: 82f2db92c8a26ed4e88d9891de5a2820
+  - enabled: 1
+    path: Assets/Scenes/Final Transition.unity
+    guid: fa4d163a8dae7814b94fc5043f985672
   m_configObjects: {}

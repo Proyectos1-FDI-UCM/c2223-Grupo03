@@ -5601,14 +5601,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483565217}
-  m_LocalRotation: {x: 0, y: 0, z: 0.26210496, w: 0.9650394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2109135910}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30.39}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!893571522 &483565219
 CustomCollider2D:
   m_ObjectHideFlags: 0
@@ -15196,14 +15196,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661017507}
-  m_LocalRotation: {x: 0, y: 0, z: 0.26210496, w: 0.9650394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1247063474}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30.39}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!893571522 &661017509
 CustomCollider2D:
   m_ObjectHideFlags: 0
@@ -17625,7 +17625,7 @@ MonoBehaviour:
   _chasing: 0
   _timeToStopChasing: 3
   _cone: {fileID: 1033222463}
-  _coneFov: 35
+  _coneFov: 20
   _coneDistance: 4.5
   _path: {fileID: 1941918743}
   _cicle: 1
@@ -18121,7 +18121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887850265}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.52, y: -4.95, z: 0}
+  m_LocalPosition: {x: 4.6699977, y: -4.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37904,7 +37904,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005433361}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.48, y: -4.95, z: 0}
+  m_LocalPosition: {x: 2.6299977, y: -4.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -38049,14 +38049,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1033222463}
-  m_LocalRotation: {x: 0, y: 0, z: 0.26210496, w: 0.9650394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 881024375}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30.39}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!893571522 &1033222465
 CustomCollider2D:
   m_ObjectHideFlags: 0
@@ -58332,7 +58332,7 @@ MonoBehaviour:
   _chasing: 0
   _timeToStopChasing: 3
   _cone: {fileID: 661017507}
-  _coneFov: 35
+  _coneFov: 20
   _coneDistance: 4.5
   _path: {fileID: 1647443419}
   _cicle: 1
@@ -78030,7 +78030,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732494494}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.72, y: -4.811, z: 0}
+  m_LocalPosition: {x: 2.79, y: -4.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78638,7 +78638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788760511}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.59, y: -4.811, z: 0}
+  m_LocalPosition: {x: 2.7399976, y: -4.811, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78780,7 +78780,7 @@ MonoBehaviour:
   _chasing: 0
   _timeToStopChasing: 3
   _cone: {fileID: 1913959721}
-  _coneFov: 35
+  _coneFov: 20
   _coneDistance: 4.5
   _path: {fileID: 1741671160}
   _cicle: 1
@@ -79347,6 +79347,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1817795208}
   - component: {fileID: 1817795207}
+  - component: {fileID: 1817795210}
+  - component: {fileID: 1817795209}
   m_Layer: 0
   m_Name: Vivu_28
   m_TagString: Untagged
@@ -79414,13 +79416,51 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817795206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.61, y: -1.32, z: 0}
+  m_LocalPosition: {x: -0.59, y: -1.33, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1817795209
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817795206}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.81, y: 0.54}
+    newSize: {x: 0.81, y: 0.54}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.81, y: 0.54}
+  m_EdgeRadius: 0
+--- !u!114 &1817795210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817795206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c478bddf8eae8574fbc952040c3abced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1819190102
 GameObject:
   m_ObjectHideFlags: 0
@@ -87292,14 +87332,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913959721}
-  m_LocalRotation: {x: 0, y: 0, z: 0.26210496, w: 0.9650394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1796549018}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30.39}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!893571522 &1913959723
 CustomCollider2D:
   m_ObjectHideFlags: 0
@@ -90139,7 +90179,7 @@ MonoBehaviour:
   _chasing: 0
   _timeToStopChasing: 3
   _cone: {fileID: 483565217}
-  _coneFov: 35
+  _coneFov: 20
   _coneDistance: 4.5
   _path: {fileID: 2032342234}
   _cicle: 1

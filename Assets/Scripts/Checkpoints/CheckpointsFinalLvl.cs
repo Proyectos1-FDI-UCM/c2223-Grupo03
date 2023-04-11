@@ -5,7 +5,6 @@ using UnityEngine;
 public class CheckpointsFinalLvl : MonoBehaviour
 {
     public static CheckpointsFinalLvl Instance;
- 
 
     private GameObject _palancas;
     private GameObject _palancaRojo;
@@ -25,23 +24,11 @@ public class CheckpointsFinalLvl : MonoBehaviour
 
     public void CheckpointFinalLvl()
     {
-        Debug.Log("Checkpoint");
-        Debug.Log("Color" + _verde);
         _palancas = GameObject.Find("Palancas");
-        if (_palancas != null)
-        {
-            Debug.Log("hay palanca");
-        }
         _palancaRojo = _palancas.transform.GetChild(0).gameObject;
         _palancaMarron = _palancas.transform.GetChild(1).gameObject;
         _palancaAzul = _palancas.transform.GetChild(2).gameObject;
         _palancaVerde = _palancas.transform.GetChild(3).gameObject;
-
-        Debug.Log("p" + _palancaRojo);
-        Debug.Log("p" + _palancaMarron);
-        Debug.Log("p" + _palancaAzul);
-        Debug.Log("p" + _palancaVerde);
-
 
         _enemigos = GameObject.Find("Enemigos");
         _enemigoRojo = _enemigos.transform.GetChild(3).gameObject;
@@ -49,7 +36,6 @@ public class CheckpointsFinalLvl : MonoBehaviour
         _enemigoAzul = _enemigos.transform.GetChild(1).gameObject;
         _enemigoVerde = _enemigos.transform.GetChild(2).gameObject;
 
-      
         if (_rojo)
         {
             _enemigoRojo.SetActive(false);
@@ -57,7 +43,6 @@ public class CheckpointsFinalLvl : MonoBehaviour
         }
         if(_verde)
         {
-            Debug.Log("Enemigo verde");
             _enemigoVerde.SetActive(false);
             Destroy(_palancaVerde);
         }
@@ -71,10 +56,7 @@ public class CheckpointsFinalLvl : MonoBehaviour
             _enemigoMarron.SetActive(false);
             Destroy(_palancaMarron);
         }
-
-   
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -82,13 +64,10 @@ public class CheckpointsFinalLvl : MonoBehaviour
         {
             PalancaActive();
         }
-
     }
-
     private void Awake()
     {
         _lvlNumber = GameObject.Find("Nivel").GetComponent<LevelNumber>()._levelNumber;
-        Debug.Log("nivel" + _lvlNumber);
         if (_lvlNumber == 18)
         {
             if (Instance == null)
@@ -103,10 +82,7 @@ public class CheckpointsFinalLvl : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-
-
     }
-
     private void PalancaActive()
     {
             if (!_rojo && _palancaRojo.GetComponent<PalancaComponent>()._palancaActive)
@@ -125,5 +101,12 @@ public class CheckpointsFinalLvl : MonoBehaviour
             {
                 _marron = true;
             }
+    }
+    public void DesactivarTodo()
+    {
+        _marron = false;
+        _azul = false;
+        _verde = false;
+        _rojo = false;
     }
 }
