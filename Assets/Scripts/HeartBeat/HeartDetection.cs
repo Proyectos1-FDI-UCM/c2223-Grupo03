@@ -151,19 +151,15 @@ public class HeartDetection : MonoBehaviour
     {
         if (_fails == 3 && !DEBUG) //Se comprueba si se ha llegado a 3 fallos
         {
-            GameManager.PlayerStates.SweatCancelMovement();
-            GetComponent<HeartMove>().CancelMovement();
-
-            
             for (int i = 0; i < _closets.transform.childCount; i++)
             {
                 if (_closets.transform.GetChild(i).GetComponent<ClosetComponent>().IsHiding)
                 {
                     _closets.transform.GetChild(i).GetComponent<ClosetComponent>().ShowPlayer();
                 }
-                
             }
-            
+            GameManager.PlayerStates.SweatCancelMovement();
+            GetComponent<HeartMove>().CancelMovement();
             _fails = 0; //Se reestablecen los fallos
         }
     }
