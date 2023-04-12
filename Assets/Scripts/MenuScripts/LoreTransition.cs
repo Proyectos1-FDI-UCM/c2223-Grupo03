@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,7 +16,8 @@ public class LoreTransition : MonoBehaviour
     [SerializeField] GameObject _imageContainer;
     [SerializeField] string[] _dialogs;
     [SerializeField] AudioSource _audioSource;
-
+    private int _actualTransition = 0; // imagen en la que se encuentra
+    private bool skipeado = false;
 
     void Start()
     {
@@ -29,6 +31,7 @@ public class LoreTransition : MonoBehaviour
     {
         for (int i = 0; i < _transitions.Length; i++)
         {
+            _actualTransition = i;
             Color imageColor = _transitions[i].color;
             // Mostrar animación de la imagen correspondiente
             _transitions[i].gameObject.SetActive(true);
@@ -42,14 +45,20 @@ public class LoreTransition : MonoBehaviour
             imageColor.a = 1;
 
             _dialogText.text = "";
+            skipeado = false;
             foreach (var letter in dialogs[i].ToCharArray())
             {
+                if (skipeado)
+                {
+                    break;
+                }
                 _dialogText.text += letter;
                 _audioSource.Play();
-                yield return new WaitForSeconds(1.3f / _lettersPerSecond);
+                yield return new WaitForSeconds(0.8f / _lettersPerSecond);
             }
 
             // Esperar un tiempo antes de continuar
+            skipeado= false;
             yield return new WaitForSeconds(2f);
 
             // Animación Ocultar la imagen
@@ -67,4 +76,12 @@ public class LoreTransition : MonoBehaviour
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void Skipear()
+    {
+        _dialogText.text = _dialogs[_actualTransition].ToString();
+        skipeado = true;
+    }
+
+    
 }

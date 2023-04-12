@@ -66,9 +66,7 @@ public class HeartDetection : MonoBehaviour
 
             if (!_inSafeZone) //Si no esta en la zona segura
             {
-                Debug.Log("le dio al espacio");
                 _fails++; //Aumenta en uno los fallos
-                Debug.Log("LLego");
                 _warning.SetActive(true);
 
                 if (_fails == 1)
@@ -116,7 +114,6 @@ public class HeartDetection : MonoBehaviour
 
             if (!_hasPressed && !_pillEffects) //Si no se a presionado el espacio quiere decir que se ha saltado la zona segura y por tanto es un fallo
             {
-                Debug.Log("No pulsa nah");
                 _fails++;
                 _warning.SetActive(true);
                 _hasPressed = true;
@@ -159,6 +156,10 @@ public class HeartDetection : MonoBehaviour
                 {
                     _closets.transform.GetChild(i).GetComponent<ClosetComponent>().ShowPlayer();
                 }
+            }
+            if (GameManager.PlayerStates.IsBox)
+            {
+                GameManager.PlayerStates.ExitBox();
             }
             GameManager.PlayerStates.SweatCancelMovement();
             GetComponent<HeartMove>().CancelMovement();
