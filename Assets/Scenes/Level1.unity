@@ -20681,7 +20681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.274, y: 160}
+  m_AnchoredPosition: {x: -2.274, y: -124}
   m_SizeDelta: {x: 403.086, y: 123.221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1038213231
@@ -21101,7 +21101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9d60dba433b064a913aa7efb2230d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pauseFirstButton: {fileID: 1038213229}
+  _pauseFirstButton: {fileID: 1527157451}
   _optionFirstButton: {fileID: 1524017815}
   _controlerFirstButton: {fileID: 623154679}
   _keyboardFirstButton: {fileID: 597473494}
@@ -23517,7 +23517,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.2740173, y: 15.999992}
+  m_AnchoredPosition: {x: -2.2740173, y: 159}
   m_SizeDelta: {x: 403.086, y: 123.221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1527157453
@@ -24604,7 +24604,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4, y: -126}
+  m_AnchoredPosition: {x: -4, y: 17}
   m_SizeDelta: {x: 403.086, y: 123.221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1656746956
