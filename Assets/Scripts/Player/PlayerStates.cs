@@ -107,6 +107,8 @@ public class PlayerStates : MonoBehaviour
         {
             //activamos efecto pasti 
             _heart.GetComponent<HeartMove>().enabled = false;
+            _heart.GetComponent<HeartDetection>().enabled = false;
+            _heart.GetComponent<HeartDetection>()._pillEffects = true;
             _safeZone.GetComponent<ProximityComponent>().enabled = false;
             _heartBar.SetActive(false);
             Invoke("Flicker", _timeOutPill - 4);
@@ -153,6 +155,8 @@ public class PlayerStates : MonoBehaviour
         _heartBar.transform.GetChild(2).GetComponent<ParpadeoComponent>().enabled = false;
         _heartBar.transform.GetChild(2).GetComponent<Image>().color += new Color(0, 0, 0, 0.25f);
         _heart.GetComponent<HeartMove>().enabled = true;
+        _heart.GetComponent<HeartDetection>().enabled = true;
+        _heart.GetComponent<HeartDetection>()._pillEffects = false;
         _safeZone.GetComponent<ProximityComponent>().enabled = true;
         _withEffect = false;
     }
