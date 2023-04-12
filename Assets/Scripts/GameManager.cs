@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
             {
                 Animator animator = _enemyGroup.transform.GetChild(i).transform.GetChild(0).GetComponent<Animator>();
                 if (animator != null)
-                    animator.enabled = false;
+                    animator.enabled = true;
             }
 
             _isInPause = false;

@@ -18,6 +18,9 @@ public class PlayerStates : MonoBehaviour
 
     #region properties
 
+    private bool _tired = false;
+    public bool Tired { get { return _tired; } }
+
     private bool _withEffect = false;
     public bool WithEffect { get { return _withEffect; } }
 
@@ -174,6 +177,7 @@ public class PlayerStates : MonoBehaviour
     }
     public void SweatCancelMovement() // fatiga al fallar 3 veces
     {
+        _tired = true;
         _playerAnimator.SetBool("Sweat", true);
         _oldSpeed = GetComponent<MovementComponent>().speed;
         GetComponent<MovementComponent>().speed = 0;
@@ -182,6 +186,7 @@ public class PlayerStates : MonoBehaviour
 
     private void SweatActiveMovement() // reanuda el movimiento
     {
+        _tired = false;
         _playerAnimator.SetBool("Sweat", false);
         GetComponent<MovementComponent>().speed = _oldSpeed;
     }
