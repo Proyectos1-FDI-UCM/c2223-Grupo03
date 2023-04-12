@@ -89,7 +89,6 @@ public class GameManager : MonoBehaviour
     }
     public void ChangePause() //Método para cambiar de estado de pausa a estado de despausa
     {
-        Debug.Log("f");
         //Pausados con logica de en que estado se esta en los propios componentes
 
         //Pausado del jugador para activar o deactivar su pausado
@@ -111,7 +110,9 @@ public class GameManager : MonoBehaviour
             //Uno a uno se desactivan los animators de los enemigos
             for (int i = 0; i < _enemyGroup.transform.childCount; i++)
             {
-                _enemyGroup.transform.GetChild(i).transform.GetChild(0).GetComponent<Animator>().enabled = false;
+                Animator animator = _enemyGroup.transform.GetChild(i).transform.GetChild(0).GetComponent<Animator>();
+                if (animator != null)
+                    animator.enabled = false;
             }
 
             //Se cambia al menu de pausa (sin ver la lógica dentro del UI)
@@ -127,7 +128,9 @@ public class GameManager : MonoBehaviour
 
             for (int i = 0; i < _enemyGroup.transform.childCount; i++)
             {
-                _enemyGroup.transform.GetChild(i).transform.GetChild(0).GetComponent<Animator>().enabled = true;
+                Animator animator = _enemyGroup.transform.GetChild(i).transform.GetChild(0).GetComponent<Animator>();
+                if (animator != null)
+                    animator.enabled = true;
             }
 
             _isInPause = false;

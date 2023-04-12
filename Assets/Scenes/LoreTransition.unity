@@ -259,10 +259,10 @@ MonoBehaviour:
   _dialogText: {fileID: 1385322451}
   _imageContainer: {fileID: 1751528293}
   _dialogs:
-  - "En un pueblo diminuto, en un pais desconocido vivia un chico de cabellos rojizos
-    llamado Fanegas. La noche parecia tranquila, por lo que decidio aproachar para
-    pasear a su perrita Vivu, sin darse cuenta que eran m\xE1s de las doce."
-  - A estas horas seres horribles cubiertos de pelo llamados "Lutanos" rondan el
+  - En un pueblo diminuto, en un pais desconocido vivia un chico de cabellos rojizos
+    llamado Fanegas. La noche parecia tranquila, por lo que decidio aprovechar para
+    pasear a su perrita Vivu, sin darse cuenta que eran mas de las doce.
+  - A estas horas, seres horribles cubiertos de pelo llamados "Lutanos" rondan el
     lugar. Sin sitio al cual esconderse o huir, Fanegas fue secuestrado por estas
     atrocidades de la naturaleza.
   - 'Confuso y adolorido Fanegas se despierta en el atico de una gran mansion llena
@@ -321,7 +321,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 105f4a5f089b9b044a57e8530579dc45, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -643,10 +643,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 988307310}
-        m_TargetAssemblyTypeName: SceneManagerScript, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 3
+      - m_Target: {fileID: 299750356}
+        m_TargetAssemblyTypeName: LoreTransition, Assembly-CSharp
+        m_MethodName: Skipear
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
