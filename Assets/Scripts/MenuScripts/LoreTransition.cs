@@ -83,5 +83,11 @@ public class LoreTransition : MonoBehaviour
         skipeado = true;
     }
 
-    
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetButton("CuadradoPs4")) 
+        {
+            Skipear();
+        }
+    }
 }
