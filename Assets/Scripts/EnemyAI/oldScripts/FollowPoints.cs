@@ -16,6 +16,19 @@ public class FollowPoints : MonoBehaviour
     private int i;
     private bool forward;
 
+    private float oldspeed;
+    private void Pause()
+    {
+        if (!GameManager.Instance.IsPause)
+        {
+            _navMeshAgent.speed = 0;
+        }
+        else
+        {
+            _navMeshAgent.speed = oldspeed;
+        }
+        
+    }
     private void SetPointsFromPath()
     {
         int pointNum = _path.transform.childCount;
@@ -87,5 +100,6 @@ public class FollowPoints : MonoBehaviour
         _enemyRigidbody = GetComponent<Rigidbody2D>();
         forward = true;
         SetPointsFromPath();
+        oldspeed = _navMeshAgent.speed;
     }
 }
