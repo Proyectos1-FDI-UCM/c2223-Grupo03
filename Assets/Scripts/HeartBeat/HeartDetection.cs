@@ -67,7 +67,6 @@ public class HeartDetection : MonoBehaviour
             if (!_inSafeZone) //Si no esta en la zona segura
             {
                 _fails++; //Aumenta en uno los fallos
-                Debug.Log("LLego");
                 _warning.SetActive(true);
 
                 if (_fails == 1)
@@ -157,6 +156,10 @@ public class HeartDetection : MonoBehaviour
                 {
                     _closets.transform.GetChild(i).GetComponent<ClosetComponent>().ShowPlayer();
                 }
+            }
+            if (GameManager.PlayerStates.IsBox)
+            {
+                GameManager.PlayerStates.ExitBox();
             }
             GameManager.PlayerStates.SweatCancelMovement();
             GetComponent<HeartMove>().CancelMovement();

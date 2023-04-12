@@ -18,6 +18,9 @@ public class PlayerStates : MonoBehaviour
 
     #region properties
 
+    private bool _tired = false;
+    public bool Tired { get { return _tired; } }
+
     private bool _withEffect = false;
     public bool WithEffect { get { return _withEffect; } }
 
@@ -107,6 +110,8 @@ public class PlayerStates : MonoBehaviour
         {
             //activamos efecto pasti 
             _heart.GetComponent<HeartMove>().enabled = false;
+            _heart.GetComponent<HeartDetection>().enabled = false;
+            _heart.GetComponent<HeartDetection>()._pillEffects = true;
             _safeZone.GetComponent<ProximityComponent>().enabled = false;
             _heartBar.SetActive(false);
             Invoke("Flicker", _timeOutPill - 4);
@@ -153,6 +158,8 @@ public class PlayerStates : MonoBehaviour
         _heartBar.transform.GetChild(2).GetComponent<ParpadeoComponent>().enabled = false;
         _heartBar.transform.GetChild(2).GetComponent<Image>().color += new Color(0, 0, 0, 0.25f);
         _heart.GetComponent<HeartMove>().enabled = true;
+        _heart.GetComponent<HeartDetection>().enabled = true;
+        _heart.GetComponent<HeartDetection>()._pillEffects = false;
         _safeZone.GetComponent<ProximityComponent>().enabled = true;
         _withEffect = false;
     }
@@ -170,6 +177,7 @@ public class PlayerStates : MonoBehaviour
     }
     public void SweatCancelMovement() // fatiga al fallar 3 veces
     {
+        _tired = true;
         _playerAnimator.SetBool("Sweat", true);
         _oldSpeed = GetComponent<MovementComponent>().speed;
         GetComponent<MovementComponent>().speed = 0;
@@ -178,6 +186,7 @@ public class PlayerStates : MonoBehaviour
 
     private void SweatActiveMovement() // reanuda el movimiento
     {
+        _tired = false;
         _playerAnimator.SetBool("Sweat", false);
         GetComponent<MovementComponent>().speed = _oldSpeed;
     }

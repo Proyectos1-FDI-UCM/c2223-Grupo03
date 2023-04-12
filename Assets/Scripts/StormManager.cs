@@ -27,7 +27,6 @@ public class StormManager : MonoBehaviour
         cont += Time.deltaTime;
         if (cont > rdnNum)
         {
-            Debug.Log("Suena");
             _audioSource.Play();
             cont = 0;
             rdnNum = GeneraRadom();

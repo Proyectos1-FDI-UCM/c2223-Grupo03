@@ -44,13 +44,13 @@ public class InputComponent : MonoBehaviour
         {
             _heartDetection.SpacePressed();
         }
-        if (Input.GetKeyDown(KeyCode.J) && _inventory._pildoraEquipado) //A�ADIR CONDICION DE TENERLA EN EL INVENTARIO
+        if (Input.GetKeyDown(KeyCode.J) && _inventory._pildoraEquipado && !GameManager.PlayerStates.Tired) //A�ADIR CONDICION DE TENERLA EN EL INVENTARIO
         {
             _playerStates.PillEffect();
         }
 
         // If the player presses the "K" key, change between the player and the box 
-        if (Input.GetKeyDown(KeyCode.K) && _inventory._cajaEquipado )
+        if (Input.GetKeyDown(KeyCode.K) && _inventory._cajaEquipado && !GameManager.PlayerStates.Tired)
         {
             if (_playerStates.IsBox)
             {
@@ -62,7 +62,7 @@ public class InputComponent : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.L) && _inventory._DespertadorEquipado)
+        if (Input.GetKeyDown(KeyCode.L) && _inventory._DespertadorEquipado && !GameManager.PlayerStates.Tired)
         {
             _playerStates.Clock();
         }
