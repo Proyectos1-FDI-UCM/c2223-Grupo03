@@ -11,17 +11,13 @@ public class GameOver : MonoBehaviour
         {
             RetryGame();
         }
-    }
-    public void RetryGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-    }
-
-    private void Update()
-    {
         if (Input.GetButton("AspaPs4"))
         {
             RetryGame();
         }
+    }
+    public void RetryGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
