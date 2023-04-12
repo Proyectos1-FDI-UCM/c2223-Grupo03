@@ -16,4 +16,12 @@ public class GameOver : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
+
+    private void Update()
+    {
+        if (Input.GetButton("AspaPs4"))
+        {
+            RetryGame();
+        }
+    }
 }
