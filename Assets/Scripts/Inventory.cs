@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour
         EliminaObjeto(1); // 1 -> píldoras
         EliminaObjeto(2); // 2 -> caja
         EliminaObjeto(3); // 3 -> despertador
-        EliminaObjeto(4); // 4 -> llave
+       // EliminaObjeto(4); // 4 -> llave
     }
 
     public void AñadeObjeto(int _item) // 1 -> píldoras, 2 -> caja, 3 -> despertador, 4 -> llave.
@@ -55,8 +55,11 @@ public class Inventory : MonoBehaviour
         }
         else if (_item == 4)
         {
+            Debug.Log("llave");
             _llaveEquipado = true;
+            Debug.Log("" + _llaveEquipado);
             _llaveUI.gameObject.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            Debug.Log("llave color");
         }
     }
 
@@ -79,6 +82,7 @@ public class Inventory : MonoBehaviour
         }
         else if (_item == 4)
         {
+            Debug.Log("wtf");
             _llaveEquipado = false;
             _llaveUI.gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0.25f);
         }

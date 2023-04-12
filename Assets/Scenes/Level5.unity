@@ -39038,7 +39038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714a2e1451b5296479dae61da8085489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boxPrefab: {fileID: 3000885595798816680, guid: 4967b4ec75003ba429f7d246162de57f, type: 3}
+  _boxPrefab: {fileID: 3000885595798816680, guid: b28aa807971ebc64797fdeee5922f303, type: 3}
   _timeOutPill: 10
   _warning: {fileID: 0}
   _heart: {fileID: 1336410300}
