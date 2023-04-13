@@ -75,6 +75,11 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.RequestMenuChange((GameManager.Menus)i);
     }
 
+    public void OutOfOptions()
+    {
+        _optionsMenu.SetActive(false);
+    }
+
     #endregion
 
 

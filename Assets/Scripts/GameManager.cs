@@ -226,6 +226,8 @@ public class GameManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    
     #endregion
   
     void Awake()
