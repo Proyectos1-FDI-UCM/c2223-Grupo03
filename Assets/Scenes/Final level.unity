@@ -8690,9 +8690,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1059699222}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ExitGame
+      - m_Target: {fileID: 1640338695}
+        m_TargetAssemblyTypeName: SceneManagerScript, Assembly-CSharp
+        m_MethodName: LoadMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -79868,6 +79868,7 @@ GameObject:
   - component: {fileID: 1640338694}
   - component: {fileID: 1640338693}
   - component: {fileID: 1640338692}
+  - component: {fileID: 1640338695}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -79967,6 +79968,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1640338695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640338690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d09d54bc3a64d574bac1effdac2dd154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1647443419
 GameObject:
   m_ObjectHideFlags: 0
