@@ -54,6 +54,7 @@ public class LoreTransition : MonoBehaviour
 
             _dialogText.text = "";
             skipeado = false;
+            int k = 0;
             foreach (var letter in dialogs[i].ToCharArray())
             {
                 if (skipeado)
@@ -61,7 +62,12 @@ public class LoreTransition : MonoBehaviour
                     break;
                 }
                 _dialogText.text += letter;
-                _audioSource.Play();
+                k++;
+                if (k == 2)
+                {
+                    k = 0;
+                    _audioSource.Play();
+                }
                 yield return new WaitForSeconds(0.8f / _lettersPerSecond);
             }
 
