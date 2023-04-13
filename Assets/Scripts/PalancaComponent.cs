@@ -7,13 +7,15 @@ public class PalancaComponent : MonoBehaviour
 {
     #region references
 
-    [SerializeField] GameObject _deleteEnemy;
+    [SerializeField] public GameObject _deleteEnemy;
 
     #endregion
 
     #region properties
 
     Transform _newPosition;
+    [SerializeField] private int _numPalanca;
+    public bool _palancaActive = false;
 
     #endregion
 
@@ -23,9 +25,14 @@ public class PalancaComponent : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            _palancaActive = true;
             _deleteEnemy.SetActive(false);
             collision.gameObject.transform.position = _newPosition.position;
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            _palancaActive = false;
         }
     }
 

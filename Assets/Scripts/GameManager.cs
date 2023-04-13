@@ -110,7 +110,9 @@ public class GameManager : MonoBehaviour
             //Uno a uno se desactivan los animators de los enemigos
             for (int i = 0; i < _enemyGroup.transform.childCount; i++)
             {
-                _enemyGroup.transform.GetChild(i).transform.GetChild(0).GetComponent<Animator>().enabled = false;
+                Animator animator = _enemyGroup.transform.GetChild(i).transform.GetChild(0).GetComponent<Animator>();
+                if (animator != null)
+                    animator.enabled = false;
             }
 
             //Se cambia al menu de pausa (sin ver la lógica dentro del UI)
@@ -126,7 +128,9 @@ public class GameManager : MonoBehaviour
 
             for (int i = 0; i < _enemyGroup.transform.childCount; i++)
             {
-                _enemyGroup.transform.GetChild(i).transform.GetChild(0).GetComponent<Animator>().enabled = true;
+                Animator animator = _enemyGroup.transform.GetChild(i).transform.GetChild(0).GetComponent<Animator>();
+                if (animator != null)
+                    animator.enabled = true;
             }
 
             _isInPause = false;
@@ -239,9 +243,5 @@ public class GameManager : MonoBehaviour
         _isInPause= false;
         _amountOfChildren = _enemyGroup.transform.childCount;
         _audioMusic = _audioSFX = 1;
-    }
-    void Update()
-    {
-
     }
 }

@@ -60,9 +60,12 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelTransitions/LevelTransition Lvl5.unity
     guid: 1d86a66b74b4ad643b624ad4b39b4414
   - enabled: 1
+    path: Assets/Scenes/Final level.unity
+    guid: 2671b47a67c64f84382300b95e511670
+  - enabled: 1
     path: Assets/Scenes/GameOverLvlFinal.unity
     guid: 82f2db92c8a26ed4e88d9891de5a2820
   - enabled: 1
-    path: Assets/Scenes/Final level.unity
-    guid: 2671b47a67c64f84382300b95e511670
+    path: Assets/Scenes/Final Transition.unity
+    guid: fa4d163a8dae7814b94fc5043f985672
   m_configObjects: {}
