@@ -16,7 +16,7 @@ public class SaveLoadComponent : MonoBehaviour
     private void Awake()
     {
         _archivoGuardado = Application.dataPath + "/datosJuego.json";
-        if (Instance == null)
+        /*if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
@@ -24,7 +24,7 @@ public class SaveLoadComponent : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
+        }*/
         
     }
     public void CargarDatos()
