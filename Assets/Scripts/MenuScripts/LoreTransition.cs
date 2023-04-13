@@ -27,6 +27,14 @@ public class LoreTransition : MonoBehaviour
         StartCoroutine(TypeDialog(_dialogs));
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("AspaPs4"))
+        {
+            Skipear();
+        }
+    }
+
     public IEnumerator TypeDialog(string[] dialogs)
     {
         for (int i = 0; i < _transitions.Length; i++)
