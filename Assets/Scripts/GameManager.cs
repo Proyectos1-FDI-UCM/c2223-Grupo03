@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
     public void ChangePause() //Método para cambiar de estado de pausa a estado de despausa
     {
         //Pausados con logica de en que estado se esta en los propios componentes
+        
 
         //Pausado del jugador para activar o deactivar su pausado
         _player.GetComponent<PlayerStates>().Pause();
@@ -103,7 +104,8 @@ public class GameManager : MonoBehaviour
 
         if (!_isInPause) //No estaba pausado el juego
         {
-            
+            Time.timeScale = 0;
+
             _player.GetComponent<Animator>().enabled = false;
             GetComponent<InputComponent>().enabled = false;
 
@@ -123,6 +125,8 @@ public class GameManager : MonoBehaviour
         }
         else //Igual pero activandolo todo y quitando la pausa
         {
+            Time.timeScale = 1;
+
             _player.GetComponent<Animator>().enabled = true;
             GetComponent<InputComponent>().enabled = true;
 
