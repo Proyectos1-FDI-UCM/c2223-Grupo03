@@ -932,6 +932,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClosetIzq
       objectReference: {fileID: 0}
+    - target: {fileID: 5508834420113465199, guid: 64ee46b38c1bb404585dc43193fe5aa6, type: 3}
+      propertyPath: _Xoffset
+      value: -0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64ee46b38c1bb404585dc43193fe5aa6, type: 3}
 --- !u!4 &52353600 stripped
@@ -32713,7 +32717,7 @@ MonoBehaviour:
   _safeZone: {fileID: 395390054}
   _warning: {fileID: 493795853}
   _closets: {fileID: 1127242090}
-  DEBUG: 0
+  DEBUG: 1
   _pillEffects: 0
   _brokenHeart3: {fileID: 1430472703, guid: 44ecdaa7c303dab48af3f5e9805a567e, type: 3}
   _brokenHeart2: {fileID: -1175015732, guid: 44ecdaa7c303dab48af3f5e9805a567e, type: 3}

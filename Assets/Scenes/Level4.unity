@@ -1597,6 +1597,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7393291995766826260, guid: 38a346d4ca9000140b158ba2092ee93d, type: 3}
+      propertyPath: _Xoffset
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 7393291995766826261, guid: 38a346d4ca9000140b158ba2092ee93d, type: 3}
       propertyPath: m_Name
       value: ClosetDer (1)
@@ -35032,6 +35036,10 @@ PrefabInstance:
     - target: {fileID: 7393291995766826257, guid: 38a346d4ca9000140b158ba2092ee93d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7393291995766826260, guid: 38a346d4ca9000140b158ba2092ee93d, type: 3}
+      propertyPath: _Xoffset
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7393291995766826261, guid: 38a346d4ca9000140b158ba2092ee93d, type: 3}
       propertyPath: m_Name
