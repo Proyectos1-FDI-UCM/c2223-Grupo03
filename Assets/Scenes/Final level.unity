@@ -4324,6 +4324,7 @@ GameObject:
   - component: {fileID: 173200413}
   - component: {fileID: 173200412}
   - component: {fileID: 173200411}
+  - component: {fileID: 173200420}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -4648,6 +4649,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalPoint: {fileID: 221619306}
   lookAt: {fileID: 143925322}
+--- !u!114 &173200420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173200408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04fe73892f00e7e4d8a7697730cff465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distractTime: 1
+  _arrivalDistance: 0.5
 --- !u!1 &179461243
 GameObject:
   m_ObjectHideFlags: 0
@@ -23411,6 +23426,7 @@ GameObject:
   - component: {fileID: 881024379}
   - component: {fileID: 881024378}
   - component: {fileID: 881024377}
+  - component: {fileID: 881024386}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -23735,6 +23751,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalPoint: {fileID: 1005433361}
   lookAt: {fileID: 1112803841}
+--- !u!114 &881024386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881024374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04fe73892f00e7e4d8a7697730cff465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distractTime: 5
+  _arrivalDistance: 0.5
 --- !u!1 &882532146
 GameObject:
   m_ObjectHideFlags: 0
@@ -66467,6 +66497,7 @@ GameObject:
   - component: {fileID: 1247063478}
   - component: {fileID: 1247063477}
   - component: {fileID: 1247063476}
+  - component: {fileID: 1247063485}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -66791,6 +66822,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalPoint: {fileID: 1788760511}
   lookAt: {fileID: 1422972723}
+--- !u!114 &1247063485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247063473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04fe73892f00e7e4d8a7697730cff465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distractTime: 5
+  _arrivalDistance: 0.5
 --- !u!4 &1264045817 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1302032981029496316, guid: 6b9119e79660c06459269d88027aeb37, type: 3}
@@ -80441,6 +80486,7 @@ GameObject:
   - component: {fileID: 1686451594}
   - component: {fileID: 1686451593}
   - component: {fileID: 1686451592}
+  - component: {fileID: 1686451601}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -80765,6 +80811,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalPoint: {fileID: 386406340}
   lookAt: {fileID: 143925322}
+--- !u!114 &1686451601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686451589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04fe73892f00e7e4d8a7697730cff465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distractTime: 1
+  _arrivalDistance: 0.5
 --- !u!1 &1690005451
 GameObject:
   m_ObjectHideFlags: 0
@@ -89551,6 +89611,7 @@ GameObject:
   - component: {fileID: 1796549022}
   - component: {fileID: 1796549021}
   - component: {fileID: 1796549020}
+  - component: {fileID: 1796549029}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -89875,6 +89936,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalPoint: {fileID: 1732494494}
   lookAt: {fileID: 689502186}
+--- !u!114 &1796549029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796549017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04fe73892f00e7e4d8a7697730cff465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distractTime: 5
+  _arrivalDistance: 0.5
 --- !u!1 &1799287667
 GameObject:
   m_ObjectHideFlags: 0
@@ -91066,6 +91141,7 @@ GameObject:
   - component: {fileID: 1863211780}
   - component: {fileID: 1863211779}
   - component: {fileID: 1863211778}
+  - component: {fileID: 1863211787}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -91390,6 +91466,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalPoint: {fileID: 858530081}
   lookAt: {fileID: 143925322}
+--- !u!114 &1863211787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863211775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04fe73892f00e7e4d8a7697730cff465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distractTime: 1
+  _arrivalDistance: 0.5
 --- !u!1 &1874324680
 GameObject:
   m_ObjectHideFlags: 0
@@ -103295,6 +103385,7 @@ GameObject:
   - component: {fileID: 2109135914}
   - component: {fileID: 2109135913}
   - component: {fileID: 2109135912}
+  - component: {fileID: 2109135921}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -103619,6 +103710,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalPoint: {fileID: 887850265}
   lookAt: {fileID: 376874633}
+--- !u!114 &2109135921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109135909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04fe73892f00e7e4d8a7697730cff465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distractTime: 5
+  _arrivalDistance: 0.5
 --- !u!1 &2110498970
 GameObject:
   m_ObjectHideFlags: 0
@@ -103819,6 +103924,7 @@ GameObject:
   - component: {fileID: 2113829325}
   - component: {fileID: 2113829324}
   - component: {fileID: 2113829323}
+  - component: {fileID: 2113829332}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -104143,6 +104249,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalPoint: {fileID: 1091227257}
   lookAt: {fileID: 143925322}
+--- !u!114 &2113829332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113829320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04fe73892f00e7e4d8a7697730cff465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distractTime: 1
+  _arrivalDistance: 0.5
 --- !u!1 &2115700818
 GameObject:
   m_ObjectHideFlags: 0
