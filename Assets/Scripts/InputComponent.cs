@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
+using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.UI;
 
 public class InputComponent : MonoBehaviour
 {
@@ -38,20 +42,25 @@ public class InputComponent : MonoBehaviour
 
     void Update()
     {
-        _movementComponent.ChangeValues(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        var gamepad = Gamepad.current;
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("R1Ps4"))
+        //Vector2 movementInput = gamepad.leftStick.ReadValue();
+
+        _movementComponent.ChangeValues(gamepad.leftStick.ReadValue());
+
+        if (Keyboard.current[Key.Space].wasPressedThisFrame || Gamepad.current[GamepadButton.RightShoulder].wasPressedThisFrame)
         {
             _heartDetection.SpacePressed();
         }
-        if ((Input.GetKeyDown(KeyCode.J) || Input.GetButton("CuadradoPs4")) && _inventory._pildoraEquipado && !GameManager.PlayerStates.Tired) //A�ADIR CONDICION DE TENERLA EN EL INVENTARIO
+
+        if (Keyboard.current[Key.J].wasPressedThisFrame || Gamepad.current[GamepadButton.X].wasPressedThisFrame) //A�ADIR CONDICION DE TENERLA EN EL INVENTARIO
         {
             _playerStates.PillEffect();
         }
 
         // If the player presses the "K" key, change between the player and the box 
 
-        if ((Input.GetKeyDown(KeyCode.K) || Input.GetButton("TrianguloPs4")) && _inventory._cajaEquipado && !GameManager.PlayerStates.Tired)
+        if (Keyboard.current[Key.K].wasPressedThisFrame || Gamepad.current[GamepadButton.Y].wasPressedThisFrame && _inventory._cajaEquipado && !GameManager.PlayerStates.Tired)
         {
             if (_playerStates.IsBox)
             {
@@ -62,7 +71,8 @@ public class InputComponent : MonoBehaviour
                 _playerStates.EnterBox();
             }
         }
-        if ((Input.GetKeyDown(KeyCode.L) || Input.GetButton("CirculoPs4")) && _inventory._DespertadorEquipado && !GameManager.PlayerStates.Tired)
+
+        if (Keyboard.current[Key.L].wasPressedThisFrame || Gamepad.current[GamepadButton.B].wasPressedThisFrame && _inventory._DespertadorEquipado && !GameManager.PlayerStates.Tired)
         {
             _playerStates.Clock();
         }

@@ -13,9 +13,9 @@ public class MovementComponent : MonoBehaviour
     private Animator _animator;
     private AudioSource _audioSource;
 
-    public void ChangeValues(float horizontal, float vertical)
+    public void ChangeValues(Vector2 vector)
     {
-        movement = new Vector2(horizontal, vertical);
+        movement = vector;
     }
     public void Pause()
     {
