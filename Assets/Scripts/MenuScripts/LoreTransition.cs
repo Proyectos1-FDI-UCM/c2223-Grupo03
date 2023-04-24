@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -29,7 +31,7 @@ public class LoreTransition : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("AspaPs4"))
+        if (Keyboard.current[Key.Space].wasPressedThisFrame || Gamepad.current[GamepadButton.A].wasPressedThisFrame)
         {
             Skipear();
         }

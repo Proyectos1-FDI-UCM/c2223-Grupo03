@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class ClosetComponent : MonoBehaviour
@@ -90,7 +92,7 @@ public class ClosetComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (CanHide() && (Input.GetKeyDown(KeyCode.E) || Input.GetButton("AspaPs4")) && !GameManager.PlayerStates.IsBox && !GameManager.PlayerStates.Tired)
+        if ((Keyboard.current[Key.E].wasPressedThisFrame || Gamepad.current[GamepadButton.A].wasPressedThisFrame) && !GameManager.PlayerStates.IsBox && !GameManager.PlayerStates.Tired)
         {
             UpdateSound();
             if (!_isHiding)

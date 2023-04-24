@@ -46,21 +46,35 @@ public class InputComponent : MonoBehaviour
 
         //Vector2 movementInput = gamepad.leftStick.ReadValue();
 
-        _movementComponent.ChangeValues(gamepad.leftStick.ReadValue());
+
+        Vector2 movement = Vector2.zero;
+
+        if (Gamepad.current != null && Gamepad.current.leftStick.ReadValue() != Vector2.zero)
+        {
+            // Si se está utilizando un controlador, leer la entrada del stick izquierdo
+            movement = Gamepad.current.leftStick.ReadValue();
+        }
+        else
+        {
+            // Si no se está utilizando un controlador, leer la entrada del teclado
+            movement.x = Keyboard.current.dKey.ReadValue() - Keyboard.current.aKey.ReadValue();
+            movement.y = Keyboard.current.wKey.ReadValue() - Keyboard.current.sKey.ReadValue();
+        }
+        _movementComponent.ChangeValues(movement);
 
         if (Keyboard.current[Key.Space].wasPressedThisFrame || Gamepad.current[GamepadButton.RightShoulder].wasPressedThisFrame)
         {
             _heartDetection.SpacePressed();
         }
 
-        if (Keyboard.current[Key.J].wasPressedThisFrame || Gamepad.current[GamepadButton.X].wasPressedThisFrame) //A�ADIR CONDICION DE TENERLA EN EL INVENTARIO
+        if ((Keyboard.current[Key.J].wasPressedThisFrame || Gamepad.current[GamepadButton.X].wasPressedThisFrame) && _inventory._pildoraEquipado) //A�ADIR CONDICION DE TENERLA EN EL INVENTARIO
         {
             _playerStates.PillEffect();
         }
 
         // If the player presses the "K" key, change between the player and the box 
 
-        if (Keyboard.current[Key.K].wasPressedThisFrame || Gamepad.current[GamepadButton.Y].wasPressedThisFrame && _inventory._cajaEquipado && !GameManager.PlayerStates.Tired)
+        if ((Keyboard.current[Key.K].wasPressedThisFrame || Gamepad.current[GamepadButton.Y].wasPressedThisFrame) && _inventory._cajaEquipado && !GameManager.PlayerStates.Tired)
         {
             if (_playerStates.IsBox)
             {
@@ -72,7 +86,7 @@ public class InputComponent : MonoBehaviour
             }
         }
 
-        if (Keyboard.current[Key.L].wasPressedThisFrame || Gamepad.current[GamepadButton.B].wasPressedThisFrame && _inventory._DespertadorEquipado && !GameManager.PlayerStates.Tired)
+        if ((Keyboard.current[Key.L].wasPressedThisFrame || Gamepad.current[GamepadButton.B].wasPressedThisFrame) && _inventory._DespertadorEquipado && !GameManager.PlayerStates.Tired)
         {
             _playerStates.Clock();
         }

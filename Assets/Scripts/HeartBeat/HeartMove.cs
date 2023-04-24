@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.InputSystem;
 
 public class HeartMove : MonoBehaviour
 {
@@ -81,7 +83,7 @@ public class HeartMove : MonoBehaviour
     void FixedUpdate()
     {
         _rigidbody.position += new Vector2(1,0) * _speed * Time.deltaTime; //Movimiento constante del corazón por medio del transform
-        if (_waiting && (Input.GetKey(KeyCode.Space) || Input.GetButton("R1Ps4")))
+        if (_waiting && (Keyboard.current[Key.Space].wasPressedThisFrame || Gamepad.current[GamepadButton.RightShoulder].wasPressedThisFrame))
         {
             ActiveMovement();
             _waiting = false;
