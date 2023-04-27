@@ -65,6 +65,7 @@ public class CheckpointsFinalLvl : MonoBehaviour
             PalancaActive();
         }
     }
+
     private void Awake()
     {
         _lvlNumber = GameObject.Find("Nivel").GetComponent<LevelNumber>()._levelNumber;
