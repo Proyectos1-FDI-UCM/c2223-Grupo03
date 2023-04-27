@@ -23238,6 +23238,7 @@ GameObject:
   - component: {fileID: 1064123309}
   - component: {fileID: 1064123310}
   - component: {fileID: 1064123311}
+  - component: {fileID: 1064123312}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -23341,6 +23342,19 @@ MonoBehaviour:
   _controlerFirstButton: {fileID: 1781710154}
   _keyboardFirstButton: {fileID: 895976970}
   _soundFirstButton: {fileID: 282908882}
+--- !u!114 &1064123312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064123304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb49c9d0ed0b46645a5f94272c46d554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _delay: 0.2
 --- !u!1 &1077462517
 GameObject:
   m_ObjectHideFlags: 0

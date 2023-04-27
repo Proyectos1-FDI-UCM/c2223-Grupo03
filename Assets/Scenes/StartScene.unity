@@ -154,10 +154,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseFirstButton: {fileID: 0}
-  _optionFirstButton: {fileID: 0}
-  _controlerFirstButton: {fileID: 0}
-  _keyboardFirstButton: {fileID: 0}
-  _soundFirstButton: {fileID: 0}
+  _optionFirstButton: {fileID: 1237861989}
+  _controlerFirstButton: {fileID: 650229790}
+  _keyboardFirstButton: {fileID: 254918927}
+  _soundFirstButton: {fileID: 666270923}
 --- !u!114 &10553275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,7 +940,7 @@ RectTransform:
   - {fileID: 31502254}
   - {fileID: 1306705230}
   m_Father: {fileID: 922066925}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1729,7 +1729,7 @@ RectTransform:
   - {fileID: 1347110383}
   - {fileID: 511560801}
   m_Father: {fileID: 922066925}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2451,7 +2451,7 @@ RectTransform:
   - {fileID: 174262276}
   - {fileID: 567362011}
   m_Father: {fileID: 922066925}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2677,7 +2677,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 10553275}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ExitGame
         m_Mode: 1
@@ -3696,7 +3696,7 @@ RectTransform:
   - {fileID: 997928794}
   - {fileID: 811863148}
   m_Father: {fileID: 922066925}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3732,11 +3732,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4a456a0138fd04a8ed1de76a499589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pauseMenu: {fileID: 0}
-  _optionsMenu: {fileID: 0}
-  _controlsMenu: {fileID: 0}
-  _soundMenu: {fileID: 0}
-  _tecladoControlsMenu: {fileID: 0}
+  _pauseMenu: {fileID: 1564362340}
+  _optionsMenu: {fileID: 814460221}
+  _controlsMenu: {fileID: 272796355}
+  _soundMenu: {fileID: 514289056}
+  _tecladoControlsMenu: {fileID: 1483594362}
 --- !u!4 &818192376
 Transform:
   m_ObjectHideFlags: 0
@@ -4206,12 +4206,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 931695744}
+  - {fileID: 157052718}
   - {fileID: 1564362341}
   - {fileID: 814460222}
   - {fileID: 272796356}
   - {fileID: 1483594363}
   - {fileID: 514289057}
-  - {fileID: 157052718}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6920,7 +6920,7 @@ RectTransform:
   - {fileID: 371037227}
   - {fileID: 1729035474}
   m_Father: {fileID: 922066925}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7462,7 +7462,7 @@ RectTransform:
   - {fileID: 1062265932}
   - {fileID: 700917275}
   m_Father: {fileID: 922066925}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7822,14 +7822,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 818192375}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: RequestMenuChange
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
