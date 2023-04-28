@@ -5729,6 +5729,7 @@ MonoBehaviour:
   _controlsMenu: {fileID: 85344139}
   _soundMenu: {fileID: 204088762}
   _tecladoControlsMenu: {fileID: 1901327292}
+  _playButton: {fileID: 0}
 --- !u!4 &525303086
 Transform:
   m_ObjectHideFlags: 0
@@ -16834,7 +16835,7 @@ Transform:
   - {fileID: 819918321}
   - {fileID: 594731686}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &647130719
 GameObject:
@@ -33485,7 +33486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7269376887690495515, guid: a0ab6e029b923a1499a2f84916462539, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7269376887690495515, guid: a0ab6e029b923a1499a2f84916462539, type: 3}
       propertyPath: m_LocalScale.x
@@ -39438,7 +39439,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: caf3c65ada631ce4890c31a070d61d61, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0

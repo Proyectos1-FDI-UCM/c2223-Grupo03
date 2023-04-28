@@ -19850,6 +19850,7 @@ MonoBehaviour:
   _controlsMenu: {fileID: 257797240}
   _soundMenu: {fileID: 1196420613}
   _tecladoControlsMenu: {fileID: 66120764}
+  _playButton: {fileID: 0}
 --- !u!4 &922123960
 Transform:
   m_ObjectHideFlags: 0
