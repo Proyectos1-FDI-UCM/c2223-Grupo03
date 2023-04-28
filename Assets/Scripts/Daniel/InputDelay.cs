@@ -22,10 +22,9 @@ public class InputDelay : MonoBehaviour
         if (_time >= _delay)
         {
             ResetTime();
-            Debug.Log("SI");
             return true;
         }
-        else { Debug.Log("Time: "+ _time +" Delay: "+ _delay); return false; }
+        else { return false; }
     }
 
 }
