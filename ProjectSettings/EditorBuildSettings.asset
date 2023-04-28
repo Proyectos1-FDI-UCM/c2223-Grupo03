@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelTransitions/LevelTransition Lvl2.unity
     guid: 582342f91f97b514aa5d4cc1512165d9
   - enabled: 1
-    path: "Assets/Scenes/Level3Pi\xF1a.unity"
+    path: Assets/Scenes/Level3.unity
     guid: b69774561e27e2f4ea9caa38ad0cdda0
   - enabled: 1
     path: Assets/Scenes/GameOverLvl3.unity
