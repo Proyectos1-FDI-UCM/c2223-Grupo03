@@ -29,7 +29,7 @@ public class LoreTransition : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("AspaPs4"))
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButton("AspaPs4")))
         {
             Skipear();
         }
@@ -93,9 +93,16 @@ public class LoreTransition : MonoBehaviour
 
     public void Skipear()
     {
-        _dialogText.text = _dialogs[_actualTransition].ToString();
-        skipeado = true;
+        if (!skipeado)
+        {
+            _dialogText.text = _dialogs[_actualTransition].ToString();
+            skipeado = true;
+        }
+    }
+    public void SkipAll()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    
+
 }

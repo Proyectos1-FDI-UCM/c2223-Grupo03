@@ -22,6 +22,7 @@ public class InputComponent : MonoBehaviour
     private HeartDetection _heartDetection;
     private MovementComponent _movementComponent;
     private Inventory _inventory;
+    private InputDelay _inputDelay;
 
 
     private PlayerStates _playerStates;
@@ -34,24 +35,25 @@ public class InputComponent : MonoBehaviour
         _heartDetection = _heart.GetComponent<HeartDetection>();
         _inventory = GameManager.Instance.GetComponent<Inventory>();
         _movementComponent = GameManager.Player.GetComponent<MovementComponent>();
+        _inputDelay = gameObject.GetComponent<InputDelay>();
     }
 
     void Update()
     {
         _movementComponent.ChangeValues(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("R1Ps4"))
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButton("R1Ps4")))
         {
             _heartDetection.SpacePressed();
         }
-        if ((Input.GetKeyDown(KeyCode.J) || Input.GetButton("CuadradoPs4")) && _inventory._pildoraEquipado && !GameManager.PlayerStates.Tired) //A�ADIR CONDICION DE TENERLA EN EL INVENTARIO
+        if (((Input.GetKeyDown(KeyCode.J) || Input.GetButton("CuadradoPs4")) && _inventory._pildoraEquipado && !GameManager.PlayerStates.Tired) && _inputDelay.TryInput()) //A�ADIR CONDICION DE TENERLA EN EL INVENTARIO
         {
             _playerStates.PillEffect();
         }
 
         // If the player presses the "K" key, change between the player and the box 
 
-        if ((Input.GetKeyDown(KeyCode.K) || Input.GetButton("TrianguloPs4")) && _inventory._cajaEquipado && !GameManager.PlayerStates.Tired)
+        if (((Input.GetKeyDown(KeyCode.K) || Input.GetButton("TrianguloPs4")) && _inventory._cajaEquipado && !GameManager.PlayerStates.Tired) && _inputDelay.TryInput())
         {
             if (_playerStates.IsBox)
             {
