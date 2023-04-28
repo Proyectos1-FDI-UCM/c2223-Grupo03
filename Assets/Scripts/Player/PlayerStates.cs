@@ -47,15 +47,20 @@ public class PlayerStates : MonoBehaviour
 
     private AudioSource _pickUpAudio;
     private AudioSource _boxAudio;
+    private AudioSource _tiredAudio;
     private float _pickUpVolume;
     private float _boxVolume;
+    private float _tiredVolume;
 
     private GameObject instancedBoxAudio;
     #endregion
 
 
     #region methods
-
+    public void PlayTiredAudio()
+    {
+        _tiredAudio.Play();
+    }
     public void PlayPickUpAudio()
     {
         _pickUpAudio.Play();
@@ -167,6 +172,7 @@ public class PlayerStates : MonoBehaviour
     public void CancelMovementTutorial()
     {
         _playerAnimator.SetBool("Sweat", true);
+        PlayTiredAudio();
         _oldSpeed = GetComponent<MovementComponent>().speed;
         GetComponent<MovementComponent>().speed = 0;
     }
@@ -179,6 +185,7 @@ public class PlayerStates : MonoBehaviour
     {
         _tired = true;
         _playerAnimator.SetBool("Sweat", true);
+        PlayTiredAudio();
         _oldSpeed = GetComponent<MovementComponent>().speed;
         GetComponent<MovementComponent>().speed = 0;
         Invoke("SweatActiveMovement", 3);
@@ -202,13 +209,16 @@ public class PlayerStates : MonoBehaviour
         AudioSource[] _audioArray = GetComponents<AudioSource>();
         _pickUpAudio = _audioArray[0];
         _boxAudio = _audioArray[1];
+        _tiredAudio = _audioArray[2];
         _pickUpVolume = _pickUpAudio.volume;
         _boxVolume = _boxAudio.volume;
+        _tiredVolume = _tiredAudio.volume;
     }
 
     // Update is called once per frame
     void Update()
     {
+        _tiredAudio.volume = _tiredVolume * GameManager.Instance.getSFX;
         _boxAudio.volume = _boxVolume * GameManager.Instance.getSFX;
         _pickUpAudio.volume = _pickUpVolume * GameManager.Instance.getSFX;
     }

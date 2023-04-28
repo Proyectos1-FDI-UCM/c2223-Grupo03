@@ -12,6 +12,7 @@ public class SceneManagerScript : MonoBehaviour
     public void LevelSelector()
     {
         SceneManager.LoadScene(1);
+
     }
     public void CurrentSceneMove(int i)
     {
@@ -20,6 +21,7 @@ public class SceneManagerScript : MonoBehaviour
     public void LoadMenu()
     {
         SceneManager.LoadScene(0);
+        GameManager.Instance.ChangePause();
     }
     public void LoadLevel(int lvl)
     {

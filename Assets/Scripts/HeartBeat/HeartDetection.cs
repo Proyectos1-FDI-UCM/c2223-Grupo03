@@ -34,7 +34,11 @@ public class HeartDetection : MonoBehaviour
                                       //iniciando asi un nuevo proceso
     public bool _pillEffects = false;
 
+    [SerializeField]
     private AudioSource _beepSound;
+    [SerializeField]
+    private AudioSource _failSound;
+
     private float _beepVolume;
 
     [SerializeField] private Sprite _brokenHeart3;
@@ -67,6 +71,8 @@ public class HeartDetection : MonoBehaviour
             if (!_inSafeZone) //Si no esta en la zona segura
             {
                 _fails++; //Aumenta en uno los fallos
+                _failSound.volume = GameManager.Instance.getSFX * _beepVolume;
+                _failSound.Play();
                 _warning.SetActive(true);
 
                 if (_fails == 1)
@@ -115,6 +121,8 @@ public class HeartDetection : MonoBehaviour
             if (!_hasPressed && !_pillEffects) //Si no se a presionado el espacio quiere decir que se ha saltado la zona segura y por tanto es un fallo
             {
                 _fails++;
+                _failSound.volume = GameManager.Instance.getSFX * _beepVolume;
+                _failSound.Play();
                 _warning.SetActive(true);
                 _hasPressed = true;
             }
@@ -140,7 +148,7 @@ public class HeartDetection : MonoBehaviour
     {
         _currentImage = GetComponent<Image>();
         _warning.SetActive(false);
-        _beepSound = GetComponent<AudioSource>();
+        //_beepSound = GetComponent<AudioSource>();
         
         _beepVolume = _beepSound.volume;
     }
