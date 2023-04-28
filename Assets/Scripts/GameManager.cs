@@ -202,6 +202,16 @@ public class GameManager : MonoBehaviour
             _actualMenu = newMenu;
             UpdateMenu(newMenu);
         }
+        else if (_actualMenu == Menus.OPTIONS && (newMenu == Menus.NoMenu))
+        {
+            _actualMenu = newMenu;
+            UpdateMenu(newMenu);
+        }
+        else if (_actualMenu == Menus.NoMenu && (newMenu == Menus.OPTIONS))
+        {
+            _actualMenu = newMenu;
+            UpdateMenu(newMenu);
+        }
     }
 
     public void changeSound(string soundType, float newValue)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.EventSystems;
 //using System.Diagnostics;
 
 public class UIManager : MonoBehaviour
@@ -13,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject _controlsMenu;
     [SerializeField] GameObject _soundMenu;
     [SerializeField] GameObject _tecladoControlsMenu;
+    [SerializeField] GameObject _playButton;
     #endregion
 
     #region properties
@@ -78,6 +80,8 @@ public class UIManager : MonoBehaviour
     public void OutOfOptions()
     {
         _optionsMenu.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(_playButton);
+        RequestMenuChange(4);
     }
 
     #endregion
