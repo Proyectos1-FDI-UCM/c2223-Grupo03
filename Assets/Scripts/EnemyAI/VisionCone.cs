@@ -228,7 +228,7 @@ public class VisionCone : MonoBehaviour
         {
             playerFound = true;
         } 
-        else if (collision.gameObject.GetComponent<ClosetComponent>() != null && _enemyAI.GetCloset == null)
+        else if (_enemyAI.GetCloset == null && collision.gameObject.GetComponent<ClosetComponent>() != null)
         {
             _enemyAI.SetCloset = collision.gameObject;
         }
@@ -239,7 +239,7 @@ public class VisionCone : MonoBehaviour
         {
             playerFound = false;
         }
-        if (collision.gameObject.GetComponent<ClosetComponent>() != null && collision.gameObject == _enemyAI.GetCloset)
+        if (_enemyAI.GetCloset == collision.gameObject && collision.gameObject.GetComponent<ClosetComponent>() != null)
         {
             _enemyAI.SetCloset = null;
         }
