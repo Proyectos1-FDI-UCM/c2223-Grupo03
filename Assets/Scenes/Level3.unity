@@ -13624,6 +13624,7 @@ MonoBehaviour:
   _audioVolume: 0.2
   _UIManager: {fileID: 867792302}
   _enemyGroup: {fileID: 184111296}
+  _closets: {fileID: 874660934}
   _deathAnimation1: {fileID: 4284610431398484734, guid: 9e14c392d146ff743994dca66fb661aa, type: 3}
   _deathAnimation2: {fileID: 8288867689972202086, guid: 19b51c1095359b945b52102eb4a613a5, type: 3}
 --- !u!114 &285229871

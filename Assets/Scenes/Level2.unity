@@ -12551,7 +12551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &516073707
 Transform:
   m_ObjectHideFlags: 0
@@ -23398,6 +23398,7 @@ MonoBehaviour:
   _audioVolume: 0.2
   _UIManager: {fileID: 147013669}
   _enemyGroup: {fileID: 97730220}
+  _closets: {fileID: 1766940977}
   _deathAnimation1: {fileID: 4284610431398484734, guid: 9e14c392d146ff743994dca66fb661aa, type: 3}
   _deathAnimation2: {fileID: 8288867689972202086, guid: 19b51c1095359b945b52102eb4a613a5, type: 3}
 --- !u!114 &1064123306
