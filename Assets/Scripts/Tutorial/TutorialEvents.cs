@@ -64,7 +64,7 @@ public class TutorialEvents : MonoBehaviour
         intoCloset = true;
         _instanceEnemigo2 = Instantiate(_enemigo2);
         Destroy(_instanceMuroInvisible);
-        _instanceTextoProximidadLatidos = Instantiate(_textoProximidadLatidos, transform);
+        _instanceTextoProximidadLatidos = Instantiate(_textoProximidadLatidos, transform.GetChild(6).transform);
         Invoke("FinishCloset", 7);
     }
     private void FinishCloset()
@@ -100,7 +100,7 @@ public class TutorialEvents : MonoBehaviour
     }
     private void SpawnTextPill()
     {
-        _instanceTextoPildora = Instantiate(_textoPildora,transform);
+        _instanceTextoPildora = Instantiate(_textoPildora,transform.GetChild(6).transform);
         Invoke("DespawnTextPill", 4.5f);
     }
     private void DespawnTextPill()
@@ -110,7 +110,7 @@ public class TutorialEvents : MonoBehaviour
     private void SpawnTextHeartBar()
     {
         _heartDetection.CanPress();
-        _instancePulsaEspacioTexto = Instantiate(_pulsaEspacioTexto, transform);
+        _instancePulsaEspacioTexto = Instantiate(_pulsaEspacioTexto, transform.GetChild(6).transform);
     }
     private void DespawnTextHeartBar()
     {
@@ -120,7 +120,7 @@ public class TutorialEvents : MonoBehaviour
     private void HeartBeatEventStart()
     {
         _playerStates.CancelMovementTutorial();
-        Instantiate(_corazonRoto, transform);
+        Instantiate(_corazonRoto, transform.GetChild(6).transform);
         Invoke("HeartBeatEventStop", 5);
     }
     private void HeartBeatEventStop()
