@@ -62,6 +62,7 @@ public class TutorialEvents : MonoBehaviour
     private void InsideCloset()
     {
         intoCloset = true;
+        GameManager.Instance.GetComponent<InputComponent>().enabled = false;
         _instanceEnemigo2 = Instantiate(_enemigo2);
         Destroy(_instanceMuroInvisible);
         _instanceTextoProximidadLatidos = Instantiate(_textoProximidadLatidos, transform.GetChild(6).transform);
@@ -71,6 +72,7 @@ public class TutorialEvents : MonoBehaviour
     {
         intoCloset = false;
         GameManager.Player.SetActive(true);
+        GameManager.Instance.GetComponent<InputComponent>().enabled = true;
         _playerInCloset.SetActive(false);
         Destroy(_instanceEnemigo2);
         Destroy(_instanceTextoProximidadLatidos);

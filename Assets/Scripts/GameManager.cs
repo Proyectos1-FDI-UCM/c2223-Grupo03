@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject _UIManager;
     [SerializeField] GameObject _enemyGroup;
     GameObject _spawnManager;
+    [SerializeField] GameObject _closets;
 
     [SerializeField] GameObject _deathAnimation1;
     [SerializeField] GameObject _deathAnimation2;
@@ -117,6 +118,11 @@ public class GameManager : MonoBehaviour
                     animator.enabled = false;
             }
 
+            for (int i = 0; i < _closets.transform.childCount; i++)
+            {
+                _closets.transform.GetChild(i).GetComponent<ClosetComponent>().enabled = false;
+            }
+
             //Se cambia al menu de pausa (sin ver la lógica dentro del UI)
             GetComponent<MenuComponent>().ChangeMenu(Menus.PAUSE);
             
@@ -135,6 +141,11 @@ public class GameManager : MonoBehaviour
                 Animator animator = _enemyGroup.transform.GetChild(i).transform.GetChild(0).GetComponent<Animator>();
                 if (animator != null)
                     animator.enabled = true;
+            }
+
+            for (int i = 0; i < _closets.transform.childCount; i++)
+            {
+                _closets.transform.GetChild(i).GetComponent<ClosetComponent>().enabled = true;
             }
 
             _isInPause = false;
