@@ -118,10 +118,7 @@ public class GameManager : MonoBehaviour
                     animator.enabled = false;
             }
 
-            for (int i = 0; i < _closets.transform.childCount; i++)
-            {
-                _closets.transform.GetChild(i).GetComponent<ClosetComponent>().enabled = false;
-            }
+            DesactivarArmarios();
 
             //Se cambia al menu de pausa (sin ver la lógica dentro del UI)
             GetComponent<MenuComponent>().ChangeMenu(Menus.PAUSE);
@@ -143,13 +140,26 @@ public class GameManager : MonoBehaviour
                     animator.enabled = true;
             }
 
-            for (int i = 0; i < _closets.transform.childCount; i++)
-            {
-                _closets.transform.GetChild(i).GetComponent<ClosetComponent>().enabled = true;
-            }
+            ActivarArmarios();
 
             _isInPause = false;
             _actualMenu = Menus.NoMenu;
+        }
+    }
+
+    public void DesactivarArmarios()
+    {
+        for (int i = 0; i < _closets.transform.childCount; i++)
+        {
+            _closets.transform.GetChild(i).GetComponent<ClosetComponent>().enabled = false;
+        }
+    }
+
+    public void ActivarArmarios()
+    {
+        for (int i = 0; i < _closets.transform.childCount; i++)
+        {
+            _closets.transform.GetChild(i).GetComponent<ClosetComponent>().enabled = true;
         }
     }
 
