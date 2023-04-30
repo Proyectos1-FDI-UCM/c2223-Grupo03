@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6012942128377598850}
   - component: {fileID: 8259155431641388323}
   - component: {fileID: 8980140954578705641}
+  - component: {fileID: 5751831055804325529}
   m_Layer: 0
   m_Name: Closet
   m_TagString: Untagged
@@ -243,3 +244,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5751831055804325529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6012942128377598851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb49c9d0ed0b46645a5f94272c46d554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _delay: 0.2
