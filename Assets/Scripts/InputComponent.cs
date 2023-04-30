@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InputComponent : MonoBehaviour
@@ -19,6 +20,7 @@ public class InputComponent : MonoBehaviour
 
     #region References
     [SerializeField] private GameObject _heart;
+    [SerializeField] private GameObject _playerInCloset;
     private HeartDetection _heartDetection;
     private MovementComponent _movementComponent;
     private Inventory _inventory;
@@ -53,7 +55,7 @@ public class InputComponent : MonoBehaviour
 
         // If the player presses the "K" key, change between the player and the box 
 
-        if (((Input.GetKeyDown(KeyCode.K) || Input.GetButton("TrianguloPs4")) && _inventory._cajaEquipado && !GameManager.PlayerStates.Tired) && _inputDelay.TryInput())
+        if (((Input.GetKeyDown(KeyCode.K) || Input.GetButton("TrianguloPs4")) && _inventory._cajaEquipado && !GameManager.PlayerStates.Tired) && _inputDelay.TryInput() && _playerInCloset.activeSelf == false)
         {
             if (_playerStates.IsBox)
             {
@@ -62,6 +64,7 @@ public class InputComponent : MonoBehaviour
             else
             {
                 _playerStates.EnterBox();
+                _playerInCloset.SetActive(false);
             }
         }
         if ((Input.GetKeyDown(KeyCode.L) || Input.GetButton("CirculoPs4")) && _inventory._DespertadorEquipado && !GameManager.PlayerStates.Tired)

@@ -23414,6 +23414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heart: {fileID: 1665781585}
+  _playerInCloset: {fileID: 1502721669}
 --- !u!4 &1064123307
 Transform:
   m_ObjectHideFlags: 0
