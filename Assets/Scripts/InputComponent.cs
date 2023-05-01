@@ -5,12 +5,8 @@ using UnityEngine;
 public class InputComponent : MonoBehaviour
 {
     //cosas de pablo
-    
-    //cosas de pablo
-    
-    #region Properties
 
-    #endregion
+    //cosas de pablo
 
     #region Parameters
     private GameObject _player;
@@ -46,14 +42,14 @@ public class InputComponent : MonoBehaviour
         {
             _heartDetection.SpacePressed();
         }
-        if (((Input.GetKeyDown(KeyCode.J) || Input.GetButton("CuadradoPs4")) && _inventory._pildoraEquipado && !GameManager.PlayerStates.Tired) && _inputDelay.TryInput()) //A�ADIR CONDICION DE TENERLA EN EL INVENTARIO
+        if (((Input.GetKeyDown(KeyCode.J) || Input.GetButton("CuadradoPs4")) && _inventory._pildoraEquipado && !GameManager.PlayerStates.Tired) && _inputDelay.TryInput() && (!GameManager.PlayerStates.Hidden) && (!GameManager.PlayerStates.IsBox)) 
         {
             _playerStates.PillEffect();
         }
 
         // If the player presses the "K" key, change between the player and the box 
 
-        if (((Input.GetKeyDown(KeyCode.K) || Input.GetButton("TrianguloPs4")) && _inventory._cajaEquipado && !GameManager.PlayerStates.Tired) && _inputDelay.TryInput())
+        if (((Input.GetKeyDown(KeyCode.K) || Input.GetButton("TrianguloPs4")) && _inventory._cajaEquipado && !GameManager.PlayerStates.Tired) && _inputDelay.TryInput() && (!GameManager.PlayerStates.Hidden))
         {
             if (_playerStates.IsBox)
             {
@@ -64,7 +60,7 @@ public class InputComponent : MonoBehaviour
                 _playerStates.EnterBox();
             }
         }
-        if (((Input.GetKeyDown(KeyCode.L) || Input.GetButton("CirculoPs4")) && _inventory._DespertadorEquipado && !GameManager.PlayerStates.Tired) && _inputDelay.TryInput())
+        if (((Input.GetKeyDown(KeyCode.L) || Input.GetButton("CirculoPs4")) && _inventory._DespertadorEquipado && !GameManager.PlayerStates.Tired) && _inputDelay.TryInput() && (!GameManager.PlayerStates.Hidden) && (!GameManager.PlayerStates.IsBox))
         {
             _playerStates.Clock();
         }

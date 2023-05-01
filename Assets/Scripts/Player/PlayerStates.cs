@@ -78,10 +78,12 @@ public class PlayerStates : MonoBehaviour
     public void EnterCloset()
     {
         _playerInCloset.SetActive(true);
+        _hidden = true;
     }
     public void ExitCloset()
     {
         _playerInCloset.SetActive(false);
+        _hidden = false;
     }
     public void EnterBox() // player entra a caja
     {
