@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        GetComponent<PauseInput>().enabled = false;
         GameObject canvas = GameObject.Find("Canvas");
         _player.SetActive(false);
         Instantiate(_deathAnimation1, canvas.transform);
@@ -256,7 +257,8 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        _isInPause= false;
+        GetComponent<PauseInput>().enabled = true;
+        _isInPause = false;
         _amountOfChildren = _enemyGroup.transform.childCount;
         _audioMusic = _audioSFX = 1;
     }
