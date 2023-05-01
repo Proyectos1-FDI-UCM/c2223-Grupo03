@@ -1903,7 +1903,7 @@ RectTransform:
   - {fileID: 322433351}
   - {fileID: 1168144086}
   m_Father: {fileID: 1640338691}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -19352,6 +19352,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &641550106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 641550107}
+  m_Layer: 5
+  m_Name: TutorialText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &641550107
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641550106}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1640338691}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &649229579
 GameObject:
   m_ObjectHideFlags: 0
@@ -21821,6 +21857,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2006415957}
     m_Modifications:
+    - target: {fileID: 1841242808282447233, guid: 741350c6032f6134193e507c36d49aeb, type: 3}
+      propertyPath: _smoothRotation
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1841242808845823329, guid: 741350c6032f6134193e507c36d49aeb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.66
@@ -23583,7 +23623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5de8c72dd3293468ddd8875a79b635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canvas: {fileID: 1640338690}
+  _canvas: {fileID: 641550106}
   _text: {fileID: 13323362191679019, guid: 8ddb5ce66bc5d8a498f37d30ff03814a, type: 3}
 --- !u!61 &882532148
 BoxCollider2D:
@@ -35009,7 +35049,7 @@ RectTransform:
   - {fileID: 35337749}
   - {fileID: 265241736}
   m_Father: {fileID: 1640338691}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -43918,7 +43958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5de8c72dd3293468ddd8875a79b635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canvas: {fileID: 1640338690}
+  _canvas: {fileID: 641550106}
   _text: {fileID: 13323362191679019, guid: 5f7f0ba55f16ebd49ad6cc0a1750a22f, type: 3}
 --- !u!61 &967544877
 BoxCollider2D:
@@ -44581,7 +44621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005433361}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.72, y: -4.58, z: 0}
+  m_LocalPosition: {x: 2.72, y: -5.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54980,6 +55020,7 @@ MonoBehaviour:
   _audioVolume: 0.2
   _UIManager: {fileID: 771181625}
   _enemyGroup: {fileID: 2006415956}
+  _closets: {fileID: 290880046}
   _deathAnimation1: {fileID: 4284610431398484734, guid: 9e14c392d146ff743994dca66fb661aa, type: 3}
   _deathAnimation2: {fileID: 8288867689972202086, guid: 19b51c1095359b945b52102eb4a613a5, type: 3}
 --- !u!114 &1059699223
@@ -56248,7 +56289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5de8c72dd3293468ddd8875a79b635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canvas: {fileID: 1640338690}
+  _canvas: {fileID: 641550106}
   _text: {fileID: 13323362191679019, guid: ad751e717938ea14c8e663ff62d4d598, type: 3}
 --- !u!61 &1123336502
 BoxCollider2D:
@@ -64864,6 +64905,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2006415957}
     m_Modifications:
+    - target: {fileID: 1841242808282447233, guid: 741350c6032f6134193e507c36d49aeb, type: 3}
+      propertyPath: _smoothRotation
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1841242808845823329, guid: 741350c6032f6134193e507c36d49aeb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.66
@@ -67559,7 +67604,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0890369dbb1e53743aace999e89d2f63, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -77077,7 +77122,7 @@ RectTransform:
   - {fileID: 486230232}
   - {fileID: 2033080093}
   m_Father: {fileID: 1640338691}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -79684,7 +79729,7 @@ RectTransform:
   - {fileID: 1910353475}
   - {fileID: 362898939}
   m_Father: {fileID: 1640338691}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -80008,6 +80053,7 @@ RectTransform:
   - {fileID: 2140607397}
   - {fileID: 480026809}
   - {fileID: 1789325947}
+  - {fileID: 641550107}
   - {fileID: 83006190}
   - {fileID: 905458062}
   - {fileID: 1478165861}
@@ -88098,7 +88144,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732494494}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.67, y: -4.56, z: 0}
+  m_LocalPosition: {x: 2.71, y: -4.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -99578,7 +99624,7 @@ RectTransform:
   - {fileID: 120024400}
   - {fileID: 1225219440}
   m_Father: {fileID: 1640338691}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -100332,7 +100378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5de8c72dd3293468ddd8875a79b635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canvas: {fileID: 1640338690}
+  _canvas: {fileID: 641550106}
   _text: {fileID: 13323362191679019, guid: 741f6358d3d5f6445a2937acbf323a31, type: 3}
 --- !u!61 &1980672902
 BoxCollider2D:

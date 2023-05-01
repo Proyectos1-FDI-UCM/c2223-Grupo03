@@ -64,7 +64,7 @@ public class InputComponent : MonoBehaviour
                 _playerStates.EnterBox();
             }
         }
-        if ((Input.GetKeyDown(KeyCode.L) || Input.GetButton("CirculoPs4")) && _inventory._DespertadorEquipado && !GameManager.PlayerStates.Tired)
+        if (((Input.GetKeyDown(KeyCode.L) || Input.GetButton("CirculoPs4")) && _inventory._DespertadorEquipado && !GameManager.PlayerStates.Tired) && _inputDelay.TryInput())
         {
             _playerStates.Clock();
         }

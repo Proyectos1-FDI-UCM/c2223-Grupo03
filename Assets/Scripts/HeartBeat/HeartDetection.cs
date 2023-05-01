@@ -71,7 +71,7 @@ public class HeartDetection : MonoBehaviour
             if (!_inSafeZone) //Si no esta en la zona segura
             {
                 _fails++; //Aumenta en uno los fallos
-                _failSound.volume = GameManager.Instance.getSFX * _beepVolume;
+                _failSound.volume = GameManager.Instance.getSFX * _beepVolume / 10;
                 _failSound.Play();
                 _warning.SetActive(true);
 
@@ -121,7 +121,7 @@ public class HeartDetection : MonoBehaviour
             if (!_hasPressed && !_pillEffects) //Si no se a presionado el espacio quiere decir que se ha saltado la zona segura y por tanto es un fallo
             {
                 _fails++;
-                _failSound.volume = GameManager.Instance.getSFX * _beepVolume;
+                _failSound.volume = GameManager.Instance.getSFX * _beepVolume / 10;
                 _failSound.Play();
                 _warning.SetActive(true);
                 _hasPressed = true;

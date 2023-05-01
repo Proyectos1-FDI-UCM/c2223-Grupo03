@@ -9,6 +9,7 @@ public class ClosetComponent : MonoBehaviour
 
     #region Paramet    
     [SerializeField] private float _interactDistance;
+    private InputDelay _inputDelay;
     private bool _isHiding = false;
     public bool IsHiding
     {
@@ -86,11 +87,12 @@ public class ClosetComponent : MonoBehaviour
         _player = GameManager.Player;
         _closetAudio = GetComponent<AudioSource>();
         _audioVolume = _closetAudio.volume;
+        _inputDelay = GetComponent<InputDelay>();
     }
     // Update is called once per frame
     void Update()
     {
-        if (CanHide() && (Input.GetKeyDown(KeyCode.E) || Input.GetButton("AspaPs4")) && !GameManager.PlayerStates.IsBox && !GameManager.PlayerStates.Tired)
+        if ((CanHide() && (Input.GetKeyDown(KeyCode.E) || Input.GetButton("AspaPs4")) && !GameManager.PlayerStates.IsBox && !GameManager.PlayerStates.Tired)&& _inputDelay.TryInput())
         {
             UpdateSound();
             if (!_isHiding)
