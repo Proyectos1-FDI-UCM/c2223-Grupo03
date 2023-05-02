@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class SceneManagerScript : MonoBehaviour
 {
+    private GameObject _lastSelectedButton;
+
     public void StartGame()
     {
         SceneManager.LoadScene(2);
@@ -27,5 +30,14 @@ public class SceneManagerScript : MonoBehaviour
     {
         SceneManager.LoadScene(lvl);
     }
-    
+
+    void Update()
+    {
+        if (EventSystem.current.currentSelectedGameObject == null) // revisamos el problema del mando de ps4 que no halla deseleccionado el boton en pc
+        {
+            EventSystem.current.SetSelectedGameObject(_lastSelectedButton);
+        }
+        _lastSelectedButton = EventSystem.current.currentSelectedGameObject;
+    }
+
 }
