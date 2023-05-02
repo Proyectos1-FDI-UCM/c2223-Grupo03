@@ -45,6 +45,6 @@ public class MovementComponent : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        _playerRigidbody.velocity = movement * speed;
+        _playerRigidbody.velocity = new Vector2(movement.x * speed, movement.y * speed);
     }
 }
