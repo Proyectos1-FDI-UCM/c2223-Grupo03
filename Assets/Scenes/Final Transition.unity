@@ -1097,6 +1097,9 @@ MonoBehaviour:
   _audioVolume: 0.2
   _UIManager: {fileID: 0}
   _enemyGroup: {fileID: 0}
+  _closets: {fileID: 0}
+  _deathAnimation1: {fileID: 0}
+  _deathAnimation2: {fileID: 0}
 --- !u!114 &393304853
 MonoBehaviour:
   m_ObjectHideFlags: 0

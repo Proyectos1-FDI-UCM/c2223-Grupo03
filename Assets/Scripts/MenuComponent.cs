@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static GameManager;
 
 public class MenuComponent : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class MenuComponent : MonoBehaviour
     #region references
 
     [SerializeField] private GameObject _pauseFirstButton, _optionFirstButton, _controlerFirstButton, _keyboardFirstButton, _soundFirstButton;
+    private GameObject _lastSelectedButton;
+
 
     #endregion
 
@@ -43,15 +47,12 @@ public class MenuComponent : MonoBehaviour
     }
 
     #endregion
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if (EventSystem.current.currentSelectedGameObject == null) // revisamos el problema del mando de ps4 que no halla deseleccionado el boton en pc
+        {
+            EventSystem.current.SetSelectedGameObject(_lastSelectedButton);
+        }
+        _lastSelectedButton = EventSystem.current.currentSelectedGameObject;
     }
 }

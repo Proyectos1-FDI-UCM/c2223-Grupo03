@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9d60dba433b064a913aa7efb2230d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pauseFirstButton: {fileID: 0}
+  _pauseFirstButton: {fileID: 1357185684}
   _optionFirstButton: {fileID: 1237861989}
   _controlerFirstButton: {fileID: 650229790}
   _keyboardFirstButton: {fileID: 254918927}
@@ -175,6 +175,7 @@ MonoBehaviour:
   _audioVolume: 0.2
   _UIManager: {fileID: 818192374}
   _enemyGroup: {fileID: 0}
+  _closets: {fileID: 0}
   _deathAnimation1: {fileID: 4284610431398484734, guid: 9e14c392d146ff743994dca66fb661aa, type: 3}
   _deathAnimation2: {fileID: 8288867689972202086, guid: 19b51c1095359b945b52102eb4a613a5, type: 3}
 --- !u!4 &10553277

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -18,23 +19,16 @@ public class LoreTransition : MonoBehaviour
     [SerializeField] AudioSource _audioSource;
     private int _actualTransition = 0; // imagen en la que se encuentra
     private bool skipeado = false;
+    [SerializeField] GameObject _skipButtons;
+    [SerializeField] GameObject _skipAllButton;
 
     void Start()
     {
+        _skipButtons.SetActive(false);
         _transitions = _imageContainer.GetComponentsInChildren<Image>(true);
         Debug.Log(_transitions.Length);
-
         StartCoroutine(TypeDialog(_dialogs));
     }
-
-    private void Update()
-    {
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetButton("AspaPs4")))
-        {
-            Skipear();
-        }
-    }
-
     public IEnumerator TypeDialog(string[] dialogs)
     {
         for (int i = 0; i < _transitions.Length; i++)
@@ -57,10 +51,14 @@ public class LoreTransition : MonoBehaviour
             int k = 0;
             foreach (var letter in dialogs[i].ToCharArray())
             {
-                if (skipeado)
+                if (skipeado) // revisamos si ha skipeado
                 {
                     break;
                 }
+                if (EventSystem.current.currentSelectedGameObject == null) // revisamos el problema del mando de ps4 que no halla deseleccionado el boton en pc
+                {
+                    EventSystem.current.SetSelectedGameObject(_skipAllButton);
+                } 
                 _dialogText.text += letter;
                 k++;
                 if (k == 2)
@@ -101,8 +99,17 @@ public class LoreTransition : MonoBehaviour
     }
     public void SkipAll()
     {
+        _skipButtons.SetActive(true);
+    }
+
+    public void Confirm()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-
+    public void Cancel()
+    {
+        _skipButtons.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(_skipAllButton);
+    }
 }
