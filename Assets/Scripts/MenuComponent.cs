@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static GameManager;
 
 public class MenuComponent : MonoBehaviour
 {

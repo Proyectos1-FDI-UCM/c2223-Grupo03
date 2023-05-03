@@ -1377,9 +1377,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 1f80fecd56ca16d4e9c7c8189a369f29, type: 3}
+      - m_Target: {fileID: 1510864118}
         m_TargetAssemblyTypeName: SaveLoadComponent, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: CargarDatos
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
